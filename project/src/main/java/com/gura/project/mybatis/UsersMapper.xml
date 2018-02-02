@@ -2,49 +2,49 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="users">
 	<insert id="insert" parameterType="usersDto">
-		INSERT INTO users3
+		INSERT INTO users4
 		(num, name, addr01, addr02, addr03, id, pwd, email, career, money, point, b_position, regdate)
-		VALUES(users3_seq.NEXTVAL, #{name}, #{addr01}, #{addr02}, #{addr03}, #{id}, #{pwd}, #{email}, #{career}, 0, 0, #{b_position}, SYSDATE)
+		VALUES(users4_seq.NEXTVAL, #{name}, #{addr01}, #{addr02}, #{addr03}, #{id}, #{pwd}, #{email}, #{career}, 0, 0, #{b_position}, SYSDATE)
 	</insert>
 	
 	<select id="isExistId" parameterType="string" resultType="string">
 		SELECT id
-		FROM users3
+		FROM users4
 		WHERE id=#{id}
 	</select>
 	
 	<select id="isValid" parameterType="usersDto"
 	 	resultType="usersDto">
 		SELECT id
-		FROM users3
+		FROM users4
 		WHERE id=#{id} AND pwd=#{pwd} 	
 	</select>
 	
 	<select id="getData" parameterType="String" resultType="usersDto">
 		SELECT num, name, addr01, addr02, addr03, id, pwd, email, career, money, point, b_position, regdate, team, responsibility
-		FROM users3
+		FROM users4
 		WHERE id=#{id}
 	</select>
 	
 	<delete id="delete" parameterType="String">
-		DELETE FROM users3
+		DELETE FROM users4
 		WHERE id=#{id}
 	</delete>
 	
 	<update id="update" parameterType="usersDto">
-		UPDATE users3
+		UPDATE users4
 		SET addr01=#{addr01}, addr02=#{addr02}, addr03=#{addr03}, pwd=#{pwd}, team=#{team}, career=#{career}, email=#{email}, b_position=#{b_position}, responsibility=#{responsibility}  
 	</update>
 	
 	<update id="plusMoney" parameterType="usersDto">
-		UPDATE users3
+		UPDATE users4
 		SET money=money+#{money}
 		WHERE id=#{id}
 	</update>
 	
 	<select id="plusMoneyResult" parameterType="usersDto" resultType="usersDto">
 		SELECT money
-		FROM users3
+		FROM users4
 		WHERE id=#{id}
 	</select>
 		

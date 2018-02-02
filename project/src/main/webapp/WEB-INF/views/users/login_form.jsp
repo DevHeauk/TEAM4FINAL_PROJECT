@@ -33,25 +33,12 @@
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40">
-          <!-- BEGIN SIDEBAR -->
-          <div class="sidebar col-md-3 col-sm-3">
-            <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Login/Register</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Restore Password</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> My account</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Address book</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Wish list</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Returns</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Newsletter</a></li>
-            </ul>
-          </div>
-          <!-- END SIDEBAR -->
 
           <!-- BEGIN CONTENT -->
-          <div class="col-md-9 col-sm-9">
+          <div class="col-md-12 col-sm-12" style=" margin-bottom: 80px">
             <h1>Login</h1>
             <div class="content-form-page">
-              <div class="row">
+              <div class="row" style="padding: 20px 0;">
                 <div class="col-md-7 col-sm-7">
                   <form action="login.do" method="post" class="form-horizontal form-without-legend form-signin" role="form">
       				<input type="hidden" name="url" value="${url }"/>	                  
@@ -67,8 +54,9 @@
                         <input type="password" class="form-control" name="pwd" id="pwd">
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row">	                    
                       <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                      	<input type="checkbox" id="isSave">	<span>아이디 저장</span><br />
                         <button type="submit" class="btn btn-primary">Login</button>
                       </div>
                     </div>
@@ -89,31 +77,6 @@
                   </form>
                 </div>
                 
-               	<script>	
-	            	// localStorage 에 저장된 아이디 비밀번호가 있으면 복구시켜준다.
-	            	if(localStorage.id != undefined){
-	            		$("#id").val(localStorage.id);
-	            		//체크박스 체크해주기
-	            		$("#isSave").prop("checked", true);
-	            	}
-	
-	
-	            	//폼 전송 이벤트가 발생했을때 실행할 함수 등록
-	            	$(".form-signin").on("submit", function(){
-	            		//아이디 비밀번호 저장여부 
-	            		var isSave=$("#isSave").is(":checked");
-	            		if(isSave){
-	            			//입력한 아이디 비밀번호를 읽어와서
-	            			var inputId=$("#id").val();
-	            			//localStorage 에 저장한다.
-	            			localStorage.id=inputId;
-	            		}else{
-	            			//localStorage 에 id, pwd 삭제하기 
-	            			delete localStorage.id;
-	            		}
-	            	});	               	
-               	</script>
-                
                 <div class="col-md-4 col-sm-4 pull-right">
                   <div class="form-info">
                     <h2><em>Important</em> Information</h2>
@@ -133,6 +96,32 @@
     <%@ include file="../inc/footer.jsp" %>
 
     <%@ include file="../inc/footer_script.jsp" %>
+    
+    <script>	
+       	// localStorage 에 저장된 아이디 비밀번호가 있으면 복구시켜준다.
+       	if(localStorage.id != undefined){
+       		$("#id").val(localStorage.id);
+       		//체크박스 체크해주기
+       		$("#isSave").prop("checked", true);
+       	}
+
+
+       	//폼 전송 이벤트가 발생했을때 실행할 함수 등록
+       	$(".form-signin").on("submit", function(){
+       		//아이디 비밀번호 저장여부 
+       		var isSave=$("#isSave").is(":checked");
+       		if(isSave){
+       			//입력한 아이디 비밀번호를 읽어와서
+       			var inputId=$("#id").val();
+       			//localStorage 에 저장한다.
+       			localStorage.id=inputId;
+       		}else{
+       			//localStorage 에 id, pwd 삭제하기 
+       			delete localStorage.id;
+       		}
+       	});	               	
+    </script>
+               	    
     <script type="text/javascript">
         jQuery(document).ready(function() {
             Layout.init();
