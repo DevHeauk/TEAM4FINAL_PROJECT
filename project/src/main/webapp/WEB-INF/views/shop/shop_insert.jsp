@@ -54,7 +54,7 @@
                   <div class="col-lg-8">
                     <input type="text" name="title" class="form-control">
                   </div>
-                </div>
+                </div> 
                 <div class="form-group">
                   <label class="col-md-2 control-label">카테고리</label>
                   <div class="col-md-8">
