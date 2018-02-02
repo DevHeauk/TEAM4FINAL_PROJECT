@@ -11,7 +11,7 @@
 <!-- Head BEGIN -->
 <head>
   <meta charset="utf-8">
-  <title>Create new account | Metronic Frontend</title>z
+  <title>Create new account | Metronic Frontend</title>
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -26,33 +26,19 @@
     <%@ include file="../inc/header.jsp" %>
 
     <div class="main">
-      <div class="container">
+      <div class="container"> 
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="javascript:;">Pages</a></li>
             <li class="active">Create new account</li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
-        <div class="row margin-bottom-40">
-          <!-- BEGIN SIDEBAR -->
-          <div class="sidebar col-md-3 col-sm-3">
-            <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Login/Register</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Restore Password</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> My account</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Address book</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Wish list</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Returns</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Newsletter</a></li>
-            </ul>
-          </div>
-          <!-- END SIDEBAR -->
 
           <!-- BEGIN CONTENT -->
-          <div class="col-md-9 col-sm-9">
+          <div class="col-md-12 col-sm-12" style="padding: 0; margin-bottom: 80px;">
             <h1>Create an account</h1>
             <div class="content-form-page">
-              <div class="row">
+              <div class="row" style="padding: 50px 0;">
                 <div class="col-md-7 col-sm-7">
                   <form action="signup.do" method="post" id="myForm" class="form-horizontal" role="form">
                     <fieldset>
@@ -83,10 +69,10 @@
                       <div class="form-group">
                         <label for="addr01" class="col-lg-4 control-label">Address <span class="require">*</span></label>
                         <div class="col-lg-8">
-					    <input type="text" name="addr01" id="addr01" class="form-control" placeholder="우편번호">
-						<input type="text" name="addr02" id="addr02" class="form-control" placeholder="주소">
-						<input type="text" name="addr03" id="addr03" class="form-control" placeholder="상세주소">
-						<input type="button" onclick="addrClick()" class="btn btn-primary" value="우편번호 찾기">						
+					    <input type="text" name="addr01" id="addr01" class="form-control" placeholder="우편번호" ><br />
+						<input type="text" name="addr02" id="addr02" class="form-control" placeholder="주소" ><br />
+						<input type="text" name="addr03" id="addr03" class="form-control" placeholder="상세주소" ><br />
+						<input type="button" onclick="addrClick()" class="btn btn-primary col-md-12 col-sm-12" value="우편번호 찾기" style="margi-bottom: 10px;">						
                         </div>
                       </div>
                       <div class="form-group">
