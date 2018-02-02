@@ -16,12 +16,12 @@ public class ShopDto {
 	private String regdate;
 	private String client_id;
 	private MultipartFile file;
+	private String category;
 	
 	public ShopDto() {}
 
 	public ShopDto(int num, String title, String writer, int price, String content, int remainCount, String orgFileName,
-			String saveFileName, long fileSize, String product_size, String regdate, String client_id,
-			MultipartFile file) {
+			String saveFileName, long fileSize, String product_size, String regdate, String client_id, MultipartFile file, String category) {
 		super();
 		this.num = num;
 		this.title = title;
@@ -36,6 +36,7 @@ public class ShopDto {
 		this.regdate = regdate;
 		this.client_id = client_id;
 		this.file = file;
+		this.category = category;
 	}
 
 	public int getNum() {
@@ -142,10 +143,12 @@ public class ShopDto {
 		this.file = file;
 	}
 
-	
-	
+	public String getCategory() {
+		return category;
+	}
 
-	
-
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	
 }

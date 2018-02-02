@@ -2,14 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop">
 	<select id="getList" resultType="shopDto">
-		SELECT num,title,price,content,remainCount,orgFileName,saveFileName,product_size,regdate
+		SELECT num,title,price,content,remainCount,orgFileName,saveFileName,product_size,category,regdate
 		FROM shop4
 	</select>
 	<insert id="insert" parameterType="shopDto">
-		INSERT INTO shop4 (num,title,price,content,remainCount,orgFileName,saveFileName,fileSize,product_size,regdate)
-		VALUES(shop4_seq.NEXTVAL, #{title}, #{price}, #{content}, #{remainCount}, #{orgFileName}, #{saveFileName}, #{fileSize}, #{product_size}, SYSDATE)
+		INSERT INTO shop4 (num,title,price,content,remainCount,orgFileName,saveFileName,fileSize,product_size,category, regdate)
+		VALUES(shop4_seq.NEXTVAL, #{title}, #{price}, #{content}, #{remainCount}, #{orgFileName}, #{saveFileName}, 
+		#{fileSize}, #{product_size},#{category}, SYSDATE)
 	</insert>	
-</mapper>
+</mapper> 
 
 
 

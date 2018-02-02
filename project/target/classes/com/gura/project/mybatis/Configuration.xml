@@ -16,6 +16,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="com/gura/project/mybatis/UsersMapper.xml"/>
 		<mapper resource="com/gura/project/mybatis/ShopMapper.xml"/>
+
 	</mappers>	
 </configuration>
 

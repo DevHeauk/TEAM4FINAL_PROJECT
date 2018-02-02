@@ -17,6 +17,25 @@ public class ShopController {
 	@Autowired
 	private ShopService shopService;
 	
+	@RequestMapping("/shop/list")
+	public ModelAndView list(){
+		
+		ModelAndView mView=shopService.getList();
+		
+		mView.setViewName("shop/list");
+		
+		return mView;
+	}
+	
+	@RequestMapping("/shop/upload_form")
+	public ModelAndView authUploadForm(HttpServletRequest request){
+		String id=(String)request.getSession().getAttribute("id");
+		ModelAndView mView=new ModelAndView();
+		mView.addObject("id", id);
+		mView.setViewName("shop/shop_insert");
+		return mView;
+	}
+
 	
 	@RequestMapping("/shop/upload")
 	public ModelAndView authInsert(HttpServletRequest request, @ModelAttribute ShopDto dto){
@@ -27,7 +46,8 @@ public class ShopController {
 		 */
 		shopService.upload(request, dto);
 		
-		return new ModelAndView("redirect:/shop/list.do");
+		return new ModelAndView("redirect:/shop/shop-product-list.do");
+
 	}
 	
 	@RequestMapping("/shop/shop-item")
@@ -69,10 +89,12 @@ public class ShopController {
 		return mView;
 	}
 	
-	@RequestMapping("/shop/shop-standard-forms")
-	public ModelAndView standardForms(){
+
+	@RequestMapping("/shop/shop-upload-form")
+	public ModelAndView uploadForms(){
 		ModelAndView mView = new ModelAndView();
-		mView.setViewName("shop/shop-standard-forms");
+		mView.setViewName("shop/shop-upload-form");
+
 		
 		return mView;
 	}

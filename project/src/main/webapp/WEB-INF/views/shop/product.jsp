@@ -43,9 +43,9 @@
           <!-- BEGIN SIDEBAR -->
           <div class="sidebar col-md-3 col-sm-5">
             <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>옷</a></li>
-              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>신발</a></li>
-              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>공</a></li>
+              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>Shoes</a></li>
+              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>Uniforms</a></li>
+              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>Balls</a></li>
             </ul>
 
             <div class="sidebar-filter margin-bottom-25">
@@ -91,6 +91,9 @@
                 <a href="javascript:;"><i class="fa fa-th-large"></i></a>
                 <a href="javascript:;"><i class="fa fa-th-list"></i></a>
               </div>
+              <div class="pull-right">
+           	  	<a href="upload_form.do"><button class="btn btn-primary">상품올리기</button></a>
+           	  </div>
               <div class="col-md-10 col-sm-10">
                 <div class="pull-right">
                   <label class="control-label">Show:</label>
