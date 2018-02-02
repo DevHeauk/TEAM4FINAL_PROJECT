@@ -19,7 +19,7 @@
   <%@ include file="../inc/header_script.jsp" %>
 </head>
 <!-- Head END -->
-
+  
 <!-- Body BEGIN -->
 <body class="ecommerce">
     <%@ include file="../inc/header.jsp" %>
