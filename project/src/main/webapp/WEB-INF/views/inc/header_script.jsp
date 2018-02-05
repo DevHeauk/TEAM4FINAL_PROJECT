@@ -22,3 +22,6 @@
   <link href="${pageContext.request.contextPath}/assets/corporate/css/themes/red.css" rel="stylesheet" id="style-color">
   <link href="${pageContext.request.contextPath}/assets/corporate/css/custom.css" rel="stylesheet">
   <!-- Theme styles END -->
+  
+  <!-- angular -->
+  <script src="${pageContext.request.contextPath}/assets/plugins/angular.min.js" type="text/javascript"></script>
