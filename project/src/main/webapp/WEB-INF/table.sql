@@ -1,3 +1,27 @@
+create table team(
+   name VARCHAR2(100),
+   memberbVARCHAR2(100),
+   win number,
+   lose number,
+   total number,
+   ground VARCHAR2(100),
+   leader VARCHAR2(100)
+)
+
+CREATE TABLE joinlist(
+   jointeam VARCHAR2(100),
+   joinid VARCHAR2(100),
+)
+CREATE TABLE matching (
+hometeam VARCHAR2(200),
+homepoint NUMBER,
+awayteam VARCHAR2(200),
+awaypoint number,
+matchdate VARCHAR2(200),
+ground varchar2(200),
+successmatching VARCHAR2(100)
+)
+
 CREATE TABLE users4(
 num NUMBER PRIMARY KEY,
 name VARCHAR2(100),
