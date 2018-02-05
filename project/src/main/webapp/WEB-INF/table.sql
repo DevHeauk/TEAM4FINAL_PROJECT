@@ -1,4 +1,4 @@
-CREATE TABLE users3(
+CREATE TABLE users4(
 num NUMBER PRIMARY KEY,
 name VARCHAR2(100),
 addr01 VARCHAR2(100),
@@ -16,4 +16,4 @@ responsibility VARCHAR2(50),
 regdate DATE
 );
 
-CREATE SEQUENCE users3_seq;
+CREATE SEQUENCE users4_seq;
