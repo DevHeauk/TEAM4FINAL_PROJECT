@@ -33,7 +33,7 @@
 	
 	<update id="update" parameterType="usersDto">
 		UPDATE users4
-		SET addr01=#{addr01}, addr02=#{addr02}, addr03=#{addr03}, pwd=#{pwd}, team=#{team}, career=#{career}, email=#{email}, b_position=#{b_position}, responsibility=#{responsibility}  
+		SET addr01=#{addr01}, addr02=#{addr02}, addr03=#{addr03}, pwd=#{pwd}, career=#{career}, email=#{email}, b_position=#{b_position}  
 	</update>
 	
 	<update id="plusMoney" parameterType="usersDto">
