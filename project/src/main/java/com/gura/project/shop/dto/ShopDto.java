@@ -9,6 +9,7 @@ public class ShopDto {
 	private int price;
 	private String content;
 	private int remainCount;
+	private int product_count;
 	private String orgFileName;
 	private String saveFileName;
 	private long fileSize;
@@ -20,8 +21,9 @@ public class ShopDto {
 	
 	public ShopDto() {}
 
-	public ShopDto(int num, String title, String writer, int price, String content, int remainCount, String orgFileName,
-			String saveFileName, long fileSize, String product_size, String regdate, String client_id, MultipartFile file, String category) {
+	public ShopDto(int num, String title, String writer, int price, String content, int remainCount, int product_count,
+			String orgFileName, String saveFileName, long fileSize, String product_size, String regdate,
+			String client_id, MultipartFile file, String category) {
 		super();
 		this.num = num;
 		this.title = title;
@@ -29,6 +31,7 @@ public class ShopDto {
 		this.price = price;
 		this.content = content;
 		this.remainCount = remainCount;
+		this.product_count = product_count;
 		this.orgFileName = orgFileName;
 		this.saveFileName = saveFileName;
 		this.fileSize = fileSize;
@@ -85,6 +88,14 @@ public class ShopDto {
 
 	public void setRemainCount(int remainCount) {
 		this.remainCount = remainCount;
+	}
+
+	public int getProduct_count() {
+		return product_count;
+	}
+
+	public void setProduct_count(int product_count) {
+		this.product_count = product_count;
 	}
 
 	public String getOrgFileName() {
@@ -150,5 +161,6 @@ public class ShopDto {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
 	
 }

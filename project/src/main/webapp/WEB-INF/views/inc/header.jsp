@@ -1,3 +1,4 @@
+   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
     <!-- BEGIN TOP BAR -->
     <div class="pre-header">
         <div class="container">
@@ -44,7 +45,7 @@
             <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
             <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
           </div>
-          <a href="${pageContext.request.contextPath}/shop/cart.do"><i class="fa fa-shopping-cart"></i></a>
+          <a href="${pageContext.request.contextPath}/shop/cartlist.do?id=${id }"><i class="fa fa-shopping-cart"></i></a>
                                
         </div>
         <!--END CART -->

@@ -82,10 +82,21 @@ public class ShopController {
 		return mView;
 	}
 	
-	@RequestMapping("/shop/shop-shopping-cart")
-	public ModelAndView shoppingCart(){
-		ModelAndView mView = new ModelAndView();
-		mView.setViewName("shop/shop-shopping-cart");
+	@RequestMapping("/shop/cartlist")
+	public ModelAndView cartlist(@RequestParam String id){
+		ModelAndView mView=shopService.cart_data(id);
+		mView.setViewName("shop/cart");
+		return mView;
+	}
+	
+	@RequestMapping("/shop/cart")
+	public ModelAndView shoppingCart(HttpServletRequest reuqest, @RequestParam int num, @RequestParam String id, @RequestParam int count){
+		ShopDto dto=shopService.getData(reuqest, num);
+		dto.setProduct_count(count);
+		dto.setWriter(id);
+		shopService.cart_insert(dto);
+		ModelAndView mView=new ModelAndView();
+		mView.setViewName("shop/cart_result");
 		
 		return mView;
 	}
@@ -112,5 +123,11 @@ public class ShopController {
 	public ModelAndView authDelete(HttpServletRequest request, @RequestParam int num){
 		shopService.delete(request, num);
 		return new ModelAndView("redirect:/shop/shop-product-list.do");
+	}
+	
+	@RequestMapping("/shop/cart_delete")
+	public ModelAndView cartDelete(@RequestParam int num, @RequestParam String id){
+		shopService.cart_delete(num);
+		return new ModelAndView("redirect:/shop/cartlist.do?id="+id);
 	}
 }

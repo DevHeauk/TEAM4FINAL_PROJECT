@@ -136,7 +136,7 @@
                         </div>
                         <h3><a href="shop-item.do?num=${tmp.num }">${tmp.title }</a></h3>
                         <div class="pi-price">${tmp.price }</div>
-                        <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                        <a href="cart.do?num=${tmp.num }&&id=${id}&&count=1" class="btn btn-default add2cart">Add to cart</a>
                       </div>
                     </div>
                     <!-- PRODUCT ITEM END -->
@@ -206,28 +206,25 @@
                         <option>XL</option>
                       </select>
                     </div>
-                    <div class="pull-left">
-                      <label class="control-label">Color:</label>
-                      <select class="form-control input-sm">
-                        <option>Red</option>
-                        <option>Blue</option>
-                        <option>Black</option>
-                      </select>
-                    </div>
                   </div>
                   <div class="product-page-cart">
+                  <form action="cart.do">
                     <div class="product-quantity">
-                        <input id="product-quantity" type="text" value="1" readonly name="product-quantity" class="form-control input-sm">
+                    	<input type="hidden" name="num" value="${tmp.num }" />
+                    	<input type="hidden" name="id" value="${id}" />
+                        <input id="product-quantity" type="text" value="1" name="count" class="form-control input-sm">
                     </div>
-                    <button class="btn btn-primary" type="submit">Add to cart</button>
+                  	<button class="btn btn-primary" type="submit">구매하기</button>
+                    <!--  <a href="cart.do?num=${tmp.num }&id=${id }"><button class="btn btn-primary" type="submit">구매 하기</button></a>-->
                     <a href="javascript:deleteCheck(${tmp.num })" class="btn btn-default">delete</a>
+                    </form>
                   </div>
                 </div>
 
                 <div class="sticker sticker-sale"></div>
               </div>
             </div>
-    </div>
+    	</div>
     </c:forEach>
     <%@ include file="../inc/footer_script.jsp" %>
     <script type="text/javascript">
