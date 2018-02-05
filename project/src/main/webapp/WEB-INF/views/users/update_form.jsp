@@ -53,35 +53,35 @@
                         <label for="pwd" class="col-lg-4 control-label">Password <span class="require">*</span></label>
                         <div class="col-lg-8">
                           <input type="hidden" class="form-control" id="pwd" name="pwd" value="${dto.pwd }">
-                          <input type="password" class="form-control" id="pwd" name="pwd"><br />
-                          <input type="password" class="form-control" id="pwd2" name="pwd">
+                          <input type="password" class="form-control" id="pwd" name="pwd" required="required"><br />
+                          <input type="password" class="form-control" id="pwd2" name="pwd" required="required">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="email" class="col-lg-4 control-label">Email</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="email" name="email" value="${dto.email }">
+                          <input type="email" class="form-control" id="email" name="email" value="${dto.email }">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="addr01" class="col-lg-4 control-label">Address</label>
                         <div class="col-lg-8">
-					    <input type="text" name="addr01" id="addr01" class="form-control" placeholder="우편번호"  value="${dto.addr01 }"><br />
-						<input type="text" name="addr02" id="addr02" class="form-control" placeholder="주소"  value="${dto.addr02 }"><br />
-						<input type="text" name="addr03" id="addr03" class="form-control" placeholder="상세주소"  value="${dto.addr03 }"><br />
+					    <input type="text" name="addr01" id="addr01" class="form-control" placeholder="우편번호"  value="${dto.addr01 }" required="required"><br />
+						<input type="text" name="addr02" id="addr02" class="form-control" placeholder="주소"  value="${dto.addr02 }" required="required"><br />
+						<input type="text" name="addr03" id="addr03" class="form-control" placeholder="상세주소"  value="${dto.addr03 }" required="required"><br />
 						<input type="button" onclick="addrClick()" class="btn btn-primary col-md-12 col-sm-12" value="우편번호 찾기">						
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="b_position" class="col-lg-4 control-label">Position </label>
+                        <label for="b_position" class="col-lg-4 control-label" >Position </label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="b_position" name="b_position" value="${dto.b_position }">
+                          <input type="text" class="form-control" id="b_position" name="b_position" value="${dto.b_position }" required="required">
                         </div>
                       </div>    
                       <div class="form-group">
                         <label for="career" class="col-lg-4 control-label">career </label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="career" name="career" value="${dto.career }">
+                          <input type="text" class="form-control" id="career" name="career" value="${dto.career }" required="required">
                         </div>
                       </div>                                                                                        
                     </fieldset>

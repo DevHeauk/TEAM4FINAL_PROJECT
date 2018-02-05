@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
@@ -83,7 +84,7 @@
 							</tr>	
 							<tr>
 								<th class="tg">돈</th>
-								<td class="tg"><span id="result">${dto.money }</span><a href="#cash-pop-up" class="btn btn-primary fancybox-fast-view" id="cash_on" style="margin-left: 10px; background: #428bca; border-radius: 5px !important; color: #ffffff;">충전</a></td>
+								<td class="tg"><span id="result">${dto.money } 원</span><a href="#cash-pop-up" class="btn btn-primary fancybox-fast-view" id="cash_on" style="margin-left: 10px; background: #428bca; border-radius: 5px !important; color: #ffffff;">충전</a></td>
 							</tr>	
 							<tr>
 								<th class="tg">포인트</th>
@@ -117,7 +118,7 @@
 		<h3>충전금액 입력</h3>
 		<form action="" name="cashForm" novalidate>
 	        <div class="input-group">
-	          <input id="money" type="text" name="money" class="form-control" placeholder="금액을 입력하세요." ng-maxlength="9" ng-model="money" value=""/>          
+	          <input id="money" type="number" name="money" class="form-control" placeholder="금액을 입력하세요." ng-maxlength="9" ng-model="money" value=""/>          
 	          <span class="input-group-btn">
 	            <button type="submit" ng-disabled="cashForm.$invalid" class="btn btn-success" id="inputMoney">확인</button>
 	          </span>          
@@ -130,6 +131,7 @@
 
     <%@ include file="../inc/footer_script.jsp" %>
 	<script>
+		
 		$("#inputMoney").click(function(){
 			var inputId=$("#money").val();
 			$.ajax({
@@ -141,24 +143,30 @@
 				}
 			});
 			
-			$(".fancybox-overlay").fadeOut();		
+			var inputStr = $("#result").text();
+			var inputNum = Number(inputStr);	
+			
+			var moneyStr = $('#money').val();
+			var moneyNum = Number(moneyStr);	
+			
+			var cashNum = moneyNum + inputNum; 	
+			
+			if(cashNum > 2100000000){
+				alert("최대 소지 금액(2100000000 원) 초과로 충전에 실패하였습니다.");				
+			}else{
+				alert(moneyNum + "원 이 충전 되었습니다.");
+				$(".fancybox-overlay").fadeOut();				
+			}
+			
+			$("#money").val("");			
 		});
-	
+
 		function userConfirm(){
 			var isDelete=confirm("탈퇴 하시겠습니까?");
 			if(isDelete){
 				location.href="delete.do";
 			}
 		}
-		
-/* 		$("#inputMoney").click(function(){			
-			var $('#money').val() + "${dto.money}"
-			if(){
-				
-			}else{
-				alert("충전 되었습니다.")
-			} 
-		}); */
 	</script>    
     <script type="text/javascript">
         jQuery(document).ready(function() {
@@ -166,7 +174,6 @@
             Layout.initUniform();
             Layout.initTwitter();
             Layout.initOWL();
-            Layout.initImageZoom();
             Layout.initTouchspin();            
             
             Layout.initFixHeaderWithPreHeader();
