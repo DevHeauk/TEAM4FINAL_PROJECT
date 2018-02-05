@@ -83,7 +83,7 @@
 							</tr>	
 							<tr>
 								<th class="tg">돈</th>
-								<td class="tg"><span id="result">${dto.money }</span> <button class="btn btn-primary" id="cash_on" style="margin-left: 10px; background: #428bca; border-radius: 5px !important;">충전</button></td>
+								<td class="tg"><span id="result">${dto.money }</span><a href="#cash-pop-up" class="btn btn-primary fancybox-fast-view" id="cash_on" style="margin-left: 10px; background: #428bca; border-radius: 5px !important; color: #ffffff;">충전</a></td>
 							</tr>	
 							<tr>
 								<th class="tg">포인트</th>
@@ -96,7 +96,7 @@
 						</tbody>
 					</table>
                     <div class="row">
-                      <div class="col-lg-8 col-md-offset-5 col-xs-offset-3 padding-left-0 padding-top-20">                        
+                      <div class="col-lg-8 col-md-offset-5 col-xs-offset-2 padding-left-0 padding-top-20">                        
 						<a href="update_form.do" class="btn btn-primary" style="color: #ffffff;">회원정보 수정</a>
 						<a href="javascript:userConfirm()" class="btn btn-default">회원 탈퇴</a>	
                       </div>
@@ -110,6 +110,21 @@
         </div>
         <!-- END SIDEBAR & CONTENT -->
       </div>
+	<style>
+		.fancybox-inner{height: 110px !important;}	
+	</style>
+    <div id="cash-pop-up" style="display: none; max-width: 700px;" ng-app>
+		<h3>충전금액 입력</h3>
+		<form action="" name="cashForm" novalidate>
+	        <div class="input-group">
+	          <input id="money" type="text" name="money" class="form-control" placeholder="금액을 입력하세요." ng-maxlength="9" ng-model="money"/>          
+	          <span class="input-group-btn">
+	            <button type="submit" ng-disabled="cashForm.$invalid" class="btn btn-success" id="inputMoney">확인</button>
+	          </span>          
+	        </div>
+			<p ng-show="cashForm.money.$error.maxlength" class="help-block" style="color: #f10025;">최대 충전금액을 초과하였습니다.</p>   
+		</form> 
+    </div> 
     </div>
     <%@ include file="../inc/footer.jsp" %>
 
@@ -126,8 +141,10 @@
 				}
 			});
 			
-		});	
-		
+			$(".fancybox-overlay").fadeOut();
+			$("#money").val("");			
+		});
+	
 		function userConfirm(){
 			var isDelete=confirm("탈퇴 하시겠습니까?");
 			if(isDelete){
@@ -140,6 +157,9 @@
             Layout.init();
             Layout.initUniform();
             Layout.initTwitter();
+            Layout.initOWL();
+            Layout.initImageZoom();
+            Layout.initTouchspin();            
             
             Layout.initFixHeaderWithPreHeader();
             Layout.initNavScrolling();               
