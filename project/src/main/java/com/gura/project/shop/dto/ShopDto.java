@@ -21,8 +21,7 @@ public class ShopDto {
 	public ShopDto() {}
 
 	public ShopDto(int num, String title, String writer, int price, String content, int remainCount, String orgFileName,
-			String saveFileName, long fileSize, String product_size, String regdate, String client_id,
-			MultipartFile file, String category) {
+			String saveFileName, long fileSize, String product_size, String regdate, String client_id, MultipartFile file, String category) {
 		super();
 		this.num = num;
 		this.title = title;
@@ -151,8 +150,5 @@ public class ShopDto {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
-
-
 	
 }

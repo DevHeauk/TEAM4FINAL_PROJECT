@@ -48,5 +48,17 @@ public class ShopDaoImpl implements ShopDao{
 		
 	}
 
+	@Override
+	public void delete(int num) {
+		session.delete("shop.delete", num);
+		
+	}
+
+	@Override
+	public ShopDto getData(int num) {
+		ShopDto dto=session.selectOne("shop.getData", num);
+		return dto;
+	}
+	
 
 }

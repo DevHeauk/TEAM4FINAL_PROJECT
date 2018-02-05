@@ -220,7 +220,7 @@
                         <input id="product-quantity" type="text" value="1" readonly name="product-quantity" class="form-control input-sm">
                     </div>
                     <button class="btn btn-primary" type="submit">Add to cart</button>
-                    <a href="shop-item.do" class="btn btn-default">More details</a>
+                    <a href="javascript:deleteCheck(${tmp.num })" class="btn btn-default">delete</a>
                   </div>
                 </div>
 
@@ -243,6 +243,13 @@
             Layout.initFixHeaderWithPreHeader();
             Layout.initNavScrolling();            
         });
+        
+        function deleteCheck(num){
+    		var isDelete=confirm("삭제 하시겠습니까?");
+    		if(isDelete){
+    			location.href="delete.do?num="+num;
+    		}
+    	}
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
 </body>

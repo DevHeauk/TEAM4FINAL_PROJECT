@@ -46,17 +46,17 @@
                       <label for="id" class="col-lg-4 control-label">ID <span class="require">*</span></label>
                       <div class="col-lg-8">
                         <input type="text" class="form-control" name="id" id="id">
+                      	<input type="checkbox" id="isSave">	<span>아이디 저장</span>                         
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="pwd" class="col-lg-4 control-label">Password <span class="require">*</span></label>
                       <div class="col-lg-8">
-                        <input type="password" class="form-control" name="pwd" id="pwd">
+                        <input type="password" class="form-control" name="pwd" id="pwd">                       
                       </div>
                     </div>
                     <div class="row">	                    
                       <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
-                      	<input type="checkbox" id="isSave">	<span>아이디 저장</span><br />
                         <button type="submit" class="btn btn-primary">Login</button>
                       </div>
                     </div>

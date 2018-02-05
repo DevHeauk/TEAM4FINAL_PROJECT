@@ -76,6 +76,18 @@ public class ShopServiceImpl implements ShopService{
 				//FileDao 객체를 이용해서 DB 에 저장하기
 				shopDao.upload(dto);				
 			}
+
+	@Override
+	public void delete(HttpServletRequest request, int num) {
+		ShopDto dto=shopDao.getData(num);
+		String path=request.getServletContext().getRealPath("/upload")+File.separator+dto.getSaveFileName();
+		System.out.println(path);
+		try{
+			new File(path).delete();
+		}catch(Exception e){}
+		
+		shopDao.delete(num);
+	}
 	
 	
 
