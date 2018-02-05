@@ -42,16 +42,17 @@
                 <div class="col-md-7 col-sm-7">
                   <form action="signup.do" method="post" id="myForm" class="form-horizontal" role="form">
                     <fieldset>
-                      <div class="form-group">
-                        <label for="id" class="col-lg-4 control-label">ID <span class="require">*</span></label>
+                      <div class="form-group" style="position: relative;">
+                        <label for="id" class="col-md-4 col-sm-4 control-label">ID <span class="require">*</span></label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="id" name="id">
+                          <input type="text" class="form-control " id="id" name="id"><br />
+						  <button id="checkBtn" class="btn btn-primary" style="position: absolute; top: 1px; right: 0;">중복확인</button>                                  
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="pwd" class="col-lg-4 control-label">Password <span class="require">*</span></label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="pwd" name="pwd">
+                          <input type="password" class="form-control" id="pwd" name="pwd" >                  
                         </div>
                       </div>
                       <div class="form-group">
@@ -115,7 +116,9 @@
       </div>
     </div>
     <%@ include file="../inc/footer.jsp" %>
-
+    
+    <%@ include file="../inc/footer_script.jsp" %>
+    
 	<script>
 	
 		$(function(){
@@ -132,12 +135,10 @@
 					data:{"inputId":inputId},
 					success:function(data){
 						if(data.canUse){//사용가능
-							$("#checkResult").text("사용가능")
-							.css("color","green");
+							alert("사용가능한 아이디 입니다.");
 							idValid=true;
 						}else{//사용불가
-							$("#checkResult").text("사용불가")
-							.css("color","red");
+							alert("사용불가능한 아이디 입니다.");
 							idValid=false;
 						}
 					}
@@ -209,8 +210,7 @@
 	        }).open();
 	    }
 	</script>	
-
-    <%@ include file="../inc/footer_script.jsp" %>
+	    
     <script type="text/javascript">
         jQuery(document).ready(function() {
             Layout.init();
