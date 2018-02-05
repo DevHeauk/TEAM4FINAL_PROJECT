@@ -117,7 +117,7 @@
 		<h3>충전금액 입력</h3>
 		<form action="" name="cashForm" novalidate>
 	        <div class="input-group">
-	          <input id="money" type="text" name="money" class="form-control" placeholder="금액을 입력하세요." ng-maxlength="9" ng-model="money"/>          
+	          <input id="money" type="text" name="money" class="form-control" placeholder="금액을 입력하세요." ng-maxlength="9" ng-model="money" value=""/>          
 	          <span class="input-group-btn">
 	            <button type="submit" ng-disabled="cashForm.$invalid" class="btn btn-success" id="inputMoney">확인</button>
 	          </span>          
@@ -141,8 +141,7 @@
 				}
 			});
 			
-			$(".fancybox-overlay").fadeOut();
-			$("#money").val("");			
+			$(".fancybox-overlay").fadeOut();		
 		});
 	
 		function userConfirm(){
@@ -151,6 +150,15 @@
 				location.href="delete.do";
 			}
 		}
+		
+/* 		$("#inputMoney").click(function(){			
+			var $('#money').val() + "${dto.money}"
+			if(){
+				
+			}else{
+				alert("충전 되었습니다.")
+			} 
+		}); */
 	</script>    
     <script type="text/javascript">
         jQuery(document).ready(function() {
