@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.shop.dto.ShopDto;
@@ -35,6 +36,7 @@ public class ShopController {
 		mView.setViewName("shop/shop_insert");
 		return mView;
 	}
+
 	
 	@RequestMapping("/shop/upload")
 	public ModelAndView authInsert(HttpServletRequest request, @ModelAttribute ShopDto dto){
@@ -46,6 +48,7 @@ public class ShopController {
 		shopService.upload(request, dto);
 		
 		return new ModelAndView("redirect:/shop/shop-product-list.do");
+
 	}
 	
 	@RequestMapping("/shop/shop-item")
@@ -87,10 +90,12 @@ public class ShopController {
 		return mView;
 	}
 	
+
 	@RequestMapping("/shop/shop-upload-form")
 	public ModelAndView uploadForms(){
 		ModelAndView mView = new ModelAndView();
 		mView.setViewName("shop/shop-upload-form");
+		
 		
 		return mView;
 	}
@@ -101,5 +106,11 @@ public class ShopController {
 		mView.setViewName("shop/shop-wishlist");
 		
 		return mView;
+	}
+	
+	@RequestMapping("/shop/delete")
+	public ModelAndView authDelete(HttpServletRequest request, @RequestParam int num){
+		shopService.delete(request, num);
+		return new ModelAndView("redirect:/shop/shop-product-list.do");
 	}
 }
