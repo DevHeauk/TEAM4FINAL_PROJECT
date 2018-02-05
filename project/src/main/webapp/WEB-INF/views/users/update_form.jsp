@@ -40,57 +40,54 @@
             <div class="content-form-page">
               <div class="row" style="padding: 50px 0;">
                 <div class="col-md-7 col-sm-7">
-                  <form action="signup.do" method="post" id="myForm" class="form-horizontal" role="form">
+                  <form action="update.do" method="post" id="updateForm" class="form-horizontal" role="form">
+					<input type="hidden" name="id" value="${dto.id }"/>                  
                     <fieldset>
                       <div class="form-group">
-                        <label for="id" class="col-lg-4 control-label">ID <span class="require">*</span></label>
+                        <label for="id" class="col-lg-4 control-label">ID</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="id" name="id">
+                          <input type="text" class="form-control" id="id" name="id" value="${dto.id }" disabled="disabled">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="pwd" class="col-lg-4 control-label">Password <span class="require">*</span></label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="pwd" name="pwd">
+                          <input type="hidden" class="form-control" id="pwd" name="pwd" value="${dto.pwd }">
+                          <input type="password" class="form-control" id="pwd" name="pwd"><br />
+                          <input type="password" class="form-control" id="pwd2" name="pwd">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="name" class="col-lg-4 control-label">name <span class="require">*</span></label>
+                        <label for="email" class="col-lg-4 control-label">Email</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="name" name="name">
+                          <input type="text" class="form-control" id="email" name="email" value="${dto.email }">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="email" class="col-lg-4 control-label">Email <span class="require">*</span></label>
+                        <label for="addr01" class="col-lg-4 control-label">Address</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="email" name="email">
+					    <input type="text" name="addr01" id="addr01" class="form-control" placeholder="우편번호"  value="${dto.addr01 }"><br />
+						<input type="text" name="addr02" id="addr02" class="form-control" placeholder="주소"  value="${dto.addr02 }"><br />
+						<input type="text" name="addr03" id="addr03" class="form-control" placeholder="상세주소"  value="${dto.addr03 }"><br />
+						<input type="button" onclick="addrClick()" class="btn btn-primary col-md-12 col-sm-12" value="우편번호 찾기">						
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="addr01" class="col-lg-4 control-label">Address <span class="require">*</span></label>
+                        <label for="b_position" class="col-lg-4 control-label">Position </label>
                         <div class="col-lg-8">
-					    <input type="text" name="addr01" id="addr01" class="form-control" placeholder="우편번호" ><br />
-						<input type="text" name="addr02" id="addr02" class="form-control" placeholder="주소" ><br />
-						<input type="text" name="addr03" id="addr03" class="form-control" placeholder="상세주소" ><br />
-						<input type="button" onclick="addrClick()" class="btn btn-primary col-md-12 col-sm-12" value="우편번호 찾기" style="margi-bottom: 10px;">						
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="b_position" class="col-lg-4 control-label">Position <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" class="form-control" id="b_position" name="b_position">
+                          <input type="text" class="form-control" id="b_position" name="b_position" value="${dto.b_position }">
                         </div>
                       </div>    
                       <div class="form-group">
-                        <label for="career" class="col-lg-4 control-label">career <span class="require">*</span></label>
+                        <label for="career" class="col-lg-4 control-label">career </label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="career" name="career">
+                          <input type="text" class="form-control" id="career" name="career" value="${dto.career }">
                         </div>
                       </div>                                                                                        
                     </fieldset>
                     <div class="row">
                       <div class="col-lg-8 col-md-offset-6 col-xs-offset-3 padding-left-0 padding-top-20">                        
-                        <button type="submit" class="btn btn-primary">회원가입</button>
+                        <button type="submit" class="btn btn-primary">정보수정</button>
                         <button type="button" class="btn btn-default">돌아가기</button>
                       </div>
                     </div>
@@ -117,54 +114,16 @@
     <%@ include file="../inc/footer.jsp" %>
 
 	<script>
-	
-		$(function(){
-			//입력한 아이디가 유효한지 여부 
-			var idValid=false;
-	
-			$("#checkBtn").click(function(){
-				//입력한 아이디을 읽어와서
-				var inputId=$("#id").val();
-				//ajax 를 이용해서 서버에 전송
-				$.ajax({
-					url:"checkid.do",
-					method:"GET",
-					data:{"inputId":inputId},
-					success:function(data){
-						if(data.canUse){//사용가능
-							$("#checkResult").text("사용가능")
-							.css("color","green");
-							idValid=true;
-						}else{//사용불가
-							$("#checkResult").text("사용불가")
-							.css("color","red");
-							idValid=false;
-						}
-					}
-				});
-				
-				return false; //중복확인 버튼을 눌렀을때 폼 전송 막기 
-			});
-			
-			//폼 전송 이벤트가 발생했을때
-			$("#myForm").submit(function(){
-				if(idValid==false){
-					alert("아이디 중복 확인을 하세요.");
-					$("#id").val("").focus();
-					return false; //폼 전송 막기 
-				}
-			});
-			
-			//id 입력란에 keydown 이벤트가 일어났을때
-			$("#id").keydown(function(){
-				idValid=false;
-				$("#checkResult").text("");
-			});
-				
-			
+		document.querySelector("#updateForm")
+		.addEventListener("submit", function(event){
+			var inputPwd=document.querySelector("#pwd").value;
+			var inputPwd2=document.querySelector("#pwd2").value;
+			if(inputPwd != inputPwd2){
+				alert("비밀번호를 확인 하세요");
+				event.preventDefault();//폼전송 막기 
+			}
 		});
-		
-	</script>		
+	</script>	
 	
 	<script>
 	    function addrClick() {
