@@ -130,6 +130,7 @@
 
     <%@ include file="../inc/footer_script.jsp" %>
 	<script>
+		
 		$("#inputMoney").click(function(){
 			var inputId=$("#money").val();
 			$.ajax({
@@ -141,24 +142,31 @@
 				}
 			});
 			
-			$(".fancybox-overlay").fadeOut();		
+			var inputStr = $("#result").text();
+			var inputNum = Number(inputStr);	
+			
+			var moneyStr = $('#money').val();
+			var moneyNum = Number(moneyStr);	
+			
+			var cashNum = moneyNum + inputNum; 	
+			
+			if(cashNum > 2100000000){
+				alert("최대 소지 금액(2100000000 원) 초과로 충전에 실패하였습니다.");				
+			}else{
+				alert(moneyNum + "원 이 충전 되었습니다.");
+			}
+			
+			$(".fancybox-overlay").fadeOut();
+			
+			$("#money").val("");			
 		});
-	
+
 		function userConfirm(){
 			var isDelete=confirm("탈퇴 하시겠습니까?");
 			if(isDelete){
 				location.href="delete.do";
 			}
 		}
-		
-/* 		$("#inputMoney").click(function(){			
-			var $('#money').val() + "${dto.money}"
-			if(){
-				
-			}else{
-				alert("충전 되었습니다.")
-			} 
-		}); */
 	</script>    
     <script type="text/javascript">
         jQuery(document).ready(function() {
@@ -166,7 +174,6 @@
             Layout.initUniform();
             Layout.initTwitter();
             Layout.initOWL();
-            Layout.initImageZoom();
             Layout.initTouchspin();            
             
             Layout.initFixHeaderWithPreHeader();
