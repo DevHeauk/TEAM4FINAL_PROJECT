@@ -11,4 +11,5 @@ public interface ShopService {
 	public ModelAndView getList();
 	public ModelAndView buy(ShopDto dto);
 	public void upload(HttpServletRequest request, ShopDto dto);
+	public void delete(HttpServletRequest request, int num);
 }
