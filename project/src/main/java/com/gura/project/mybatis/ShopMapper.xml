@@ -19,6 +19,15 @@
 		DELETE FROM shop4
 		WHERE num=#{num}
 	</delete>
+	<insert id="cartInsert" parameterType="shopDto">
+		INSERT INTO cart (product_name, id, product_count, price, total_price, saveFileName, regdate)
+		VALUES(#{title}, #{writer}, #{product_count}, #{price}, #{price}, #{saveFileName}, SYSDATE )
+	</insert>
+	<select id="cartList" parameterType="String" resultType="com.gura.project.shop.dto.CartDto">
+		SELECT product_name, id, product_count, price, total_price, saveFileName, regdate
+		FROM cart
+		WHERE id=#{id}
+	</select>
 </mapper> 
 
 

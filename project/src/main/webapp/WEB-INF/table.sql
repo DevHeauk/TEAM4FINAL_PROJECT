@@ -41,3 +41,14 @@ regdate DATE
 );
 
 CREATE SEQUENCE users4_seq;
+
+
+CREATE TABLE CART(
+product_name VARCHAR2(100),
+id VARCHAR2(50),
+product_count NUMBER,
+price NUMBER,
+total_price NUMBER,
+saveFileName clob
+regdate DATE
+);

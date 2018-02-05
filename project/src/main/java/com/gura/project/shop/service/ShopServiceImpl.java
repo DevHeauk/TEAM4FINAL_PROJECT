@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.shop.dao.ShopDao;
+import com.gura.project.shop.dto.CartDto;
 import com.gura.project.shop.dto.ShopDto;
 
 
@@ -87,6 +88,29 @@ public class ShopServiceImpl implements ShopService{
 		}catch(Exception e){}
 		
 		shopDao.delete(num);
+	}
+
+	@Override
+	public ShopDto getData(HttpServletRequest reuqest, int num) {
+		ShopDto dto=shopDao.getData(num);
+		return dto;
+	}
+
+	@Override
+	public void cart_insert(ShopDto dto) {
+		shopDao.cart_insert(dto);
+		
+	}
+
+	@Override
+	public ModelAndView cart_data(String id) {
+		ModelAndView mView=new ModelAndView();
+		
+		List<CartDto> list=shopDao.cartList(id);
+		
+		mView.addObject("list", list);
+		
+		return mView;
 	}
 	
 	

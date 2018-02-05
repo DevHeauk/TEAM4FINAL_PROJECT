@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.gura.project.shop.dto.CartDto;
 import com.gura.project.shop.dto.ShopDto;
 
 
@@ -58,6 +59,18 @@ public class ShopDaoImpl implements ShopDao{
 	public ShopDto getData(int num) {
 		ShopDto dto=session.selectOne("shop.getData", num);
 		return dto;
+	}
+
+	@Override
+	public void cart_insert(ShopDto dto) {
+		session.insert("shop.cartInsert", dto);
+		
+	}
+
+	@Override
+	public List<CartDto> cartList(String id) {
+		List<CartDto> list=session.selectList("shop.cartList", id);
+		return list;
 	}
 	
 

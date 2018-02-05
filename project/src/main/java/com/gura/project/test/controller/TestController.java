@@ -23,11 +23,6 @@ public class TestController {
 		return "shop/shop_insert";
 	}
 	
-	@RequestMapping("/shop/cart")
-	public String cart(){
-		
-		return "shop/cart";
-	}
 	
 	@RequestMapping("/team/team_list")
 	public String teamList(){
