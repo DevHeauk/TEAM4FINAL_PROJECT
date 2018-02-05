@@ -136,7 +136,7 @@
                         </div>
                         <h3><a href="shop-item.do?num=${tmp.num }">${tmp.title }</a></h3>
                         <div class="pi-price">${tmp.price }</div>
-                        <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                        <a href="cart.do?num=${tmp.num }&&id=${id}&&count=1" class="btn btn-default add2cart">Add to cart</a>
                       </div>
                     </div>
                     <!-- PRODUCT ITEM END -->
