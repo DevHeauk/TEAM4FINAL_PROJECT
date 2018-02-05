@@ -39,53 +39,56 @@
             <h1>Create an account</h1>
             <div class="content-form-page">
               <div class="row" style="padding: 50px 0;">
-                <div class="col-md-7 col-sm-7">
-                  <form action="signup.do" method="post" id="myForm" class="form-horizontal" role="form">
+                <div class="col-md-7 col-sm-7" ng-app>
+                  <form action="signup.do" method="post" id="myForm" class="form-horizontal" name="myForm" role="form">
                     <fieldset>
-                      <div class="form-group" style="position: relative;">
-                        <label for="id" class="col-md-4 col-sm-4 control-label">ID <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" class="form-control " id="id" name="id"><br />
-						  <button id="checkBtn" class="btn btn-primary" style="position: absolute; top: 1px; right: 0;">중복확인</button>                                  
+                      <div class="form-group">
+                        <label for="id" class="col-lg-4 control-label">ID <span class="require">*</span></label>
+                        <div class="col-lg-8" ng-class="{'has-success': myForm.id.$valid, 'has-error': myForm.id.$invalid && myForm.id.$dirty}">
+                          <input type="text" class="form-control" id="id" name="id" ng-model="id" ng-pattern="/^[A-Za-z]{1}[A-Za-z0-9]{1,30}$/" required="required">
+				  		  <button id="checkBtn" class="btn btn-primary" style="float: right; margin-top: -33px; margin-right: 0;">중복확인</button>                              
+                          <span id="checkResult" style="flaot: left; margin-top: 10px;"></span>
+						  <span ng-show="myForm.id.$error.pattern && myForm.id.$dirty" class="help-block" style="flaot: left;">아이디를 확인하세요. (영문 시작)</span>                                                                          
                         </div>
-                      </div>
+                      </div>           
                       <div class="form-group">
                         <label for="pwd" class="col-lg-4 control-label">Password <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="password" class="form-control" id="pwd" name="pwd" >                  
+                        <div class="col-lg-8" ng-class="{'has-success': myForm.pwd.$valid, 'has-error': myForm.pwd.$invalid && myForm.pwd.$dirty}">
+                          <input type="password" class="form-control" id="pwd" name="pwd" ng-model="pwd" ng-minlength="6" required="required">  
+							<span ng-show="myForm.pwd.$error.minlength && myForm.pwd.$dirty" class="help-block">최소 6글자 이상으로 입력하세요.</span>                                          
                         </div>
-                      </div>
+                      </div> 
                       <div class="form-group">
                         <label for="name" class="col-lg-4 control-label">name <span class="require">*</span></label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="name" name="name">
+                          <input type="text" class="form-control" id="name" name="name" required="required">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="email" class="col-lg-4 control-label">Email <span class="require">*</span></label>
+                        <label for="email" class="col-lg-4 control-label">Email</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="email" name="email">
+                          <input type="email" class="form-control" id="email" name="email">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="addr01" class="col-lg-4 control-label">Address <span class="require">*</span></label>
                         <div class="col-lg-8">
-					    <input type="text" name="addr01" id="addr01" class="form-control" placeholder="우편번호" ><br />
-						<input type="text" name="addr02" id="addr02" class="form-control" placeholder="주소" ><br />
-						<input type="text" name="addr03" id="addr03" class="form-control" placeholder="상세주소" ><br />
+					    <input type="text" name="addr01" id="addr01" class="form-control" placeholder="우편번호" required="required"><br />
+						<input type="text" name="addr02" id="addr02" class="form-control" placeholder="주소" required="required"><br />
+						<input type="text" name="addr03" id="addr03" class="form-control" placeholder="상세주소" required="required"><br />
 						<input type="button" onclick="addrClick()" class="btn btn-primary col-md-12 col-sm-12" value="우편번호 찾기" style="margi-bottom: 10px;">						
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="b_position" class="col-lg-4 control-label">Position <span class="require">*</span></label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="b_position" name="b_position">
+                          <input type="text" class="form-control" id="b_position" name="b_position" required="required">
                         </div>
                       </div>    
                       <div class="form-group">
                         <label for="career" class="col-lg-4 control-label">career <span class="require">*</span></label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" id="career" name="career">
+                          <input type="text" class="form-control" id="career" name="career" required="required">
                         </div>
                       </div>                                                                                        
                     </fieldset>
@@ -135,10 +138,12 @@
 					data:{"inputId":inputId},
 					success:function(data){
 						if(data.canUse){//사용가능
-							alert("사용가능한 아이디 입니다.");
+							$("#checkResult").text("사용가능한 아이디 입니다.")
+							.css("color","green");
 							idValid=true;
 						}else{//사용불가
-							alert("사용불가능한 아이디 입니다.");
+							$("#checkResult").text("중복된 아이디 입니다.")
+							.css("color","red");
 							idValid=false;
 						}
 					}

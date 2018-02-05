@@ -84,7 +84,7 @@
 							</tr>	
 							<tr>
 								<th class="tg">돈</th>
-								<td class="tg"><span id="result">${dto.money } 원<a href="#cash-pop-up" class="btn btn-primary fancybox-fast-view" id="cash_on" style="margin-left: 10px; background: #428bca; border-radius: 5px !important; color: #ffffff;">충전</a></td>
+								<td class="tg"><span id="result">${dto.money } 원</span><a href="#cash-pop-up" class="btn btn-primary fancybox-fast-view" id="cash_on" style="margin-left: 10px; background: #428bca; border-radius: 5px !important; color: #ffffff;">충전</a></td>
 							</tr>	
 							<tr>
 								<th class="tg">포인트</th>
