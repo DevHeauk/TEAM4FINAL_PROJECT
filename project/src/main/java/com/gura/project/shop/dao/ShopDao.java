@@ -16,4 +16,5 @@ public interface ShopDao {
 	public ShopDto getData(int num);
 	public void cart_insert(ShopDto dto);
 	public List<CartDto> cartList(String id);
+	public void cartDelete(int num);
 }

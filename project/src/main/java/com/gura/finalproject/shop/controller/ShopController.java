@@ -124,4 +124,10 @@ public class ShopController {
 		shopService.delete(request, num);
 		return new ModelAndView("redirect:/shop/shop-product-list.do");
 	}
+	
+	@RequestMapping("/shop/cart_delete")
+	public ModelAndView cartDelete(@RequestParam int num, @RequestParam String id){
+		shopService.cart_delete(num);
+		return new ModelAndView("redirect:/shop/cartlist.do?id="+id);
+	}
 }

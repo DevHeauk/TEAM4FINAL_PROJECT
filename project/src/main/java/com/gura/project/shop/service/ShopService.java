@@ -15,4 +15,5 @@ public interface ShopService {
 	public ShopDto getData(HttpServletRequest reuqest, int num);
 	public void cart_insert(ShopDto dto);
 	public ModelAndView cart_data(String id);
+	public void cart_delete(int num);
 }

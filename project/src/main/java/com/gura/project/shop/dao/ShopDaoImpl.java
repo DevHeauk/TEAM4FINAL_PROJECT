@@ -72,6 +72,11 @@ public class ShopDaoImpl implements ShopDao{
 		List<CartDto> list=session.selectList("shop.cartList", id);
 		return list;
 	}
+
+	@Override
+	public void cartDelete(int num) {
+		session.delete("shop.cartDelete", num);
+	}
 	
 
 }

@@ -1,6 +1,7 @@
 package com.gura.project.shop.dto;
 
 public class CartDto {
+	private int num;
 	private String saveFileName;
 	private String product_name;
 	private String id;
@@ -11,9 +12,10 @@ public class CartDto {
 	
 	public CartDto() {}
 
-	public CartDto(String saveFileName, String product_name, String id, int product_count, int price, int total_price,
-			String regdate) {
+	public CartDto(int num, String saveFileName, String product_name, String id, int product_count, int price,
+			int total_price, String regdate) {
 		super();
+		this.num = num;
 		this.saveFileName = saveFileName;
 		this.product_name = product_name;
 		this.id = id;
@@ -21,6 +23,14 @@ public class CartDto {
 		this.price = price;
 		this.total_price = total_price;
 		this.regdate = regdate;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 	public String getSaveFileName() {
@@ -78,6 +88,7 @@ public class CartDto {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+
 	
 	
 }

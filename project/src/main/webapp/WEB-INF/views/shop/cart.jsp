@@ -66,7 +66,7 @@
                       <strong><span>$</span>${tmp.price * tmp.product_count }</strong>
                     </td>
                     <td class="del-goods-col">
-                      <a class="del-goods" href="javascript:;">&nbsp;</a>
+                      <a class="del-goods" href="cart_delete.do?num=${tmp.num }&&id=${tmp.id}">&nbsp;</a>
                     </td>
                   </tr>
                   </c:forEach>   

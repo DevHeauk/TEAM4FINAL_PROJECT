@@ -112,6 +112,12 @@ public class ShopServiceImpl implements ShopService{
 		
 		return mView;
 	}
+
+	@Override
+	public void cart_delete(int num) {
+		shopDao.cartDelete(num);
+		
+	}
 	
 	
 
