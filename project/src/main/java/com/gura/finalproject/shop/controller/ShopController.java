@@ -19,9 +19,9 @@ public class ShopController {
 	private ShopService shopService;
 	
 	@RequestMapping("/shop/list")
-	public ModelAndView list(){
+	public ModelAndView list(HttpServletRequest request){
 		
-		ModelAndView mView=shopService.getList();
+		ModelAndView mView=shopService.getList(request);
 		
 		mView.setViewName("shop/list");
 		
@@ -68,8 +68,8 @@ public class ShopController {
 	}
 	
 	@RequestMapping("/shop/shop-product-list")
-	public ModelAndView productList(){		
-		ModelAndView mView=shopService.getList();
+	public ModelAndView productList(HttpServletRequest request){		
+		ModelAndView mView=shopService.getList(request);
 		mView.setViewName("shop/product");
 		return mView;
 	}

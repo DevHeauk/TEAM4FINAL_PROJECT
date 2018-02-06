@@ -16,8 +16,8 @@ public class ShopDaoImpl implements ShopDao{
 	private SqlSession session;
 	
 	@Override
-	public List<ShopDto> getList() {
-		List<ShopDto> list=session.selectList("shop.getList");
+	public List<ShopDto> getList(ShopDto dto) {
+		List<ShopDto> list=session.selectList("shop.getList", dto);
 		return list;
 	}
 
@@ -58,6 +58,12 @@ public class ShopDaoImpl implements ShopDao{
 	public ShopDto getData(int num) {
 		ShopDto dto=session.selectOne("shop.getData", num);
 		return dto;
+	}
+
+	@Override
+	public int getCount(ShopDto dto) {
+		int count=session.selectOne("shop.getCount", dto);
+		return count;
 	}
 	
 
