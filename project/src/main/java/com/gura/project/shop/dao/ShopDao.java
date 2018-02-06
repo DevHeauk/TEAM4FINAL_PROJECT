@@ -2,6 +2,7 @@ package com.gura.project.shop.dao;
 
 import java.util.List;
 
+import com.gura.project.shop.dto.CartDto;
 import com.gura.project.shop.dto.ShopDto;
 
 public interface ShopDao {
@@ -14,4 +15,7 @@ public interface ShopDao {
 	public void delete(int num);
 	public ShopDto getData(int num);
 	public int getCount(ShopDto dto);
+	public void cart_insert(ShopDto dto);
+	public List<CartDto> cartList(String id);
+	public void cartDelete(int num);
 }

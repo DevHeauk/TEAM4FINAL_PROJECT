@@ -39,6 +39,7 @@
 		DELETE FROM shop4
 		WHERE num=#{num}
 	</delete>
+
 	<select id="getCount" parameterType="shopDto"
 		resultType="int">
 		SELECT NVL(MAX(ROWNUM), 0)
@@ -55,6 +56,23 @@
 			</if>
 		</where>	
 	</select>
+
+	<insert id="cartInsert" parameterType="shopDto">
+		INSERT INTO cart (num, product_name, id, product_count, price, total_price, saveFileName, regdate)
+		VALUES(cart_seq.NEXTVAL, #{title}, #{writer}, #{product_count}, #{price}, #{price}, #{saveFileName}, SYSDATE )
+	</insert>
+	
+	<select id="cartList" parameterType="String" resultType="com.gura.project.shop.dto.CartDto">
+		SELECT num, product_name, id, product_count, price, total_price, saveFileName, regdate
+		FROM cart
+		WHERE id=#{id}
+	</select>
+	
+	<delete id="cartDelete" parameterType="int">
+		DELETE FROM cart
+		WHERE num=#{num}
+	</delete>
+
 </mapper> 
 
 
