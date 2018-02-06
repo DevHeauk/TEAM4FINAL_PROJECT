@@ -52,3 +52,5 @@ total_price NUMBER,
 saveFileName clob
 regdate DATE
 );
+
+CREATE SEQUENCE cart_seq;

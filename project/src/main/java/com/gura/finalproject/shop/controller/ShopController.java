@@ -130,4 +130,10 @@ public class ShopController {
 		shopService.cart_delete(num);
 		return new ModelAndView("redirect:/shop/cartlist.do?id="+id);
 	}
+	
+	@RequestMapping("/shop/buy")
+	public ModelAndView authBuy(HttpServletRequest request, @RequestParam String id){
+		
+		return new ModelAndView();
+	}
 }

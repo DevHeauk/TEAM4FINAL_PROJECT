@@ -107,9 +107,12 @@ public class ShopServiceImpl implements ShopService{
 		ModelAndView mView=new ModelAndView();
 		
 		List<CartDto> list=shopDao.cartList(id);
-		
+		int SumPrice = 0;
+		for(CartDto tmp:list){
+			SumPrice = SumPrice + tmp.getTotal_price();
+		}
 		mView.addObject("list", list);
-		
+		mView.addObject("SumPrice", SumPrice);
 		return mView;
 	}
 
