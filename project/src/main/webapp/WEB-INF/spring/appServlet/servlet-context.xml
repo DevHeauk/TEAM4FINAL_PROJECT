@@ -68,9 +68,12 @@
    <context:component-scan base-package="com.gura.project" />
    
    <context:component-scan base-package="com.gura.project.users.*" />
+   
+   <context:component-scan base-package="com.gura.project.file.*" />
   
    <context:component-scan base-package="com.gura.project.util" />
    
-   <context:component-scan base-package="com.gura.project.aspect"/>  
+   <context:component-scan base-package="com.gura.project.aspect"/>
+     
    
 </beans:beans>
