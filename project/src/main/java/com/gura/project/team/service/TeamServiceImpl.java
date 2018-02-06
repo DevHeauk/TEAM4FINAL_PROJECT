@@ -41,14 +41,15 @@ public class TeamServiceImpl implements TeamService{
 		//join id를 가져온다
 		List<TeamDto> list=teamdao.joining_data(dto);
 		List<UsersDto> joininfo=teamdao.joininfo(list);
-		List<MatchDto> matchdtoList=teamdao.awayteam(matchdto);
+		List<MatchDto> awayteamlist=teamdao.awayteam(matchdto);
+		List<TeamDto> awayteaminfo=teamdao.awayteaminfo(awayteamlist);
 		
 		
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("dto", resultDto);
 		mView.addObject("joininfo", joininfo);
 		mView.addObject("memberlist", memberlist);
-		mView.addObject("matchdtoList", matchdtoList);
+		mView.addObject("matchdtoList", awayteaminfo);
 		
 		return mView;
 	}
@@ -81,7 +82,7 @@ public class TeamServiceImpl implements TeamService{
 		
 		TeamDto dto=new TeamDto();
 		String joinid=(String) request.getParameter("joinid");
-		String jointeam=(String) request.getParameter("name");
+		String jointeam=(String) request.getParameter("teamname");
 		dto.setJoinid(joinid);
 		dto.setJointeam(jointeam);
 		teamdao.joinupdate(dto);

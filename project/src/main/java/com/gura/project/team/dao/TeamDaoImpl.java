@@ -89,10 +89,20 @@ public class TeamDaoImpl implements TeamDao {
 		
 		List<UsersDto> joininfolist= new ArrayList<>();
 		for(TeamDto tmp: list){
-			UsersDto dto = session.selectOne("joininfo",tmp.getJoinid());
+			UsersDto dto = session.selectOne("team.joininfo",tmp.getJoinid());
 			joininfolist.add(dto);
 			};
 		return  joininfolist;
+	}
+	@Override
+	public List<TeamDto> awayteaminfo(List<MatchDto> awayteamlist) {
+		
+		List<TeamDto> awayteaminfo= new ArrayList<>();
+		for(MatchDto tmp: awayteamlist){
+			TeamDto dto = session.selectOne("team.awayteam",tmp.getAwayTeam());
+			awayteaminfo.add(dto);
+			};
+		return awayteaminfo;
 	}
 	
 	
