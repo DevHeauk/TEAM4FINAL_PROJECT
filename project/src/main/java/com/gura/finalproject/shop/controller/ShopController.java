@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.shop.dto.ShopDto;
@@ -35,6 +36,7 @@ public class ShopController {
 		mView.setViewName("shop/shop_insert");
 		return mView;
 	}
+
 	
 	@RequestMapping("/shop/upload")
 	public ModelAndView authInsert(HttpServletRequest request, @ModelAttribute ShopDto dto){
@@ -46,6 +48,7 @@ public class ShopController {
 		shopService.upload(request, dto);
 		
 		return new ModelAndView("redirect:/shop/shop-product-list.do");
+
 	}
 	
 	@RequestMapping("/shop/shop-item")
@@ -79,18 +82,31 @@ public class ShopController {
 		return mView;
 	}
 	
-	@RequestMapping("/shop/shop-shopping-cart")
-	public ModelAndView shoppingCart(){
-		ModelAndView mView = new ModelAndView();
-		mView.setViewName("shop/shop-shopping-cart");
+	@RequestMapping("/shop/cartlist")
+	public ModelAndView cartlist(@RequestParam String id){
+		ModelAndView mView=shopService.cart_data(id);
+		mView.setViewName("shop/cart");
+		return mView;
+	}
+	
+	@RequestMapping("/shop/cart")
+	public ModelAndView shoppingCart(HttpServletRequest reuqest, @RequestParam int num, @RequestParam String id, @RequestParam int count){
+		ShopDto dto=shopService.getData(reuqest, num);
+		dto.setProduct_count(count);
+		dto.setWriter(id);
+		shopService.cart_insert(dto);
+		ModelAndView mView=new ModelAndView();
+		mView.setViewName("shop/cart_result");
 		
 		return mView;
 	}
 	
+
 	@RequestMapping("/shop/shop-upload-form")
 	public ModelAndView uploadForms(){
 		ModelAndView mView = new ModelAndView();
 		mView.setViewName("shop/shop-upload-form");
+		
 		
 		return mView;
 	}
@@ -101,5 +117,17 @@ public class ShopController {
 		mView.setViewName("shop/shop-wishlist");
 		
 		return mView;
+	}
+	
+	@RequestMapping("/shop/delete")
+	public ModelAndView authDelete(HttpServletRequest request, @RequestParam int num){
+		shopService.delete(request, num);
+		return new ModelAndView("redirect:/shop/shop-product-list.do");
+	}
+	
+	@RequestMapping("/shop/cart_delete")
+	public ModelAndView cartDelete(@RequestParam int num, @RequestParam String id){
+		shopService.cart_delete(num);
+		return new ModelAndView("redirect:/shop/cartlist.do?id="+id);
 	}
 }

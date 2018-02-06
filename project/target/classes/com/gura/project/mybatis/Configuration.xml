@@ -9,14 +9,18 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 				alias="usersDto"/>
 		<typeAlias type="com.gura.project.shop.dto.ShopDto" 
 				alias="shopDto"/>
+		<typeAlias type="com.gura.project.team.dto.TeamDto" 
+				alias="teamDto"/>
+		<typeAlias type="com.gura.project.match.dto.MatchDto" 
+				alias="MatchDto"/>				
 	</typeAliases>
 	
 	<!-- sql 문을 정의하고 있는 xml 문서 -->
 	<mappers>
 		<mapper resource="com/gura/project/mybatis/UsersMapper.xml"/>
 		<mapper resource="com/gura/project/mybatis/ShopMapper.xml"/>
-		
-
+		<mapper resource="com/gura/project/mybatis/MatchMapper.xml"/>
+		<mapper resource="com/gura/project/mybatis/TeamMapper.xml"/>
 	</mappers>	
 </configuration>
 

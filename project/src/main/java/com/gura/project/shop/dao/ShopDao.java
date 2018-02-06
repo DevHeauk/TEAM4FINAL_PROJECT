@@ -2,6 +2,7 @@ package com.gura.project.shop.dao;
 
 import java.util.List;
 
+import com.gura.project.shop.dto.CartDto;
 import com.gura.project.shop.dto.ShopDto;
 
 public interface ShopDao {
@@ -11,4 +12,9 @@ public interface ShopDao {
 	public void plusPoint(ShopDto dto); //포인트 증가
 	public int getPrice(int num); // 상품의 가격을 리턴해주는 메소드
 	public void upload(ShopDto dto);
+	public void delete(int num);
+	public ShopDto getData(int num);
+	public void cart_insert(ShopDto dto);
+	public List<CartDto> cartList(String id);
+	public void cartDelete(int num);
 }

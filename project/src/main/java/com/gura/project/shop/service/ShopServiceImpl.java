@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.shop.dao.ShopDao;
+import com.gura.project.shop.dto.CartDto;
 import com.gura.project.shop.dto.ShopDto;
 
 
@@ -76,6 +77,47 @@ public class ShopServiceImpl implements ShopService{
 				//FileDao 객체를 이용해서 DB 에 저장하기
 				shopDao.upload(dto);				
 			}
+
+	@Override
+	public void delete(HttpServletRequest request, int num) {
+		ShopDto dto=shopDao.getData(num);
+		String path=request.getServletContext().getRealPath("/upload")+File.separator+dto.getSaveFileName();
+		System.out.println(path);
+		try{
+			new File(path).delete();
+		}catch(Exception e){}
+		
+		shopDao.delete(num);
+	}
+
+	@Override
+	public ShopDto getData(HttpServletRequest reuqest, int num) {
+		ShopDto dto=shopDao.getData(num);
+		return dto;
+	}
+
+	@Override
+	public void cart_insert(ShopDto dto) {
+		shopDao.cart_insert(dto);
+		
+	}
+
+	@Override
+	public ModelAndView cart_data(String id) {
+		ModelAndView mView=new ModelAndView();
+		
+		List<CartDto> list=shopDao.cartList(id);
+		
+		mView.addObject("list", list);
+		
+		return mView;
+	}
+
+	@Override
+	public void cart_delete(int num) {
+		shopDao.cartDelete(num);
+		
+	}
 	
 	
 

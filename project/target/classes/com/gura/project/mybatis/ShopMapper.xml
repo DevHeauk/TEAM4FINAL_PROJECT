@@ -9,7 +9,29 @@
 		INSERT INTO shop4 (num,title,price,content,remainCount,orgFileName,saveFileName,fileSize,product_size,category, regdate)
 		VALUES(shop4_seq.NEXTVAL, #{title}, #{price}, #{content}, #{remainCount}, #{orgFileName}, #{saveFileName}, 
 		#{fileSize}, #{product_size},#{category}, SYSDATE)
-	</insert>	
+	</insert>
+	<select id="getData" resultType="shopDto" parameterType="int">
+		SELECT title,price,content,remainCount,orgFileName,saveFileName,product_size,category,regdate
+		FROM shop4
+		WHERE num=#{num}
+	</select>
+	<delete id="delete" parameterType="int">
+		DELETE FROM shop4
+		WHERE num=#{num}
+	</delete>
+	<insert id="cartInsert" parameterType="shopDto">
+		INSERT INTO cart (num, product_name, id, product_count, price, total_price, saveFileName, regdate)
+		VALUES(cart_seq.NEXTVAL, #{title}, #{writer}, #{product_count}, #{price}, #{price}, #{saveFileName}, SYSDATE )
+	</insert>
+	<select id="cartList" parameterType="String" resultType="com.gura.project.shop.dto.CartDto">
+		SELECT num, product_name, id, product_count, price, total_price, saveFileName, regdate
+		FROM cart
+		WHERE id=#{id}
+	</select>
+	<delete id="cartDelete" parameterType="int">
+		DELETE FROM cart
+		WHERE num=#{num}
+	</delete>
 </mapper> 
 
 
