@@ -40,12 +40,13 @@ public class TeamServiceImpl implements TeamService{
 		List<UsersDto> memberlist=teamdao.teamMemberList(dto);
 		//join id를 가져온다
 		List<TeamDto> list=teamdao.joining_data(dto);
+		List<UsersDto> joininfo=teamdao.joininfo(list);
 		List<MatchDto> matchdtoList=teamdao.awayteam(matchdto);
 		
 		
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("dto", resultDto);
-		mView.addObject("list", list);
+		mView.addObject("joininfo", joininfo);
 		mView.addObject("memberlist", memberlist);
 		mView.addObject("matchdtoList", matchdtoList);
 		
@@ -84,10 +85,12 @@ public class TeamServiceImpl implements TeamService{
 		dto.setJoinid(joinid);
 		dto.setJointeam(jointeam);
 		teamdao.joinupdate(dto);
+		teamdao.joindelete(dto);
 		
 		return new ModelAndView();
 		
 	}
+
 	
 
 }

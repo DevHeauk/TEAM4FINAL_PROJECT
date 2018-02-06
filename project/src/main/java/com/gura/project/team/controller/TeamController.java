@@ -63,6 +63,6 @@ public class TeamController {
 		mView.setViewName("team/list");
 		return mView;
 	}
-	
+
 	
 }
