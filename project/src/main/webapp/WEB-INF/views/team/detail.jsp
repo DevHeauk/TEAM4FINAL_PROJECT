@@ -26,21 +26,25 @@
     </c:if>
     <c:if test="${sessionScope.id ne dto.member }">
 
-<button class="btn btn-info" data-target="#matching" data-toggle="modal">매칭신청</button><br/>
-<button class="btn btn-info" data-target="#awayteamimfo" data-toggle="modal">상대정보</button><br/>
+	<button class="btn btn-info" data-target="#matching" data-toggle="modal">매칭신청</button><br/>
+	<button class="btn btn-info" data-target="#awayteamimfo" data-toggle="modal">상대정보</button><br/>
 
     </c:if>
     <c:if test="${sessionScope.id eq dto.member }">
-    	
-	    <c:forEach var="tmp" items="${list}">
-			<tr>
-				<td><a href="join.do?joinid=${tmp.joinid }&name=${dto.name}">${tmp.joinid }</a></td>
-			</tr>
-		</c:forEach>
-		<c:forEach var="tmp" items="${matchdtoList}">
-			<button class="btn btn-info" data-target="#awayteamimfo${tmp.awayTeam }" data-toggle="modal">${tmp.awayTeam}</button><br/>
-			
-		</c:forEach>
+    <!-- join 리스트 -->	
+    <p>joinlist</p>
+    <c:forEach var="tmp" items="${joininfo}">
+		<button class="btn btn-info" data-target="#joininfo" data-toggle="modal">${tmp.id}</button>
+		<br/>
+	</c:forEach>
+	
+	
+	<!-- 매칭 리스트 -->
+	<p>매칭리스트</p>
+	<c:forEach var="tmp" items="${matchdtoList}">
+		<button class="btn btn-info" data-target="#awayteamimfo${tmp.awayTeam }" data-toggle="modal">${tmp.awayTeam}</button><br/>
+		
+	</c:forEach>
 		
 		
     </c:if>
@@ -87,34 +91,69 @@
 
 <!-- away modal -->
 <c:forEach var="tmp" items="${matchdtoList}">
-<div class="modal fade" id="awayteamimfo${tmp.awayTeam }" >
-  	<form action="matchsuccess.do">
-  		<input type="hidden" name="awayTeam" value="${tmp.awayTeam}" />
-  		<div class="modal-dialog">
-    <div class="modal-content">
-      <!-- header -->
-      <div class="modal-header">
-        <!-- 닫기(x) 버튼 -->
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <!-- header title -->
-        <h4 class="modal-title">${tmp.awayTeam}</h4>
-      </div>
-      <!-- body -->
-      <div class="modal-body">
-			<p>상대팀정보</p>
-      </div>
-      <!-- Footer -->
-      <div class="modal-footer">
-        Footer
-        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-        <button class="btn btn-success" type="submit" >확인</button>
-      </div>
-    </div>
-  </div>
-  	</form>
-</div>
+	<div class="modal fade" id="awayteamimfo${tmp.awayTeam }" >
+	  	<form action="matchsuccess.do">
+	  		<input type="hidden" name="awayTeam" value="${tmp.awayTeam}" />
+	  		<div class="modal-dialog">
+	    <div class="modal-content">
+	      <!-- header -->
+	      <div class="modal-header">
+	        <!-- 닫기(x) 버튼 -->
+	        <button type="button" class="close" data-dismiss="modal">×</button>
+	        <!-- header title -->
+	        <h4 class="modal-title">${tmp.awayTeam}</h4>
+	      </div>
+	      <!-- body -->
+	      <div class="modal-body">
+				<p>상대팀정보</p>
+	      </div>
+	      <!-- Footer -->
+	      <div class="modal-footer">
+	        Footer
+	        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+	        <button class="btn btn-success" type="submit" >확인</button>
+	      </div>
+	    </div>
+	  </div>
+	  	</form>
+	</div>
 			
-</c:forEach>			
+</c:forEach>	
+
+
+<!-- joinlist modal -->
+<!-- away modal -->
+<c:forEach var="tmp" items="${joininfo}">
+	<div class="modal fade" id="#joininfo" >
+	  	<form action="matchsuccess.do">
+	  		<input type="hidden" name="id" value="${tmp.id}" />
+	  		<div class="modal-dialog">
+	    <div class="modal-content">
+	      <!-- header -->
+	      <div class="modal-header">
+	        <!-- 닫기(x) 버튼 -->
+	        <button type="button" class="close" data-dismiss="modal">×</button>
+	        <!-- header title -->
+	        <h4 class="modal-title">${tmp.career}</h4>
+	      </div>
+	      <!-- body -->
+	      <div class="modal-body">
+				<p>${tmp.b_position }</p>
+				<p>${tmp.name }</p>
+				<p>${tmp.email}</p>
+	      </div>
+	      <!-- Footer -->
+	      <div class="modal-footer">
+	        Footer
+	        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+	        <button class="btn btn-success" type="submit" >확인</button>
+	      </div>
+	    </div>
+	  </div>
+	  	</form>
+	</div>
+			
+</c:forEach>	
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.2.1.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 <script>

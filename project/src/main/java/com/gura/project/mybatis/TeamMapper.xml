@@ -47,6 +47,15 @@
 		from matching
 		where hometeam=#{homeTeam}
 	</select>
+	<delete id="joindelete" parameterType="teamDto">
+		delete from joinlist
+		where joinid=#{joinid}
+	</delete>
+	<select id="joininfo" parameterType="usersDto" resultType="usersDto">
+		select id, name ,career ,b_position
+		from users4
+		where id=#{id}
+	</select>
 </mapper>
 
 
