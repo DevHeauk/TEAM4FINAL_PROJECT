@@ -32,6 +32,35 @@
 		DELETE FROM cart
 		WHERE num=#{num}
 	</delete>
+	<select id="getmoneyandpoint" parameterType="String" resultType="usersDto">
+		select money,point
+		from users4
+		where id=#{id}
+	</select>
+	<update id="setmoneyandpoint" parameterType="usersDto">
+		UPDATE users4
+		SET money=#{money},point=#{point}
+		WHERE id=#{id}
+	</update>
+	<select id="getPnameandPcount" parameterType="usersDto" resultType="com.gura.project.shop.dto.CartDto">
+		select product_name,product_count
+		from cart
+		where id=#{id}
+	</select>
+	<select id="getremaincount" parameterType="shopDto" resultType="shopDto">
+		select remaincount
+		from shop4
+		where title=#{title}
+	</select>
+	<update id="setremaincount" parameterType="shopDto">
+		update shop4
+		set remainCount=#{remainCount}
+		where title=#{title}
+	</update>
+	<delete id="cartdelete" parameterType="usersDto">
+		delete from cart
+		where id=#{id}
+	</delete>
 </mapper> 
 
 

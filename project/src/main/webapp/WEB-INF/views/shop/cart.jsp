@@ -91,7 +91,8 @@
                 </div>
               </div>
               <button class="btn btn-default" type="submit">Continue shopping <i class="fa fa-shopping-cart"></i></button>
-              <a href="buy.do?id=${id }"><button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i></button></a>
+              <a href="buy.do?id=${id }&totalprice=${SumPrice }
+              "><button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i></button></a>
             </div>
           </div>
           <!-- END CONTENT -->

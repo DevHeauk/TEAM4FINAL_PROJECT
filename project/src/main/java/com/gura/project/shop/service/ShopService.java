@@ -16,4 +16,5 @@ public interface ShopService {
 	public void cart_insert(ShopDto dto);
 	public ModelAndView cart_data(String id);
 	public void cart_delete(int num);
+	public void order(HttpServletRequest request);
 }

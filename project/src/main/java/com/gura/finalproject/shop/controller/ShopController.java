@@ -11,12 +11,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.shop.dto.ShopDto;
 import com.gura.project.shop.service.ShopService;
+import com.gura.project.users.service.UsersService;
 
 @Controller
 public class ShopController {
 	
 	@Autowired
 	private ShopService shopService;
+	@Autowired
+	private UsersService userService;
 	
 	@RequestMapping("/shop/list")
 	public ModelAndView list(){
@@ -133,7 +136,7 @@ public class ShopController {
 	
 	@RequestMapping("/shop/buy")
 	public ModelAndView authBuy(HttpServletRequest request, @RequestParam String id){
-		
-		return new ModelAndView();
+		shopService.order(request);
+		return new ModelAndView("redirect:/shop/cartlist.do?id="+id);
 	}
 }
