@@ -21,10 +21,10 @@ public class FileDaoImpl implements FileDao{
 
 	@Override
 	public void delete(int num) {
-		// TODO Auto-generated method stub
+		session.delete("file.delete", num);
 		
 	}
-
+	
 	@Override
 	public List<FileDto> getListTeam(FileDto dto) {
 		
@@ -45,8 +45,8 @@ public class FileDaoImpl implements FileDao{
 
 	@Override
 	public FileDto getData(int num) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return session.selectOne("file.getData", num);
 	}
 
 }

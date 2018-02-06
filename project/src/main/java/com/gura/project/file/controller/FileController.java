@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.file.dto.FileDto;
@@ -35,12 +36,22 @@ public class FileController {
 	}
 	
 	@RequestMapping("/board/gallery")
-	public ModelAndView list(HttpServletRequest request){
+	public ModelAndView listTeam(HttpServletRequest request){
 		
-		fileService.listTeam(request);
-		fileService.listGame(request);
-		fileService.listFree(request);
+		ModelAndView mView = fileService.getList(request);
 		
-		return new ModelAndView("board/gallery");
+		mView.setViewName("board/gallery");
+		
+		return mView;
 	}
+	
+	@RequestMapping("/board/delete")
+	public ModelAndView authDelete(HttpServletRequest request, @RequestParam int num){
+		
+		fileService.delete(request, num);
+		
+		return new ModelAndView("redirect:/board/gallery.do");
+	}
+	
+
 }

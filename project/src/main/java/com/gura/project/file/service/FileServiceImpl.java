@@ -62,51 +62,42 @@ public class FileServiceImpl implements FileService{
 
 	@Override
 	public void delete(HttpServletRequest request, int num) {
-		// TODO Auto-generated method stub
+		FileDto dto = fileDao.getData(num);
 		
+		String path = 
+			request.getServletContext().getRealPath("/upload") +
+			File.separator+dto.getSaveFileName();
+		try{
+			new File(path).delete();
+		}catch(Exception e){}
+		
+		fileDao.delete(num);	
 	}
 
 	@Override
 	public ModelAndView getData(int num) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public ModelAndView listTeam(HttpServletRequest request) {
-		
-		FileDto dto = new FileDto();		
-		List<FileDto> list = fileDao.getListTeam(dto);
+		FileDto dto = fileDao.getData(num);
 		
 		ModelAndView mView = new ModelAndView();
-		mView.addObject("listTeam", list);
+		mView.addObject("dto", dto);
 		
 		return mView;
 	}
 
 
 	@Override
-	public ModelAndView listGame(HttpServletRequest request) {
+	public ModelAndView getList(HttpServletRequest request) {
 		
 		FileDto dto = new FileDto();		
-		List<FileDto> list = fileDao.getListGame(dto);
+		List<FileDto> list1 = fileDao.getListTeam(dto);
+		List<FileDto> list2 = fileDao.getListGame(dto);
+		List<FileDto> list3 = fileDao.getListFree(dto);
 		
 		ModelAndView mView = new ModelAndView();
-		mView.addObject("listGame", list);
 		
-		return mView;
-	}
-
-
-	@Override
-	public ModelAndView listFree(HttpServletRequest request) {
-		
-		FileDto dto = new FileDto();		
-		List<FileDto> list = fileDao.getListFree(dto);
-		
-		ModelAndView mView = new ModelAndView();
-		mView.addObject("listFree", list);
+		mView.addObject("listTeam", list1);
+		mView.addObject("listGame", list2);
+		mView.addObject("listFree", list3);
 		
 		return mView;
 	}

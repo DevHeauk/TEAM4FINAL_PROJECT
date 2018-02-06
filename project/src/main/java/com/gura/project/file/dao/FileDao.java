@@ -10,5 +10,5 @@ public interface FileDao {
 	public List<FileDto> getListTeam(FileDto dto);
 	public List<FileDto> getListGame(FileDto dto);
 	public List<FileDto> getListFree(FileDto dto);
-	public FileDto getData(int num);
+	public FileDto getData(int num);	
 }

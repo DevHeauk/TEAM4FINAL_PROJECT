@@ -1,30 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="file">
+
 	<insert id="insert" parameterType="fileDto">
 		INSERT INTO gallery
 		(num,writer,title,orgFileName,saveFileName,fileSize,category,regdate)
 		VALUES(gallery_seq.NEXTVAL, #{writer}, #{title},
 		#{orgFileName}, #{saveFileName}, #{fileSize}, #{category}, SYSDATE)
 	</insert>
-	
+
 	<select id="getListTeam" parameterType="fileDto" resultType="fileDto">
 		SELECT num,writer,title,orgFileName,saveFileName,fileSize,category,regdate
 		FROM gallery
-		WHERE category=#{team}
+		WHERE category='team'
+		ORDER BY num DESC
 	</select>
 	
 	<select id="getListGame" parameterType="fileDto" resultType="fileDto">
 		SELECT num,writer,title,orgFileName,saveFileName,fileSize,category,regdate
 		FROM gallery
-		WHERE category=#{game}
+		WHERE category='game'
+		ORDER BY num DESC
 	</select>
 	
 	<select id="getListFree" parameterType="fileDto" resultType="fileDto">
 		SELECT num,writer,title,orgFileName,saveFileName,fileSize,category,regdate
 		FROM gallery
-		WHERE category=#{match}
+		WHERE category='free'
+		ORDER BY num DESC
 	</select>		
+	
+	<select id="getData" parameterType="int" resultType="fileDto">
+		SELECT num,writer,title,orgFileName,saveFileName,fileSize,category,regdate
+		FROM gallery
+		WHERE num=#{num}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM gallery
+		WHERE num=#{num}
+	</delete>
 	
 </mapper>
 

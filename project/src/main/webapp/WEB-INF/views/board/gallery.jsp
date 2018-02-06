@@ -44,9 +44,10 @@
                     <li data-filter="category_1" class="filter">Team</li>
                     <li data-filter="category_2" class="filter">Game</li>
                     <li data-filter="category_3" class="filter">Free</li>
-                    <li style="float: right;"><a href="gallery_insert.do">글 쓰기</a></li>
+                    <li class="pull-right"><a href="gallery_insert.do">글 쓰기</a></li>
                   </ul>
-	              <div class="row mix-grid thumbnails">
+	              <div class="row mix-grid thumbnails">              
+	              
 	              	  <c:forEach var="tmp" items="${listTeam }">
 		                  <div class="col-md-3 col-sm-4 mix category_1 mix_all" style="display: block; opacity: 1; ">
 		                    <div class="mix-inner">
@@ -54,7 +55,10 @@
 		                       <div class="mix-details">
 		                          <h4>${tmp.title }</h4>
 		                          <a class="mix-link"><i class="fa fa-link"></i></a>
-		                          <a data-rel="fancybox-button" title="${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
+		                          <a data-rel="fancybox-button" title="작성자 : ${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
+								  <c:if test="${id eq tmp.writer }">
+			                          <a href="javascript:deleteConfirm(${tmp.num })" class="mix-link" style="width: 41px; margin-top: 60px; left: 50%; margin-left: -22px;"><i class="fa fa-trash-o"></i></a>						  
+							      </c:if>			                          
 		                       </div>           
 		                    </div>                       
 		                  </div>
@@ -67,7 +71,10 @@
 		                       <div class="mix-details">
 		                          <h4>${tmp.title }</h4>
 		                          <a class="mix-link"><i class="fa fa-link"></i></a>
-		                          <a data-rel="fancybox-button" title="${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
+		                          <a data-rel="fancybox-button" title="작성자 : ${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
+								  <c:if test="${id eq tmp.writer }">
+			                          <a href="javascript:deleteConfirm(${tmp.num })" class="mix-link" style="width: 41px; margin-top: 60px; left: 50%; margin-left: -22px;"><i class="fa fa-trash-o"></i></a>						  
+							      </c:if>			                          
 		                       </div>           
 		                    </div>                       
 		                  </div>
@@ -80,7 +87,10 @@
 		                       <div class="mix-details">
 		                          <h4>${tmp.title }</h4>
 		                          <a class="mix-link"><i class="fa fa-link"></i></a>
-		                          <a data-rel="fancybox-button" title="${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
+		                          <a data-rel="fancybox-button" title="작성자 : ${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
+								  <c:if test="${id eq tmp.writer }">
+			                          <a href="javascript:deleteConfirm(${tmp.num })" class="mix-link" style="width: 41px; margin-top: 60px; left: 50%; margin-left: -22px;"><i class="fa fa-trash-o"></i></a>						  
+							      </c:if>			                          
 		                       </div>           
 		                    </div>                       
 		                  </div>
@@ -97,6 +107,16 @@
     <%@ include file="../inc/footer.jsp" %>
     
     <%@ include file="../inc/footer_script.jsp" %>
+    
+	<script>		
+		function deleteConfirm(num){
+			var result=confirm(num+" 번 파일을 삭제 하시겠습니까?");
+			if(result){
+				location.href="delete.do?num="+num;
+			}
+		}
+	</script>    
+    
     <script src="${pageContext.request.contextPath}/assets/pages/scripts/portfolio.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/assets/plugins/jquery-mixitup/jquery.mixitup.min.js" type="text/javascript"></script>        
     <script type="text/javascript">
