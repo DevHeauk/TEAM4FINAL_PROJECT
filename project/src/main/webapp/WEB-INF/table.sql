@@ -1,11 +1,50 @@
 create table team(
    name VARCHAR2(100),
+<<<<<<< HEAD
+   member VARCHAR2(100),
+=======
    memberbVARCHAR2(100),
+>>>>>>> heaukjun
    win number,
    lose number,
    total number,
    ground VARCHAR2(100),
    leader VARCHAR2(100)
+<<<<<<< HEAD
+   
+)
+
+create table joinlist(
+   jointeam varchar2(100)
+   joinid varchar2(100)
+)
+
+CREATE TABLE matching (
+hometeam varchar2(200),
+homepoint number,
+awayteam varchar2(200),
+awaypoint number,
+matchdate varchar2(200),
+ground varchar2(200),
+successmatching varchar2(100)
+)
+
+CREATE TABLE SHOP4(
+num NUMBER,
+writer VARCHAR2(100),
+title VARCHAR2(100),
+client_ID VARCHAR2(100),
+price NUMBER, 
+content CLOB,
+remainCount NUMBER,
+orgfilename VARCHAR2(100),
+savefilename VARCHAR2(100),
+filesize NUMBER,
+product_size VARCHAR2(100),
+regdate DATE,
+category VARCHAR2(100))
+
+=======
 )
 
 CREATE TABLE joinlist(
@@ -22,6 +61,7 @@ ground varchar2(200),
 successmatching VARCHAR2(100)
 )
 
+>>>>>>> heaukjun
 CREATE TABLE users4(
 num NUMBER PRIMARY KEY,
 name VARCHAR2(100),
@@ -44,12 +84,13 @@ CREATE SEQUENCE users4_seq;
 
 
 CREATE TABLE CART(
+num NUMBER,
 product_name VARCHAR2(100),
 id VARCHAR2(50),
 product_count NUMBER,
 price NUMBER,
 total_price NUMBER,
-saveFileName clob
+saveFileName clob,
 regdate DATE
 );
 

@@ -24,11 +24,6 @@ public class TestController {
 	}
 	
 	
-	@RequestMapping("/team/team_list")
-	public String teamList(){
-		
-		return "team/team_list";
-	}
 	
 	@RequestMapping("/team/team_detail")
 	public String teamDetail(){

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team">
+	<select id="getList"  
+		resultType="teamDto">
+			select name,win,lose,total,ground
+			from team
+			ORDER BY win DESC
+	</select>
+	<insert id="insert" parameterType="TeamDto">
+		insert into team
+		(name,member,win,lose,total,ground)
+		values(#{name},#{member},0,0,0,#{ground})
+	</insert>
+	<select id="getData" parameterType="TeamDto" resultType="TeamDto">
+		select name,member,win,lose,total,ground
+		from team
+		where name=#{name}
+	</select>
+	<select  id="joindata" parameterType="TeamDto" resultType="TeamDto">
+		select joinid
+		from joinlist
+		where jointeam=#{name}
+	</select>
+	<insert id="joinlist_insert" parameterType="TeamDto">
+		insert into joinlist
+		(jointeam,joinid)
+		values (#{jointeam},#{joinid})
+	</insert> 
+	<update id="joinupdate" parameterType="TeamDto">
+		UPDATE users
+		SET team=#{jointeam},responsibility='player'
+		WHERE id=#{joinid}
+	</update>
+	<select id="memberliset" parameterType="TeamDto" resultType="usersDto">
+		select id
+		from users
+		where team=#{name}
+	</select>
+	<update id="leader_update" parameterType="TeamDto">
+		update users
+		set team=#{name},responsibility='leader'
+		where id=#{member}
+	</update>
+	<select id="awayteam" parameterType="MatchDto" resultType="MatchDto">
+		select awayteam
+		from matching
+		where hometeam=#{homeTeam}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
