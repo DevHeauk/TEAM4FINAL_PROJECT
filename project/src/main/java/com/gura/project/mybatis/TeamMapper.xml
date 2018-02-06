@@ -3,17 +3,17 @@
 <mapper namespace="team">
 	<select id="getList"  
 		resultType="teamDto">
-			select name,win,lose,total,ground
+			select name,win,lose,total,ground,content
 			from team
 			ORDER BY win DESC
 	</select>
 	<insert id="insert" parameterType="TeamDto">
 		insert into team
-		(name,member,win,lose,total,ground)
-		values(#{name},#{member},0,0,0,#{ground})
+		(name,member,win,lose,total,ground,content)
+		values(#{name},#{member},0,0,0,#{ground},#{content})
 	</insert>
 	<select id="getData" parameterType="TeamDto" resultType="TeamDto">
-		select name,member,win,lose,total,ground
+		select name,member,win,lose,total,ground,content
 		from team
 		where name=#{name}
 	</select>
@@ -28,17 +28,17 @@
 		values (#{jointeam},#{joinid})
 	</insert> 
 	<update id="joinupdate" parameterType="TeamDto">
-		UPDATE users
+		UPDATE users4
 		SET team=#{jointeam},responsibility='player'
 		WHERE id=#{joinid}
 	</update>
 	<select id="memberliset" parameterType="TeamDto" resultType="usersDto">
 		select id
-		from users
+		from users4
 		where team=#{name}
 	</select>
 	<update id="leader_update" parameterType="TeamDto">
-		update users
+		update users4
 		set team=#{name},responsibility='leader'
 		where id=#{member}
 	</update>

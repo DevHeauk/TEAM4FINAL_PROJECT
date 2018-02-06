@@ -31,6 +31,12 @@ public class TestController {
 		return "team/team_detail";
 	}	
 	
+	@RequestMapping("/team/team_list2")
+	public String teamList(){
+		
+		return "team/team_list";
+	}
+	
 	@RequestMapping("/board/faq")
 	public String faq(){
 		

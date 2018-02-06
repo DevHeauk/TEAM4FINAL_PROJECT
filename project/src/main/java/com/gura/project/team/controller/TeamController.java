@@ -21,7 +21,7 @@ public class TeamController {
 	@RequestMapping("/team/team_list")
 	public ModelAndView authlist(HttpServletRequest request){
 		ModelAndView mView =teamService.list(request);
-		mView.setViewName("team/list");
+		mView.setViewName("team/team_list");
 		return mView;
 	}
 	@RequestMapping("/team/insertform")

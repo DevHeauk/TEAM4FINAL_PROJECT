@@ -19,7 +19,7 @@
   <%@ include file="../inc/header_script.jsp" %>
 </head>
 <!-- Head END -->
-
+<script src="../resource/css/bootstrap.css"></script>
 <!-- Body BEGIN -->
 <body class="ecommerce">
 
@@ -36,55 +36,60 @@
         <div class="row margin-bottom-40">
           <!-- BEGIN CONTENT -->
           <div class="col-md-12 col-sm-12">
-            <h1>Blog Page</h1>
+            <h1>LEGEND TEAMS</h1>
+            <c:if test="${sessionScope.team eq null }">
+           	  	<a href="insertform.do"><button style="width:80px" class="btn btn-primary col-xs-offset-10 col-sm-offset-7">팀만들기</button></a>
+			</c:if>
             <div class="content-page">
               <div class="row">
                 <!-- BEGIN LEFT SIDEBAR -->            
                 <div class="col-md-9 col-sm-9 blog-posts">
-                  <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                      <!-- BEGIN CAROUSEL -->            
-                      <div class="front-carousel">
-                        <div class="carousel slide" id="myCarousel">
-                          <!-- Carousel items -->
-                          <div class="carousel-inner">
-                            <div class="item">
-                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img1.jpg">
-                            </div>
-                            <div class="item">
-                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img2.jpg">
-                            </div>
-                            <div class="item active">
-                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img3.jpg">
-                            </div>
-                          </div>
-                          <!-- Carousel nav -->
-                          <a data-slide="prev" href="#myCarousel" class="carousel-control left">
-                            <i class="fa fa-angle-left"></i>
-                          </a>
-                          <a data-slide="next" href="#myCarousel" class="carousel-control right">
-                            <i class="fa fa-angle-right"></i>
-                          </a>
-                        </div>                
-                      </div>
-                      <!-- END CAROUSEL -->             
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                      <h2><a href="team_detail.do">Corrupti quos dolores etquas</a></h2>
-                      <ul class="blog-info">
-                        <li><i class="fa fa-calendar"></i> 25/07/2013</li>
-                        <li><i class="fa fa-comments"></i> 17</li>
-                        <li><i class="fa fa-tags"></i> Metronic, Keenthemes, UI Design</li>
-                      </ul>
-                      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui sint blanditiis prae sentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing condimentum eleifend enim a feugiat.</p>
-                      <a href="team_detail.do" class="more">Read more <i class="icon-angle-right"></i></a>
-                    </div>
-                  </div>
-                  <hr class="blog-post-sep">
-
-                  <hr class="blog-post-sep">
-                  
-                  <hr class="blog-post-sep">
+                <c:forEach var="tmp" items="${list }">
+                	  <div class="row">                                   	
+	                    <div class="col-md-4 col-sm-4">                    
+	                      <!-- BEGIN CAROUSEL -->            
+	                      <div class="front-carousel">
+	                        <div class="carousel slide" id="myCarousel${tmp.name }">
+	                          <!-- Carousel items -->
+	                          <div class="carousel-inner">
+	                            <div class="item">
+	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
+	                            </div>
+	                            <div class="item">
+	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
+	                            </div>
+	                            <div class="item active">
+	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
+	                            </div>
+	                          </div>
+	                          <!-- Carousel nav -->
+	                          <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+	                            <i class="fa fa-angle-left"></i>
+	                          </a>
+	                          <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+	                            <i class="fa fa-angle-right"></i>
+	                          </a>
+	                        </div>                
+	                      </div>
+	                      <!-- END CAROUSEL -->             
+	                    </div>
+	                    
+	                    <div class="col-md-8 col-sm-8">
+	                      <h2><a href="team_detail.do">${tmp.name }</a></h2>
+	                      <ul class="blog-info">
+	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 ${tmp.win }</li>
+	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패 ${tmp.lose }</li>
+	                        <li><i class="fa fa-tags"></i> 총경기 : ${tmp.total }</li>
+	                        <li><i class="fa fa-tags"></i> 홈그라운드 : ${tmp.ground }</li>                        
+	                      </ul>
+	                      <p>${tmp.content }</p>
+	                      <a href="team_detail.do" class="more">팀정보보기 <i class="icon-angle-right"></i></a>
+	                    </div>
+	                  </div>
+            	      <hr class="blog-post-sep">
+	                  
+	              </c:forEach>
+	              
                   <ul class="pagination">
                     <li><a href="javascript:;">Prev</a></li>
                     <li><a href="javascript:;">1</a></li>
