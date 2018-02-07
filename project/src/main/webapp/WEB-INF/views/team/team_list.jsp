@@ -101,7 +101,6 @@
                   </ul>               
                 </div>
                 <!-- END LEFT SIDEBAR -->
-                        <h3><a href="javascript:;">Letiusto gnissimos</a></h3>
     
               </div>
             </div>

@@ -6,7 +6,7 @@
                 <!-- BEGIN TOP BAR LEFT PART -->
                 <div class="col-md-6 col-sm-6 additional-shop-info">
                     <ul class="list-unstyled list-inline">
-                        <li><i class="fa fa-phone"></i><span>+1 456 6717</span></li>
+                        <li><i class="fa fa-phone"></i><span>Project Team 4</span></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR LEFT PART -->
@@ -56,7 +56,7 @@
           <ul>
             <li><a href="${pageContext.request.contextPath}/team/team_list.do">Team</a></li>
             <li><a href="${pageContext.request.contextPath}/match/match_list.do">MATCH</a></li>
-            <li><a href="javascript:;">Ranking</a></li>
+            <li><a href="${pageContext.request.contextPath}/ranking/rank_list.do">Ranking</a></li>
             <li><a href="${pageContext.request.contextPath}/shop/shop-product-list.do">SHOP</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">Board</a>

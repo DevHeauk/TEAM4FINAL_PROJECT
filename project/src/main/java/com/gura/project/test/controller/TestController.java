@@ -69,6 +69,12 @@ public class TestController {
 	public String matchDetail(){
 		
 		return "match/match_detail";
+	}		
+	
+	@RequestMapping("/ranking/rank_list")
+	public String rankList(){
+		
+		return "ranking/rank_list";
 	}			
 		
 }

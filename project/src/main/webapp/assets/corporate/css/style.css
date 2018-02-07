@@ -2627,6 +2627,11 @@ Demo Utils
 	margin: 0 auto;
 }
 
+.team_member{border-left: 3px solid #dcdcdc; padding: 10px 0 10px 15px;}
+.team_member dt{font-size: 16px; padding-bottom: 5px; color: #333333;}
+.team_member dd{font-size: 16px; padding: 0 0 15px 20px; border-bottom: 1px solid #dcdcdc; max-width: 240px;}
+.team_member dt i{color: #e84d1c; margin-right: 5px;}
+
 .blog-info li {
   padding: 0;
   color: #555;
@@ -3192,3 +3197,15 @@ Styler Panel
 .fancybox-opened {
   z-index: 100001;
 }
+
+
+/* ranking */
+
+.rank_area{width: 30%; height: auto; float: left;}
+.rank_area .rank_box{width: 100%; height: auto;}
+.rank_area .rank_box .left_img{width: 25%; height: 200px; float: left;}
+.rank_area .rank_box .left_img img{width: 100%;}
+.rank_area .rank_box .right_text{width: 75%; height: auto; float: left;}
+
+
+.cf:after{content: ""; display: block; clear: both;}

@@ -64,23 +64,27 @@
                     </div>
                     <!-- END CAROUSEL -->             
                   </div>
-                  <h2><strong>팀소개</strong></h2>
-                  <p>${Homedto.content }</p>
-                  <p>홈그라운드 : ${Homedto.ground }</p>
+                  <h2><strong>${Homedto.name }</strong> 소개</h2>
                   <c:forEach var="tmp" items="${memberlist }">
-                  	<blockquote>
-	                    <i class="fa fa-user"></i><p>${tmp.id }</p>
-	                    <p><strong>${tmp.responsibility }</strong> &nbsp;&nbsp;&nbsp;포지션 : ${tmp.b_position},&nbsp; 구력 : ${tmp.career }년</p>
-                  	</blockquote> 
+	                  <dl class="team_member">
+	                  	<dt><i class="fa fa-user"></i> ${tmp.id } (${tmp.responsibility }</dt>
+	                  	<dd><span>포지션 : ${tmp.b_position}, 구력 : ${tmp.career }</dd>
+	                  </dl>
+	                  <dl class="team_member">
+	                  	<dt><i class="fa fa-user"></i> ${tmp.id } (${tmp.responsibility }</dt>
+	                  	<dd><span>포지션 : ${tmp.b_position}, 구력 : ${tmp.career }</dd>
+	                  </dl>
+	                  <dl class="team_member">
+	                  	<dt><i class="fa fa-user"></i> ${tmp.id } (${tmp.responsibility }</dt>
+	                  	<dd><span>포지션 : ${tmp.b_position}, 구력 : ${tmp.career }</dd>
+	                  </dl>	                  	                  
                   </c:forEach>
-                             
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-                  <p>Culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+                  <p>${Homedto.content }</p>                  
                   <ul class="blog-info">
-                    <li><i class="fa fa-user"></i> By admin</li>
-                    <li><i class="fa fa-calendar"></i> 25/07/2013</li>
-                    <li><i class="fa fa-comments"></i> 17</li>
-                    <li><i class="fa fa-tags"></i> Metronic, Keenthemes, UI Design</li>
+                    <li><i class="fa fa-user"></i> 팀이름</li>
+                    <li><i class="fa fa-home"></i> 에이콘</li>
+                    <li><i class="fa fa-tags"></i> 승 / 무 / 패</li>
+                    <li><i class="fa fa-tags"></i> 김응길, 유혁준, 이용규, 이준규</li>
                   </ul>
 
                </div>

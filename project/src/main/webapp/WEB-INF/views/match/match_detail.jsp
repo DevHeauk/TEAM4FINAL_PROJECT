@@ -266,7 +266,7 @@
     
     <div id="match-pop" style="display: none; max-width: 700px; min-width: 400px; text-align: center;">
 		<h3 style="padding: 20px 0">경기 기록</h3>
-		<form action="pointinsert.do?homeTeam=${matchdto.homeTeam }" method="post">
+		<form action="pointinsert.do?homeTeam=${matchdto.homeTeam }&awayTeam=${matchdto.awayTeam}&num=${num}" method="post">
 			<table class="match_modal">
 				<thead>
 					<tr>
