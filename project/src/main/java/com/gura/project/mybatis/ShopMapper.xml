@@ -8,6 +8,9 @@
 			  FROM (SELECT num,title,price,content,remainCount,orgFileName,saveFileName,product_size,category,regdate
 			  		FROM shop4 
 			  		<where>
+			  			<if test="category != null">
+			  				OR category=#{category}
+			  			</if>
 						<if test="writer != null">
 							OR writer LIKE '%'||#{writer}||'%'
 						</if>
