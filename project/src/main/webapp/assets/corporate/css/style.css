@@ -1168,7 +1168,9 @@ steps block and steps block elements
 /* paginations */
 .pagination {
 	border-radius: 0;
-	margin: 0;
+	width: 315px;
+	margin: 20px auto;
+	display: block;
 }
 .pagination > li {
     display: inline-block;
@@ -2507,6 +2509,9 @@ Demo Utils
 }
 .blog-posts p {
   text-align: justify;
+  max-width: 650px;
+  height: 90px;
+  overflow: hidden;
 }
 .blog-posts .carousel {
   margin-bottom: 0;
@@ -2519,6 +2524,109 @@ Demo Utils
   margin: 15px 0 12px 0;
   padding-left:0;
 }
+
+.member_info{
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.member_info th{
+	background: #efefef;
+	color: #5c5c5c;
+	padding: 7px 0;
+	font-size: 15px;
+	text-align: center !important;		
+}
+
+
+.member_info td{
+	border-top: 1px solid #dcdcdc;
+	border-bottom: 1px solid #dcdcdc;
+	padding: 7px 0;
+	font-size: 15px;		
+}
+
+.member_info tr td:first-child{
+	border-right: 1px solid #dcdcdc;
+}
+
+.vs_info{
+	width: 100%;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.vs_info th{
+	background: #efefef;
+	color: #5c5c5c;
+	padding: 7px 0;
+	font-size: 15px;
+	text-align: center !important;		
+}
+
+.vs_info td{
+	border-top: 1px solid #dcdcdc;
+	border-bottom: 1px solid #dcdcdc;
+	padding: 7px 0;
+	font-size: 15px;	
+}
+
+.vs_info tr td:first-child{
+	border-right: 1px solid #dcdcdc;
+}
+
+@media (max-width: 1200px){
+	.vs_info_lg .vs_info{margin-top: 11px;}
+}
+
+@media (max-width: 990px){
+	.vs_info_lg .vs_info{margin-top: -28px;}
+}
+
+@media (min-width: 768px){
+	.vs_info_lg{display: block; text-align: center;}
+	.vs_info_xs{display: none; text-align: center;}
+}
+
+@media (max-width: 767px){
+	.vs_info_lg{display: none; text-align: center;}
+	.vs_info_xs{display: block; text-align: center; border-top: 1px solid #dcdcdc; margin-top: 20px;}	
+}
+
+.match_modal{
+	width: 100%;
+	text-align: center;
+	
+}
+
+.match_modal th{
+	border-bottom: 1px solid #dcdcdc;
+	font-size: 15px;
+	padding: 5px 0;
+	text-align: center;
+	height: 50px;	
+}
+
+.match_modal td{
+	font-size: 15px;
+	padding: 5px 0;
+	height: 40px;	
+}
+
+.match_modal tr th:first-child{
+	border-right: 1px solid #dcdcdc;
+}
+
+.match_modal tr td:first-child{
+	border-right: 1px solid #dcdcdc;
+}
+
+.match_modal .form-control{
+	width: 80%;
+	margin: 0 auto;
+}
+
 .blog-info li {
   padding: 0;
   color: #555;

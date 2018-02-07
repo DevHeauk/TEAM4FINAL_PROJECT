@@ -83,7 +83,7 @@
                     <li><i class="fa fa-tags"></i> Metronic, Keenthemes, UI Design</li>
                   </ul>
 
-               
+               </div>
                 
               </div>
             </div>

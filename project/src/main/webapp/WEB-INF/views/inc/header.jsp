@@ -55,7 +55,7 @@
         <div class="header-navigation">
           <ul>
             <li><a href="${pageContext.request.contextPath}/team/team_list.do">Team</a></li>
-            <li><a href="javascript:;">MATCH</a></li>
+            <li><a href="${pageContext.request.contextPath}/match/match_list.do">MATCH</a></li>
             <li><a href="javascript:;">Ranking</a></li>
             <li><a href="${pageContext.request.contextPath}/shop/shop-product-list.do">SHOP</a></li>
             <li class="dropdown">
