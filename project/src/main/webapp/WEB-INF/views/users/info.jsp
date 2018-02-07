@@ -80,7 +80,7 @@
 							</tr>
 							<tr>
 								<th class="tg">구력</th>
-								<td class="tg">${dto.career }</td>
+								<td class="tg">${dto.career } 년</td>
 							</tr>	
 							<tr>
 								<th class="tg">돈</th>

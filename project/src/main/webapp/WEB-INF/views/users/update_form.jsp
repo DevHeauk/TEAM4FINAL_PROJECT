@@ -39,7 +39,7 @@
             <h1>Create an account</h1>
             <div class="content-form-page">
               <div class="row" style="padding: 50px 0;">
-                <div class="col-md-7 col-sm-7">
+                <div class="col-md-7 col-sm-7" ng-app>
                   <form action="update.do" method="post" id="updateForm" class="form-horizontal" role="form">
 					<input type="hidden" name="id" value="${dto.id }"/>                  
                     <fieldset>
@@ -51,10 +51,11 @@
                       </div>
                       <div class="form-group">
                         <label for="pwd" class="col-lg-4 control-label">Password <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="hidden" class="form-control" id="pwd" name="pwd" value="${dto.pwd }">
-                          <input type="password" class="form-control" id="pwd" name="pwd" required="required"><br />
-                          <input type="password" class="form-control" id="pwd2" name="pwd" required="required">
+                        <div class="col-lg-8" ng-class="{'has-success': myForm.pwd.$valid, 'has-error': myForm.pwd.$invalid && myForm.pwd.$dirty">
+                          <input type="password" class="form-control" id="pwd" name="pwd" required="required" ng-model="pwd" ng-minlength="6" required="required"><br />
+                          <span ng-show="myForm.pwd.$error.minlength && myForm.pwd.$dirty" class="help-block">최소 6글자 이상으로 입력하세요.</span>
+                          <input type="password" class="form-control" id="pwd2" name="pwd" required="required" ng-model="pwd2" ng-minlength="6" required="required">
+                          <span ng-show="myForm.pwd2.$error.minlength && myForm.pwd2.$dirty" class="help-block">최소 6글자 이상으로 입력하세요.</span>
                         </div>
                       </div>
                       <div class="form-group">
@@ -64,7 +65,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="addr01" class="col-lg-4 control-label">Address</label>
+                        <label for="addr01" class="col-lg-4 control-label">Address <span class="require">*</span></label>
                         <div class="col-lg-8">
 					    <input type="text" name="addr01" id="addr01" class="form-control" placeholder="우편번호"  value="${dto.addr01 }" required="required"><br />
 						<input type="text" name="addr02" id="addr02" class="form-control" placeholder="주소"  value="${dto.addr02 }" required="required"><br />
@@ -73,13 +74,13 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="b_position" class="col-lg-4 control-label" >Position </label>
+                        <label for="b_position" class="col-lg-4 control-label" >Position <span class="require">*</span></label>
                         <div class="col-lg-8">
                           <input type="text" class="form-control" id="b_position" name="b_position" value="${dto.b_position }" required="required">
                         </div>
                       </div>    
                       <div class="form-group">
-                        <label for="career" class="col-lg-4 control-label">career </label>
+                        <label for="career" class="col-lg-4 control-label">career <span class="require">*</span></label>
                         <div class="col-lg-8">
                           <input type="text" class="form-control" id="career" name="career" value="${dto.career }" required="required">
                         </div>
@@ -112,7 +113,9 @@
       </div>
     </div>
     <%@ include file="../inc/footer.jsp" %>
-
+    
+    <%@ include file="../inc/footer_script.jsp" %>
+    
 	<script>
 		document.querySelector("#updateForm")
 		.addEventListener("submit", function(event){
@@ -167,9 +170,8 @@
 	            }
 	        }).open();
 	    }
-	</script>	
-
-    <%@ include file="../inc/footer_script.jsp" %>
+	</script>	    
+    
     <script type="text/javascript">
         jQuery(document).ready(function() {
             Layout.init();

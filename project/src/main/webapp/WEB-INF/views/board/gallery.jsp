@@ -41,113 +41,61 @@
                 <div class="filter-v1">
                   <ul class="mix-filter">
                     <li data-filter="all" class="filter active">All</li>
-                    <li data-filter="category_1" class="filter">UI Design</li>
-                    <li data-filter="category_2" class="filter">Web Development</li>
-                    <li data-filter="category_3" class="filter">Photography</li>
-                    <li data-filter="category_3 category_1" class="filter">Wordpress and Logo</li>
+                    <li data-filter="category_1" class="filter">Team</li>
+                    <li data-filter="category_2" class="filter">Game</li>
+                    <li data-filter="category_3" class="filter">Free</li>
+                    <li class="pull-right"><a href="gallery_insert.do">글 쓰기</a></li>
                   </ul>
-                              <div class="row mix-grid thumbnails">
-                                  <div class="col-md-3 col-sm-4 mix category_1 mix_all" style="display: block; opacity: 1; ">
-                                    <div class="mix-inner">
-                                       <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img1.jpg" class="img-responsive">
-                                       <div class="mix-details">
-                                          <h4>Cascusamus et iusto odio</h4>
-                                          <a class="mix-link"><i class="fa fa-link"></i></a>
-                                          <a data-rel="fancybox-button" title="Project Name" href="${pageContext.request.contextPath}/assets/pages/img/works/img1.jpg" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
-                                       </div>           
-                                    </div>                       
-                                  </div>
-                                  <div class="col-md-3 col-sm-4 mix category_2 mix_all" style="display: block; opacity: 1; ">
-                                       <div class="mix-inner">
-                                          <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img2.jpg" class="img-responsive">
-                                          <div class="mix-details">
-                                             <h4>Cascusamus et iusto accusamus</h4>
-                                             <a class="mix-link"><i class="fa fa-link"></i></a>
-                                             <a data-rel="fancybox-button" title="Project Name" href="${pageContext.request.contextPath}/assets/pages/img/works/img2.jpg" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
-                                          </div>               
-                                       </div>                    
-                                  </div>
-                                  <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
-                                       <div class="mix-inner">
-                                          <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img3.jpg" class="img-responsive">
-                                          <div class="mix-details">
-                                             <h4>Cascusamus et iusto accusamus</h4>
-                                             <a class="mix-link"><i class="fa fa-link"></i></a>
-                                             <a data-rel="fancybox-button" title="Project Name" href="${pageContext.request.contextPath}/assets/pages/img/works/img3.jpg" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
-                                          </div>              
-                                      </div>      
-                                  </div>
-                                  <div class="col-md-3 col-sm-4 mix category_1 category_2 mix_all" style="display: block; opacity: 1; ">
-                                       <div class="mix-inner">
-                                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img4.jpg" class="img-responsive">
-                                         <div class="mix-details">
-                                             <h4>Cascusamus et iusto accusamus</h4>
-                                             <a class="mix-link"><i class="fa fa-link"></i></a>
-                                             <a data-rel="fancybox-button" title="Project Name" href="${pageContext.request.contextPath}/assets/pages/img/works/img4.jpg" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>                            
-                                         </div>                  
-                                      </div>                      
-                                  </div>
-                                  <div class="col-md-3 col-sm-4 mix category_2 category_1 mix_all" style="display: block; opacity: 1; ">
-                                    <div class="mix-inner">
-                                      <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img5.jpg" class="img-responsive">
-                                      <div class="mix-details">
-                                          <h4>Cascusamus et iusto accusamus</h4>
-                                          <a class="mix-link"><i class="fa fa-link"></i></a>
-                                          <a data-rel="fancybox-button" title="Project Name" href="${pageContext.request.contextPath}/assets/pages/img/works/img5.jpg" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>                            
-                                      </div>     
-                                      </div>                                   
-                                  </div>
-                                  <div class="col-md-3 col-sm-4 mix category_1 category_2 mix_all" style="display: block; opacity: 1; ">
-                                    <div class="mix-inner">
-                                      <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img6.jpg" class="img-responsive">
-                                      <div class="mix-details">
-                                          <h4>Cascusamus et iusto accusamus</h4>
-                                          <a class="mix-link"><i class="fa fa-link"></i></a>
-                                          <a data-rel="fancybox-button" title="Project Name" href="${pageContext.request.contextPath}/assets/pages/img/works/img6.jpg" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>                            
-                                      </div>     
-                                      </div>                                   
-                                  </div>
-                                  <div class="col-md-3 col-sm-4 mix category_2 category_3 mix_all" style="display: block; opacity: 1; ">
-                                    <div class="mix-inner">
-                                      <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img1.jpg" class="img-responsive">
-                                      <div class="mix-details">
-                                          <h4>Cascusamus et iusto accusamus</h4>
-                                          <a class="mix-link"><i class="fa fa-link"></i></a>
-                                          <a data-rel="fancybox-button" title="Project Name" href="${pageContext.request.contextPath}/assets/pages/img/works/img1.jpg" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>                            
-                                      </div>    
-                                      </div>                                    
-                                  </div>
-                                  <div class="col-md-3 col-sm-4 mix category_1 category_2 mix_all" style="display: block; opacity: 1; ">
-                                    <div class="mix-inner">
-                                      <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img2.jpg" class="img-responsive">
-                                      <div class="mix-details">
-                                          <h4>Cascusamus et iusto accusamus</h4>
-                                          <a class="mix-link"><i class="fa fa-link"></i></a>
-                                          <a data-rel="fancybox-button" title="Project Name" href="${pageContext.request.contextPath}/assets/pages/img/works/img2.jpg" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>                            
-                                      </div>   
-                                      </div>                                     
-                                  </div>
-                                  <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
-                                    <div class="mix-inner">
-                                      <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img4.jpg" class="img-responsive">
-                                      <div class="mix-details">
-                                          <h4>Cascusamus et iusto accusamus</h4>
-                                          <a class="mix-link"><i class="fa fa-link"></i></a>
-                                          <a data-rel="fancybox-button" title="Project Name" href="${pageContext.request.contextPath}/assets/pages/img/works/img4.jpg" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>                            
-                                      </div>    
-                                      </div>                                    
-                                  </div>
-                                  <div class="col-md-3 col-sm-4 mix category_1 mix_all" style="display: block; opacity: 1; ">
-                                    <div class="mix-inner">
-                                      <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/works/img3.jpg" class="img-responsive">
-                                      <div class="mix-details">
-                                          <h4>Cascusamus et iusto accusamus</h4>
-                                          <a class="mix-link"><i class="fa fa-link"></i></a>
-                                          <a data-rel="fancybox-button" title="Project Name" href="${pageContext.request.contextPath}/assets/pages/img/works/img3.jpg" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
-                                      </div> 
-                                      </div>                                       
-                                  </div>
-                              </div>
+	              <div class="row mix-grid thumbnails">              
+	              
+	              	  <c:forEach var="tmp" items="${listTeam }">
+		                  <div class="col-md-3 col-sm-4 mix category_1 mix_all" style="display: block; opacity: 1; ">
+		                    <div class="mix-inner">
+		                       <img alt="" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive">
+		                       <div class="mix-details">
+		                          <h4>${tmp.title }</h4>
+		                          <a class="mix-link"><i class="fa fa-link"></i></a>
+		                          <a data-rel="fancybox-button" title="작성자 : ${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
+								  <c:if test="${id eq tmp.writer }">
+			                          <a href="javascript:deleteConfirm(${tmp.num })" class="mix-link" style="width: 41px; margin-top: 60px; left: 50%; margin-left: -22px;"><i class="fa fa-trash-o"></i></a>						  
+							      </c:if>			                          
+		                       </div>           
+		                    </div>                       
+		                  </div>
+	                  </c:forEach>
+	                  
+	              	  <c:forEach var="tmp" items="${listGame }">
+		                  <div class="col-md-3 col-sm-4 mix category_2 mix_all" style="display: block; opacity: 1; ">
+		                    <div class="mix-inner">
+		                       <img alt="" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive">
+		                       <div class="mix-details">
+		                          <h4>${tmp.title }</h4>
+		                          <a class="mix-link"><i class="fa fa-link"></i></a>
+		                          <a data-rel="fancybox-button" title="작성자 : ${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
+								  <c:if test="${id eq tmp.writer }">
+			                          <a href="javascript:deleteConfirm(${tmp.num })" class="mix-link" style="width: 41px; margin-top: 60px; left: 50%; margin-left: -22px;"><i class="fa fa-trash-o"></i></a>						  
+							      </c:if>			                          
+		                       </div>           
+		                    </div>                       
+		                  </div>
+	                  </c:forEach>
+	                  
+	              	  <c:forEach var="tmp" items="${listFree }">
+		                  <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
+		                    <div class="mix-inner">
+		                       <img alt="" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive">
+		                       <div class="mix-details">
+		                          <h4>${tmp.title }</h4>
+		                          <a class="mix-link"><i class="fa fa-link"></i></a>
+		                          <a data-rel="fancybox-button" title="작성자 : ${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
+								  <c:if test="${id eq tmp.writer }">
+			                          <a href="javascript:deleteConfirm(${tmp.num })" class="mix-link" style="width: 41px; margin-top: 60px; left: 50%; margin-left: -22px;"><i class="fa fa-trash-o"></i></a>						  
+							      </c:if>			                          
+		                       </div>           
+		                    </div>                       
+		                  </div>
+	                  </c:forEach>	                  	                  
+	              </div>
               </div>
             </div>
           </div>
@@ -159,6 +107,16 @@
     <%@ include file="../inc/footer.jsp" %>
     
     <%@ include file="../inc/footer_script.jsp" %>
+    
+	<script>		
+		function deleteConfirm(num){
+			var result=confirm(num+" 번 파일을 삭제 하시겠습니까?");
+			if(result){
+				location.href="delete.do?num="+num;
+			}
+		}
+	</script>    
+    
     <script src="${pageContext.request.contextPath}/assets/pages/scripts/portfolio.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/assets/plugins/jquery-mixitup/jquery.mixitup.min.js" type="text/javascript"></script>        
     <script type="text/javascript">

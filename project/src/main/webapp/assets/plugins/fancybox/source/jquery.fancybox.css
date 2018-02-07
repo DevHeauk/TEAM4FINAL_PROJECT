@@ -48,6 +48,12 @@
 	position: relative;
 }
 
+.fancybox-outer{
+	padding-top: 15px;
+	margin-top: 25px;
+	border-top: 1px solid #8c8c8c;
+}
+
 .fancybox-inner {
 	overflow: hidden;
 }
@@ -201,6 +207,10 @@
 
 .fancybox-opened .fancybox-title {
 	visibility: visible;
+	position: absolute;
+	top: 3px;
+	font-size: 15px;
+	right: 20px;
 }
 
 .fancybox-title-float-wrap {

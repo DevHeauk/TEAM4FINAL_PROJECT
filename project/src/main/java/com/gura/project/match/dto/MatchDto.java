@@ -7,7 +7,9 @@ public class MatchDto {
 	private int awayPoint;
 	private String matchDate;
 	private String ground;
+	
 	public MatchDto(){}
+	
 	public MatchDto(String homeTeam, String awayTeam, int homePoint, int awayPoint, String matchDate, String ground) {
 		super();
 		this.homeTeam = homeTeam;

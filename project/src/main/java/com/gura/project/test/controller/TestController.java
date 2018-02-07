@@ -23,8 +23,6 @@ public class TestController {
 		return "shop/shop_insert";
 	}
 	
-	
-	
 	@RequestMapping("/team/team_detail")
 	public String teamDetail(){
 		
@@ -42,12 +40,6 @@ public class TestController {
 		
 		return "board/faq";
 	}
-	
-	@RequestMapping("/board/gallery")
-	public String gallery(){
-		
-		return "board/gallery";
-	}	
 	
 	@RequestMapping("/search/search")
 	public String search(){
