@@ -18,8 +18,8 @@ public class ShopDaoImpl implements ShopDao{
 	private SqlSession session;
 	
 	@Override
-	public List<ShopDto> getList() {
-		List<ShopDto> list=session.selectList("shop.getList");
+	public List<ShopDto> getList(ShopDto dto) {
+		List<ShopDto> list=session.selectList("shop.getList", dto);
 		return list;
 	}
 
@@ -63,6 +63,10 @@ public class ShopDaoImpl implements ShopDao{
 	}
 
 	@Override
+	public int getCount(ShopDto dto) {
+		int count=session.selectOne("shop.getCount", dto);
+		return count;
+	}
 	public void cart_insert(ShopDto dto) {
 		session.insert("shop.cartInsert", dto);
 		

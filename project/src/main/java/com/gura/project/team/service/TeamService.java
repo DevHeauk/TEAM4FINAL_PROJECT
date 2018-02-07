@@ -12,4 +12,5 @@ public interface TeamService {
 	public ModelAndView list(HttpServletRequest request);
 	public ModelAndView joinconfirm(HttpServletRequest request);
 	public ModelAndView join(HttpServletRequest request);
+
 }

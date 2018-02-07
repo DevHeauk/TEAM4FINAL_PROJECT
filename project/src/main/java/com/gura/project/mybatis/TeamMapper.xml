@@ -28,17 +28,17 @@
 		values (#{jointeam},#{joinid})
 	</insert> 
 	<update id="joinupdate" parameterType="TeamDto">
-		UPDATE users
+		UPDATE users4
 		SET team=#{jointeam},responsibility='player'
 		WHERE id=#{joinid}
 	</update>
 	<select id="memberliset" parameterType="TeamDto" resultType="usersDto">
 		select id
-		from users
+		from users4
 		where team=#{name}
 	</select>
 	<update id="leader_update" parameterType="TeamDto">
-		update users
+		update users4
 		set team=#{name},responsibility='leader'
 		where id=#{member}
 	</update>
@@ -46,6 +46,20 @@
 		select awayteam
 		from matching
 		where hometeam=#{homeTeam}
+	</select>
+	<delete id="joindelete" parameterType="teamDto">
+		delete from joinlist
+		where joinid=#{joinid}
+	</delete>
+	<select id="joininfo" parameterType="usersDto" resultType="usersDto">
+		select id, name ,career ,b_position
+		from users4
+		where id=#{id}
+	</select>
+	<select id="awayteaminfo" parameterType="MatchDto" resultType="teamDto">
+		select name,win,lose,total,ground,leader
+		from team
+		where name=#{awayteam}
 	</select>
 </mapper>
 

@@ -18,12 +18,17 @@ public class ShopDto {
 	private String client_id;
 	private MultipartFile file;
 	private String category;
+	private int startRowNum;
+	private int endRowNum;
+	private int prevNum;
+	private int nextNum;
 	
 	public ShopDto() {}
 
 	public ShopDto(int num, String title, String writer, int price, String content, int remainCount, int product_count,
 			String orgFileName, String saveFileName, long fileSize, String product_size, String regdate,
-			String client_id, MultipartFile file, String category) {
+			String client_id, MultipartFile file, String category, int startRowNum, int endRowNum, int prevNum,
+			int nextNum) {
 		super();
 		this.num = num;
 		this.title = title;
@@ -40,6 +45,10 @@ public class ShopDto {
 		this.client_id = client_id;
 		this.file = file;
 		this.category = category;
+		this.startRowNum = startRowNum;
+		this.endRowNum = endRowNum;
+		this.prevNum = prevNum;
+		this.nextNum = nextNum;
 	}
 
 	public int getNum() {
@@ -162,7 +171,35 @@ public class ShopDto {
 		this.category = category;
 	}
 
-	
+	public int getStartRowNum() {
+		return startRowNum;
+	}
 
-	
+	public void setStartRowNum(int startRowNum) {
+		this.startRowNum = startRowNum;
+	}
+
+	public int getEndRowNum() {
+		return endRowNum;
+	}
+
+	public void setEndRowNum(int endRowNum) {
+		this.endRowNum = endRowNum;
+	}
+
+	public int getPrevNum() {
+		return prevNum;
+	}
+
+	public void setPrevNum(int prevNum) {
+		this.prevNum = prevNum;
+	}
+
+	public int getNextNum() {
+		return nextNum;
+	}
+
+	public void setNextNum(int nextNum) {
+		this.nextNum = nextNum;
+	}
 }

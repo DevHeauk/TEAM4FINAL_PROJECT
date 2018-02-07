@@ -18,6 +18,9 @@ public interface TeamDao {
 	public List<UsersDto> teamMemberList(TeamDto dto);
 	public void leader_upadte(TeamDto dto);
 	public List<MatchDto> awayteam(MatchDto matchDto);
+	public void joindelete (TeamDto dto);
+	public List<UsersDto> joininfo(List<TeamDto> list);
+	public List<TeamDto> awayteaminfo(List<MatchDto> awayteamlist);
 	
 	
 	

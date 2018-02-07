@@ -6,7 +6,7 @@
 		values (#{homeTeam},#{awayTeam},#{matchDate},#{ground},'false')
 	</insert>
 	<select id="getawayteam" parameterType="String" resultType="String">
-		select team
+		select team 
 		from users
 		where id=#{id}
 	</select>
