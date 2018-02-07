@@ -36,7 +36,7 @@
     <!-- BEGIN HEADER -->
     <div class="header">
       <div class="container">
-        <a class="site-logo" href="${pageContext.request.contextPath}/home.do"><img src="${pageContext.request.contextPath}/assets/corporate/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
+        <a class="site-logo" href="${pageContext.request.contextPath}/home.do"><img src="${pageContext.request.contextPath}/assets/corporate/img/logos/logo-game-red.png" alt="Metronic Shop UI"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
