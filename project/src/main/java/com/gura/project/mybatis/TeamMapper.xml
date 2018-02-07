@@ -51,10 +51,10 @@
 		delete from joinlist
 		where joinid=#{joinid}
 	</delete>
-	<select id="joininfo" parameterType="usersDto" resultType="usersDto">
+	<select id="joininfo" parameterType="teamDto" resultType="usersDto">
 		select id, name ,career ,b_position
 		from users4
-		where id=#{id}
+		where id=#{joinid}
 	</select>
 </mapper>
 

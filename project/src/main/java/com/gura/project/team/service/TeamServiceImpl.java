@@ -30,20 +30,26 @@ public class TeamServiceImpl implements TeamService{
 
 	@Override
 	public ModelAndView detail(HttpServletRequest request) {
-		TeamDto dto=new TeamDto();
 		MatchDto matchdto=new MatchDto();
 		//team detail 정보를얻어온다
+		//HomeTeam 이름.
 		String name=request.getParameter("name");
-		dto.setName(name);
+		
+		
 		matchdto.setHomeTeam(name);
+		//HomeTeam의 데이타를 얻어온다.
+		TeamDto dto=new TeamDto();
+		dto.setName(name);
 		TeamDto resultDto=teamdao.getData(dto);
+		//HomeTeam의 멤버리스트를 얻어온다. 
 		List<UsersDto> memberlist=teamdao.teamMemberList(dto);
-		//join id를 가져온다
+		//팀가입 신청목록 가져온다. (joinlist에서 얻어온다.)
 		List<TeamDto> list=teamdao.joining_data(dto);
+		//HomeTeam에 가입신청한 사람들의 정보를 List로 얻어온다. 
 		List<UsersDto> joininfo=teamdao.joininfo(list);
+		
 		List<MatchDto> matchdtoList=teamdao.awayteam(matchdto);
-		
-		
+			
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("dto", resultDto);
 		mView.addObject("joininfo", joininfo);
@@ -60,8 +66,6 @@ public class TeamServiceImpl implements TeamService{
 		mView.addObject("list", list);
 		return mView;
 	}
-
-	
 
 	@Override
 	public ModelAndView joinconfirm(HttpServletRequest request) {

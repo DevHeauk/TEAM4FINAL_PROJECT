@@ -83,7 +83,7 @@
 	                        <li><i class="fa fa-tags"></i> 홈그라운드 : ${tmp.ground }</li>                        
 	                      </ul>
 	                      <p>${tmp.content }</p>
-	                      <a href="team_detail.do" class="more">팀정보보기 <i class="icon-angle-right"></i></a>
+	                      <a href="detail.do?name=${tmp.name }" class="more">팀정보보기 <i class="icon-angle-right"></i></a>
 	                    </div>
 	                  </div>
             	      <hr class="blog-post-sep">

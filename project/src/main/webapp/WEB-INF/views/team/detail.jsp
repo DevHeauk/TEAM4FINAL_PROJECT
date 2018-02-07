@@ -25,7 +25,6 @@
     	<a href="joiningconfirm.do?id=${id}&name=${dto.name}">팀가입</a>
     </c:if>
     <c:if test="${sessionScope.id ne dto.member }">
-
 	<button class="btn btn-info" data-target="#matching" data-toggle="modal">매칭신청</button><br/>
 	<button class="btn btn-info" data-target="#awayteamimfo" data-toggle="modal">상대정보</button><br/>
 
@@ -36,14 +35,12 @@
     <c:forEach var="tmp" items="${joininfo}">
 		<button class="btn btn-info" data-target="#joininfo" data-toggle="modal">${tmp.id}</button>
 		<br/>
-	</c:forEach>
-	
-	
+	</c:forEach>	
 	<!-- 매칭 리스트 -->
 	<p>매칭리스트</p>
 	<c:forEach var="tmp" items="${matchdtoList}">
 		<button class="btn btn-info" data-target="#awayteamimfo${tmp.awayTeam }" data-toggle="modal">${tmp.awayTeam}</button><br/>
-		
+				
 	</c:forEach>
 		
 		

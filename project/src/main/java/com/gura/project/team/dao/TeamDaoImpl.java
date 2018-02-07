@@ -42,13 +42,7 @@ public class TeamDaoImpl implements TeamDao {
 		return  session.selectList("team.join_user_getdata", joindto);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	@Override
 	public List<TeamDto> teamList() {
 		
@@ -88,6 +82,7 @@ public class TeamDaoImpl implements TeamDao {
 	public List<UsersDto> joininfo(List<TeamDto> list) {
 		
 		List<UsersDto> joininfolist= new ArrayList<>();
+		//tmp.getJoinid = HomeTeam에 가입신청한 사람들의 아이디
 		for(TeamDto tmp: list){
 			UsersDto dto = session.selectOne("joininfo",tmp.getJoinid());
 			joininfolist.add(dto);

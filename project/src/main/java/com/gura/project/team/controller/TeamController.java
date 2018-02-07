@@ -24,6 +24,7 @@ public class TeamController {
 		mView.setViewName("team/team_list");
 		return mView;
 	}
+	
 	@RequestMapping("/team/insertform")
 	public ModelAndView authinsertform(HttpServletRequest request){
 		ModelAndView mView=new ModelAndView();
@@ -40,11 +41,11 @@ public class TeamController {
 		mView.setViewName("redirect:/team/team_list.do");
 		return mView;
 	}
+	
 	@RequestMapping("/team/detail")
 	public ModelAndView detail(HttpServletRequest request){
 		ModelAndView mView=teamService.detail(request);
 		mView.setViewName("team/detail");
-		
 		return mView;
 	}
 	
