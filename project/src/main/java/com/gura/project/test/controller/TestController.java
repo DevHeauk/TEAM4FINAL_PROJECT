@@ -17,12 +17,20 @@ public class TestController {
 		return "shop/product";
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping("/shop/shop_insert")
 	public String shopInsert(){
 		
 		return "shop/shop_insert";
 	}
 	
+=======
+	@RequestMapping("/shop/cart")
+	public String cart(){
+		
+		return "shop/cart";
+	}
+>>>>>>> EungGil
 	
 	
 	@RequestMapping("/team/team_detail")
@@ -37,12 +45,6 @@ public class TestController {
 		return "board/faq";
 	}
 	
-	@RequestMapping("/board/gallery")
-	public String gallery(){
-		
-		return "board/gallery";
-	}	
-	
 	@RequestMapping("/search/search")
 	public String search(){
 		
@@ -54,5 +56,11 @@ public class TestController {
 		
 		return "search/search_null";
 	}		
+	
+	@RequestMapping("/shop/order")
+	public String Order(){
+		
+		return "shop/order";
+	}			
 		
 }

@@ -94,7 +94,7 @@ public class UsersController {
 	}
 	
 	// 회원정보 수정
-	@RequestMapping("/suers/update")
+	@RequestMapping("/users/update")
 	public ModelAndView authUpdate(@ModelAttribute UsersDto dto, HttpServletRequest request){
 		service.update(dto);
 		
