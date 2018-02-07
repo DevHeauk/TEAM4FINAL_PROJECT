@@ -17,20 +17,11 @@ public class TestController {
 		return "shop/product";
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping("/shop/shop_insert")
 	public String shopInsert(){
 		
 		return "shop/shop_insert";
 	}
-	
-=======
-	@RequestMapping("/shop/cart")
-	public String cart(){
-		
-		return "shop/cart";
-	}
->>>>>>> EungGil
 	
 	
 	@RequestMapping("/team/team_detail")
