@@ -21,12 +21,12 @@ public class MatchController {
 	
 	@RequestMapping("/team/matchinsert")
 	public ModelAndView authmatchinsert (HttpServletRequest request,@ModelAttribute MatchDto dto){
-		
-		ModelAndView mView=new ModelAndView();
+		ModelAndView mView = new ModelAndView();
 		matchservice.applicationsMatch(request,dto);
 		mView.setViewName("redirect:/team/list.do");
 		return mView;
 	}
+	
 	@RequestMapping("/team/matchsuccess")
 	public ModelAndView authmatchsuccess(HttpServletRequest request){
 		ModelAndView mView=new ModelAndView();

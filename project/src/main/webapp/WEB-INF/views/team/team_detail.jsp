@@ -19,8 +19,11 @@
   <%@ include file="../inc/header_script.jsp" %>
 </head>
 <!-- Head END -->
+<script src="../resources/css/bootstrap.css"></script>
+<script src="../resources/js/bootstrap.min.js"></script>
 
 <!-- Body BEGIN -->
+
 <body class="ecommerce">
     <%@ include file="../inc/header.jsp" %>
 
@@ -65,12 +68,13 @@
                     <!-- END CAROUSEL -->             
                   </div>
                   <h2><strong>팀소개</strong></h2>
+                  <a href="#matching-pop-up" class="fancybox-fast-view"><button style="width:80px" class="btn btn-primary col-xs-offset-10 col-sm-offset-7">매칭신청</button></a>
                   <p>${Homedto.content }</p>
                   <p>홈그라운드 : ${Homedto.ground }</p>
                   <c:forEach var="tmp" items="${memberlist }">
-                  	<blockquote>
-	                    <i class="fa fa-user"></i><p>${tmp.id }</p>
-	                    <p><strong>${tmp.responsibility }</strong> &nbsp;&nbsp;&nbsp;포지션 : ${tmp.b_position},&nbsp; 구력 : ${tmp.career }년</p>
+                  	<blockquote >
+	                    <i style="font-color:#E84D1C" class="fa fa-user">&nbsp; &nbsp;${tmp.id }</i>
+	                    <p><strong>${tmp.responsibility }</strong> &nbsp;| &nbsp;&nbsp;포지션 : ${tmp.b_position} &nbsp;| &nbsp; 구력 : ${tmp.career }년</p>
                   	</blockquote> 
                   </c:forEach>
                              
@@ -91,6 +95,24 @@
           <!-- END CONTENT -->
         </div>
         <!-- END SIDEBAR & CONTENT -->
+        
+        <!-- MATCHING 팝업창 -->
+        <div id="matching-pop-up" style="display: none; width: 700px;">
+        	 <h2>경기 매칭</h2>
+        	 <form action="matchinsert.do" method="post">
+        	 	<div class="input-group">
+        	 		<label for="matchDate">경기날짜</label>
+                    <input type="date" name="matchDate" class="form-control" />
+                </div> 
+	        	<div class="form-group">
+	        	 <label for="ground">그라운드</label>
+	        	 <input class="form-control" type="text" name="ground" placeholder="그라운드를 입력해주세요"/>
+	            </div> 
+	            <button class="btn btn-primary pull-right" type="submit">신청하기</button>
+             </form>
+    	</div>
+    	
+    	</div>
       </div>
     </div>
     <%@ include file="../inc/footer.jsp" %>
@@ -98,13 +120,20 @@
     <%@ include file="../inc/footer_script.jsp" %>
     <script type="text/javascript">
         jQuery(document).ready(function() {
-            Layout.init();
+            Layout.init();    
+            Layout.initOWL();
             Layout.initTwitter();
+            Layout.initImageZoom();
+            Layout.initTouchspin();
+            Layout.initUniform();
+            Layout.initSliderRange();
             
             Layout.initFixHeaderWithPreHeader();
             Layout.initNavScrolling();                    
         });
+       
     </script>
+    
     <!-- END PAGE LEVEL JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
