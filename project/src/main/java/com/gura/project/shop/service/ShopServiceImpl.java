@@ -31,7 +31,7 @@ public class ShopServiceImpl implements ShopService{
 		
 		String keyword=request.getParameter("keyword");
 		String condition=request.getParameter("condition");
-		
+		String category=request.getParameter("category");
 		//글정보를 담을 ModelAndView 객체 
 		ModelAndView mView=new ModelAndView();
 		
@@ -81,7 +81,7 @@ public class ShopServiceImpl implements ShopService{
 		
 		dto.setStartRowNum(startRowNum);
 		dto.setEndRowNum(endRowNum);
-		
+		dto.setCategory(category);
 		List<ShopDto> list=shopDao.getList(dto);
 		
 		mView.addObject("list", list);

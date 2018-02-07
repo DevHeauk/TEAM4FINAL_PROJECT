@@ -43,9 +43,9 @@
           <!-- BEGIN SIDEBAR -->
           <div class="sidebar col-md-3 col-sm-5">
             <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>Shoes</a></li>
-              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>Uniforms</a></li>
-              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>Balls</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.do?category=농구화"><i class="fa fa-angle-right"></i>Shoes</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.do?category=농구복"><i class="fa fa-angle-right"></i>Uniforms</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.do?category=공"><i class="fa fa-angle-right"></i>Balls</a></li>
             </ul>
 
             <div class="sidebar-filter margin-bottom-25">
