@@ -21,8 +21,9 @@
 						<c:otherwise>
 	                        <li><a href="${pageContext.request.contextPath}/users/info.do">MyPage</a></li>
 	                        <li><a href="${pageContext.request.contextPath}/users/logout.do">Logout</a></li>						
-						</c:otherwise>
+						</c:otherwise>							
                     </c:choose>
+	                        <li><a href="${pageContext.request.contextPath}/shop/order.do">Order</a></li>	                    
                     </ul>
                 </div>
                 
