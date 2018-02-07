@@ -43,9 +43,9 @@
           <!-- BEGIN SIDEBAR -->
           <div class="sidebar col-md-3 col-sm-5">
             <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>옷</a></li>
-              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>신발</a></li>
-              <li class="list-group-item clearfix"><a href="#;"><i class="fa fa-angle-right"></i>공</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.do?category=농구화"><i class="fa fa-angle-right"></i>Shoes</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.do?category=농구복"><i class="fa fa-angle-right"></i>Uniforms</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.do?category=공"><i class="fa fa-angle-right"></i>Balls</a></li>
             </ul>
 
             <div class="sidebar-filter margin-bottom-25">
@@ -91,6 +91,9 @@
                 <a href="javascript:;"><i class="fa fa-th-large"></i></a>
                 <a href="javascript:;"><i class="fa fa-th-list"></i></a>
               </div>
+              <div class="pull-right">
+           	  	<a href="upload_form.do"><button class="btn btn-primary">상품올리기</button></a>
+           	  </div>
               <div class="col-md-10 col-sm-10">
                 <div class="pull-right">
                   <label class="control-label">Show:</label>
@@ -119,174 +122,65 @@
               </div>
             </div>
             <!-- BEGIN PRODUCT LIST -->
-            <div class="row product-list">
-              <!-- PRODUCT ITEM START -->
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${pageContext.request.contextPath}/assets/pages/img/products/model1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${pageContext.request.contextPath}/assets/pages/img/products/model1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+            <div class="row product-list">            
+               <c:forEach var="tmp" items="${list }">
+                    <!-- PRODUCT ITEM START -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                      <div class="product-item">
+                        <div class="pi-img-wrapper">
+                          <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive" alt="Berry Lace Dress">
+                          <div>
+                            <a href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="btn btn-default fancybox-button">Zoom</a>
+                            <a href="#product-pop-up${tmp.num }" class="btn btn-default fancybox-fast-view">View</a>
+                          </div>
+                        </div>
+                        <h3><a href="shop-item.do?num=${tmp.num }">${tmp.title }</a></h3>
+                        <div class="pi-price">${tmp.price }</div>
+                        <a href="cart.do?num=${tmp.num }&&id=${id}&&count=1" class="btn btn-default add2cart">Add to cart</a>
+                      </div>
                     </div>
-                  </div>
-                  <h3><a href="cart.do">Berry Lace Dress Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <!-- PRODUCT ITEM END -->
-              <!-- PRODUCT ITEM START -->
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${pageContext.request.contextPath}/assets/pages/img/products/model2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${pageContext.request.contextPath}/assets/pages/img/products/model2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="cart.do">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <!-- PRODUCT ITEM END -->
-              <!-- PRODUCT ITEM START -->
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${pageContext.request.contextPath}/assets/pages/img/products/model6.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${pageContext.request.contextPath}/assets/pages/img/products/model6.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="cart.do">Berry Lace Dress 2</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>              
-              <!-- PRODUCT ITEM END -->
-            </div>
-            <div class="row product-list">
-              <!-- PRODUCT ITEM START -->
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${pageContext.request.contextPath}/assets/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                        <a href="${pageContext.request.contextPath}/assets/pages/img/products/model4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="cart.do">Berry Lace Dress Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <!-- PRODUCT ITEM END -->
-              <!-- PRODUCT ITEM START -->
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${pageContext.request.contextPath}/assets/pages/img/products/model5.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                        <a href="${pageContext.request.contextPath}/assets/pages/img/products/model5.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="cart.do">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                  <div class="sticker sticker-new"></div>
-                </div>
-              </div>
-              <!-- PRODUCT ITEM END -->
-              <!-- PRODUCT ITEM START -->
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${pageContext.request.contextPath}/assets/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                        <a href="${pageContext.request.contextPath}/assets/pages/img/products/model3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="cart.do">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>              
-              <!-- PRODUCT ITEM END -->
-            </div>
-            <div class="row product-list">
-              <!-- PRODUCT ITEM START -->
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${pageContext.request.contextPath}/assets/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                        <a href="${pageContext.request.contextPath}/assets/pages/img/products/model7.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="cart.do">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <!-- PRODUCT ITEM END -->
-              <!-- PRODUCT ITEM START -->
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${pageContext.request.contextPath}/assets/pages/img/products/model1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                        <a href="${pageContext.request.contextPath}/assets/pages/img/products/model1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="cart.do">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <!-- PRODUCT ITEM END -->
-              <!-- PRODUCT ITEM START -->
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${pageContext.request.contextPath}/assets/pages/img/products/model2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                        <a href="${pageContext.request.contextPath}/assets/pages/img/products/model2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="cart.do">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                  <div class="sticker sticker-sale"></div>
-                </div>
-              </div>
-              <!-- PRODUCT ITEM END -->
-            </div>
+                    <!-- PRODUCT ITEM END -->
+               </c:forEach>
+           </div>
             <!-- END PRODUCT LIST -->
             <!-- BEGIN PAGINATOR -->
-            <div class="row">
-              <div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 total</div>
-              <div class="col-md-8 col-sm-8">
-                <ul class="pagination pull-right">
-                  <li><a href="javascript:;">&laquo;</a></li>
-                  <li><a href="javascript:;">1</a></li>
-                  <li><span>2</span></li>
-                  <li><a href="javascript:;">3</a></li>
-                  <li><a href="javascript:;">4</a></li>
-                  <li><a href="javascript:;">5</a></li>
-                  <li><a href="javascript:;">&raquo;</a></li>
-                </ul>
-              </div>
-            </div>
+           <ul class="pagination">
+		<c:choose>
+			<c:when test="${startPageNum ne 1 }">
+				<li>
+					<a href="shop-product-list.do?pageNum=${startPageNum-1 }&condition=${condition}&keyword=${keyword}">&laquo;</a>
+				</li>
+			</c:when>
+			<c:otherwise>
+				<li class="disabled">
+					<a href="javascript:">&laquo;</a>
+				</li>
+			</c:otherwise>
+		</c:choose>
+		<c:forEach var="i" begin="${startPageNum }" 
+				end="${endPageNum }">	
+			<c:choose>
+				<c:when test="${i eq pageNum }">
+					<li class="active"><a href="shop-product-list.do?pageNum=${i }&condition=${condition}&keyword=${keyword}">${i }</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="shop-product-list.do?pageNum=${i }&condition=${condition}&keyword=${keyword}">${i }</a></li>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		<c:choose>
+			<c:when test="${endPageNum lt totalPageCount }">
+				<li>
+					<a href="shop-product-list.do?pageNum=${endPageNum+1 }&condition=${condition}&keyword=${keyword}">&raquo;</a>
+				</li>
+			</c:when>
+			<c:otherwise>
+				<li class="disabled">
+					<a href="javascript:">&raquo;</a>
+				</li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
             <!-- END PAGINATOR -->
           </div>
           <!-- END CONTENT -->
@@ -298,33 +192,33 @@
     <%@ include file="../inc/footer.jsp" %>
 
     <!-- BEGIN fast view of a product -->
-    <div id="product-pop-up" style="display: none; width: 700px;">
+    <c:forEach var="tmp" items="${list }" begin="0" end="8">
+       <div id="product-pop-up${tmp.num }" style="display: none; width: 700px;">
             <div class="product-page product-pop-up">
               <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-3">
                   <div class="product-main-image">
-                    <img src="${pageContext.request.contextPath}/assets/pages/img/products/model7.jpg" alt="Cool green dress with red bell" class="img-responsive">
+                    <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" alt="Cool green dress with red bell" class="img-responsive">
                   </div>
                   <div class="product-other-images">
-                    <a href="javascript:;" class="active"><img alt="Berry Lace Dress" src="${pageContext.request.contextPath}/assets/pages/img/products/model3.jpg"></a>
-                    <a href="javascript:;"><img alt="Berry Lace Dress" src="${pageContext.request.contextPath}/assets/pages/img/products/model4.jpg"></a>
-                    <a href="javascript:;"><img alt="Berry Lace Dress" src="${pageContext.request.contextPath}/assets/pages/img/products/model5.jpg"></a>
+                    <a href="javascript:;" class="active"><img alt="Berry Lace Dress" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"></a>
+                    <a href="javascript:;"><img alt="Berry Lace Dress" src="../assets/pages/img/products/model4.jpg"></a>
+                    <a href="javascript:;"><img alt="Berry Lace Dress" src="../assets/pages/img/products/model5.jpg"></a>
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-9">
-                  <h1>Cool green dress with red bell</h1>
+                  <h1>${tmp.content }</h1>
                   <div class="price-availability-block clearfix">
                     <div class="price">
-                      <strong><span>$</span>47.00</strong>
-                      <em>$<span>62.00</span></em>
+                      <strong><span>$</span>${tmp.price*0.9 }</strong>
+                      <em>$<span>${tmp.price }</span></em>
                     </div>
                     <div class="availability">
                       Availability: <strong>In Stock</strong>
                     </div>
                   </div>
                   <div class="description">
-                    <p>Lorem ipsum dolor ut sit ame dolore  adipiscing elit, sed nonumy nibh sed euismod laoreet dolore magna aliquarm erat volutpat 
-Nostrud duis molestie at dolore.</p>
+                    <p>${tmp.content }</p>
                   </div>
                   <div class="product-page-options">
                     <div class="pull-left">
@@ -335,28 +229,26 @@ Nostrud duis molestie at dolore.</p>
                         <option>XL</option>
                       </select>
                     </div>
-                    <div class="pull-left">
-                      <label class="control-label">Color:</label>
-                      <select class="form-control input-sm">
-                        <option>Red</option>
-                        <option>Blue</option>
-                        <option>Black</option>
-                      </select>
-                    </div>
                   </div>
                   <div class="product-page-cart">
+                  <form action="cart.do">
                     <div class="product-quantity">
-                        <input id="product-quantity" type="text" value="1" readonly name="product-quantity" class="form-control input-sm">
+                    	<input type="hidden" name="num" value="${tmp.num }" />
+                    	<input type="hidden" name="id" value="${id}" />
+                        <input id="product-quantity" type="text" value="1" name="count" class="form-control input-sm">
                     </div>
-                    <button class="btn btn-primary" type="submit">Add to cart</button>
-                    <a href="cart.do" class="btn btn-default">More cart</a>
+                  	<button class="btn btn-primary" type="submit">구매하기</button>
+                    <!--  <a href="cart.do?num=${tmp.num }&id=${id }"><button class="btn btn-primary" type="submit">구매 하기</button></a>-->
+                    <a href="javascript:deleteCheck(${tmp.num })" class="btn btn-default">delete</a>
+                    </form>
                   </div>
                 </div>
 
                 <div class="sticker sticker-sale"></div>
               </div>
             </div>
-    </div>
+    	</div>
+    </c:forEach>
     <%@ include file="../inc/footer_script.jsp" %>
     <script type="text/javascript">
         jQuery(document).ready(function() {
@@ -371,6 +263,13 @@ Nostrud duis molestie at dolore.</p>
             Layout.initFixHeaderWithPreHeader();
             Layout.initNavScrolling();            
         });
+        
+        function deleteCheck(num){
+    		var isDelete=confirm("삭제 하시겠습니까?");
+    		if(isDelete){
+    			location.href="delete.do?num="+num;
+    		}
+    	}
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
 </body>

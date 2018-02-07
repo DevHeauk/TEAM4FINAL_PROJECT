@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team">
+	<select id="getList"  
+		resultType="teamDto">
+			select name,win,lose,total,ground,content
+			from team
+			ORDER BY win DESC
+	</select>
+	<insert id="insert" parameterType="TeamDto">
+		insert into team
+		(name,member,win,lose,total,ground,content,leader)
+		values(#{name},#{member},0,0,0,#{ground},#{content},#{member})
+	</insert>
+	<select id="getData" parameterType="TeamDto" resultType="TeamDto">
+		select name,member,win,lose,total,ground,content
+		from team
+		where name=#{name}
+	</select>
+	<select  id="joindata" parameterType="TeamDto" resultType="TeamDto">
+		select joinid
+		from joinlist
+		where jointeam=#{name}
+	</select>
+	<insert id="joinlist_insert" parameterType="TeamDto">
+		insert into joinlist
+		(jointeam,joinid)
+		values (#{jointeam},#{joinid})
+	</insert> 
+	<update id="joinupdate" parameterType="TeamDto">
+		UPDATE users4
+		SET team=#{jointeam},responsibility='player'
+		WHERE id=#{joinid}
+	</update>
+	<select id="memberliset" parameterType="TeamDto" resultType="usersDto">
+		select id,responsibility,b_position,career 
+		from users4
+		where team=#{name}
+	</select>
+	<update id="leader_update" parameterType="TeamDto">
+		update users4
+		set team=#{name},responsibility='leader'
+		where id=#{member}
+	</update>
+	<select id="awayteam" parameterType="MatchDto" resultType="MatchDto">
+		select awayteam
+		from matching
+		where hometeam=#{homeTeam}
+	</select>
+	<delete id="joindelete" parameterType="teamDto">
+		delete from joinlist
+		where joinid=#{joinid}
+	</delete>
+	<select id="joininfo" parameterType="teamDto" resultType="usersDto">
+		select id, name ,career ,b_position
+		from users4
+		where id=#{joinid}
+	</select>
+	<select id="awayteaminfo" parameterType="MatchDto" resultType="teamDto">
+		select name,win,lose,total,ground,leader
+		from team
+		where name=#{awayteam}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

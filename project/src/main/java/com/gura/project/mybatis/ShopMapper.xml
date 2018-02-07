@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop">
+	<select id="getList" parameterType="shopDto" 
+		resultType="shopDto">
+		SELECT *
+		FROM (SELECT result1.*,ROWNUM rnum
+			  FROM (SELECT num,title,price,content,remainCount,orgFileName,saveFileName,product_size,category,regdate
+			  		FROM shop4 
+			  		<where>
+			  			<if test="category != null">
+			  				OR category=#{category}
+			  			</if>
+						<if test="writer != null">
+							OR writer LIKE '%'||#{writer}||'%'
+						</if>
+						<if test="title != null">
+							OR title LIKE '%'||#{title}||'%'
+						</if>
+						<if test="content != null">
+							OR content LIKE '%'||#{content}||'%'
+						</if>
+					</where>	
+			  		ORDER BY num DESC) result1
+			  )
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}		
+	</select>
+	
+	
+	
+	<insert id="insert" parameterType="shopDto">
+		INSERT INTO shop4 (num,title,price,content,remainCount,orgFileName,saveFileName,fileSize,product_size,category, regdate)
+		VALUES(shop4_seq.NEXTVAL, #{title}, #{price}, #{content}, #{remainCount}, #{orgFileName}, #{saveFileName}, 
+		#{fileSize}, #{product_size},#{category}, SYSDATE)
+	</insert>
+	<select id="getData" resultType="shopDto" parameterType="int">
+		SELECT title,price,content,remainCount,orgFileName,saveFileName,product_size,category,regdate
+		FROM shop4
+		WHERE num=#{num}
+	</select>
+	<delete id="delete" parameterType="int">
+		DELETE FROM shop4
+		WHERE num=#{num}
+	</delete>
+
+	<select id="getCount" parameterType="shopDto"
+		resultType="int">
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM shop4
+		<where>
+			<if test="writer != null">
+				OR writer LIKE '%'||#{writer}||'%'
+			</if>
+			<if test="title != null">
+				OR title LIKE '%'||#{title}||'%'
+			</if>
+			<if test="content != null">
+				OR content LIKE '%'||#{content}||'%'
+			</if>
+		</where>	
+	</select>
+
+	<insert id="cartInsert" parameterType="shopDto">
+		INSERT INTO cart (num, product_name, id, product_count, price, total_price, saveFileName, regdate)
+		VALUES(cart_seq.NEXTVAL, #{title}, #{writer}, #{product_count}, #{price}, #{price}, #{saveFileName}, SYSDATE )
+	</insert>
+	
+	<select id="cartList" parameterType="String" resultType="com.gura.project.shop.dto.CartDto">
+		SELECT num, product_name, id, product_count, price, total_price, saveFileName, regdate
+		FROM cart
+		WHERE id=#{id}
+	</select>
+	
+	<delete id="cartDelete" parameterType="int">
+		DELETE FROM cart
+		WHERE num=#{num}
+	</delete>
+	<select id="getmoneyandpoint" parameterType="String" resultType="usersDto">
+		select money,point
+		from users4
+		where id=#{id}
+	</select>
+	<update id="setmoneyandpoint" parameterType="usersDto">
+		UPDATE users4
+		SET money=#{money},point=#{point}
+		WHERE id=#{id}
+	</update>
+	<select id="getPnameandPcount" parameterType="usersDto" resultType="com.gura.project.shop.dto.CartDto">
+		select product_name,product_count
+		from cart
+		where id=#{id}
+	</select>
+	<select id="getremaincount" parameterType="shopDto" resultType="shopDto">
+		select remaincount
+		from shop4
+		where title=#{title}
+	</select>
+	<update id="setremaincount" parameterType="shopDto">
+		update shop4
+		set remainCount=#{remainCount}
+		where title=#{title}
+	</update>
+	<delete id="cartdelete" parameterType="usersDto">
+		delete from cart
+		where id=#{id}
+	</delete>
+</mapper> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,6 +7,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias type="com.gura.project.users.dto.UsersDto" 
 				alias="usersDto"/>
+		<typeAlias type="com.gura.project.shop.dto.ShopDto" 
+				alias="shopDto"/>
+		<typeAlias type="com.gura.project.team.dto.TeamDto" 
+				alias="teamDto"/>
+		<typeAlias type="com.gura.project.match.dto.MatchDto" 
+				alias="MatchDto"/>				
 		<typeAlias type="com.gura.project.file.dto.FileDto" 
 				alias="fileDto"/>
 	</typeAliases>
@@ -14,8 +20,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- sql 문을 정의하고 있는 xml 문서 -->
 	<mappers>
 		<mapper resource="com/gura/project/mybatis/UsersMapper.xml"/>
+		<mapper resource="com/gura/project/mybatis/ShopMapper.xml"/>
+		<mapper resource="com/gura/project/mybatis/MatchMapper.xml"/>
+		<mapper resource="com/gura/project/mybatis/TeamMapper.xml"/>
 		<mapper resource="com/gura/project/mybatis/FileMapper.xml"/>
-
 	</mappers>	
 </configuration>
 

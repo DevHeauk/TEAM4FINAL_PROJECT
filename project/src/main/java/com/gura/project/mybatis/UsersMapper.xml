@@ -4,7 +4,7 @@
 	<insert id="insert" parameterType="usersDto">
 		INSERT INTO users4
 		(num, name, addr01, addr02, addr03, id, pwd, email, career, money, point, b_position, regdate)
-		VALUES(users3_seq.NEXTVAL, #{name}, #{addr01}, #{addr02}, #{addr03}, #{id}, #{pwd}, #{email}, #{career}, 0, 0, #{b_position}, SYSDATE)
+		VALUES(users4_seq.NEXTVAL, #{name}, #{addr01}, #{addr02}, #{addr03}, #{id}, #{pwd}, #{email}, #{career}, 0, 0, #{b_position}, SYSDATE)
 	</insert>
 	
 	<select id="isExistId" parameterType="string" resultType="string">

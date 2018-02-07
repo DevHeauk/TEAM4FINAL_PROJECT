@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="match">
+	<insert id="Matchinsert" parameterType="MatchDto">
+		insert into matching(hometeam,awayteam,matchdate,ground,successmatching)
+		values (#{homeTeam},#{awayTeam},#{matchDate},#{ground},'false')
+	</insert>
+	<select id="getawayteam" parameterType="String" resultType="String">
+		select team 
+		from users
+		where id=#{id}
+	</select>
+	<update id="successmatch" parameterType="String">
+		UPDATE matching
+		SET successmatching='true'
+		WHERE awayTeam=#{awayteam}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

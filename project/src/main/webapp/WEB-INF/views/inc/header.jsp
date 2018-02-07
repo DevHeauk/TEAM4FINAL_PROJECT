@@ -1,3 +1,4 @@
+   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
     <!-- BEGIN TOP BAR -->
     <div class="pre-header">
         <div class="container">
@@ -45,7 +46,7 @@
             <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
             <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
           </div>
-          <a href="${pageContext.request.contextPath}/shop/cart.do"><i class="fa fa-shopping-cart"></i></a>
+          <a href="${pageContext.request.contextPath}/shop/cartlist.do?id=${id }"><i class="fa fa-shopping-cart"></i></a>
                                
         </div>
         <!--END CART -->
@@ -56,7 +57,7 @@
             <li><a href="${pageContext.request.contextPath}/team/team_list.do">Team</a></li>
             <li><a href="javascript:;">MATCH</a></li>
             <li><a href="javascript:;">Ranking</a></li>
-            <li><a href="${pageContext.request.contextPath}/shop/product.do">SHOP</a></li>
+            <li><a href="${pageContext.request.contextPath}/shop/shop-product-list.do">SHOP</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">Board</a>
               <ul class="dropdown-menu">

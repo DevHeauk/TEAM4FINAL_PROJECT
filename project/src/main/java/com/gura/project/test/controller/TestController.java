@@ -17,16 +17,10 @@ public class TestController {
 		return "shop/product";
 	}
 	
-	@RequestMapping("/shop/cart")
-	public String cart(){
+	@RequestMapping("/shop/shop_insert")
+	public String shopInsert(){
 		
-		return "shop/cart";
-	}
-	
-	@RequestMapping("/team/team_list")
-	public String teamList(){
-		
-		return "team/team_list";
+		return "shop/shop_insert";
 	}
 	
 	@RequestMapping("/team/team_detail")
@@ -34,6 +28,12 @@ public class TestController {
 		
 		return "team/team_detail";
 	}	
+	
+	@RequestMapping("/team/team_list2")
+	public String teamList(){
+		
+		return "team/team_list";
+	}
 	
 	@RequestMapping("/board/faq")
 	public String faq(){
