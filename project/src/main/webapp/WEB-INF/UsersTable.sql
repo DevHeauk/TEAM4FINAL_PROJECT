@@ -117,3 +117,14 @@ regdate DATE
 
 CREATE SEQUENCE users4_seq;
 >>>>>>> EungGil:project/src/main/webapp/WEB-INF/UsersTable.sql
+
+
+CREATE TABLE product_order(
+title VARCHAR2(100),
+addr VARCHAR2(100),
+id VARCHAR2(50),
+product_count NUMBER,
+price NUMBER,
+saveFileName VARCHAR2(200),
+delivery_location VARCHAR2(50)
+);

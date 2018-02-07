@@ -1,6 +1,7 @@
 package com.gura.project.shop.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.shop.dao.ShopDao;
 import com.gura.project.shop.dto.CartDto;
+import com.gura.project.shop.dto.Product_OrderDto;
 import com.gura.project.shop.dto.ShopDto;
+import com.gura.project.users.dao.UsersDao;
 import com.gura.project.users.dto.UsersDto;
 
 @Repository
@@ -21,11 +24,13 @@ public class ShopServiceImpl implements ShopService{
 	@Autowired
 	private ShopDao shopDao;
 	
+	@Autowired
+	private UsersDao userDao;
+	
 	//한 페이지에 나타낼 로우의 갯수
 		private static final int PAGE_ROW_COUNT=6;
 		//하단 디스플레이 페이지 갯수
 		private static final int PAGE_DISPLAY_COUNT=5;
-	
 	@Override
 	public ModelAndView getList(HttpServletRequest request) {
 		
@@ -198,25 +203,62 @@ public class ShopServiceImpl implements ShopService{
 		userdto.setId(id);
 		
 		shopDao.setmoneyandpoint(userdto);
-		CartDto cartdto=new CartDto();
 		
 		List<CartDto> PnameandPcountlist= shopDao.getPnameandPcount(userdto);
 		ShopDto shopdto=new ShopDto();
-		List<ShopDto> titleList=shopDao.getList(shopdto);
+		List<ShopDto> titleList=shopDao.getList2();
 		for(CartDto tmp:PnameandPcountlist){
 			int count = 0;
 			for(ShopDto list:titleList){
+				System.out.println(tmp.getProduct_name().equals(list.getTitle()));
+				
 				if(tmp.getProduct_name().equals(list.getTitle())){
 					count = count + tmp.getProduct_count();
 				}
+				
 			}
+		
 			shopdto.setTitle(tmp.getProduct_name());
 			shopdto = shopDao.getremaincount(shopdto);
 			shopdto.setTitle(tmp.getProduct_name());
 			int remainCount=shopdto.getRemainCount();
+			System.out.println(tmp.getProduct_name());
+			System.out.println(remainCount);
+			System.out.println(count);
+
 			shopdto.setRemainCount(remainCount-count);
-			shopDao.setremaincount(shopdto);	
+			shopDao.setremaincount(shopdto);
 		}
-		shopDao.cartdelete(userdto);
+		shopDao.cartdelete(userdto);	
+	}
+
+	@Override
+	public void insertorder(HttpServletRequest request) {
+		Product_OrderDto orderDto=new Product_OrderDto();
+		String id=(String)request.getSession().getAttribute("id");
+		
+		List<CartDto> order_list=shopDao.cartList(id);
+		for(CartDto tmp1:order_list){
+			UsersDto addr_dto=userDao.getData(id);
+			orderDto.setId(id);
+			orderDto.setAddr01(addr_dto.getAddr01());
+			orderDto.setAddr02(addr_dto.getAddr02());
+			orderDto.setAddr03(addr_dto.getAddr03());
+			orderDto.setPrice(tmp1.getPrice());
+			orderDto.setTitle(tmp1.getProduct_name());
+			orderDto.setProduct_count(tmp1.getProduct_count());
+			orderDto.setSaveFileName(tmp1.getSaveFileName());
+			orderDto.setDelivery_location("배송중");
+			shopDao.InsertOrder(orderDto);
+		}
+		
+	}
+
+	@Override
+	public ModelAndView orderList(String id) {
+		List<Product_OrderDto> list=shopDao.orderList(id);
+		ModelAndView mView=new ModelAndView();
+		mView.addObject("list", list);
+		return mView;
 	}
 }

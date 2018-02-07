@@ -23,7 +23,7 @@
 	                        <li><a href="${pageContext.request.contextPath}/users/logout.do">Logout</a></li>						
 						</c:otherwise>							
                     </c:choose>
-	                        <li><a href="${pageContext.request.contextPath}/shop/order.do">Order</a></li>	                    
+	                        <li><a href="${pageContext.request.contextPath}/shop/order.do?id=${id}">Order</a></li>	                    
                     </ul>
                 </div>
                 

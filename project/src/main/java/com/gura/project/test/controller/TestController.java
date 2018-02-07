@@ -47,11 +47,5 @@ public class TestController {
 		
 		return "search/search_null";
 	}		
-	
-	@RequestMapping("/shop/order")
-	public String Order(){
-		
-		return "shop/order";
-	}			
-		
+
 }
