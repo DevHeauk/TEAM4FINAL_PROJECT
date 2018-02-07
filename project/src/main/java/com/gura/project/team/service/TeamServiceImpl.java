@@ -30,13 +30,9 @@ public class TeamServiceImpl implements TeamService{
 
 	@Override
 	public ModelAndView detail(HttpServletRequest request) {
-		MatchDto matchdto=new MatchDto();
 		//team detail 정보를얻어온다
 		//HomeTeam 이름.
 		String name=request.getParameter("name");
-		
-		
-		matchdto.setHomeTeam(name);
 		//HomeTeam의 데이타를 얻어온다.
 		TeamDto dto=new TeamDto();
 		dto.setName(name);
@@ -48,13 +44,18 @@ public class TeamServiceImpl implements TeamService{
 		//HomeTeam에 가입신청한 사람들의 정보를 List로 얻어온다. 
 		List<UsersDto> joininfo=teamdao.joininfo(list);
 		
-		List<MatchDto> matchdtoList=teamdao.awayteam(matchdto);
-			
+		MatchDto matchdto=new MatchDto();
+		matchdto.setHomeTeam(name);
+		//HomeTeam과 매치된 AwayTeam의 list를 얻어온다. 
+		List<MatchDto> awayteamlist=teamdao.awayteam(matchdto);
+		//HomeTeam과 매치된 AwayTeam의 정보를 list로 얻어온다.
+		List<TeamDto> awayteaminfo=teamdao.awayteaminfo(awayteamlist);		
+					
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("dto", resultDto);
 		mView.addObject("joininfo", joininfo);
 		mView.addObject("memberlist", memberlist);
-		mView.addObject("matchdtoList", matchdtoList);
+		mView.addObject("matchdtoList", awayteaminfo);
 		
 		return mView;
 	}
@@ -85,7 +86,7 @@ public class TeamServiceImpl implements TeamService{
 		
 		TeamDto dto=new TeamDto();
 		String joinid=(String) request.getParameter("joinid");
-		String jointeam=(String) request.getParameter("name");
+		String jointeam=(String) request.getParameter("teamname");
 		dto.setJoinid(joinid);
 		dto.setJointeam(jointeam);
 		teamdao.joinupdate(dto);

@@ -123,7 +123,7 @@
             </div>
             <!-- BEGIN PRODUCT LIST -->
             <div class="row product-list">            
-               <c:forEach var="tmp" items="${list }" begin="0" end="8">
+               <c:forEach var="tmp" items="${list }">
                     <!-- PRODUCT ITEM START -->
                     <div class="col-md-4 col-sm-6 col-xs-12">
                       <div class="product-item">
@@ -144,20 +144,43 @@
            </div>
             <!-- END PRODUCT LIST -->
             <!-- BEGIN PAGINATOR -->
-            <div class="row">
-              <div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 total</div>
-              <div class="col-md-8 col-sm-8">
-                <ul class="pagination pull-right">
-                  <li><a href="javascript:;">&laquo;</a></li>
-                  <li><a href="javascript:;">1</a></li>
-                  <li><span>2</span></li>
-                  <li><a href="javascript:;">3</a></li>
-                  <li><a href="javascript:;">4</a></li>
-                  <li><a href="javascript:;">5</a></li>
-                  <li><a href="javascript:;">&raquo;</a></li>
-                </ul>
-              </div>
-            </div>
+           <ul class="pagination">
+		<c:choose>
+			<c:when test="${startPageNum ne 1 }">
+				<li>
+					<a href="shop-product-list.do?pageNum=${startPageNum-1 }&condition=${condition}&keyword=${keyword}">&laquo;</a>
+				</li>
+			</c:when>
+			<c:otherwise>
+				<li class="disabled">
+					<a href="javascript:">&laquo;</a>
+				</li>
+			</c:otherwise>
+		</c:choose>
+		<c:forEach var="i" begin="${startPageNum }" 
+				end="${endPageNum }">	
+			<c:choose>
+				<c:when test="${i eq pageNum }">
+					<li class="active"><a href="shop-product-list.do?pageNum=${i }&condition=${condition}&keyword=${keyword}">${i }</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="shop-product-list.do?pageNum=${i }&condition=${condition}&keyword=${keyword}">${i }</a></li>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		<c:choose>
+			<c:when test="${endPageNum lt totalPageCount }">
+				<li>
+					<a href="shop-product-list.do?pageNum=${endPageNum+1 }&condition=${condition}&keyword=${keyword}">&raquo;</a>
+				</li>
+			</c:when>
+			<c:otherwise>
+				<li class="disabled">
+					<a href="javascript:">&raquo;</a>
+				</li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
             <!-- END PAGINATOR -->
           </div>
           <!-- END CONTENT -->

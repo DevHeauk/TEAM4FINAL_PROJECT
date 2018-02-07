@@ -70,7 +70,6 @@ public class TeamDaoImpl implements TeamDao {
 	}
 	@Override
 	public List<MatchDto> awayteam(MatchDto matchDto) {
-
 		return session.selectList("team.awayteam", matchDto);
 	}
 	@Override
@@ -78,16 +77,27 @@ public class TeamDaoImpl implements TeamDao {
 		session.delete("team.joindelete", dto);
 		
 	}
+	
 	@Override
 	public List<UsersDto> joininfo(List<TeamDto> list) {
 		
 		List<UsersDto> joininfolist= new ArrayList<>();
 		//tmp.getJoinid = HomeTeam에 가입신청한 사람들의 아이디
 		for(TeamDto tmp: list){
-			UsersDto dto = session.selectOne("joininfo",tmp.getJoinid());
+			UsersDto dto = session.selectOne("team.joininfo",tmp.getJoinid());
 			joininfolist.add(dto);
 			};
 		return  joininfolist;
+	}
+	
+	@Override
+	public List<TeamDto> awayteaminfo(List<MatchDto> awayteamlist) {
+		List<TeamDto> awayteaminfo= new ArrayList<>();
+		for(MatchDto tmp: awayteamlist){
+			TeamDto dto = session.selectOne("team.awayteaminfo",tmp.getAwayTeam());
+			awayteaminfo.add(dto);
+			};
+		return awayteaminfo;
 	}
 	
 	

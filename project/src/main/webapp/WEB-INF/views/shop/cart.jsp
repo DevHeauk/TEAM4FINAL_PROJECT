@@ -63,7 +63,7 @@
                       <strong><span>$</span>${tmp.price }</strong>
                     </td>
                     <td class="goods-page-total">
-                      <strong><span>$</span>${tmp.price * tmp.product_count }</strong>
+                      <strong><span>$</span><span id="total_price">${tmp.price * tmp.product_count }</span></strong>
                     </td>
                     <td class="del-goods-col">
                       <a class="del-goods" href="cart_delete.do?num=${tmp.num }&&id=${tmp.id}">&nbsp;</a>
@@ -77,21 +77,22 @@
                   <ul>
                     <li>
                       <em>Sub total</em>
-                      <strong class="price"><span>$</span>47.00</strong>
+                      <strong class="price"><span>$</span>${SumPrice }</strong>
                     </li>
                     <li>
                       <em>Shipping cost</em>
-                      <strong class="price"><span>$</span>3.00</strong>
+                      <strong class="price"><span>$</span>3000</strong>
                     </li>
                     <li class="shopping-total-price">
                       <em>Total</em>
-                      <strong class="price"><span>$</span>50.00</strong>
+                      <strong class="price"><span>$</span>${SumPrice+3000 }</strong>
                     </li>
                   </ul>
                 </div>
               </div>
               <button class="btn btn-default" type="submit">Continue shopping <i class="fa fa-shopping-cart"></i></button>
-              <button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i></button>
+              <a href="buy.do?id=${id }&totalprice=${SumPrice }
+              "><button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i></button></a>
             </div>
           </div>
           <!-- END CONTENT -->
@@ -165,6 +166,7 @@ Nostrud duis molestie at dolore.</p>
     <!-- END fast view of a product -->
     
     <%@ include file="../inc/footer_script.jsp" %>
+    <script src="${pageContext.request.contextPath }/assets/plugins/jquery.min.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             Layout.init();    

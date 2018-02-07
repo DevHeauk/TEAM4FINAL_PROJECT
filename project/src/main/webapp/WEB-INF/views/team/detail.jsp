@@ -122,31 +122,31 @@
 <!-- away modal -->
 <c:forEach var="tmp" items="${joininfo}">
 	<div class="modal fade" id="#joininfo" >
-	  	<form action="matchsuccess.do">
+	  	<form action="join.do?joinid=${id}&teamname${dto.name } ">
 	  		<input type="hidden" name="id" value="${tmp.id}" />
 	  		<div class="modal-dialog">
-	    <div class="modal-content">
-	      <!-- header -->
-	      <div class="modal-header">
-	        <!-- 닫기(x) 버튼 -->
-	        <button type="button" class="close" data-dismiss="modal">×</button>
-	        <!-- header title -->
-	        <h4 class="modal-title">${tmp.career}</h4>
-	      </div>
-	      <!-- body -->
-	      <div class="modal-body">
-				<p>${tmp.b_position }</p>
-				<p>${tmp.name }</p>
-				<p>${tmp.email}</p>
-	      </div>
-	      <!-- Footer -->
-	      <div class="modal-footer">
-	        Footer
-	        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-	        <button class="btn btn-success" type="submit" >확인</button>
-	      </div>
-	    </div>
-	  </div>
+		    <div class="modal-content">
+		      <!-- header -->
+		      <div class="modal-header">
+		        <!-- 닫기(x) 버튼 -->
+		        <button type="button" class="close" data-dismiss="modal">×</button>
+		        <!-- header title -->
+		        <h4 class="modal-title">${tmp.career}</h4>
+		      </div>
+		      <!-- body -->
+		      <div class="modal-body">
+					<p>${tmp.b_position }</p>
+					<p>${tmp.name }</p>
+					<p>${tmp.email}</p>
+		      </div>
+		      <!-- Footer -->
+		      <div class="modal-footer">
+		        Footer
+		        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+		        <button class="btn btn-success" type="submit" >확인</button>
+		      </div>
+		    </div>
+		  </div>
 	  	</form>
 	</div>
 			

@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gura.project.shop.dao.ShopDao;
 import com.gura.project.shop.dto.CartDto;
 import com.gura.project.shop.dto.ShopDto;
-
+import com.gura.project.users.dto.UsersDto;
 
 @Repository
 public class ShopServiceImpl implements ShopService{
@@ -21,11 +21,75 @@ public class ShopServiceImpl implements ShopService{
 	@Autowired
 	private ShopDao shopDao;
 	
+	//한 페이지에 나타낼 로우의 갯수
+		private static final int PAGE_ROW_COUNT=6;
+		//하단 디스플레이 페이지 갯수
+		private static final int PAGE_DISPLAY_COUNT=5;
+	
 	@Override
-	public ModelAndView getList() {
-		List<ShopDto> list=shopDao.getList();
+	public ModelAndView getList(HttpServletRequest request) {
+		
+		String keyword=request.getParameter("keyword");
+		String condition=request.getParameter("condition");
+		
+		//글정보를 담을 ModelAndView 객체 
 		ModelAndView mView=new ModelAndView();
+		
+		//CafeDto 객체를 생성해서
+		ShopDto dto=new ShopDto();
+		if(keyword != null){ //검색어가 전달된 경우
+			if(condition.equals("titlecontent")){ //제목+내용 검색
+				dto.setTitle(keyword);
+				dto.setContent(keyword);
+			}else if(condition.equals("title")){//제목 검색
+				dto.setTitle(keyword);
+			}else if(condition.equals("writer")){//작성자 검색
+				dto.setWriter(keyword);
+			}
+			
+			mView.addObject("condition", condition);
+			mView.addObject("keyword", keyword);
+		}
+		
+		
+		//보여줄 페이지의 번호
+		int pageNum=1;
+		//보여줄 페이지의 번호가 파라미터로 전달되는지 읽어온다.
+		String strPageNum=request.getParameter("pageNum");
+		if(strPageNum != null){//페이지 번호가 파라미터로 넘어온다면
+			//페이지 번호를 설정한다.
+			pageNum=Integer.parseInt(strPageNum);
+		}
+		//보여줄 페이지 데이터의 시작 ResultSet row 번호
+		int startRowNum=1+(pageNum-1)*PAGE_ROW_COUNT;
+		//보여줄 페이지 데이터의 끝 ResultSet row 번호
+		int endRowNum=pageNum*PAGE_ROW_COUNT;
+		//전체 row 의 갯수를 DB 에서 얻어온다.
+		int totalRow = shopDao.getCount(dto);
+		//전체 페이지의 갯수 구하기
+		int totalPageCount=
+				(int)Math.ceil(totalRow/(double)PAGE_ROW_COUNT);
+		//시작 페이지 번호
+		int startPageNum=
+			1+((pageNum-1)/PAGE_DISPLAY_COUNT)*PAGE_DISPLAY_COUNT;
+		//끝 페이지 번호
+		int endPageNum=startPageNum+PAGE_DISPLAY_COUNT-1;
+		//끝 페이지 번호가 잘못된 값이라면 
+		if(totalPageCount < endPageNum){
+			endPageNum=totalPageCount; //보정해준다. 
+		}
+		
+		dto.setStartRowNum(startRowNum);
+		dto.setEndRowNum(endRowNum);
+		
+		List<ShopDto> list=shopDao.getList(dto);
+		
 		mView.addObject("list", list);
+		mView.addObject("pageNum", pageNum);
+		mView.addObject("startPageNum", startPageNum);
+		mView.addObject("endPageNum", endPageNum);
+		mView.addObject("totalPageCount", totalPageCount);
+		
 		return mView;
 	}
 
@@ -107,9 +171,12 @@ public class ShopServiceImpl implements ShopService{
 		ModelAndView mView=new ModelAndView();
 		
 		List<CartDto> list=shopDao.cartList(id);
-		
+		int SumPrice = 0;
+		for(CartDto tmp:list){
+			SumPrice = SumPrice + tmp.getTotal_price();
+		}
 		mView.addObject("list", list);
-		
+		mView.addObject("SumPrice", SumPrice);
 		return mView;
 	}
 
@@ -118,9 +185,38 @@ public class ShopServiceImpl implements ShopService{
 		shopDao.cartDelete(num);
 		
 	}
-	
-	
 
-	
-
+	@Override
+	public void order(HttpServletRequest request) {
+		String id=(String) request.getSession().getAttribute("id");
+		int totalprice= Integer.parseInt(request.getParameter("totalprice"));
+		UsersDto userdto=shopDao.getmoneyandpoint(id);
+		userdto.setMoney(userdto.getMoney()-totalprice);
+		userdto.setPoint((int) (userdto.getPoint()+totalprice*0.1));
+		System.out.println((userdto.getPoint()+totalprice*0.1));
+		
+		userdto.setId(id);
+		
+		shopDao.setmoneyandpoint(userdto);
+		CartDto cartdto=new CartDto();
+		
+		List<CartDto> PnameandPcountlist= shopDao.getPnameandPcount(userdto);
+		ShopDto shopdto=new ShopDto();
+		List<ShopDto> titleList=shopDao.getList(shopdto);
+		for(CartDto tmp:PnameandPcountlist){
+			int count = 0;
+			for(ShopDto list:titleList){
+				if(tmp.getProduct_name().equals(list.getTitle())){
+					count = count + tmp.getProduct_count();
+				}
+			}
+			shopdto.setTitle(tmp.getProduct_name());
+			shopdto = shopDao.getremaincount(shopdto);
+			shopdto.setTitle(tmp.getProduct_name());
+			int remainCount=shopdto.getRemainCount();
+			shopdto.setRemainCount(remainCount-count);
+			shopDao.setremaincount(shopdto);	
+		}
+		shopDao.cartdelete(userdto);
+	}
 }

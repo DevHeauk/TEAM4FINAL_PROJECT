@@ -11,17 +11,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.shop.dto.ShopDto;
 import com.gura.project.shop.service.ShopService;
+import com.gura.project.users.service.UsersService;
 
 @Controller
 public class ShopController {
 	
 	@Autowired
 	private ShopService shopService;
+	@Autowired
+	private UsersService userService;
 	
 	@RequestMapping("/shop/list")
-	public ModelAndView list(){
+	public ModelAndView list(HttpServletRequest request){
 		
-		ModelAndView mView=shopService.getList();
+		ModelAndView mView=shopService.getList(request);
 		
 		mView.setViewName("shop/list");
 		
@@ -68,8 +71,8 @@ public class ShopController {
 	}
 	
 	@RequestMapping("/shop/shop-product-list")
-	public ModelAndView productList(){		
-		ModelAndView mView=shopService.getList();
+	public ModelAndView productList(HttpServletRequest request){		
+		ModelAndView mView=shopService.getList(request);
 		mView.setViewName("shop/product");
 		return mView;
 	}
@@ -128,6 +131,12 @@ public class ShopController {
 	@RequestMapping("/shop/cart_delete")
 	public ModelAndView cartDelete(@RequestParam int num, @RequestParam String id){
 		shopService.cart_delete(num);
+		return new ModelAndView("redirect:/shop/cartlist.do?id="+id);
+	}
+	
+	@RequestMapping("/shop/buy")
+	public ModelAndView authBuy(HttpServletRequest request, @RequestParam String id){
+		shopService.order(request);
 		return new ModelAndView("redirect:/shop/cartlist.do?id="+id);
 	}
 }

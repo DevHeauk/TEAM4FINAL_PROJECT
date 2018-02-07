@@ -56,6 +56,11 @@
 		from users4
 		where id=#{joinid}
 	</select>
+	<select id="awayteaminfo" parameterType="MatchDto" resultType="teamDto">
+		select name,win,lose,total,ground,leader
+		from team
+		where name=#{awayteam}
+	</select>
 </mapper>
 
 

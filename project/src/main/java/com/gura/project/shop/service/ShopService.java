@@ -8,7 +8,7 @@ import com.gura.project.shop.dto.ShopDto;
 
 
 public interface ShopService {
-	public ModelAndView getList();
+	public ModelAndView getList(HttpServletRequest request);
 	public ModelAndView buy(ShopDto dto);
 	public void upload(HttpServletRequest request, ShopDto dto);
 	public void delete(HttpServletRequest request, int num);
@@ -16,4 +16,5 @@ public interface ShopService {
 	public void cart_insert(ShopDto dto);
 	public ModelAndView cart_data(String id);
 	public void cart_delete(int num);
+	public void order(HttpServletRequest request);
 }
