@@ -49,6 +49,13 @@ public class TeamController {
 		return mView;
 	}
 	
+	@RequestMapping("/team/detail2")
+	public ModelAndView detail2(HttpServletRequest request){
+		ModelAndView mView=teamService.detail(request);
+		mView.setViewName("team/team_detail");
+		return mView;
+	}
+	
 	@RequestMapping("/team/joiningconfirm")
 	public ModelAndView joingetdata(HttpServletRequest request){
 		ModelAndView mView=teamService.joinconfirm(request);
