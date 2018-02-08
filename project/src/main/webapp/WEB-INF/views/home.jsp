@@ -120,108 +120,76 @@
         <div class="row margin-bottom-40">
           <!-- BEGIN SALE PRODUCT -->
           <div class="col-md-12 sale-product">
-            <h2>New Arrivals</h2>
-            <div class="owl-carousel owl-carousel5">
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/model1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/model1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                  <div class="sticker sticker-sale"></div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/model2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/model2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/model6.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/model6.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
+            <h2>TEAM </h2>
+            <div class="owl-carousel owl-carousel4 main-team-area">
+              <div class="main-team-list">
                   <div class="product-item">
                     <div class="pi-img-wrapper">
                       <img src="assets/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
                       <div>
-                        <a href="assets/pages/img/products/model4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                        <a href="team/detail.do" class="btn btn-default fancybox-button">View</a>
                       </div>
                     </div>
-                    <h3><a href="javascript:;">Berry Lace Dress4</a></h3>
-                    <div class="pi-price">$29.00</div>
-                    <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                    <div class="sticker sticker-new"></div>
-                  </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/model5.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/model5.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <div class="main-team-text">
+                       <h3 style="float: left; padding-top: 13px;"><a href="javascript:;"><strong>팀이름입니다.</strong></a></h3>
+                       <ul class="blog-info" style="float: right;">
+                         <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                         <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>                     
+                       </ul>     
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/model3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+              </div>   
+              <div class="main-team-list">
+                  <div class="product-item">
+                    <div class="pi-img-wrapper">
+                      <img src="assets/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
+                      <div>
+                        <a href="team/detail.do" class="btn btn-default fancybox-button">View</a>
+                      </div>
                     </div>
+                    <div class="main-team-text">
+                       <h3 style="float: left; padding-top: 13px;"><a href="javascript:;"><strong>팀이름입니다.</strong></a></h3>
+                       <ul class="blog-info" style="float: right;">
+                         <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                         <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>                     
+                       </ul>     
+                    </div>     
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/model7.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+              </div>  
+              <div class="main-team-list">
+                  <div class="product-item">
+                    <div class="pi-img-wrapper">
+                      <img src="assets/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
+                      <div>
+                        <a href="team/detail.do" class="btn btn-default fancybox-button">View</a>
+                      </div>
                     </div>
+                    <div class="main-team-text">
+                       <h3 style="float: left; padding-top: 13px;"><a href="javascript:;"><strong>팀이름입니다.</strong></a></h3>
+                       <ul class="blog-info" style="float: right;">
+                         <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                         <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>                     
+                       </ul>     
+                    </div>     
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
+              </div>  
+              <div class="main-team-list">
+                  <div class="product-item">
+                    <div class="pi-img-wrapper">
+                      <img src="assets/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
+                      <div>
+                        <a href="team/detail.do" class="btn btn-default fancybox-button">View</a>
+                      </div>
+                    </div>
+                    <div class="main-team-text">
+                       <h3 style="float: left; padding-top: 13px;"><a href="javascript:;"><strong>팀이름입니다.</strong></a></h3>
+                       <ul class="blog-info" style="float: right;">
+                         <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                         <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>                     
+                       </ul>     
+                    </div>     
+                  </div>
+              </div>                                                      
             </div>
           </div>
           <!-- END SALE PRODUCT -->
@@ -230,144 +198,34 @@
 
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40 ">
-          <!-- BEGIN SIDEBAR -->
-          <div class="sidebar col-md-3 col-sm-4">
-            <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Ladies</a></li>
-              <li class="list-group-item clearfix dropdown">
-                <a href="shop-product-list.html">
-                  <i class="fa fa-angle-right"></i>
-                  Mens
-                  
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="list-group-item dropdown clearfix">
-                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Shoes </a>
-                      <ul class="dropdown-menu">
-                        <li class="list-group-item dropdown clearfix">
-                          <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 1</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 2</a></li>
-                          </ul>
-                        </li>
-                        <li class="list-group-item dropdown clearfix">
-                          <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport  </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 1</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 2</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                  </li>
-                  <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Trainers</a></li>
-                  <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Jeans</a></li>
-                  <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Chinos</a></li>
-                  <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> T-Shirts</a></li>
-                </ul>
-              </li>
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Kids</a></li>
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Accessories</a></li>
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sports</a></li>
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Brands</a></li>
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Electronics</a></li>
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Home & Garden</a></li>
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Custom Link</a></li>
-            </ul>
-          </div>
-          <!-- END SIDEBAR -->
           <!-- BEGIN CONTENT -->
-          <div class="col-md-9 col-sm-8">
-            <h2>Three items</h2>
-            <div class="owl-carousel owl-carousel3">
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                  <div class="sticker sticker-new"></div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress4</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                  <div class="sticker sticker-sale"></div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress6</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="col-md-12 col-sm-12">
+            <h2>PRODUCTS</h2>
+            <div class="sidebar col-md-3 col-sm-4 main-shop-list">
+              <ul class="list-group margin-bottom-25 sidebar-menu">
+                <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> 농구복</a></li>
+                <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> 농구화</a></li>
+                <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> 농구공</a></li>
+              </ul>
+            </div>                 
+            <div class="owl-carousel owl-carousel4 main-prd-list" style="clear: both;">
+              
+                <c:forEach var="tmp" items="${list3 }">
+                <div>
+                	<div class="product-item">
+	                  <div class="pi-img-wrapper">
+	                    <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive" alt="Berry Lace Dress">
+	                    <div>
+	                      <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+	                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+	                    </div>
+	                  </div>
+	                  <h3><a href="shop-item.html">${tmp.title }</a></h3>
+	                  <div class="pi-price">${tmp.price }</div>
+	                </div>
+	            </div>
+                </c:forEach>
+              
           <!-- END CONTENT -->
         </div>
         <!-- END SIDEBAR & CONTENT -->
@@ -375,121 +233,304 @@
         <!-- BEGIN TWO PRODUCTS & PROMO -->
         <div class="row margin-bottom-35 ">
           <!-- BEGIN TWO PRODUCTS -->
-          <div class="col-md-6 two-items-bottom-items">
-            <h2>Two items</h2>
+          <div class="col-md-12 two-items-bottom-items">
+            <h2>MATCHING</h2>
             <div class="owl-carousel owl-carousel2">
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
+               <div class="row" style="width: 95%; background: #ffffff; padding-top: 20px; padding-left: 2.5%;">                                      
+               <div class="col-md-4 col-sm-4 match-left">
+                 <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">Home Team</a></h2>                          
+                 <!-- BEGIN CAROUSEL -->            
+                 <div class="front-carousel">                         
+                   <div class="carousel slide" id="myCarousel${tmp.name }">
+                     <!-- Carousel items -->
+                     <div class="carousel-inner">
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
+                       </div>
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
+                       </div>
+                       <div class="item active">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
+                       </div>
+                     </div>
+                     <!-- Carousel nav -->
+                     <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+                       <i class="fa fa-angle-left"></i>
+                     </a>
+                     <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+                       <i class="fa fa-angle-right"></i>
+                     </a>
+                   </div>                
+                 </div>
+                 <!-- END CAROUSEL -->
+                 <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+                   <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                   <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
+                   <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+                 </ul>                                      
+               </div>
+               <div class="col-md-4 col-sm-4 match-vs" style="text-align: center;;">
+   <img src="${pageContext.request.contextPath}/assets/pages/img/main_vs.png" alt="" style="max-width: 100px; display: inline; margin: 50px 0 30px 0;"/><br />
+   <a href="match_detail.do" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
+               </div>   
+               
+               <div class="col-md-4 col-sm-4 match-right" >
+                 <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>                          
+                 <!-- BEGIN CAROUSEL -->            
+                 <div class="front-carousel">                         
+                   <div class="carousel slide" id="myCarousel${tmp.name }">
+                     <!-- Carousel items -->
+                     <div class="carousel-inner">
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
+                       </div>
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
+                       </div>
+                       <div class="item active">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
+                       </div>
+                     </div>
+                     <!-- Carousel nav -->
+                     <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+                       <i class="fa fa-angle-left"></i>
+                     </a>
+                     <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+                       <i class="fa fa-angle-right"></i>
+                     </a>
+                   </div>                
+                 </div>
+                 <!-- END CAROUSEL -->
+                 <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+                   <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                   <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
+                   <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+                 </ul>                                      
+               </div>                                                                        
+             </div>
+               <div class="row" style="width: 95%; background: #ffffff; padding-top: 20px; padding-left: 2.5%;">                                      
+               <div class="col-md-4 col-sm-4 match-left">
+                 <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">Home Team</a></h2>                          
+                 <!-- BEGIN CAROUSEL -->            
+                 <div class="front-carousel">                         
+                   <div class="carousel slide" id="myCarousel${tmp.name }">
+                     <!-- Carousel items -->
+                     <div class="carousel-inner">
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
+                       </div>
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
+                       </div>
+                       <div class="item active">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
+                       </div>
+                     </div>
+                     <!-- Carousel nav -->
+                     <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+                       <i class="fa fa-angle-left"></i>
+                     </a>
+                     <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+                       <i class="fa fa-angle-right"></i>
+                     </a>
+                   </div>                
+                 </div>
+                 <!-- END CAROUSEL -->
+                 <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+                   <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                   <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
+                   <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+                 </ul>                                      
+               </div>
+               <div class="col-md-4 col-sm-4 match-vs" style="text-align: center;;">
+   <img src="${pageContext.request.contextPath}/assets/pages/img/main_vs.png" alt="" style="max-width: 100px; display: inline; margin: 50px 0 30px 0;"/><br />
+   <a href="match_detail.do" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
+               </div>   
+               
+               <div class="col-md-4 col-sm-4 match-right" >
+                 <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>                          
+                 <!-- BEGIN CAROUSEL -->            
+                 <div class="front-carousel">                         
+                   <div class="carousel slide" id="myCarousel${tmp.name }">
+                     <!-- Carousel items -->
+                     <div class="carousel-inner">
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
+                       </div>
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
+                       </div>
+                       <div class="item active">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
+                       </div>
+                     </div>
+                     <!-- Carousel nav -->
+                     <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+                       <i class="fa fa-angle-left"></i>
+                     </a>
+                     <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+                       <i class="fa fa-angle-right"></i>
+                     </a>
+                   </div>                
+                 </div>
+                 <!-- END CAROUSEL -->
+                 <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+                   <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                   <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
+                   <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+                 </ul>                                      
+               </div>                                                                        
+             </div>
+               <div class="row" style="width: 95%; background: #ffffff; padding-top: 20px; padding-left: 2.5%;">                                      
+               <div class="col-md-4 col-sm-4 match-left">
+                 <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">Home Team</a></h2>                          
+                 <!-- BEGIN CAROUSEL -->            
+                 <div class="front-carousel">                         
+                   <div class="carousel slide" id="myCarousel${tmp.name }">
+                     <!-- Carousel items -->
+                     <div class="carousel-inner">
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
+                       </div>
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
+                       </div>
+                       <div class="item active">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
+                       </div>
+                     </div>
+                     <!-- Carousel nav -->
+                     <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+                       <i class="fa fa-angle-left"></i>
+                     </a>
+                     <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+                       <i class="fa fa-angle-right"></i>
+                     </a>
+                   </div>                
+                 </div>
+                 <!-- END CAROUSEL -->
+                 <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+                   <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                   <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
+                   <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+                 </ul>                                      
+               </div>
+               <div class="col-md-4 col-sm-4 match-vs" style="text-align: center;;">
+   <img src="${pageContext.request.contextPath}/assets/pages/img/main_vs.png" alt="" style="max-width: 100px; display: inline; margin: 50px 0 30px 0;"/><br />
+   <a href="match_detail.do" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
+               </div>   
+               
+               <div class="col-md-4 col-sm-4 match-right" >
+                 <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>                          
+                 <!-- BEGIN CAROUSEL -->            
+                 <div class="front-carousel">                         
+                   <div class="carousel slide" id="myCarousel${tmp.name }">
+                     <!-- Carousel items -->
+                     <div class="carousel-inner">
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
+                       </div>
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
+                       </div>
+                       <div class="item active">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
+                       </div>
+                     </div>
+                     <!-- Carousel nav -->
+                     <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+                       <i class="fa fa-angle-left"></i>
+                     </a>
+                     <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+                       <i class="fa fa-angle-right"></i>
+                     </a>
+                   </div>                
+                 </div>
+                 <!-- END CAROUSEL -->
+                 <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+                   <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                   <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
+                   <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+                 </ul>                                      
+               </div>                                                                        
+             </div>
+               <div class="row" style="width: 95%; background: #ffffff; padding-top: 20px; padding-left: 2.5%;">                                      
+               <div class="col-md-4 col-sm-4 match-left">
+                 <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">Home Team</a></h2>                          
+                 <!-- BEGIN CAROUSEL -->            
+                 <div class="front-carousel">                         
+                   <div class="carousel slide" id="myCarousel${tmp.name }">
+                     <!-- Carousel items -->
+                     <div class="carousel-inner">
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
+                       </div>
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
+                       </div>
+                       <div class="item active">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
+                       </div>
+                     </div>
+                     <!-- Carousel nav -->
+                     <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+                       <i class="fa fa-angle-left"></i>
+                     </a>
+                     <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+                       <i class="fa fa-angle-right"></i>
+                     </a>
+                   </div>                
+                 </div>
+                 <!-- END CAROUSEL -->
+                 <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+                   <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                   <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
+                   <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+                 </ul>                                      
+               </div>
+               <div class="col-md-4 col-sm-4 match-vs" style="text-align: center;;">
+   <img src="${pageContext.request.contextPath}/assets/pages/img/main_vs.png" alt="" style="max-width: 100px; display: inline; margin: 50px 0 30px 0;"/><br />
+   <a href="match_detail.do" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
+               </div>   
+               
+               <div class="col-md-4 col-sm-4 match-right" >
+               <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>                          
+                 <!-- BEGIN CAROUSEL -->            
+                 <div class="front-carousel">                         
+                   <div class="carousel slide" id="myCarousel${tmp.name }">
+                     <!-- Carousel items -->
+                     <div class="carousel-inner">
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
+                       </div>
+                       <div class="item">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
+                       </div>
+                       <div class="item active">
+                         <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
+                       </div>
+                     </div>
+                     <!-- Carousel nav -->
+                     <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+                       <i class="fa fa-angle-left"></i>
+                     </a>
+                     <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+                       <i class="fa fa-angle-right"></i>
+                     </a>
+                   </div>                
+                 </div>
+                 <!-- END CAROUSEL -->
+                 <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+                   <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+                   <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
+                   <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+                 </ul>                                      
+               </div>                                                                        
+             </div>                          
             </div>
           </div>
           <!-- END TWO PRODUCTS -->
-          <!-- BEGIN PROMO -->
-          <div class="col-md-6 shop-index-carousel">
-            <div class="content-slider">
-              <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                  <li data-target="#myCarousel" data-slide-to="1"></li>
-                  <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="item active">
-                    <img src="assets/pages/img/index-sliders/slide1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                  </div>
-                  <div class="item">
-                    <img src="assets/pages/img/index-sliders/slide2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                  </div>
-                  <div class="item">
-                    <img src="assets/pages/img/index-sliders/slide3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- END PROMO -->
         </div>        
         <!-- END TWO PRODUCTS & PROMO -->
       </div>

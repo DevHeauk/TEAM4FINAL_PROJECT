@@ -1,12 +1,26 @@
 <<<<<<< HEAD:project/src/main/webapp/WEB-INF/table.sql
 create table team(
    name VARCHAR2(100),
+<<<<<<< HEAD
+<<<<<<< HEAD
    member VARCHAR2(100),
+=======
+   memberbVARCHAR2(100),
+>>>>>>> heaukjun
+=======
+   member VARCHAR2(100),
+>>>>>>> EungGil
    win number,
    lose number,
    total number,
    ground VARCHAR2(100),
+<<<<<<< HEAD
+   leader VARCHAR2(100)
+<<<<<<< HEAD
+   
+=======
    leader VARCHAR2(100)  
+>>>>>>> EungGil
 )
 
 create table joinlist(
@@ -39,6 +53,10 @@ product_size VARCHAR2(100),
 regdate DATE,
 category VARCHAR2(100))
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> EungGil
 )
 
 CREATE TABLE joinlist(
@@ -55,6 +73,10 @@ ground varchar2(200),
 successmatching VARCHAR2(100)
 )
 
+<<<<<<< HEAD
+>>>>>>> heaukjun
+=======
+>>>>>>> EungGil
 CREATE TABLE users4(
 num NUMBER PRIMARY KEY,
 name VARCHAR2(100),
@@ -88,7 +110,11 @@ regdate DATE
 );
 
 CREATE SEQUENCE cart_seq;
+<<<<<<< HEAD
+=======
+=======
 
+>>>>>>> EungGil
 CREATE TABLE users4(
 num NUMBER PRIMARY KEY,
 name VARCHAR2(100),
@@ -108,3 +134,18 @@ regdate DATE
 );
 
 CREATE SEQUENCE users4_seq;
+<<<<<<< HEAD
+>>>>>>> EungGil:project/src/main/webapp/WEB-INF/UsersTable.sql
+
+
+CREATE TABLE product_order(
+title VARCHAR2(100),
+addr VARCHAR2(100),
+id VARCHAR2(50),
+product_count NUMBER,
+price NUMBER,
+saveFileName VARCHAR2(200),
+delivery_location VARCHAR2(50)
+);
+=======
+>>>>>>> EungGil
