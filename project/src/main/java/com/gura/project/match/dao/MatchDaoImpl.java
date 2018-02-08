@@ -33,8 +33,19 @@ public class MatchDaoImpl implements MatchDao{
 
 	@Override
 	public void deleteMatch(MatchDto dto) {
-		// TODO Auto-generated method stub
+		session.delete("match.delete",dto);
+	}
+	
+	@Override
+	public boolean matched(MatchDto dto) { 
 		
+		String awayteam = session.selectOne("match.matched",dto);
+		
+		if(awayteam!=null){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	@Override
@@ -56,8 +67,8 @@ public class MatchDaoImpl implements MatchDao{
 	}
 
 	@Override
-	public void successMatch(String awayTeam) {
-		session.update("match.successMatch", awayTeam);
+	public void successMatch(MatchDto dto) {
+		session.update("match.successMatch", dto);
 	}
 
 }

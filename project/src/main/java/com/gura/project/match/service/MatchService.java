@@ -9,7 +9,7 @@ import com.gura.project.team.dto.TeamDto;
 
 public interface MatchService {
 	public void applicationsMatch(HttpServletRequest request, MatchDto dto);
-	public ModelAndView refuseMatch(HttpServletRequest request);
+	public void refuseMatch(HttpServletRequest request);
 	public ModelAndView MatchInfo(HttpServletRequest request);
 	public void insertwinning(HttpServletRequest request);
 	public void successMatching(HttpServletRequest request);

@@ -11,11 +11,12 @@ public class TeamDto {
 	private String jointeam;
 	private String joinid;
 	private String content;
+	private String successMatching;
 	
 	public TeamDto(){}
 
 	public TeamDto(String name, String member, int win, int lose, int total, String ground, String leader,
-			String jointeam, String joinid, String content) {
+			String jointeam, String joinid, String content, String successMatching) {
 		super();
 		this.name = name;
 		this.member = member;
@@ -27,6 +28,7 @@ public class TeamDto {
 		this.jointeam = jointeam;
 		this.joinid = joinid;
 		this.content = content;
+		this.successMatching = successMatching;
 	}
 
 	public String getName() {
@@ -109,5 +111,13 @@ public class TeamDto {
 		this.content = content;
 	}
 
+	public String getSuccessMatching() {
+		return successMatching;
+	}
+
+	public void setSuccessMatching(String successMatching) {
+		this.successMatching = successMatching;
+	}
+	
 	
 }

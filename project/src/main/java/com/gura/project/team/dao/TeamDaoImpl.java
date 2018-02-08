@@ -95,6 +95,10 @@ public class TeamDaoImpl implements TeamDao {
 		List<TeamDto> awayteaminfo= new ArrayList<>();
 		for(MatchDto tmp: awayteamlist){
 			TeamDto dto = session.selectOne("team.awayteaminfo",tmp.getAwayTeam());
+			TeamDto dto2 = session.selectOne("team.awayteam2",tmp);
+			String successMatching = dto2.getSuccessMatching();
+			dto.setSuccessMatching(successMatching);
+			
 			awayteaminfo.add(dto);
 			};
 		return awayteaminfo;

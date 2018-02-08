@@ -23,18 +23,25 @@ public class MatchController {
 	public ModelAndView authmatchinsert (HttpServletRequest request,@ModelAttribute MatchDto dto){
 		ModelAndView mView = new ModelAndView();
 		matchservice.applicationsMatch(request,dto);
-		mView.setViewName("redirect:/team/team_list.do");
+		mView.setViewName("redirect:/team/team_detail.do");
 		return mView;
 	}
 	
 	@RequestMapping("/team/matchsuccess")
 	public ModelAndView authmatchsuccess(HttpServletRequest request){
 		ModelAndView mView=new ModelAndView();
-		String awayTeam = request.getParameter("awayTeam");
-		System.out.println(awayTeam);
 		matchservice.successMatching(request);
 
-		mView.setViewName("match/info");
+		mView.setViewName("redirect:/team/team_detail.do");
+		return mView;
+	}
+	
+	@RequestMapping("/team/refuseMatch")
+	public ModelAndView authrefuseMatch(HttpServletRequest request){
+		ModelAndView mView=new ModelAndView();
+		matchservice.refuseMatch(request);
+
+		mView.setViewName("redirect:/team/team_detail.do");
 		return mView;
 		
 	}

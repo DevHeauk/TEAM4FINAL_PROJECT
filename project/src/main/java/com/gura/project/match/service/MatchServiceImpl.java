@@ -35,9 +35,14 @@ public class MatchServiceImpl implements MatchService {
 	}
 
 	@Override
-	public ModelAndView refuseMatch(HttpServletRequest request) {
+	public void refuseMatch(HttpServletRequest request) {
+		String awayTeam = request.getParameter("awayTeam");
+		String homeTeam = request.getParameter("homeTeam");
+		MatchDto dto = new MatchDto();
+		dto.setAwayTeam(awayTeam);
+		dto.setHomeTeam(homeTeam);
+		matchdao.deleteMatch(dto);
 		
-		return null;
 	}
 
 	@Override
@@ -53,10 +58,13 @@ public class MatchServiceImpl implements MatchService {
 
 	@Override
 	public void successMatching(HttpServletRequest request) {
-		String awayTeam = request.getParameter("awayTeam");
-		matchdao.successMatch(awayTeam);
-		System.out.println(awayTeam);
-
+		String awayTeam = request.getParameter("awayteam");
+		String homeTeam = request.getParameter("hometeam");
+		MatchDto dto = new MatchDto();
+		dto.setAwayTeam(awayTeam);
+		dto.setHomeTeam(homeTeam);
+		
+		matchdao.successMatch(dto);
 		
 	}
 

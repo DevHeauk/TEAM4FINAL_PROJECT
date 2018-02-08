@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="match">
 	<insert id="Matchinsert" parameterType="MatchDto">
-		insert into matching(hometeam,awayteam,matchdate,ground,successmatching,num)
+		insert into matching(homeTeam,awayTeam,matchDate,ground,successMatching,num)
 		values (#{homeTeam},#{awayTeam},#{matchDate},#{ground},'false',match_seq.NEXTVAL)
 	</insert>
 	<select id="getawayteam" parameterType="String" resultType="String">
@@ -10,11 +10,21 @@
 		from users4
 		where id=#{id}
 	</select>
-	<update id="successMatch" parameterType="String">
+	<update id="successMatch" parameterType="MatchDto">
 		UPDATE matching
-		SET successmatching='true'
-		WHERE awayTeam=#{awayteam}
+		SET successMatching='true'
+		WHERE awayTeam=#{awayTeam} and homeTeam=#{homeTeam}
 	</update>
+	<delete id="delete" parameterType="MatchDto">
+		delete from match
+		where awayTeam=#{awayTeam} and homeTeam=#{homeTeam}
+	</delete>
+	<select id="matched" parameterType="MatchDto" resultType="String">
+		select awayTeam
+		from matching
+		where awayTeam=#{awayTeam} and homeTeam=#{homeTeam}
+	</select>
+	
 </mapper>
 
 
