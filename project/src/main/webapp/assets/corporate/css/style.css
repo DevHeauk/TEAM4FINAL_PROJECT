@@ -3197,15 +3197,3 @@ Styler Panel
 .fancybox-opened {
   z-index: 100001;
 }
-
-
-/* ranking */
-
-.rank_area{width: 30%; height: auto; float: left;}
-.rank_area .rank_box{width: 100%; height: auto;}
-.rank_area .rank_box .left_img{width: 25%; height: 200px; float: left;}
-.rank_area .rank_box .left_img img{width: 100%;}
-.rank_area .rank_box .right_text{width: 75%; height: auto; float: left;}
-
-
-.cf:after{content: ""; display: block; clear: both;}

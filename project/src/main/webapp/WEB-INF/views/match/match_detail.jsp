@@ -99,13 +99,15 @@
 	                      		</tr>	                      			                      			                      			                      		
 	                      	</tbody>
 	                      </table>
-	                      
 	                      <!-- END CAROUSEL -->
 	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
 	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
 	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
 	                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
-	                      </ul>	                                   
+	                      </ul>	  
+						  <p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">000 점 <span style="display: inline-block; padding: 0 5px;">/</span>
+						  <i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리	      
+						  <!-- <i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배   --></p>                                               
 	                    </div>
 	                    <div class="col-md-4 col-sm-4 match-vs" style="text-align: center; border-left: 1px solid #ececec; border-right: 1px solid #ececec;">
 							<img src="${pageContext.request.contextPath}/assets/pages/img/match_vs.png" alt="" />
@@ -211,7 +213,10 @@
 	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
 	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
 	                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
-	                      </ul>	                                   
+	                      </ul>	       
+						  <p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">000 점 <span style="display: inline-block; padding: 0 5px;">/</span>
+  						  <!-- <i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리	 -->
+						  <i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배</p>	   	                                                  
 	                    </div>	   
 							<div class="vs_info_xs">
 								<table class="vs_info">

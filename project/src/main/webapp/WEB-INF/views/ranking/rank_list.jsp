@@ -38,18 +38,66 @@
           <div class="col-md-12 col-sm-12">
             <h1>LEGEND TEAMS</h1>
             <div class="content-page">
-              <div class="row">
-              	<div class="rank_area cf">
-              		<div class="rank_box cf">
-              			<div class="left_img cf">
-              				<img src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg" alt=""/>
-              			</div>
-           				<dl class="right_text cf">
-           					<dt><strong>팀이름</strong> <span><a href="#;">자세히 보기 ></a></span></dt>
-           					<dd>팀원1, 팀원2, 팀원3, 팀원4, 팀원5</dd>
-           				</dl>
-              		</div>
-              	</div>
+              <div class="row">                       
+                <div class="col-md-12 col-sm-12 blog-posts">            
+                <c:forEach var="tmp" items="${list }">
+                	  <div class="row">                                   	
+	                    <div class="col-md-4 col-sm-4">                    
+	                      <!-- BEGIN CAROUSEL -->            
+	                      <div class="front-carousel">
+	                        <div class="carousel slide" id="myCarousel${tmp.name }">
+	                          <!-- Carousel items -->
+	                          <div class="carousel-inner">
+	                            <div class="item">
+	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
+	                            </div>
+	                            <div class="item">
+	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
+	                            </div>
+	                            <div class="item active">
+	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
+	                            </div>
+	                          </div>
+	                          <!-- Carousel nav -->
+	                          <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+	                            <i class="fa fa-angle-left"></i>
+	                          </a>
+	                          <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+	                            <i class="fa fa-angle-right"></i>
+	                          </a>
+	                        </div>                
+	                      </div>
+	                      <!-- END CAROUSEL -->             
+	                    </div>
+	                    
+	                    <div class="col-md-8 col-sm-8">
+	                      <h2><a href="team_detail.do">${tmp.name }</a></h2>
+	                      <ul class="blog-info">
+	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 ${tmp.win }</li>
+	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패 ${tmp.lose }</li>
+	                        <li><i class="fa fa-tags"></i> 총경기 : ${tmp.total }</li>
+	                        <li><i class="fa fa-tags"></i> 홈그라운드 : ${tmp.ground }</li>                        
+	                      </ul>
+	                      <p>${tmp.content }</p>
+	                      <a href="detail2.do?name=${tmp.name }" class="more">팀정보보기 <i class="icon-angle-right"></i></a>
+	                    </div>
+	                  </div>
+            	      <hr class="blog-post-sep">
+	                  
+	              </c:forEach>
+	              
+                  <ul class="pagination">
+                    <li><a href="javascript:;">Prev</a></li>
+                    <li><a href="javascript:;">1</a></li>
+                    <li><a href="javascript:;">2</a></li>
+                    <li class="active"><a href="javascript:;">3</a></li>
+                    <li><a href="javascript:;">4</a></li>
+                    <li><a href="javascript:;">5</a></li>
+                    <li><a href="javascript:;">Next</a></li>
+                  </ul>               
+                </div>
+                <!-- END LEFT SIDEBAR -->
+    
               </div>
             </div>
           </div>
