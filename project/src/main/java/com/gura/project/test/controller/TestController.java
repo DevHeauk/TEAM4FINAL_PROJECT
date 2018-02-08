@@ -59,7 +59,7 @@ public class TestController {
 		return "shop/order";
 	}	
 	
-	@RequestMapping("/match/match_list")
+	@RequestMapping("/match/match_list2")
 	public String matchList(){
 		
 		return "match/match_list";

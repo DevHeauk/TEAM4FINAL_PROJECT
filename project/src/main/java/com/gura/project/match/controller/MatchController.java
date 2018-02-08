@@ -45,4 +45,26 @@ public class MatchController {
 		return mView;
 		
 	}
+	@RequestMapping("/match/match_list")
+	public ModelAndView matchlist(){
+		ModelAndView mView=matchservice.matchlist();
+		mView.setViewName("match/match_list");
+		return mView;
+	}
+	@RequestMapping("/match/detail")
+	public ModelAndView matchdetail(HttpServletRequest request){
+		ModelAndView mView=matchservice.matchdetail(request);
+		mView.setViewName("match/detail");
+
+		return mView;
+	}
+	@RequestMapping("/match/pointinsert")
+	public ModelAndView pointinsert(HttpServletRequest request,@ModelAttribute MatchDto dto){
+		ModelAndView mView=new ModelAndView();
+		matchservice.pointinsert(request, dto);
+		String num=dto.getNum();
+		
+		mView.setViewName("redirect:/match/detail.do?num="+num);
+		return mView;
+	}
 }
