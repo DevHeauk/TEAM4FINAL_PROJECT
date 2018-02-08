@@ -24,7 +24,7 @@ public class MatchController {
 		
 		ModelAndView mView=new ModelAndView();
 		matchservice.applicationsMatch(request,dto);
-		mView.setViewName("redirect:/team/list.do");
+		mView.setViewName("redirect:/match/match_list.do");
 		return mView;
 	}
 	@RequestMapping("/team/matchsuccess")
@@ -33,28 +33,34 @@ public class MatchController {
 		String awayTeam = request.getParameter("awayTeam");
 		matchservice.successMatching(request);
 
-		mView.setViewName("redirect:/team/detail.do?awayteam"+awayTeam);
+		mView.setViewName("redirect:/match/detail.do?awayteam"+awayTeam);
 		return mView;
 		
 	}
-	@RequestMapping("/match/list")
+	@RequestMapping("/match/match_list")
 	public ModelAndView matchlist(){
 		ModelAndView mView=matchservice.matchlist();
-		mView.setViewName("team/list");
+		mView.setViewName("match/list");
 		return mView;
 	}
 	@RequestMapping("/match/detail")
 	public ModelAndView matchdetail(HttpServletRequest request){
 		ModelAndView mView=matchservice.matchdetail(request);
-		mView.setViewName("team/detail");
+		mView.setViewName("match/detail");
+		String homeTeam=request.getParameter("homeTeam");
+		String awayTeam=request.getParameter("awayTeam");
+		System.out.println(awayTeam);
+		System.out.println(homeTeam);
+		
 		return mView;
 	}
 	@RequestMapping("/match/pointinsert")
 	public ModelAndView pointinsert(HttpServletRequest request,@ModelAttribute MatchDto dto){
 		ModelAndView mView=new ModelAndView();
 		matchservice.pointinsert(request, dto);
-		String awayteam=request.getParameter("awayTeam");
-		mView.setViewName("redirect:/team/detail.do?awayTeam"+awayteam);
+		String num=dto.getNum();
+		
+		mView.setViewName("redirect:/match/detail.do?num="+num);
 		return mView;
 	}
 }

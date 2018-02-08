@@ -1,6 +1,7 @@
 package com.gura.project.match.dto;
 
 public class MatchDto {
+	
 	private String num;
 	private String homeTeam;
 	private String awayTeam;
@@ -12,8 +13,8 @@ public class MatchDto {
 	private int losecount;
 	private int totalcount;
 	public MatchDto(){}
-	public MatchDto(String num, String homeTeam, String awayTeam, int homePoint, int awayPoint, String matchDate,
-			String ground, int wincount, int losecount, int totalcount) {
+	public MatchDto(String name, String num, String homeTeam, String awayTeam, int homePoint, int awayPoint,
+			String matchDate, String ground, int wincount, int losecount, int totalcount) {
 		super();
 		this.num = num;
 		this.homeTeam = homeTeam;
@@ -26,6 +27,7 @@ public class MatchDto {
 		this.losecount = losecount;
 		this.totalcount = totalcount;
 	}
+	
 	public String getNum() {
 		return num;
 	}
@@ -86,6 +88,7 @@ public class MatchDto {
 	public void setTotalcount(int totalcount) {
 		this.totalcount = totalcount;
 	}
+	
 	
 	
 	

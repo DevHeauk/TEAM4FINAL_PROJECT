@@ -67,16 +67,30 @@ public class MatchDaoImpl implements MatchDao{
 		return session.selectList("match.getlist");
 	}
 
+
 	@Override
-	public List<MatchDto> gethomePoint(MatchDto dto) {
+	public void HWwinpointupdate(MatchDto dto) {
+		session.update("match.HWwinpointupdate", dto);
 		
-		return session.selectList("match.getwhenhomepoint", dto);
 	}
 
 	@Override
-	public List<MatchDto> getawayPoin(MatchDto dto) {
+	public void HWlosepointupdate(MatchDto dto) {
+
+		session.update("match.HWlosepointupdate", dto);
+	}
+
+
+	@Override
+	public void AWwinpointupdate(MatchDto dto) {
+		session.update("match.AWwinpointupdate", dto);
 		
-		return session.selectList("match.getwhenawaypoint",dto);
+	}
+
+	@Override
+	public void AWlosepointupdate(MatchDto dto) {
+		session.update("match.AWlosepointupdate", dto);
+		
 	}
 
 

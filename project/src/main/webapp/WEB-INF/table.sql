@@ -94,5 +94,7 @@ total_price NUMBER,
 saveFileName clob,
 regdate DATE
 );
+insert into matching(num,hometeam,awayteam,matchdate,ground,successmatching)
+		values (1,'농구팀','농구팀2','1월2일','일산','false')
 
 CREATE SEQUENCE cart_seq;

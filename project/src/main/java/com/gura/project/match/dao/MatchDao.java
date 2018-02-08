@@ -17,8 +17,9 @@ public interface MatchDao {
 	public String getawayteam(String id);
 	public void successupdate(String awayTeam);
 	public List<MatchDto> getlist();
-	public List<MatchDto> gethomePoint(MatchDto dto);
-	public List<MatchDto> getawayPoin(MatchDto dto);
-	
+	public void HWwinpointupdate (MatchDto dto );
+	public void HWlosepointupdate(MatchDto dto);
+	public void AWwinpointupdate (MatchDto dto );
+	public void AWlosepointupdate(MatchDto dto);
 	 
 }

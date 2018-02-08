@@ -14,6 +14,8 @@
 				<th>경기번호</th>
 				<th>hometeam</th>
 				<th>awayteam</th>
+				<th>homepoint</th>
+				<th>awaypoint</th>
 				<th>장소</th>
 				<th>언재할까</th>
 
@@ -21,6 +23,7 @@
 		</thead>
 		<tbody>
 				<tr>
+					<td>${matchdto.num}</td>
 					<td>${matchdto.homeTeam}</td>
 					<td>${matchdto.awayTeam }</a></td>
 					<td>${matchdto.homePoint }</td>
@@ -29,14 +32,17 @@
 					<td>${matchdto.matchDate }</td>
 				</tr>
 		</tbody>
-		<c:if test="${sessionScope.id eq matchdto.homeTeam}">
-			<form action="pointinsert.do?matchdto=${matchdto.homeTeam}">
-				<label>${matchdto.homeTeam} 점수</label>
-				<input type="text" id="hoempoint" name="homepoint"/>
-				<label>${matchdto.awayTeam}</label>
-				<input type="text" id="awaypoint" name="awaypoint">
-			</form>
-		</c:if>
+		<form action="pointinsert.do">
+			<input type="hidden" name=num id=num value="${matchdto.num}">
+			<input type="hidden" name=awayTeam id=awayTeam value="${matchdto.awayTeam }">
+			<input type="hidden" name=homeTeam id=hoemTeam value="${matchdto.homeTeam }">
+			<label>${matchdto.homeTeam} 점수</label>
+			<input type="text" id="hoemPoint" name="homePoint"/>
+			<label>${matchdto.awayTeam}</label>
+			<input type="text" id="awayPoint" name="awayPoint">
+			<button type="submit">입력</button>
+		</form>
+	
 </table>
 </body>
 </html>

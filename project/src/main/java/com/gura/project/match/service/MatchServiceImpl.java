@@ -62,8 +62,8 @@ public class MatchServiceImpl implements MatchService {
 	@Override
 	public ModelAndView matchlist() {
 		ModelAndView mView=new ModelAndView();
-		List<MatchDto> list=matchdao.getlist(); 
-		mView.addObject("list", list);
+		List<MatchDto> matchlist=matchdao.getlist(); 
+		mView.addObject("matchlist", matchlist);
 		
 		
 		return mView;
@@ -73,41 +73,8 @@ public class MatchServiceImpl implements MatchService {
 	public ModelAndView matchdetail(HttpServletRequest request) {
 		ModelAndView mView=new ModelAndView();
 		MatchDto dto=new MatchDto();
-		int wincount=0;
-		int losecount=0;
-		
 		
 		dto.setNum(request.getParameter("num"));
-		dto.setHomeTeam(request.getParameter("homeTeam"));
-		dto.setAwayTeam(request.getParameter("awayTeam"));
-		
-		//상대전적
-		List<MatchDto> pointlist=matchdao.gethomePoint(dto);
-		for (MatchDto tmp : pointlist) {
-			if(tmp.getHomePoint() !=tmp.getAwayPoint()){
-				if(tmp.getHomePoint()>tmp.getAwayPoint()){
-					wincount++;
-				}else if(tmp.getAwayPoint()>tmp.getHomePoint()){
-					losecount++;
-				}
-			}
-			
-		}
-		
-		List<MatchDto> pointlist2=matchdao.getawayPoin(dto);
-		for (MatchDto tmp : pointlist2) {
-				if(tmp.getHomePoint() !=tmp.getAwayPoint()){
-					if(tmp.getAwayPoint()>tmp.getHomePoint()){
-						wincount++;
-					}else if(tmp.getHomePoint()>tmp.getAwayPoint()){
-						losecount++;
-					}
-				}
-			
-		}
-		dto.setWincount(wincount);
-		dto.setLosecount(losecount);
-		dto.setTotalcount(wincount+losecount);
 		
 		
 		
@@ -117,12 +84,24 @@ public class MatchServiceImpl implements MatchService {
 		
 		return mView;
 	}
-
+	
+	//matchdto 에받어올때 team 명  point 가져와야함
 	@Override
 	public void pointinsert(HttpServletRequest request, MatchDto dto) {
 		String num=request.getParameter("num");
+		System.out.println(num);
 		dto.setNum(num);
+		System.out.println(dto.getNum());
 		matchdao.insertPoint(dto);
+		System.out.println(dto.getAwayTeam());
+		System.out.println(dto.getHomeTeam());
+		if(dto.getHomePoint()>dto.getAwayPoint()){
+			matchdao.HWwinpointupdate(dto);
+			matchdao.HWlosepointupdate(dto);
+		}else if(dto.getHomePoint()<dto.getAwayPoint()){
+			matchdao.AWwinpointupdate(dto);
+			matchdao.AWlosepointupdate(dto);
+		}
 	}
 	
 }

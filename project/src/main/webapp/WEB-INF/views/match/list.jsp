@@ -14,12 +14,13 @@
 				<th>경기번호</th>
 				<th>hometeam</th>
 				<th>awayteam</th>
+				<th>언재</th>
 				<th>장소</th>
-				<th>언재할까</th>
+				<th>자세히보자</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="tmp" items="${list}">
+			<c:forEach var="tmp" items="${matchlist}">
 				<tr>
 					<td>${tmp.num }</td>
 					<td>${tmp.homeTeam }</a></td>
