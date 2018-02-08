@@ -15,18 +15,13 @@ public interface MatchDao {
 	public MatchDto pointInsert(MatchDto dto);
 	public void insertPoint(MatchDto dto);
 	public String getawayteam(String id);
-<<<<<<< HEAD
 	public void successMatch(MatchDto dto);
 	public boolean matched(MatchDto dto);
-
-	
-=======
 	public void successupdate(String awayTeam);
 	public List<MatchDto> getlist();
 	public void HWwinpointupdate (MatchDto dto );
 	public void HWlosepointupdate(MatchDto dto);
 	public void AWwinpointupdate (MatchDto dto );
 	public void AWlosepointupdate(MatchDto dto);
-	 
->>>>>>> LEEYONGKYU
+
 }

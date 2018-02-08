@@ -104,6 +104,12 @@ public class MatchDaoImpl implements MatchDao{
 		
 	}
 
+	@Override
+	public void successupdate(String awayTeam) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	
 }
