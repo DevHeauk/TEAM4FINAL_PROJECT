@@ -44,11 +44,11 @@
            	  		<a href="insertform.do" class="btn btn-primary pull-right margin-bottom-20" style="color: #ffffff; margin-right: 20px;">팀만들기</a>
 				</c:if>                            
                 <div class="col-md-12 col-sm-12 blog-posts">            
-                <c:forEach var="tmp" items="${list }">
                 	  <div class="row">                                   	
-	                    <div class="col-md-4 col-sm-4">                    
+	                    <div class="col-md-4 col-sm-4 match-left">
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">Home Team</a></h2>	                       
 	                      <!-- BEGIN CAROUSEL -->            
-	                      <div class="front-carousel">
+	                      <div class="front-carousel">	                      
 	                        <div class="carousel slide" id="myCarousel${tmp.name }">
 	                          <!-- Carousel items -->
 	                          <div class="carousel-inner">
@@ -71,24 +71,54 @@
 	                          </a>
 	                        </div>                
 	                      </div>
-	                      <!-- END CAROUSEL -->             
+	                      <!-- END CAROUSEL -->
+	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
+	                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+	                      </ul>	                                   
 	                    </div>
+	                    <div class="col-md-4 col-sm-4 match-vs" style="text-align: center;;">
+							<img src="${pageContext.request.contextPath}/assets/pages/img/match_vs.png" alt="" /><br />
+							<a href="match_detail.do" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
+	                    </div>	
 	                    
-	                    <div class="col-md-8 col-sm-8">
-	                      <h2><a href="team_detail.do">${tmp.name }</a></h2>
-	                      <ul class="blog-info">
-	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 ${tmp.win }</li>
-	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패 ${tmp.lose }</li>
-	                        <li><i class="fa fa-tags"></i> 총경기 : ${tmp.total }</li>
-	                        <li><i class="fa fa-tags"></i> 홈그라운드 : ${tmp.ground }</li>                        
-	                      </ul>
-	                      <p>${tmp.content }</p>
-	                      <a href="detail2.do?name=${tmp.name }" class="more">팀정보보기 <i class="icon-angle-right"></i></a>
-	                    </div>
+	                    <div class="col-md-4 col-sm-4 match-right" >
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>	                       
+	                      <!-- BEGIN CAROUSEL -->            
+	                      <div class="front-carousel">	                      
+	                        <div class="carousel slide" id="myCarousel${tmp.name }">
+	                          <!-- Carousel items -->
+	                          <div class="carousel-inner">
+	                            <div class="item">
+	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
+	                            </div>
+	                            <div class="item">
+	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
+	                            </div>
+	                            <div class="item active">
+	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
+	                            </div>
+	                          </div>
+	                          <!-- Carousel nav -->
+	                          <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+	                            <i class="fa fa-angle-left"></i>
+	                          </a>
+	                          <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+	                            <i class="fa fa-angle-right"></i>
+	                          </a>
+	                        </div>                
+	                      </div>
+	                      <!-- END CAROUSEL -->
+	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
+	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
+	                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+	                      </ul>	                                   
+	                    </div>	   	                    	                                        
 	                  </div>
+	                  	                  
             	      <hr class="blog-post-sep">
-	                  
-	              </c:forEach>
 	              
                   <ul class="pagination">
                     <li><a href="javascript:;">Prev</a></li>

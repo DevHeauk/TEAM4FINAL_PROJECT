@@ -57,6 +57,24 @@ public class TestController {
 	public String Order(){
 		
 		return "shop/order";
+	}	
+	
+	@RequestMapping("/match/match_list")
+	public String matchList(){
+		
+		return "match/match_list";
+	}		
+	
+	@RequestMapping("/match/match_detail")
+	public String matchDetail(){
+		
+		return "match/match_detail";
+	}		
+	
+	@RequestMapping("/ranking/rank_list")
+	public String rankList(){
+		
+		return "ranking/rank_list";
 	}			
 		
 }
