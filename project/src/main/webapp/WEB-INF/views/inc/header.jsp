@@ -50,13 +50,16 @@
           <div class="top-cart-content-wrapper">
             <div class="top-cart-content">
               <ul class="scroller" style="height: 250px;">
-                <li>
-                  <a href="shop-item.html"><img src="assets/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
-                  <span class="cart-content-count">x 1</span>
-                  <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
-                  <em>$1230</em>
-                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-                </li>
+              	<c:forEach var="tmp" items="${list2 }">
+              		<li>
+	                  <a href="shop-item.html"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" alt="Rolex Classic Watch" width="37" height="34"></a>
+	                  <span class="cart-content-count">x ${tmp.product_count }</span>
+	                  <strong><a href="shop-item.html">${tmp.product_name }</a></strong>
+	                  <em>$ ${tmp.price }</em>
+	                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
+	                </li>
+              	</c:forEach>
+                
               </ul>
             </div>
          </div>

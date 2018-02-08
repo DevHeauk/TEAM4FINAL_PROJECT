@@ -90,11 +90,16 @@ public class ShopServiceImpl implements ShopService{
 		List<ShopDto> list=shopDao.getList(dto);
 		
 		mView.addObject("list", list);
+		mView.addObject("list3", list);
 		mView.addObject("pageNum", pageNum);
 		mView.addObject("startPageNum", startPageNum);
 		mView.addObject("endPageNum", endPageNum);
 		mView.addObject("totalPageCount", totalPageCount);
 		
+		String id=(String)request.getSession().getAttribute("id");
+		List<CartDto> list2=shopDao.cartList(id);
+		mView.addObject("list2", list2);
+
 		return mView;
 	}
 
@@ -181,6 +186,7 @@ public class ShopServiceImpl implements ShopService{
 			SumPrice = SumPrice + tmp.getTotal_price();
 		}
 		mView.addObject("list", list);
+		mView.addObject("list2", list);
 		mView.addObject("SumPrice", SumPrice);
 		return mView;
 	}
