@@ -43,7 +43,7 @@
 		where id=#{member}
 	</update>
 	<select id="awayteam" parameterType="MatchDto" resultType="MatchDto">
-		select awayteam
+		select awayteam, matchdate, ground
 		from matching
 		where hometeam=#{homeTeam}
 	</select>

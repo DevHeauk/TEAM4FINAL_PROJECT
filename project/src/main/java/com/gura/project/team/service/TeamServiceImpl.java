@@ -60,7 +60,9 @@ public class TeamServiceImpl implements TeamService{
 		//HomeTeam 멤버 리스트
 		mView.addObject("memberlist", memberlist);
 		//HomeTeam과 매치된 AwayTeam의 정보 list로 얻어온다.
-		mView.addObject("matchdtoList", awayteaminfo);
+		mView.addObject("awayteaminfo", awayteaminfo);
+		//matching된 게임의 정보.(awayteam, matchdate,ground)
+		mView.addObject("match", awayteamlist);
 		
 		return mView;
 	}

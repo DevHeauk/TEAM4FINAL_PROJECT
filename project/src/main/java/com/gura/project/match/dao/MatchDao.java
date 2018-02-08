@@ -13,6 +13,6 @@ public interface MatchDao {
 	public MatchDto pointInsert(MatchDto dto);
 	public MatchDto insertWinningPoint(TeamDto dto);
 	public String getawayteam(String id);
-	public void successupdate(String awayTeam);
+	public void successMatch(String awayTeam);
 	
 }

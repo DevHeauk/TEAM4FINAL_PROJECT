@@ -56,8 +56,8 @@ public class MatchDaoImpl implements MatchDao{
 	}
 
 	@Override
-	public void successupdate(String awayTeam) {
-		session.update("match.successmatch", awayTeam);
+	public void successMatch(String awayTeam) {
+		session.update("match.successMatch", awayTeam);
 	}
 
 }

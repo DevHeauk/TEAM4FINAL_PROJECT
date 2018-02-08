@@ -77,7 +77,19 @@
 	                    <p><strong>${tmp.responsibility }</strong> &nbsp;| &nbsp;&nbsp;포지션 : ${tmp.b_position} &nbsp;| &nbsp; 구력 : ${tmp.career }년</p>
                   	</blockquote> 
                   </c:forEach>
-                             
+                  
+                  <h2>매칭신청된 팀</h2>
+                  <c:forEach var="tmp" items="${awayteaminfo }">
+                  		<ul class="blog-info">
+                  			<li><i>팀이름 : ${tmp.name }</i></li>
+                  			<li><i>leader : ${tmp.leader }</i></li>
+	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 ${tmp.win }</li>
+	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패 ${tmp.lose }</li>
+	                        <li><i class="fa fa-tags"></i> 총경기 : ${tmp.total }</li>
+	                        <li><i class="fa fa-tags"></i> 홈그라운드 : ${tmp.ground }</li> 
+	                        <li><a href=""><button class="btn btn-primary">수락</button></a></li>                       
+	                      </ul>
+                  </c:forEach>
                   <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
                   <p>Culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
                   <ul class="blog-info">
@@ -100,6 +112,7 @@
         <div id="matching-pop-up" style="display: none; width: 700px;">
         	 <h2>경기 매칭</h2>
         	 <form action="matchinsert.do" method="post">
+        	 	<input type="hidden" name="name" value="${Homedto.name }" />
         	 	<div class="input-group">
         	 		<label for="matchDate">경기날짜</label>
                     <input type="date" name="matchDate" class="form-control" />

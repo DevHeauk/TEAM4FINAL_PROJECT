@@ -23,7 +23,7 @@ public class MatchController {
 	public ModelAndView authmatchinsert (HttpServletRequest request,@ModelAttribute MatchDto dto){
 		ModelAndView mView = new ModelAndView();
 		matchservice.applicationsMatch(request,dto);
-		mView.setViewName("redirect:/team/list.do");
+		mView.setViewName("redirect:/team/team_list.do");
 		return mView;
 	}
 	
