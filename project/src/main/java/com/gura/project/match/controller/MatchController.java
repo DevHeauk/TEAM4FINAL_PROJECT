@@ -47,10 +47,8 @@ public class MatchController {
 	public ModelAndView matchdetail(HttpServletRequest request){
 		ModelAndView mView=matchservice.matchdetail(request);
 		mView.setViewName("match/detail");
-		String homeTeam=request.getParameter("homeTeam");
-		String awayTeam=request.getParameter("awayTeam");
-		System.out.println(awayTeam);
-		System.out.println(homeTeam);
+		
+
 		
 		return mView;
 	}
