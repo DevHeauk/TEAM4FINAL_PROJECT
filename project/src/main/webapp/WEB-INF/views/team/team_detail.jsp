@@ -68,7 +68,7 @@
                     <!-- END CAROUSEL -->             
                   </div>
                   <h2><strong>팀소개</strong></h2>
-                  <c:if test="${not empty id and Homedto.name ne awayteam}">
+                  <c:if test="${not empty id and Homedto.name ne awayteam and awayteam ne null}">
                   	<c:choose>
 	                  	<c:when test="${Matched }">
 	                  		<button style="width:90px" class="btn btn-primary col-xs-offset-10 col-sm-offset-7">매칭신청됨</button>
@@ -78,6 +78,19 @@
 	                  	</c:otherwise>
                   	</c:choose>
                   </c:if>
+                 
+
+                
+             
+                <c:if test="${not empty id }">
+                	<c:if test="${userdto.team eq null}">
+                		<c:if test="${teamdto.jointeam eq null }">
+                			<a href="joiningconfirm.do?id=${id}&name=${Homedto.name}"><button class="btn btn-success">팀가입신청</button></a>
+                		</c:if>
+                	</c:if>
+                </c:if> 
+                
+             	
                   
                   <p>${Homedto.content }</p>
                   <p>홈그라운드 : ${Homedto.ground }</p>
@@ -88,32 +101,44 @@
                   	</blockquote> 
                   </c:forEach>
                   
-                  <h2>매칭신청된 팀</h2>
-                  <c:forEach var="tmp" items="${awayteaminfo }">
-                  		<ul class="blog-info">
-                  			<li><i>팀이름 : ${tmp.name }</i></li>
-                  			<li><i>leader : ${tmp.leader }</i></li>
-	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 ${tmp.win }</li>
-	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패 ${tmp.lose }</li>
-	                        <li><i class="fa fa-tags"></i> 총경기 : ${tmp.total }</li>
-	                        <li><i class="fa fa-tags"></i> 홈그라운드 : ${tmp.ground }</li> 
-	                        
-	                        <c:choose>
-	                        	<c:when test="${tmp.successMatching }">
-	                        		<li><a href="matchDetail.do?awayteam=${tmp.name }&hometeam=${Homedto.name}">
-			                        <button class="btn btn-success">매칭페이지</button></a></li>
-			                        
-	                        	</c:when>
-	                        	<c:otherwise>
-	                        		<li><a href="matchsuccess.do?awayteam=${tmp.name }&hometeam=${Homedto.name}">
-			                        <button class="btn btn-primary">수락</button></a></li>
-			                        <li><a href="refuseMatch.do?awayteam=${tmp.name }&hometeam=${Homedto.name}">
-			                        <button class="btn btn-primary">거절</button></a></li>
-	                        	</c:otherwise>
-	                        </c:choose>
-	                                        
-	                      </ul>
-                  </c:forEach>
+                  <c:if test="${id eq Homedto.member }">
+	                  <h2>팀가입 신청목록</h2>
+	                  <c:forEach var="tmp" items="${joininfo }">
+	                  		<ul class="blog-info">
+	                  			<li><i>이름 : ${tmp.name }</i></li>
+	                  			<li><i>경력 : ${tmp.career }</i></li>
+	                  			<li><i>포지션 : ${tmp.b_position }</i></li>
+	                  			<li><i><a href="join.do?name=${Homedto.name}&joinid=${tmp.id}">수락</a></i></li>
+	                  			<li><i><a href="joinrefuse.do?name=${Homedto.name}&joinid=${tmp.id}">거절</a></i></li>
+	                  		</ul>
+	                  </c:forEach>
+	                  <h2>매칭신청된 팀</h2>
+	                  <c:forEach var="tmp" items="${awayteaminfo }">
+	                  		<ul class="blog-info">
+	                  			<li><i>팀이름 : ${tmp.name }</i></li>
+	                  			<li><i>leader : ${tmp.leader }</i></li>
+		                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 ${tmp.win }</li>
+		                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패 ${tmp.lose }</li>
+		                        <li><i class="fa fa-tags"></i> 총경기 : ${tmp.total }</li>
+		                        <li><i class="fa fa-tags"></i> 홈그라운드 : ${tmp.ground }</li> 
+		                        
+		                        <c:choose>
+		                        	<c:when test="${tmp.successMatching }">
+		                        		<li><a href="matchDetail.do?awayteam=${tmp.name }&hometeam=${Homedto.name}">
+				                        <button class="btn btn-success">매칭페이지</button></a></li>
+				                        
+		                        	</c:when>
+		                        	<c:otherwise>
+		                        		<li><a href="matchsuccess.do?awayteam=${tmp.name }&hometeam=${Homedto.name}">
+				                        <button class="btn btn-primary">수락</button></a></li>
+				                        <li><a href="refuseMatch.do?awayteam=${tmp.name }&hometeam=${Homedto.name}">
+				                        <button class="btn btn-primary">거절</button></a></li>
+		                        	</c:otherwise>
+		                        </c:choose>
+		                                        
+		                      </ul>
+	                  </c:forEach>
+                  </c:if>
                   <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
                   <p>Culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
                   <ul class="blog-info">

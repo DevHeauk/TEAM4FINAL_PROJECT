@@ -103,6 +103,11 @@ public class TeamDaoImpl implements TeamDao {
 			};
 		return awayteaminfo;
 	}
+	@Override
+	public TeamDto getjointeam(String id) {
+		
+		return session.selectOne("team.getjointeam",id);
+	}
 	
 	
 	

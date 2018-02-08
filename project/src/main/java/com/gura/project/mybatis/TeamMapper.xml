@@ -68,6 +68,11 @@
 		from team
 		where name=#{awayteam}
 	</select>
+	<select id="getjointeam" parameterType="String" resultType="teamDto">
+		select jointeam
+		from joinlist
+		where joinid=#{id}
+	</select>
 </mapper>
 
 

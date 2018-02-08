@@ -31,8 +31,8 @@ public class MatchController {
 	public ModelAndView authmatchsuccess(HttpServletRequest request){
 		ModelAndView mView=new ModelAndView();
 		matchservice.successMatching(request);
-
-		mView.setViewName("redirect:/team/team_detail.do");
+		String name = request.getParameter("hometeam");
+		mView.setViewName("redirect:/team/team_detail2.do?name="+name);
 		return mView;
 	}
 	
@@ -40,8 +40,8 @@ public class MatchController {
 	public ModelAndView authrefuseMatch(HttpServletRequest request){
 		ModelAndView mView=new ModelAndView();
 		matchservice.refuseMatch(request);
-
-		mView.setViewName("redirect:/team/team_detail.do");
+		String name = request.getParameter("hometeam");
+		mView.setViewName("redirect:/team/team_detail2.do?name="+name);
 		return mView;
 		
 	}
