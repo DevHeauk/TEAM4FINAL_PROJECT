@@ -18,13 +18,14 @@ public class HomeController {
 	@RequestMapping("/home")
 	public ModelAndView home(HttpServletRequest request) {
 		String id=(String)request.getSession().getAttribute("id");
-		ModelAndView mView=shopService.getList(request);
+		
 		if(id != null){
+			ModelAndView mView=shopService.getList(request);
 			mView=shopService.cart_data(id);
 			mView.setViewName("home");
 			return mView;
 		}else{
-			mView=new ModelAndView();
+			ModelAndView mView=mView=new ModelAndView();
 			mView.setViewName("home");
 			return mView;
 		}
