@@ -71,7 +71,7 @@
                   <c:if test="${not empty id and Homedto.name ne awayteam}">
                   	<c:choose>
 	                  	<c:when test="${Matched }">
-	                  		<button style="width:90px" class="btn btn-primary col-xs-offset-10 col-sm-offset-7">매칭완료됨</button>
+	                  		<button style="width:90px" class="btn btn-primary col-xs-offset-10 col-sm-offset-7">매칭신청됨</button>
 	                  	</c:when>
 	                  	<c:otherwise>
 	             	        <a href="#matching-pop-up" class="fancybox-fast-view"><button style="width:80px" class="btn btn-primary col-xs-offset-10 col-sm-offset-7">매칭신청</button></a>
@@ -102,6 +102,7 @@
 	                        	<c:when test="${tmp.successMatching }">
 	                        		<li><a href="matchDetail.do?awayteam=${tmp.name }&hometeam=${Homedto.name}">
 			                        <button class="btn btn-success">매칭페이지</button></a></li>
+			                        
 	                        	</c:when>
 	                        	<c:otherwise>
 	                        		<li><a href="matchsuccess.do?awayteam=${tmp.name }&hometeam=${Homedto.name}">
