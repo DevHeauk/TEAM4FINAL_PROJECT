@@ -41,7 +41,7 @@
                     <th class="goods-page-price">Unit price</th>
                     <th class="goods-page-total" colspan="2">Total</th>
                   </tr>
-                  <c:forEach var="tmp" items="${cart_list }">
+                  <c:forEach var="tmp" items="${list }">
                   	<tr>
                     <td class="goods-page-image">
                       <a href="javascript:;"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" alt="Berry Lace Dress"></a>

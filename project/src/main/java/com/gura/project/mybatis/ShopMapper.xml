@@ -26,11 +26,7 @@
 		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}		
 	</select>
 	
-	<select id="getList2" 
-		resultType="shopDto">
-		SELECT title
-		FROM shop4	
-	</select>
+	
 	
 	<insert id="insert" parameterType="shopDto">
 		INSERT INTO shop4 (num,title,price,content,remainCount,orgFileName,saveFileName,fileSize,product_size,category, regdate)
@@ -108,15 +104,6 @@
 		delete from cart
 		where id=#{id}
 	</delete>
-	<insert id="orderInsert" parameterType="com.gura.project.shop.dto.Product_OrderDto">
-		INSERT INTO product_order (title, addr01, addr02, addr03, id, product_count, price, saveFileName, delivery_location)
-		VALUES(#{title}, #{addr01}, #{addr02}, #{addr03}, #{id}, #{product_count}, #{price}, #{saveFileName}, #{delivery_location})
-	</insert>
-	<select id="orderList" parameterType="String" resultType="com.gura.project.shop.dto.Product_OrderDto">
-		SELECT title, addr01, addr02, addr03, id, product_count, price, saveFileName, delivery_location
-		FROM product_order
-		WHERE id=#{id}
-	</select>
 </mapper> 
 
 

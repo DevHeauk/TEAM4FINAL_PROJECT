@@ -23,7 +23,7 @@
 	                        <li><a href="${pageContext.request.contextPath}/users/logout.do">Logout</a></li>						
 						</c:otherwise>							
                     </c:choose>
-	                        <li><a href="${pageContext.request.contextPath}/shop/order.do?id=${id}">Order</a></li>	                    
+	                        <li><a href="${pageContext.request.contextPath}/shop/order.do">Order</a></li>	                    
                     </ul>
                 </div>
                 
@@ -47,24 +47,8 @@
             <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
           </div>
           <a href="${pageContext.request.contextPath}/shop/cartlist.do?id=${id }"><i class="fa fa-shopping-cart"></i></a>
-          <div class="top-cart-content-wrapper">
-            <div class="top-cart-content">
-              <ul class="scroller" style="height: 250px;">
-              	<c:forEach var="tmp" items="${list2 }">
-              		<li>
-	                  <a href="shop-item.html"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" alt="Rolex Classic Watch" width="37" height="34"></a>
-	                  <span class="cart-content-count">x ${tmp.product_count }</span>
-	                  <strong><a href="shop-item.html">${tmp.product_name }</a></strong>
-	                  <em>$ ${tmp.price }</em>
-	                  <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-	                </li>
-              	</c:forEach>
-                
-              </ul>
-            </div>
-         </div>
+                               
         </div>
-       
         <!--END CART -->
 
         <!-- BEGIN NAVIGATION -->

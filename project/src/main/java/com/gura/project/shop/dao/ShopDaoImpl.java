@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gura.project.shop.dto.CartDto;
-import com.gura.project.shop.dto.Product_OrderDto;
 import com.gura.project.shop.dto.ShopDto;
 import com.gura.project.users.dto.UsersDto;
 
@@ -23,13 +22,7 @@ public class ShopDaoImpl implements ShopDao{
 		List<ShopDto> list=session.selectList("shop.getList", dto);
 		return list;
 	}
-	
-	@Override
-	public List<ShopDto> getList2() {
-		List<ShopDto> list=session.selectList("shop.getList2");
-		return list;
-	}
-	
+
 	@Override
 	public void minusCount(int num) {
 		
@@ -124,18 +117,6 @@ public class ShopDaoImpl implements ShopDao{
 	public void cartdelete(UsersDto userdto) {
 		session.delete("shop.cartdelete", userdto);
 		
-	}
-
-	@Override
-	public void InsertOrder(Product_OrderDto orderDto) {
-		session.insert("shop.orderInsert", orderDto);
-		
-	}
-
-	@Override
-	public List<Product_OrderDto> orderList(String id) {
-		List<Product_OrderDto> list=session.selectList("shop.orderList", id);
-		return list;
 	}
 	
 
