@@ -185,7 +185,7 @@ public class ShopServiceImpl implements ShopService{
 		for(CartDto tmp:list){
 			SumPrice = SumPrice + tmp.getTotal_price();
 		}
-		mView.addObject("list", list);
+		mView.addObject("cart_list", list);
 		mView.addObject("list2", list);
 		mView.addObject("SumPrice", SumPrice);
 		return mView;

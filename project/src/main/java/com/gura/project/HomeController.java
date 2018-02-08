@@ -21,7 +21,7 @@ public class HomeController {
 		
 		if(id != null){
 			ModelAndView mView=shopService.getList(request);
-			mView=shopService.cart_data(id);
+			//mView=shopService.cart_data(id);
 			mView.setViewName("home");
 			return mView;
 		}else{
