@@ -11,17 +11,6 @@ public class TestController {
 	@Autowired
 	private UsersService service;
 	
-	@RequestMapping("/shop/product")
-	public String product(){
-		
-		return "shop/product";
-	}
-	
-	@RequestMapping("/shop/shop_insert")
-	public String shopInsert(){
-		
-		return "shop/shop_insert";
-	}
 	
 	@RequestMapping("/team/team_detail")
 	public String teamDetail(){
@@ -53,11 +42,6 @@ public class TestController {
 		return "search/search_null";
 	}		
 	
-	@RequestMapping("/shop/order")
-	public String Order(){
-		
-		return "shop/order";
-	}	
 	
 	@RequestMapping("/match/match_list")
 	public String matchList(){
