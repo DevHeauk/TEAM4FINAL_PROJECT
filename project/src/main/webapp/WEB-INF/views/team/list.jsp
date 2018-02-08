@@ -12,6 +12,8 @@
 <c:if test="${sessionScope.team eq null }">
     	<a href="insertform.do">팀만들기</a>
 </c:if>
+<a href="team_detail.do">팀디테일 페이지</a>
+<a href="team_list2.do">팀리스트 페이지</a>
 
 <table>
 	<thead>

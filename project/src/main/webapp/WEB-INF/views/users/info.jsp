@@ -80,7 +80,7 @@
 							</tr>
 							<tr>
 								<th class="tg">구력</th>
-								<td class="tg">${dto.career }</td>
+								<td class="tg">${dto.career } 년</td>
 							</tr>	
 							<tr>
 								<th class="tg">돈</th>
@@ -126,7 +126,6 @@
 			<p ng-show="cashForm.money.$error.maxlength" class="help-block" style="color: #f10025;">최대 충전금액을 초과하였습니다.</p>   
 		</form> 
     </div> 
-    </div>
     <%@ include file="../inc/footer.jsp" %>
 
     <%@ include file="../inc/footer_script.jsp" %>

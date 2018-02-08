@@ -43,7 +43,7 @@
                   <form action="signup.do" method="post" id="myForm" class="form-horizontal" name="myForm" role="form">
                     <fieldset>
                       <div class="form-group">
-                        <label for="id" class="col-lg-4 control-label">ID <span class="require">*</span></label>
+                        <label for="id" class="col-lg-4 control-label">아이디 <span class="require">*</span></label>
                         <div class="col-lg-8" ng-class="{'has-success': myForm.id.$valid, 'has-error': myForm.id.$invalid && myForm.id.$dirty}">
                           <input type="text" class="form-control" id="id" name="id" ng-model="id" ng-pattern="/^[A-Za-z]{1}[A-Za-z0-9]{1,30}$/" required="required">
 				  		  <button id="checkBtn" class="btn btn-primary" style="float: right; margin-top: -33px; margin-right: 0;">중복확인</button>                              
@@ -52,26 +52,26 @@
                         </div>
                       </div>           
                       <div class="form-group">
-                        <label for="pwd" class="col-lg-4 control-label">Password <span class="require">*</span></label>
+                        <label for="pwd" class="col-lg-4 control-label">비밀번호 <span class="require">*</span></label>
                         <div class="col-lg-8" ng-class="{'has-success': myForm.pwd.$valid, 'has-error': myForm.pwd.$invalid && myForm.pwd.$dirty}">
                           <input type="password" class="form-control" id="pwd" name="pwd" ng-model="pwd" ng-minlength="6" required="required">  
 							<span ng-show="myForm.pwd.$error.minlength && myForm.pwd.$dirty" class="help-block">최소 6글자 이상으로 입력하세요.</span>                                          
                         </div>
                       </div> 
                       <div class="form-group">
-                        <label for="name" class="col-lg-4 control-label">name <span class="require">*</span></label>
+                        <label for="name" class="col-lg-4 control-label">이름 <span class="require">*</span></label>
                         <div class="col-lg-8">
                           <input type="text" class="form-control" id="name" name="name" required="required">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="email" class="col-lg-4 control-label">Email</label>
+                        <label for="email" class="col-lg-4 control-label">이메일</label>
                         <div class="col-lg-8">
                           <input type="email" class="form-control" id="email" name="email">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="addr01" class="col-lg-4 control-label">Address <span class="require">*</span></label>
+                        <label for="addr01" class="col-lg-4 control-label">주소 <span class="require">*</span></label>
                         <div class="col-lg-8">
 					    <input type="text" name="addr01" id="addr01" class="form-control" placeholder="우편번호" required="required"><br />
 						<input type="text" name="addr02" id="addr02" class="form-control" placeholder="주소" required="required"><br />
@@ -79,18 +79,35 @@
 						<input type="button" onclick="addrClick()" class="btn btn-primary col-md-12 col-sm-12" value="우편번호 찾기" style="margi-bottom: 10px;">						
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label for="b_position" class="col-lg-4 control-label">Position <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" class="form-control" id="b_position" name="b_position" required="required">
-                        </div>
-                      </div>    
-                      <div class="form-group">
-                        <label for="career" class="col-lg-4 control-label">career <span class="require">*</span></label>
-                        <div class="col-lg-8">
-                          <input type="text" class="form-control" id="career" name="career" required="required">
-                        </div>
-                      </div>                                                                                        
+	                  <div class="form-group">
+	                     <label class="col-lg-4 control-label">포지션 <span class="require">*</span></label>
+	                     <div class="col-lg-8">
+	                     <select name="b_position" id="b_position" class="form-control" required="b_position">
+	                        <option value="포인트 가드">포인트 가드</option>
+	                        <option value="슈팅 가드">슈팅 가드</option>
+	                        <option value="스몰 포워드">스몰 포워드</option>
+	                        <option value="파워 포워드">파워 포워드</option>
+	                        <option value="센터">센터</option>
+	                     </select>
+	                   </div>
+	                  </div>                         
+	                  <div class="form-group">
+	                     <label class="col-lg-4 control-label">구력<span class="require">*</span></label>
+	                     <div class="col-lg-8">
+	                     <select name="career" id="career" class="form-control" required="required">
+	                        <option value="1">1 년</option>
+	                        <option value="2">2 년</option>
+	                        <option value="3">3 년</option>
+	                        <option value="4">4 년</option>
+	                        <option value="5">5 년</option>
+	                        <option value="6">6 년</option>
+	                        <option value="7">7 년</option>
+	                        <option value="8">8 년</option>
+	                        <option value="9">9 년</option>
+	                        <option value="10">10 년</option>
+	                     </select>
+	                   </div>
+	                </div>                                                                                                           
                     </fieldset>
                     <div class="row">
                       <div class="col-lg-8 col-md-offset-6 col-xs-offset-3 padding-left-0 padding-top-20">                        

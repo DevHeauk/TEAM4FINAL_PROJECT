@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gura.project.shop.dao.ShopDao;
 import com.gura.project.shop.dto.CartDto;
 import com.gura.project.shop.dto.ShopDto;
+import com.gura.project.users.dto.UsersDto;
 
 @Repository
 public class ShopServiceImpl implements ShopService{
@@ -30,7 +31,7 @@ public class ShopServiceImpl implements ShopService{
 		
 		String keyword=request.getParameter("keyword");
 		String condition=request.getParameter("condition");
-		
+		String category=request.getParameter("category");
 		//글정보를 담을 ModelAndView 객체 
 		ModelAndView mView=new ModelAndView();
 		
@@ -80,7 +81,7 @@ public class ShopServiceImpl implements ShopService{
 		
 		dto.setStartRowNum(startRowNum);
 		dto.setEndRowNum(endRowNum);
-		
+		dto.setCategory(category);
 		List<ShopDto> list=shopDao.getList(dto);
 		
 		mView.addObject("list", list);
@@ -184,9 +185,38 @@ public class ShopServiceImpl implements ShopService{
 		shopDao.cartDelete(num);
 		
 	}
-	
-	
 
-	
-
+	@Override
+	public void order(HttpServletRequest request) {
+		String id=(String) request.getSession().getAttribute("id");
+		int totalprice= Integer.parseInt(request.getParameter("totalprice"));
+		UsersDto userdto=shopDao.getmoneyandpoint(id);
+		userdto.setMoney(userdto.getMoney()-totalprice);
+		userdto.setPoint((int) (userdto.getPoint()+totalprice*0.1));
+		System.out.println((userdto.getPoint()+totalprice*0.1));
+		
+		userdto.setId(id);
+		
+		shopDao.setmoneyandpoint(userdto);
+		CartDto cartdto=new CartDto();
+		
+		List<CartDto> PnameandPcountlist= shopDao.getPnameandPcount(userdto);
+		ShopDto shopdto=new ShopDto();
+		List<ShopDto> titleList=shopDao.getList(shopdto);
+		for(CartDto tmp:PnameandPcountlist){
+			int count = 0;
+			for(ShopDto list:titleList){
+				if(tmp.getProduct_name().equals(list.getTitle())){
+					count = count + tmp.getProduct_count();
+				}
+			}
+			shopdto.setTitle(tmp.getProduct_name());
+			shopdto = shopDao.getremaincount(shopdto);
+			shopdto.setTitle(tmp.getProduct_name());
+			int remainCount=shopdto.getRemainCount();
+			shopdto.setRemainCount(remainCount-count);
+			shopDao.setremaincount(shopdto);	
+		}
+		shopDao.cartdelete(userdto);
+	}
 }

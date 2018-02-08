@@ -6,7 +6,7 @@
                 <!-- BEGIN TOP BAR LEFT PART -->
                 <div class="col-md-6 col-sm-6 additional-shop-info">
                     <ul class="list-unstyled list-inline">
-                        <li><i class="fa fa-phone"></i><span>+1 456 6717</span></li>
+                        <li><i class="fa fa-phone"></i><span>Project Team 4</span></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR LEFT PART -->
@@ -21,8 +21,9 @@
 						<c:otherwise>
 	                        <li><a href="${pageContext.request.contextPath}/users/info.do">MyPage</a></li>
 	                        <li><a href="${pageContext.request.contextPath}/users/logout.do">Logout</a></li>						
-						</c:otherwise>
+						</c:otherwise>							
                     </c:choose>
+	                        <li><a href="${pageContext.request.contextPath}/shop/order.do">Order</a></li>	                    
                     </ul>
                 </div>
                 
@@ -35,7 +36,7 @@
     <!-- BEGIN HEADER -->
     <div class="header">
       <div class="container">
-        <a class="site-logo" href="${pageContext.request.contextPath}/home.do"><img src="${pageContext.request.contextPath}/assets/corporate/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
+        <a class="site-logo" href="${pageContext.request.contextPath}/home.do"><img src="${pageContext.request.contextPath}/assets/corporate/img/logos/logo-game-red.png" alt="Metronic Shop UI"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
@@ -55,7 +56,7 @@
           <ul>
             <li><a href="${pageContext.request.contextPath}/team/team_list.do">Team</a></li>
             <li><a href="${pageContext.request.contextPath}/match/match_list.do">MATCH</a></li>
-            <li><a href="javascript:;">Ranking</a></li>
+            <li><a href="${pageContext.request.contextPath}/ranking/rank_list.do">Ranking</a></li>
             <li><a href="${pageContext.request.contextPath}/shop/shop-product-list.do">SHOP</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">Board</a>

@@ -10,11 +10,12 @@ public class TeamDto {
 	private String leader;
 	private String jointeam;
 	private String joinid;
+	private String content;
 	
 	public TeamDto(){}
 
 	public TeamDto(String name, String member, int win, int lose, int total, String ground, String leader,
-			String jointeam, String joinid) {
+			String jointeam, String joinid, String content) {
 		super();
 		this.name = name;
 		this.member = member;
@@ -25,6 +26,7 @@ public class TeamDto {
 		this.leader = leader;
 		this.jointeam = jointeam;
 		this.joinid = joinid;
+		this.content = content;
 	}
 
 	public String getName() {
@@ -99,6 +101,13 @@ public class TeamDto {
 		this.joinid = joinid;
 	}
 
-	
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	
 }

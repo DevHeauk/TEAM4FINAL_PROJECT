@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.gura.project.shop.dto.CartDto;
 import com.gura.project.shop.dto.ShopDto;
+import com.gura.project.users.dto.UsersDto;
 
 public interface ShopDao {
 	public List<ShopDto> getList(ShopDto dto); //상품 목록을 리턴해주는 메소드
@@ -18,4 +19,11 @@ public interface ShopDao {
 	public void cart_insert(ShopDto dto);
 	public List<CartDto> cartList(String id);
 	public void cartDelete(int num);
+	public UsersDto getmoneyandpoint(String id);
+	public void setmoneyandpoint(UsersDto usersDto);
+	public List<CartDto> getPnameandPcount(UsersDto usersdto);
+	public ShopDto getremaincount(ShopDto shopdto);
+	public void setremaincount(ShopDto shopDto);
+	public void cartdelete(UsersDto userdto);
+	
 }

@@ -23,25 +23,23 @@ public class TestController {
 		return "shop/shop_insert";
 	}
 	
-	
-	
 	@RequestMapping("/team/team_detail")
 	public String teamDetail(){
 		
 		return "team/team_detail";
 	}	
 	
+	@RequestMapping("/team/team_list2")
+	public String teamList(){
+		
+		return "team/team_list";
+	}
+	
 	@RequestMapping("/board/faq")
 	public String faq(){
 		
 		return "board/faq";
 	}
-	
-	@RequestMapping("/board/gallery")
-	public String gallery(){
-		
-		return "board/gallery";
-	}	
 	
 	@RequestMapping("/search/search")
 	public String search(){
@@ -54,5 +52,29 @@ public class TestController {
 		
 		return "search/search_null";
 	}		
+	
+	@RequestMapping("/shop/order")
+	public String Order(){
+		
+		return "shop/order";
+	}	
+	
+	@RequestMapping("/match/match_list")
+	public String matchList(){
+		
+		return "match/match_list";
+	}		
+	
+	@RequestMapping("/match/match_detail")
+	public String matchDetail(){
+		
+		return "match/match_detail";
+	}		
+	
+	@RequestMapping("/ranking/rank_list")
+	public String rankList(){
+		
+		return "ranking/rank_list";
+	}			
 		
 }

@@ -202,6 +202,4 @@ public class ShopDto {
 	public void setNextNum(int nextNum) {
 		this.nextNum = nextNum;
 	}
-
-	
 }
