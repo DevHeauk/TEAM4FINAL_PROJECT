@@ -16,6 +16,8 @@ public interface MatchDao {
 	public MatchDto pointInsert(MatchDto dto);
 	public void insertPoint(MatchDto dto);
 	public String getawayteam(String id);
+	public void successMatch(MatchDto dto);
+	public boolean matched(MatchDto dto);
 	public void successupdate(String awayTeam);
 	public List<MatchDto> getlist();
 	public void HWwinpointupdate (MatchDto dto );
@@ -24,5 +26,4 @@ public interface MatchDao {
 	public void AWlosepointupdate(MatchDto dto);
 	public List<UsersDto> gethomemember(MatchDto dto);
 	public List<UsersDto> getawaymember(MatchDto dto);
-	 
 }

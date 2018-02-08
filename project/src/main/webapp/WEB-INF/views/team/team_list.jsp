@@ -75,7 +75,7 @@
 	                    </div>
 	                    
 	                    <div class="col-md-8 col-sm-8">
-	                      <h2><a href="team_detail.do">${tmp.name }</a></h2>
+	                      <h2><a href="team_detail2.do?name=${tmp.name }">${tmp.name }</a></h2>
 	                      <ul class="blog-info">
 	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 ${tmp.win }</li>
 	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패 ${tmp.lose }</li>

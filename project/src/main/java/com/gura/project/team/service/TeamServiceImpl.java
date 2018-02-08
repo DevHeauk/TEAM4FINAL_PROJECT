@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gura.project.match.dao.MatchDao;
 import com.gura.project.match.dto.MatchDto;
 import com.gura.project.team.dao.TeamDao;
 import com.gura.project.team.dto.TeamDto;
+import com.gura.project.users.dao.UsersDao;
 import com.gura.project.users.dto.UsersDto;
 
 @Service
@@ -18,6 +20,10 @@ public class TeamServiceImpl implements TeamService{
 	
 	@Autowired
 	public TeamDao teamdao;
+	@Autowired
+	public MatchDao matchdao;
+	@Autowired
+	public UsersDao usersdao;
 	
 	
 	@Override
@@ -30,6 +36,8 @@ public class TeamServiceImpl implements TeamService{
 
 	@Override
 	public ModelAndView detail(HttpServletRequest request) {
+		ModelAndView mView=new ModelAndView();
+
 		//team detail 정보를얻어온다
 		//HomeTeam 이름.
 		String name=request.getParameter("name");
@@ -40,6 +48,8 @@ public class TeamServiceImpl implements TeamService{
 		TeamDto HomeDto=teamdao.getData(dto);
 		//HomeTeam의 멤버리스트를 얻어온다. 
 		List<UsersDto> memberlist=teamdao.teamMemberList(dto);
+		
+		
 		//팀가입 신청목록 가져온다. (joinlist에서 얻어온다.)
 		List<TeamDto> list=teamdao.joining_data(dto);
 		//HomeTeam에 가입신청한 사람들의 정보를 List로 얻어온다. 
@@ -47,12 +57,40 @@ public class TeamServiceImpl implements TeamService{
 		
 		MatchDto matchdto=new MatchDto();
 		matchdto.setHomeTeam(name);
+		//로그인된 아이디의 팀
+		
+		String id = (String)request.getSession().getAttribute("id");
+		
+		if(id!=null){
+			UsersDto currentDto= usersdao.getData(id);
+			TeamDto joindto=teamdao.getjointeam(id);
+			mView.addObject("teamdto", joindto);
+			mView.addObject("userdto", currentDto);
+			if(currentDto.getTeam()!=null){
+				String awayTeam = currentDto.getTeam();
+				matchdto.setAwayTeam(awayTeam);
+				mView.addObject("awayteam", awayTeam);
+				//로그인된 아이디가 매칭신청이 되었는지 여부
+				boolean Matched = matchdao.matched(matchdto);
+				//해당아이디가 매칭신청을 했는지 여부. 
+				mView.addObject("Matched", Matched);
+			}else{
+			    mView.addObject("awayteam", null);
+	
+			}
+		}else{
+	    	mView.addObject("awayteam", null);
+
+		}
+		
+		
+		
 		//HomeTeam과 매치된 AwayTeam의 list를 얻어온다. 
 		List<MatchDto> awayteamlist=teamdao.awayteam(matchdto);
 		//HomeTeam과 매치된 AwayTeam의 정보를 list로 얻어온다.
-		List<TeamDto> awayteaminfo=teamdao.awayteaminfo(awayteamlist);		
+		List<TeamDto> awayteaminfo=teamdao.awayteaminfo(awayteamlist);	
+		
 					
-		ModelAndView mView=new ModelAndView();
 		//HomeTeam정보
 		mView.addObject("Homedto", HomeDto);
 		//가입신청한 사람들 정보 리스트(List)
@@ -60,8 +98,12 @@ public class TeamServiceImpl implements TeamService{
 		//HomeTeam 멤버 리스트
 		mView.addObject("memberlist", memberlist);
 		//HomeTeam과 매치된 AwayTeam의 정보 list로 얻어온다.
-		mView.addObject("matchdtoList", awayteaminfo);
+		mView.addObject("awayteaminfo", awayteaminfo);
+		//matching된 게임의 정보.(awayteam, matchdate, ground, successMatching)
+		mView.addObject("match", awayteamlist);
 		
+
+				
 		return mView;
 	}
 
@@ -91,10 +133,22 @@ public class TeamServiceImpl implements TeamService{
 		
 		TeamDto dto=new TeamDto();
 		String joinid=(String) request.getParameter("joinid");
-		String jointeam=(String) request.getParameter("teamname");
+		String jointeam=(String) request.getParameter("name");
 		dto.setJoinid(joinid);
 		dto.setJointeam(jointeam);
 		teamdao.joinupdate(dto);
+		teamdao.joindelete(dto);
+		
+		return new ModelAndView();
+		
+	}
+	
+	@Override
+	public ModelAndView joinrefuse(HttpServletRequest request) {
+		
+		TeamDto dto=new TeamDto();
+		String joinid=(String) request.getParameter("joinid");
+		dto.setJoinid(joinid);
 		teamdao.joindelete(dto);
 		
 		return new ModelAndView();

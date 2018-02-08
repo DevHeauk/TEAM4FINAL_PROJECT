@@ -21,6 +21,7 @@ public interface TeamDao {
 	public void joindelete (TeamDto dto);
 	public List<UsersDto> joininfo(List<TeamDto> list);
 	public List<TeamDto> awayteaminfo(List<MatchDto> awayteamlist);
+	public TeamDto getjointeam(String id);
 	
 	
 	
