@@ -10,22 +10,21 @@
 
 </head>
 <body>
-	<h1><strong>${dto.name }</strong></h1>
-	<p><strong>${dto.win }</strong> 승 <strong>${dto.lose }</strong>패  <strong>${dto.total }</strong>전</p>
+	<h1><strong>${Homedto.name }</strong></h1>
+	<p><strong>${Homedto.win }</strong> 승 <strong>${Homedto.lose }</strong>패  <strong>${Homedto.total }</strong>전</p>
 	<hr/>
     <c:forEach var="tmp" items="${memberlist }">
     	<div class="content">${tmp.id }</div>
     </c:forEach>
     <hr/>
     <hr/>
-    <div class="content">${dto.ground }</div>
+    <div class="content">${Homedto.ground }</div>
     <hr/>
     <a class="btn btn-default btn-xs" href="${pageContext.request.contextPath}/team/list.do">리스트로 가기</a>
     <c:if test="${sessionScope.team eq null }">
-    	<a href="joiningconfirm.do?id=${id}&name=${dto.name}">팀가입</a>
+    	<a href="joiningconfirm.do?id=${id}&name=${Homedto.name}">팀가입</a>
     </c:if>
     <c:if test="${sessionScope.id ne dto.member }">
-
 	<button class="btn btn-info" data-target="#matching" data-toggle="modal">매칭신청</button><br/>
 	<button class="btn btn-info" data-target="#awayteamimfo" data-toggle="modal">상대정보</button><br/>
 
@@ -36,14 +35,12 @@
     <c:forEach var="tmp" items="${joininfo}">
 		<button class="btn btn-info" data-target="#joininfo" data-toggle="modal">${tmp.id}</button>
 		<br/>
-	</c:forEach>
-	
-	
+	</c:forEach>	
 	<!-- 매칭 리스트 -->
 	<p>매칭리스트</p>
 	<c:forEach var="tmp" items="${matchdtoList}">
 		<button class="btn btn-info" data-target="#awayteamimfo${tmp.awayTeam }" data-toggle="modal">${tmp.awayTeam}</button><br/>
-		
+				
 	</c:forEach>
 		
 		
@@ -54,7 +51,7 @@
 <!-- Modal -->
 <div class="modal fade" id="matching" >
   <form action="matchinsert.do" method="post">
-  <input type="hidden" name="name" value="${dto.name }">
+  <input type="hidden" name="name" value="${Homedto.name }">
   	<div class="modal-dialog">
     <div class="modal-content">
       <!-- header -->
@@ -125,7 +122,7 @@
 <!-- away modal -->
 <c:forEach var="tmp" items="${joininfo}">
 	<div class="modal fade" id="#joininfo" >
-	  	<form action="join.do?joinid=${id}&teamname${dto.name } ">
+	  	<form action="join.do?joinid=${id}&teamname${Homedto.name } ">
 	  		<input type="hidden" name="id" value="${tmp.id}" />
 	  		<div class="modal-dialog">
 		    <div class="modal-content">

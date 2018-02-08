@@ -38,11 +38,7 @@
           <div class="col-md-12 col-sm-12">
             <h1>LEGEND TEAMS</h1>
             <div class="content-page">
-              <div class="row">
-                <!-- BEGIN LEFT SIDEBAR -->    
-	            <c:if test="${sessionScope.team eq null }">
-           	  		<a href="insertform.do" class="btn btn-primary pull-right margin-bottom-20" style="color: #ffffff; margin-right: 20px;">팀만들기</a>
-				</c:if>                            
+              <div class="row">                       
                 <div class="col-md-12 col-sm-12 blog-posts">            
                 <c:forEach var="tmp" items="${list }">
                 	  <div class="row">                                   	

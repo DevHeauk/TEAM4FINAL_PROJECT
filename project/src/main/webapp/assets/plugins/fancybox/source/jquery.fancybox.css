@@ -49,9 +49,7 @@
 }
 
 .fancybox-outer{
-	padding-top: 15px;
-	margin-top: 25px;
-	border-top: 1px solid #8c8c8c;
+	padding-top: 10px;
 }
 
 .fancybox-inner {
@@ -208,7 +206,7 @@
 .fancybox-opened .fancybox-title {
 	visibility: visible;
 	position: absolute;
-	top: 3px;
+	top: -7px;
 	font-size: 15px;
 	right: 20px;
 }
