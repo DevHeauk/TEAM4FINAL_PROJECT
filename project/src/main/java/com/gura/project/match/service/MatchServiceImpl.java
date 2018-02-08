@@ -1,5 +1,10 @@
 package com.gura.project.match.service;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,9 +55,74 @@ public class MatchServiceImpl implements MatchService {
 	public void successMatching(HttpServletRequest request) {
 		String awayTeam = request.getParameter("awayTeam");
 		matchdao.successupdate(awayTeam);
-		System.out.println(awayTeam);
 
 		
 	}
 
+	@Override
+	public ModelAndView matchlist() {
+		ModelAndView mView=new ModelAndView();
+		List<MatchDto> list=matchdao.getlist(); 
+		mView.addObject("list", list);
+		
+		
+		return mView;
+	}
+
+	@Override
+	public ModelAndView matchdetail(HttpServletRequest request) {
+		ModelAndView mView=new ModelAndView();
+		MatchDto dto=new MatchDto();
+		int wincount=0;
+		int losecount=0;
+		
+		
+		dto.setNum(request.getParameter("num"));
+		dto.setHomeTeam(request.getParameter("homeTeam"));
+		dto.setAwayTeam(request.getParameter("awayTeam"));
+		
+		//상대전적
+		List<MatchDto> pointlist=matchdao.gethomePoint(dto);
+		for (MatchDto tmp : pointlist) {
+			if(tmp.getHomePoint() !=tmp.getAwayPoint()){
+				if(tmp.getHomePoint()>tmp.getAwayPoint()){
+					wincount++;
+				}else if(tmp.getAwayPoint()>tmp.getHomePoint()){
+					losecount++;
+				}
+			}
+			
+		}
+		
+		List<MatchDto> pointlist2=matchdao.getawayPoin(dto);
+		for (MatchDto tmp : pointlist2) {
+				if(tmp.getHomePoint() !=tmp.getAwayPoint()){
+					if(tmp.getAwayPoint()>tmp.getHomePoint()){
+						wincount++;
+					}else if(tmp.getHomePoint()>tmp.getAwayPoint()){
+						losecount++;
+					}
+				}
+			
+		}
+		dto.setWincount(wincount);
+		dto.setLosecount(losecount);
+		dto.setTotalcount(wincount+losecount);
+		
+		
+		
+		dto=matchdao.getData(dto);
+		mView.addObject("matchdto",dto);
+		
+		
+		return mView;
+	}
+
+	@Override
+	public void pointinsert(HttpServletRequest request, MatchDto dto) {
+		String num=request.getParameter("num");
+		dto.setNum(num);
+		matchdao.insertPoint(dto);
+	}
+	
 }

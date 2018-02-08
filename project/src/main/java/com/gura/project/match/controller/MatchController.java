@@ -31,11 +31,30 @@ public class MatchController {
 	public ModelAndView authmatchsuccess(HttpServletRequest request){
 		ModelAndView mView=new ModelAndView();
 		String awayTeam = request.getParameter("awayTeam");
-		System.out.println(awayTeam);
 		matchservice.successMatching(request);
 
-		mView.setViewName("match/info");
+		mView.setViewName("redirect:/team/detail.do?awayteam"+awayTeam);
 		return mView;
 		
+	}
+	@RequestMapping("/match/list")
+	public ModelAndView matchlist(){
+		ModelAndView mView=matchservice.matchlist();
+		mView.setViewName("team/list");
+		return mView;
+	}
+	@RequestMapping("/match/detail")
+	public ModelAndView matchdetail(HttpServletRequest request){
+		ModelAndView mView=matchservice.matchdetail(request);
+		mView.setViewName("team/detail");
+		return mView;
+	}
+	@RequestMapping("/match/pointinsert")
+	public ModelAndView pointinsert(HttpServletRequest request,@ModelAttribute MatchDto dto){
+		ModelAndView mView=new ModelAndView();
+		matchservice.pointinsert(request, dto);
+		String awayteam=request.getParameter("awayTeam");
+		mView.setViewName("redirect:/team/detail.do?awayTeam"+awayteam);
+		return mView;
 	}
 }

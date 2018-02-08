@@ -15,6 +15,36 @@
 		SET successmatching='true'
 		WHERE awayTeam=#{awayteam}
 	</update>
+	<select id="getlist">
+		select num,hometeam,homepoint,awayteam,awaypoint,matchdate,ground,matchsuccess
+		from matching
+		ORDER BY num DESC
+	</select>
+	<select id="getdata" parameterType="MatchDto" resultType="MatchDto">
+		select homeTeam,homePoint,awayTeam,awayPoint,matchDate,ground
+		from matching
+		where awayteam=#{awayTeam}
+	</select>
+	<select id="getwhenhomepoint" parameterType="MatchDto" resultType="MatchDto">
+		select homepoint,awaypoint
+		from matching
+		where hometeam=#{homeTeam} and awayteam=#{awayTeam}
+	</select>
+	<select id="getwhenawaypoint" parameterType="MatchDto" resultType="MatchDto">
+		select homepoint,awaypoint
+		from matching
+		where hometeam=#{awayTeam} and awayteam=#{homeTeam}
+	</select>
+	<select id="getpoint" parameterType="MatchDto" resultType="MatchDto">
+		select homepoint,awaypoint
+		from matching
+		where num=#{num}
+	</select>
+	<update id="pointupdate" parameterType="MatchDto">
+		update matching
+		set homepoint=#{homePoint},awaypoint=#{awayPoint}
+		where num=#{num}
+	</update>
 </mapper>
 
 

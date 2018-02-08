@@ -13,4 +13,7 @@ public interface MatchService {
 	public ModelAndView MatchInfo(HttpServletRequest request);
 	public void insertwinning(HttpServletRequest request);
 	public void successMatching(HttpServletRequest request);
+	public ModelAndView matchlist();
+	public ModelAndView matchdetail(HttpServletRequest request);
+	public void pointinsert(HttpServletRequest request,MatchDto dto);
 }

@@ -20,6 +20,7 @@ create table joinlist(
 )
 
 CREATE TABLE matching (
+num number primary key,
 hometeam varchar2(200),
 homepoint number,
 awayteam varchar2(200),

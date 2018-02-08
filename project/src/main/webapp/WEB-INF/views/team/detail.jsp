@@ -92,7 +92,7 @@
 <!-- away modal -->
 <c:forEach var="tmp" items="${matchdtoList}">
 	<div class="modal fade" id="awayteamimfo${tmp.awayTeam }" >
-	  	<form action="matchsuccess.do">
+	  	<form action="matchsuccess.do?${tmp.awayTeam }">
 	  		<input type="hidden" name="awayTeam" value="${tmp.awayTeam}" />
 	  		<div class="modal-dialog">
 	    <div class="modal-content">
