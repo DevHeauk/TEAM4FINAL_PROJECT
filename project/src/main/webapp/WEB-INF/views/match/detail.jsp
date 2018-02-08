@@ -44,5 +44,18 @@
 		</form>
 	
 </table>
+
+<table>
+	<tr>
+		<th>이름</th>
+		<th>포지션</th>
+	</tr>
+	<c:forEach var="tmp" items="${memberlist }">
+		<tr>
+			<th>${tmp.name }</th>
+			<th>${tmp.position }</th>
+		</tr>
+	</c:forEach>
+</table>
 </body>
 </html>

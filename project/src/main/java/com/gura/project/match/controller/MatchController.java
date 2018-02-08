@@ -40,7 +40,7 @@ public class MatchController {
 	@RequestMapping("/match/match_list")
 	public ModelAndView matchlist(){
 		ModelAndView mView=matchservice.matchlist();
-		mView.setViewName("match/list");
+		mView.setViewName("match/match_list");
 		return mView;
 	}
 	@RequestMapping("/match/detail")

@@ -8,6 +8,7 @@
 <title>matchlist.jsp</title>
 </head>
 <body>
+<a href="match_list2.do">리스트 템플릿</a>
 <table>
 	<thead>
 			<tr>

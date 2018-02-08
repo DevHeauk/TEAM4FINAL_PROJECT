@@ -63,6 +63,8 @@ public class MatchServiceImpl implements MatchService {
 	public ModelAndView matchlist() {
 		ModelAndView mView=new ModelAndView();
 		List<MatchDto> matchlist=matchdao.getlist(); 
+		
+		
 		mView.addObject("matchlist", matchlist);
 		
 		
