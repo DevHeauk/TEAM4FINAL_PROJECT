@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.match.dto.MatchDto;
 import com.gura.project.team.dto.TeamDto;
+import com.gura.project.users.dto.UsersDto;
 
 @Repository
 public class MatchDaoImpl implements MatchDao{
@@ -91,6 +92,17 @@ public class MatchDaoImpl implements MatchDao{
 	public void AWlosepointupdate(MatchDto dto) {
 		session.update("match.AWlosepointupdate", dto);
 		
+	}
+
+	@Override
+	public List<UsersDto> gethomemember(MatchDto dto) {
+		
+		return session.selectList("match.gethomemember",dto);
+	}
+
+	@Override
+	public List<UsersDto> getawaymember(MatchDto dto) {
+		return session.selectList("match.getawaymember",dto);
 	}
 
 

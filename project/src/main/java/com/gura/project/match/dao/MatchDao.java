@@ -6,6 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.match.dto.MatchDto;
 import com.gura.project.team.dto.TeamDto;
+import com.gura.project.users.dto.UsersDto;
 
 public interface MatchDao {
 	public void matchInsert(MatchDto dto);
@@ -21,5 +22,7 @@ public interface MatchDao {
 	public void HWlosepointupdate(MatchDto dto);
 	public void AWwinpointupdate (MatchDto dto );
 	public void AWlosepointupdate(MatchDto dto);
+	public List<UsersDto> gethomemember(MatchDto dto);
+	public List<UsersDto> getawaymember(MatchDto dto);
 	 
 }

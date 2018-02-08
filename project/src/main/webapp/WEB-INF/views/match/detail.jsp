@@ -18,7 +18,6 @@
 				<th>awaypoint</th>
 				<th>장소</th>
 				<th>언재할까</th>
-
 			</tr>
 		</thead>
 		<tbody>
@@ -42,6 +41,8 @@
 			<input type="text" id="awayPoint" name="awayPoint">
 			<button type="submit">입력</button>
 		</form>
+		
+		
 	
 </table>
 
@@ -50,7 +51,19 @@
 		<th>이름</th>
 		<th>포지션</th>
 	</tr>
-	<c:forEach var="tmp" items="${memberlist }">
+	<c:forEach var="tmp" items="${hometeammember}">
+		<tr>
+			<th>${tmp.name }</th>
+			<th>${tmp.position }</th>
+		</tr>
+	</c:forEach>
+</table>
+<table>
+	<tr>
+		<th>이름</th>
+		<th>포지션</th>
+	</tr>
+	<c:forEach var="tmp" items="${awayteammember}">
 		<tr>
 			<th>${tmp.name }</th>
 			<th>${tmp.position }</th>

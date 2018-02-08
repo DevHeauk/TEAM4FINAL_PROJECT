@@ -65,6 +65,16 @@
 		set lose=lose+1,total=total+1
 		where name=#{homeTeam}
 	</update>
+	<select id="getawaymember" parameterType="MatchDto" resultType="usersDto">
+		select name,b_position
+		from users4
+		where team=#{awayTeam}
+	</select>
+	<select id="gethomemember" parameterType="MatchDto" resultType="usersDto">
+		select name,b_position
+		from users4
+		where team=#{homeTeam}
+	</select>
 </mapper>
 
 
