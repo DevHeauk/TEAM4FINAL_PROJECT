@@ -198,7 +198,6 @@ public class ShopServiceImpl implements ShopService{
 		UsersDto userdto=shopDao.getmoneyandpoint(id);
 		userdto.setMoney(userdto.getMoney()-totalprice);
 		userdto.setPoint((int) (userdto.getPoint()+totalprice*0.1));
-		System.out.println((userdto.getPoint()+totalprice*0.1));
 		
 		userdto.setId(id);
 		
@@ -210,23 +209,17 @@ public class ShopServiceImpl implements ShopService{
 		for(CartDto tmp:PnameandPcountlist){
 			int count = 0;
 			for(ShopDto list:titleList){
-				System.out.println(tmp.getProduct_name().equals(list.getTitle()));
-				
 				if(tmp.getProduct_name().equals(list.getTitle())){
 					count = count + tmp.getProduct_count();
 				}
 				
 			}
-		
 			shopdto.setTitle(tmp.getProduct_name());
 			shopdto = shopDao.getremaincount(shopdto);
 			shopdto.setTitle(tmp.getProduct_name());
 			int remainCount=shopdto.getRemainCount();
-			System.out.println(tmp.getProduct_name());
-			System.out.println(remainCount);
-			System.out.println(count);
-
-			shopdto.setRemainCount(remainCount-count);
+			int resultCount=remainCount-count;
+			shopdto.setRemainCount(resultCount);
 			shopDao.setremaincount(shopdto);
 		}
 		shopDao.cartdelete(userdto);	
@@ -238,6 +231,7 @@ public class ShopServiceImpl implements ShopService{
 		String id=(String)request.getSession().getAttribute("id");
 		
 		List<CartDto> order_list=shopDao.cartList(id);
+		System.out.println(order_list.size());
 		for(CartDto tmp1:order_list){
 			UsersDto addr_dto=userDao.getData(id);
 			orderDto.setId(id);
