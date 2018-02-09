@@ -210,6 +210,7 @@
             </div>                 
             <div class="owl-carousel owl-carousel4 main-prd-list" style="clear: both;">
 <<<<<<< HEAD
+<<<<<<< HEAD
               <div>
                 <div class="product-item">
                   <div class="pi-img-wrapper">
@@ -292,6 +293,8 @@
             </div>
           </div>
 =======
+=======
+>>>>>>> parent of f010e44... 1
               
                 <c:forEach var="tmp" items="${list3 }">
                 <div>
@@ -309,6 +312,9 @@
 	            </div>
                 </c:forEach>
               
+<<<<<<< HEAD
+>>>>>>> parent of f010e44... 1
+=======
 >>>>>>> parent of f010e44... 1
           <!-- END CONTENT -->
         </div>

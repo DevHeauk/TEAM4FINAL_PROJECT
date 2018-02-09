@@ -3,6 +3,7 @@ package com.gura.project.shop.dao;
 import java.util.List;
 
 import com.gura.project.shop.dto.CartDto;
+import com.gura.project.shop.dto.Product_OrderDto;
 import com.gura.project.shop.dto.ShopDto;
 import com.gura.project.users.dto.UsersDto;
 
@@ -25,10 +26,7 @@ public interface ShopDao {
 	public ShopDto getremaincount(ShopDto shopdto);
 	public void setremaincount(ShopDto shopDto);
 	public void cartdelete(UsersDto userdto);
-<<<<<<< HEAD
-=======
 	public void InsertOrder(Product_OrderDto orderDto);
 	public List<Product_OrderDto> orderList(String id);
->>>>>>> parent of f010e44... 1
 	
 }

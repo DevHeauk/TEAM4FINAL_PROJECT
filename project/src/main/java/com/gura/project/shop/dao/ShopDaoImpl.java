@@ -132,6 +132,9 @@ public class ShopDaoImpl implements ShopDao{
 		List<Product_OrderDto> list=session.selectList("shop.orderList", id);
 		return list;
 	}
+<<<<<<< HEAD
+>>>>>>> parent of f010e44... 1
+=======
 >>>>>>> parent of f010e44... 1
 	
 

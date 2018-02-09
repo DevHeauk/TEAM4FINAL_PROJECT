@@ -252,6 +252,9 @@ public class ShopServiceImpl implements ShopService{
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("list", list);
 		return mView;
+<<<<<<< HEAD
+>>>>>>> parent of f010e44... 1
+=======
 >>>>>>> parent of f010e44... 1
 	}
 }

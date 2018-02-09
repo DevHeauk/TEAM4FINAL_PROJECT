@@ -21,5 +21,8 @@ public interface ShopService {
 =======
 	public void insertorder(HttpServletRequest request);
 	public ModelAndView orderList(String id);
+<<<<<<< HEAD
+>>>>>>> parent of f010e44... 1
+=======
 >>>>>>> parent of f010e44... 1
 }
