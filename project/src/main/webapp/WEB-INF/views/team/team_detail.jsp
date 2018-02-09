@@ -44,28 +44,7 @@
                 <!-- BEGIN LEFT SIDEBAR -->            
                 <div class="col-md-9 col-sm-9 blog-item">
                   <div class="blog-item-img">
-                    <!-- BEGIN CAROUSEL -->            
-                    <div class="front-carousel">
-                      <div id="myCarousel" class="carousel slide">
-                        <!-- Carousel items -->
-                        <div class="carousel-inner">
-                          <div class="item">
-                            <img src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg" alt="">
-                          </div>
-                          <div class="item active">
-                            <img src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg" alt="">
-                          </div>
-                        </div>
-                        <!-- Carousel nav -->
-                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                          <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a class="carousel-control right" href="#myCarousel" data-slide="next">
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>                
-                    </div>
-                    <!-- END CAROUSEL -->             
+                    	<img  src="${pageContext.request.contextPath }/upload/${Homedto.saveFileName}"/>        
                   </div>
                   <h2><strong>팀소개</strong></h2>
                   <c:if test="${not empty id and Homedto.name ne awayteam and awayteam ne null}">

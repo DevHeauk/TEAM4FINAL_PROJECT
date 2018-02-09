@@ -47,31 +47,7 @@
                 <c:forEach var="tmp" items="${list }">
                 	  <div class="row">                                   	
 	                    <div class="col-md-4 col-sm-4">                    
-	                      <!-- BEGIN CAROUSEL -->            
-	                      <div class="front-carousel">
-	                        <div class="carousel slide" id="myCarousel${tmp.name }">
-	                          <!-- Carousel items -->
-	                          <div class="carousel-inner">
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
-	                            </div>
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
-	                            </div>
-	                            <div class="item active">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
-	                            </div>
-	                          </div>
-	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
-	                            <i class="fa fa-angle-left"></i>
-	                          </a>
-	                          <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
-	                            <i class="fa fa-angle-right"></i>
-	                          </a>
-	                        </div>                
-	                      </div>
-	                      <!-- END CAROUSEL -->             
+	                     	<img style="width:343px; height:191px" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"/>        
 	                    </div>
 	                    
 	                    <div class="col-md-8 col-sm-8">

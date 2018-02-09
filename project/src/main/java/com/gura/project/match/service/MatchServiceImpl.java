@@ -43,11 +43,12 @@ public class MatchServiceImpl implements MatchService {
 
 	@Override
 	public void refuseMatch(HttpServletRequest request) {
-		String awayTeam = request.getParameter("awayTeam");
-		String homeTeam = request.getParameter("homeTeam");
+		String awayTeam = request.getParameter("awayteam");
+		String homeTeam = request.getParameter("hometeam");
 		MatchDto dto = new MatchDto();
 		dto.setAwayTeam(awayTeam);
 		dto.setHomeTeam(homeTeam);
+		System.out.println(awayTeam);
 		matchdao.deleteMatch(dto);
 		
 	}
@@ -81,11 +82,21 @@ public class MatchServiceImpl implements MatchService {
 	public ModelAndView matchlist() {
 		ModelAndView mView=new ModelAndView();
 		List<MatchDto> matchlist=matchdao.getlist(); 
+		List<TeamDto> homedtolist = new ArrayList<>();
+		List<TeamDto> awaydtolist = new ArrayList<>();
+		TeamDto homedto = new TeamDto();
+		TeamDto awaydto = new TeamDto();
 		
+		for(MatchDto tmp:matchlist){
+			homedto = matchdao.gethometeamwinlosetotal(tmp);
+			awaydto = matchdao.getawayteamwinlosetotal(tmp);
+			homedtolist.add(homedto);
+			awaydtolist.add(awaydto);
+		}
 		
-		mView.addObject("matchlist", matchlist);
-		
-		
+		mView.addObject("homedtolist", homedtolist);
+		mView.addObject("awaydtolist", awaydtolist);
+
 		return mView;
 	}
 

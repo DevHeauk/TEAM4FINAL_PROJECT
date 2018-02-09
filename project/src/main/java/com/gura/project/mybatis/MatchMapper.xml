@@ -16,7 +16,7 @@
 		WHERE awayTeam=#{awayTeam} and homeTeam=#{homeTeam}
 	</update>
 	<delete id="delete" parameterType="MatchDto">
-		delete from match
+		delete from matching
 		where awayTeam=#{awayTeam} and homeTeam=#{homeTeam}
 	</delete>
 	<select id="matched" parameterType="MatchDto" resultType="String">
@@ -85,12 +85,12 @@
 		where team=#{homeTeam}
 	</select>
 	<select id="gethometeamwinlosetotal" parameterType="MatchDto" resultType="teamDto">
-		select win,lose,total
+		select win,lose,total,saveFileName
 		from team
 		where name=#{homeTeam}
 	</select>
 	<select id="getawayteamwinlosetotal" parameterType="MatchDto" resultType="teamDto">
-		select win,lose,total
+		select win,lose,total,saveFileName
 		from team
 		where name=#{awayTeam}
 	</select>

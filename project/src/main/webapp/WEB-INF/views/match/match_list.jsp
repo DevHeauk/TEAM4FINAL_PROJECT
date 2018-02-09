@@ -47,31 +47,13 @@
                 	  <!-- left -->                              	
 	                    <div class="col-md-4 col-sm-4 match-left">
 	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${tmp.homeTeam }</a></h2>	                       
-	                      <!-- BEGIN CAROUSEL -->            
-	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel">
-	                          <!-- Carousel items -->
-	                          <div class="carousel-inner">
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
-	                            </div>
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
-	                            </div>
-	                            <div class="item active">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
-	                            </div>
-	                          </div>
-	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel" class="carousel-control left">
-	                            <i class="fa fa-angle-left"></i>
-	                          </a>
-	                          <a data-slide="next" href="#myCarousel" class="carousel-control right">
-	                            <i class="fa fa-angle-right"></i>
-	                          </a>
-	                        </div>                
-	                      </div>
-	                      <!-- END CAROUSEL -->
+	                      
+	                      <c:forEach var="tmph" items="${homedtolist }">
+	                      		<c:if test="${tmph.name eq tmp.homeTeam }">
+                 			       <img  src="${pageContext.request.contextPath }/upload/${tmph.saveFileName}"/>        
+	                      		</c:if>
+	                      </c:forEach>
+	                      
 	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
 	                       	<li><i>경기날짜 : ${tmp.matchDate }</i></li>                      
 	                      </ul>	                                   
@@ -86,31 +68,11 @@
 	                    <!-- right -->
 	                    <div class="col-md-4 col-sm-4 match-right" >
 	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">${tmp.awayTeam }</a></h2>	                       
-	                      <!-- BEGIN CAROUSEL -->            
-	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel">
-	                          <!-- Carousel items -->
-	                          <div class="carousel-inner">
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
-	                            </div>
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
-	                            </div>
-	                            <div class="item active">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
-	                            </div>
-	                          </div>
-	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel" class="carousel-control left">
-	                            <i class="fa fa-angle-left"></i>
-	                          </a>
-	                          <a data-slide="next" href="#myCarousel" class="carousel-control right">
-	                            <i class="fa fa-angle-right"></i>
-	                          </a>
-	                        </div>                
-	                      </div>
-	                      <!-- END CAROUSEL -->
+	                     	 <c:forEach var="tmpa" items="${awaydtolist }">
+	                      		<c:if test="${tmpa.name eq tmp.awayTeam }">
+                 			       <img  src="${pageContext.request.contextPath }/upload/${tmpa.saveFileName}"/>        
+	                      		</c:if>
+	                         </c:forEach>
 	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
 	                        <li><i>그라운드 : ${tmp.ground }</i></li>                      
 	                      </ul>	                                   

@@ -44,31 +44,7 @@
                 	  <div class="row">                                   	
 	                    <div class="col-md-4 col-sm-4 match-left">
 	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${matchdto.homeTeam }</a></h2>	                       
-	                      <!-- BEGIN CAROUSEL -->            
-	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel ">
-	                          <!-- Carousel items -->
-	                          <div class="carousel-inner">
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
-	                            </div>
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
-	                            </div>
-	                            <div class="item active">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
-	                            </div>
-	                          </div>
-	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel " class="carousel-control left">
-	                            <i class="fa fa-angle-left"></i>
-	                          </a>
-	                          <a data-slide="next" href="#myCarousel " class="carousel-control right">
-	                            <i class="fa fa-angle-right"></i>
-	                          </a>
-	                        </div>                
-	                      </div>
-	                      
+                           	<img style="width:343px; height:191px" src="${pageContext.request.contextPath }/upload/${hometeamdto.saveFileName}"/>        
 	                      <table class="member_info">
 	                      	<thead>
 	                      		<tr>
@@ -149,30 +125,7 @@
 	                    
 	                    <div class="col-md-4 col-sm-4 match-right" >
 	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>	                       
-	                      <!-- BEGIN CAROUSEL -->            
-	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel ">
-	                          <!-- Carousel items -->
-	                          <div class="carousel-inner">
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
-	                            </div>
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
-	                            </div>
-	                            <div class="item active">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
-	                            </div>
-	                          </div>
-	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel " class="carousel-control left">
-	                            <i class="fa fa-angle-left"></i>
-	                          </a>
-	                          <a data-slide="next" href="#myCarousel " class="carousel-control right">
-	                            <i class="fa fa-angle-right"></i>
-	                          </a>
-	                        </div>                
-	                      </div>
+	                          <img  style="width:343px; height:191px" src="${pageContext.request.contextPath }/upload/${awayteamdto.saveFileName}"/>        
 	                      <table class="member_info">
 	                      	<thead>
 	                      		<tr>
