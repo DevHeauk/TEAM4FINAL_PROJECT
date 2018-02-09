@@ -23,6 +23,12 @@ public class ShopDaoImpl implements ShopDao{
 		List<ShopDto> list=session.selectList("shop.getList", dto);
 		return list;
 	}
+	
+	@Override
+	public List<ShopDto> getList2() {
+		List<ShopDto> list=session.selectList("shop.getList2");
+		return list;
+	}
 
 	@Override
 	public void minusCount(int num) {

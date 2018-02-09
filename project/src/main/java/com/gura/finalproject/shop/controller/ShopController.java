@@ -69,7 +69,7 @@ public class ShopController {
 		
 		return mView;
 	}
-	
+	@RequestMapping("/shop/shop-product-list")
 	public ModelAndView productList(HttpServletRequest request){
 		String id=(String)request.getSession().getAttribute("id");
 		if(id != null){
@@ -143,7 +143,15 @@ public class ShopController {
 	
 	@RequestMapping("/shop/buy")
 	public ModelAndView authBuy(HttpServletRequest request, @RequestParam String id){
+		shopService.insertorder(request);
 		shopService.order(request);
 		return new ModelAndView("redirect:/shop/cartlist.do?id="+id);
+	}
+	
+	@RequestMapping("/shop/order")
+	public ModelAndView authOrderList(HttpServletRequest request, @RequestParam String id){
+		ModelAndView mView=shopService.orderList(id);
+		mView.setViewName("shop/order");
+		return mView;
 	}
 }
