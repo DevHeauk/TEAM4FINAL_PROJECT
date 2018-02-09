@@ -19,6 +19,17 @@ public class TeamDaoImpl implements TeamDao {
 	@Autowired
 	public SqlSession session;
 	
+	//글의 갯수 (검색어에 일치하는) 리턴하기 
+	@Override
+	public int getCount() {
+		/*
+		 *  parameterType => CafeDto
+		 *  resultType => int 
+		 */
+		int count=session.selectOne("team.getCount");
+		return count;
+	}
+	
 	@Override
 	public void insert(TeamDto dto) {
 		session.insert("team.insert",dto);
@@ -44,9 +55,9 @@ public class TeamDaoImpl implements TeamDao {
 	}
 
 	@Override
-	public List<TeamDto> teamList() {
+	public List<TeamDto> teamList(TeamDto dto) {
 		
-		return session.selectList("team.getList");
+		return session.selectList("team.getList",dto);
 	}
 	@Override
 	public void joining(TeamDto dto) {

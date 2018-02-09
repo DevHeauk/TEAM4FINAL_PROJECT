@@ -89,16 +89,76 @@
             	      <hr class="blog-post-sep">
 	                  
 	              </c:forEach>
-	              
-                  <ul class="pagination">
-                    <li><a href="javascript:;">Prev</a></li>
-                    <li><a href="javascript:;">1</a></li>
-                    <li><a href="javascript:;">2</a></li>
-                    <li class="active"><a href="javascript:;">3</a></li>
-                    <li><a href="javascript:;">4</a></li>
-                    <li><a href="javascript:;">5</a></li>
-                    <li><a href="javascript:;">Next</a></li>
-                  </ul>               
+	              <ul class="pagination">
+					<c:choose>
+						<c:when test="${startPageNum ne 1 }">
+							<li>
+								<a href="team_list.do?pageNum=${startPageNum-1 }&condition=${condition}&keyword=${keyword}">&laquo;</a>
+							</li>
+						</c:when>
+						<c:otherwise>
+							<li class="disabled">
+								<a href="javascript:">&laquo;</a>
+							</li>
+						</c:otherwise>
+					</c:choose>
+					<c:forEach var="i" begin="${startPageNum }" 
+							end="${endPageNum }">	
+						<c:choose>
+							<c:when test="${i eq pageNum }">
+								<li class="active"><a href="team_list.do?pageNum=${i }&condition=${condition}&keyword=${keyword}">${i }</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="team_list.do?pageNum=${i }&condition=${condition}&keyword=${keyword}">${i }</a></li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					<c:choose>
+						<c:when test="${endPageNum lt totalPageCount }">
+							<li>
+								<a href="team_list.do?pageNum=${endPageNum+1 }&condition=${condition}&keyword=${keyword}">&raquo;</a>
+							</li>
+						</c:when>
+						<c:otherwise>
+							<li class="disabled">
+								<a href="javascript:">&raquo;</a>
+							</li>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+				<!-- Search -->
+				<div class="row">
+					<div class="col-xs-6">
+						<!-- 검색어 관련 form -->
+						<form action="team_list.do" method="post">
+							<input type="hidden" id="condition" value="${condition }" name="condition" />
+					        <div class="input-group">
+					          <div class="input-group-btn">
+					            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+					              <span id="conditionBtn">제목+파일명</span>
+					              <span class="caret"></span>
+					            </button>
+					            <ul class="dropdown-menu">
+					              <li><a href="javascript:set('titlecontent')">제목+파일명</a>
+					              </li>
+					              <li><a href="javascript:set('title')">제목</a>
+					              </li>
+					              <li><a href="javascript:set('writer')">작성자</a>
+					              </li>
+					            </ul>
+					          </div>
+					          <!-- /btn-group -->
+					          <input type="text" id="keyword" name="keyword" value="${keyword }" class="form-control"/>
+					          	<span class="input-group-btn">
+						            <button class="btn btn-default" type="submit">
+						              <span class="sr-only">검색</span>
+						              <span class="glyphicon glyphicon-search"></span>
+						            </button>
+			          			</span>
+					        </div>			
+						</form>
+					</div>
+				</div><!-- /.row -->               
                 </div>
                 <!-- END LEFT SIDEBAR -->
     
@@ -110,6 +170,9 @@
         <!-- END SIDEBAR & CONTENT -->
       </div>
     </div>
+    
+    
+    
     <%@ include file="../inc/footer.jsp" %>
     
     <%@ include file="../inc/footer_script.jsp" %>

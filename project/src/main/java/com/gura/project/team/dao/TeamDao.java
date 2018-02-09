@@ -11,7 +11,7 @@ public interface TeamDao {
 	public void insert(TeamDto dto);
 	public List<TeamDto> joining_data(TeamDto dto);
 	public TeamDto getData(TeamDto dto);
-	public List<TeamDto> teamList();
+	public List<TeamDto> teamList(TeamDto dto);
 	public List<UsersDto> join_user_getdata(List<TeamDto> joindto);
 	public void joining(TeamDto dto);
 	public void joinupdate(TeamDto dto);
@@ -22,6 +22,8 @@ public interface TeamDao {
 	public List<UsersDto> joininfo(List<TeamDto> list);
 	public List<TeamDto> awayteaminfo(List<MatchDto> awayteamlist);
 	public TeamDto getjointeam(String id);
+	public int getCount();
+
 	
 	
 	

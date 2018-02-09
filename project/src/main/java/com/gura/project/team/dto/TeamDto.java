@@ -12,11 +12,18 @@ public class TeamDto {
 	private String joinid;
 	private String content;
 	private String successMatching;
+	//페이징 처리 고려 
+	private int startRowNum;
+	private int endRowNum;
+	//이전글 다음글의 글번호
+	private int prevNum;
+	private int nextNum;
 	
 	public TeamDto(){}
 
 	public TeamDto(String name, String member, int win, int lose, int total, String ground, String leader,
-			String jointeam, String joinid, String content, String successMatching) {
+			String jointeam, String joinid, String content, String successMatching, int startRowNum, int endRowNum,
+			int prevNum, int nextNum) {
 		super();
 		this.name = name;
 		this.member = member;
@@ -29,6 +36,10 @@ public class TeamDto {
 		this.joinid = joinid;
 		this.content = content;
 		this.successMatching = successMatching;
+		this.startRowNum = startRowNum;
+		this.endRowNum = endRowNum;
+		this.prevNum = prevNum;
+		this.nextNum = nextNum;
 	}
 
 	public String getName() {
@@ -117,6 +128,38 @@ public class TeamDto {
 
 	public void setSuccessMatching(String successMatching) {
 		this.successMatching = successMatching;
+	}
+
+	public int getStartRowNum() {
+		return startRowNum;
+	}
+
+	public void setStartRowNum(int startRowNum) {
+		this.startRowNum = startRowNum;
+	}
+
+	public int getEndRowNum() {
+		return endRowNum;
+	}
+
+	public void setEndRowNum(int endRowNum) {
+		this.endRowNum = endRowNum;
+	}
+
+	public int getPrevNum() {
+		return prevNum;
+	}
+
+	public void setPrevNum(int prevNum) {
+		this.prevNum = prevNum;
+	}
+
+	public int getNextNum() {
+		return nextNum;
+	}
+
+	public void setNextNum(int nextNum) {
+		this.nextNum = nextNum;
 	}
 	
 	

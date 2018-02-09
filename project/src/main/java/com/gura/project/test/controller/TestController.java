@@ -1,15 +1,22 @@
 package com.gura.project.test.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.gura.project.match.service.MatchService;
 import com.gura.project.users.service.UsersService;
 
 @Controller
 public class TestController {
+	
 	@Autowired
 	private UsersService service;
+	@Autowired
+	public MatchService matchservice;
 	
 	@RequestMapping("/shop/product")
 	public String product(){
@@ -29,11 +36,6 @@ public class TestController {
 		return "team/team_detail";
 	}	
 	
-	@RequestMapping("/team/team_list2")
-	public String teamList(){
-		
-		return "team/team_list";
-	}
 	
 	@RequestMapping("/board/faq")
 	public String faq(){
@@ -66,9 +68,11 @@ public class TestController {
 	}		
 	
 	@RequestMapping("/match/match_detail")
-	public String matchDetail(){
-		
-		return "match/match_detail";
+	public ModelAndView matchDetail(HttpServletRequest request){
+		ModelAndView mView=matchservice.matchdetail(request);
+		mView.setViewName("match/match_detail");
+
+		return mView;
 	}		
 	
 	@RequestMapping("/ranking/rank_list")

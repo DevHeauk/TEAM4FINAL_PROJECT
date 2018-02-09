@@ -43,7 +43,7 @@
                 <div class="col-md-12 col-sm-12 blog-posts">            
                 	  <div class="row">                                   	
 	                    <div class="col-md-4 col-sm-4 match-left">
-	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${matchdto.hometeam }</a></h2>	                       
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${matchdto.homeTeam }</a></h2>	                       
 	                      <!-- BEGIN CAROUSEL -->            
 	                      <div class="front-carousel">	                      
 	                        <div class="carousel slide" id="myCarousel ">
@@ -105,7 +105,7 @@
 	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
 	                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
 	                      </ul>	  
-						  <p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">000 점 <span style="display: inline-block; padding: 0 5px;">/</span>
+						  <p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">${matchdto.homePoint } 점 <span style="display: inline-block; padding: 0 5px;">/</span>
 						  <i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리	      
 						  <!-- <i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배   --></p>                                               
 	                    </div>
@@ -122,11 +122,11 @@
 									<tbody>
 										<tr>
 											<td>장소</td>
-											<td>에이콘</td>
+											<td>${matchdto.ground}</td>
 										</tr>
 										<tr>
 											<td>일정</td>
-											<td>2018 / 02 / 20</td>
+											<td>${matchdto.matchDate }</td>
 										</tr>
 										<tr>
 											<td>전적</td>
@@ -153,7 +153,7 @@
 	                    </div>	
 	                    
 	                    <div class="col-md-4 col-sm-4 match-right" >
-	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>	                       
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">${matchdto.awayTeam }</a></h2>	                       
 	                      <!-- BEGIN CAROUSEL -->            
 	                      <div class="front-carousel">	                      
 	                        <div class="carousel slide" id="myCarousel ">
@@ -214,7 +214,7 @@
 	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
 	                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
 	                      </ul>	       
-						  <p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">000 점 <span style="display: inline-block; padding: 0 5px;">/</span>
+						  <p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">${matchdto.awayPoint} 점 <span style="display: inline-block; padding: 0 5px;">/</span>
   						  <!-- <i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리	 -->
 						  <i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배</p>	   	                                                  
 	                    </div>	   
@@ -229,11 +229,11 @@
 									<tbody>
 										<tr>
 											<td>장소</td>
-											<td>에이콘</td>
+											<td>${matchdto.ground}</td>
 										</tr>
 										<tr>
 											<td>일정</td>
-											<td>2018 / 02 / 20</td>
+											<td>${matchdto.matchDate }</td>
 										</tr>
 										<tr>
 											<td>전적</td>
@@ -275,8 +275,8 @@
 			<table class="match_modal">
 				<thead>
 					<tr>
-						<th style="color: #0033cc">Home Team</th>
-						<th style="color: #f10025;">Away Team</th>
+						<th style="color: #0033cc">${matchdto.homeTeam}</th>
+						<th style="color: #f10025;">${matchdto.awayTeam }</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -285,8 +285,8 @@
 						<td>유혁준 팀</td>
 					</tr>
 					<tr>
-						<td><input type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3"></td>
-						<td><input type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3"></td>
+						<td><input name="homePoint" type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3"></td>
+						<td><input name="awayPoint" type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3"></td>
 					</tr>
 				</tbody>
 			</table>   

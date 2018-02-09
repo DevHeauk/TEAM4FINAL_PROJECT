@@ -55,7 +55,7 @@
 	<c:forEach var="tmp" items="${hometeammember}">
 		<tr>
 			<th>${tmp.name }</th>
-			<th>${tmp.position }</th>
+			<th>${tmp.b_position }</th>
 		</tr>
 	</c:forEach>
 </table>
@@ -68,7 +68,7 @@
 	<c:forEach var="tmp" items="${awayteammember}">
 		<tr>
 			<th>${tmp.name }</th>
-			<th>${tmp.position }</th>
+			<th>${tmp.b_position }</th>
 		</tr>
 	</c:forEach>
 </table>
