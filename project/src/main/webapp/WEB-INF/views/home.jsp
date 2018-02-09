@@ -201,17 +201,18 @@
           <!-- BEGIN CONTENT -->
           <div class="col-md-12 col-sm-12">
             <h2>PRODUCTS</h2>
-            <div class="sidebar col-md-3 col-sm-4 main-shop-list">
-              <ul class="list-group margin-bottom-25 sidebar-menu">
-                <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> 농구복</a></li>
-                <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> 농구화</a></li>
-                <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> 농구공</a></li>
+            <div class="col-md-3 col-sm-4 main-shop-list sidebar-menu">
+              <ul class="list-group margin-bottom-0 clearfix">
+                <li class="list-group-item clearfix active"><a href="#a" data-toggle="tab"><i class="fa fa-angle-right"></i> 농구복</a></li>
+                <li class="list-group-item clearfix"><a href="#b" data-toggle="tab"><i class="fa fa-angle-right"></i> 농구화</a></li>
+                <li class="list-group-item clearfix"><a href="#c" data-toggle="tab"><i class="fa fa-angle-right"></i> 농구공</a></li>
               </ul>
-            </div>                 
-            <div class="owl-carousel owl-carousel4 main-prd-list" style="clear: both;">
-              
-                <c:forEach var="tmp" items="${list3 }">
-                <div>
+            </div> 
+            
+            <div class="tab-content main_shop_item clearfix" style="clear: both;">                
+            <div id="a" class="tab-pane owl-carousel owl-carousel4 main-prd-list fade in active">
+              <c:forEach var="tmp" items="${list3 }">  
+                <div>    
                 	<div class="product-item">
 	                  <div class="pi-img-wrapper">
 	                    <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive" alt="Berry Lace Dress">
@@ -223,11 +224,45 @@
 	                  <h3><a href="shop-item.html">${tmp.title }</a></h3>
 	                  <div class="pi-price">${tmp.price }</div>
 	                </div>
-	            </div>
-                </c:forEach>
-              
-          <!-- END CONTENT -->
-        </div>
+	             </div>  
+	           </c:forEach> 	
+        	</div>
+            <div id="b" class="tab-pane owl-carousel owl-carousel4 main-prd-list fade">
+              <c:forEach var="tmp" items="${list4 }">                         	
+               <div>                           
+                	<div class="product-item">
+	                  <div class="pi-img-wrapper">
+	                    <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive" alt="Berry Lace Dress">
+	                    <div>
+	                      <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+	                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+	                    </div>
+	                  </div>
+	                  <h3><a href="shop-item.html">${tmp.title }</a></h3>
+	                  <div class="pi-price">${tmp.price }</div>
+	                </div>
+	             </div>	  
+	           </c:forEach>
+	        </div>   
+	            
+            <div id="c" class="tab-pane owl-carousel owl-carousel4 main-prd-list fade">
+              <c:forEach var="tmp" items="${list5 }">   	            
+                <div>   	
+                	<div class="product-item">
+	                  <div class="pi-img-wrapper" >
+	                    <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive" alt="Berry Lace Dress">
+	                    <div>
+	                      <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+	                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+	                    </div>
+	                  </div>
+	                  <h3><a href="shop-item.html">${tmp.title }</a></h3>
+	                  <div class="pi-price">${tmp.price }</div>
+	                </div>
+	           </div> 
+	         </c:forEach>  
+	       </div>  	 
+	      </div>                   	
         <!-- END SIDEBAR & CONTENT -->
 
         <!-- BEGIN TWO PRODUCTS & PROMO -->
@@ -612,6 +647,10 @@ Nostrud duis molestie at dolore.</p>
             Layout.initFixHeaderWithPreHeader();
             Layout.initNavScrolling();
         });
+        
+        
+        
+		       
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
 </body>

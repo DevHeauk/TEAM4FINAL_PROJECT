@@ -137,6 +137,24 @@ public class ShopDaoImpl implements ShopDao{
 		List<Product_OrderDto> list=session.selectList("shop.orderList", id);
 		return list;
 	}
+
+	@Override
+	public List<ShopDto> homeAList() {
+		String A="농구복";
+		return session.selectList("shop.homeAList", A);
+	}
+
+	@Override
+	public List<ShopDto> homeBList() {
+		String A="농구화";
+		return session.selectList("shop.homeBList", A);
+	}
+
+	@Override
+	public List<ShopDto> homeCList() {
+		String A="공";
+		return session.selectList("shop.homeCList", A);
+	}
 	
 
 }

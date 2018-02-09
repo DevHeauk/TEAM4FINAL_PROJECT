@@ -29,5 +29,7 @@ public interface ShopDao {
 	public void cartdelete(UsersDto userdto);
 	public void InsertOrder(Product_OrderDto orderDto);
 	public List<Product_OrderDto> orderList(String id);
-	
+	public List<ShopDto> homeAList();
+	public List<ShopDto> homeBList();
+	public List<ShopDto> homeCList();
 }

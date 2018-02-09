@@ -261,4 +261,17 @@ public class ShopServiceImpl implements ShopService{
 		mView.addObject("list", list);
 		return mView;
 	}
+
+	@Override
+	public ModelAndView homeList(HttpServletRequest request) {
+		List<ShopDto> Alist=shopDao.homeAList();
+		List<ShopDto> Blist=shopDao.homeBList();
+		List<ShopDto> Clist=shopDao.homeCList();
+		ModelAndView mView=new ModelAndView();
+		mView.addObject("list3", Alist);
+		mView.addObject("list4", Blist);
+		mView.addObject("list5", Clist);
+		
+		return mView;
+	}
 }

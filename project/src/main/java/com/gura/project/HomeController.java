@@ -20,12 +20,12 @@ public class HomeController {
 		String id=(String)request.getSession().getAttribute("id");
 		
 		if(id != null){
-			ModelAndView mView=shopService.getList(request);
+			ModelAndView mView=shopService.homeList(request);
 			//mView=shopService.cart_data(id);
 			mView.setViewName("home");
 			return mView;
 		}else{
-			ModelAndView mView=mView=new ModelAndView();
+			ModelAndView mView=shopService.homeList(request);
 			mView.setViewName("home");
 			return mView;
 		}

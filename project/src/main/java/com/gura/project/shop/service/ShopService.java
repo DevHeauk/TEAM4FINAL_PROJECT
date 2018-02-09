@@ -19,4 +19,5 @@ public interface ShopService {
 	public void order(HttpServletRequest request);
 	public void insertorder(HttpServletRequest request);
 	public ModelAndView orderList(String id);
+	public ModelAndView homeList(HttpServletRequest request);
 }
