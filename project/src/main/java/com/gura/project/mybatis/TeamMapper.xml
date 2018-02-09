@@ -23,11 +23,11 @@
 	</select>
 	<insert id="insert" parameterType="TeamDto">
 		insert into team
-		(name,member,win,lose,total,ground,ground,leader)
-		values(#{name},#{member},0,0,0,#{ground},#{ground},#{member})
+		(name,member,win,lose,total,ground,leader,saveFileName,orgFileName)
+		values(#{name},#{member},0,0,0,#{ground},#{member},#{saveFileName},#{orgFileName})
 	</insert>
 	<select id="getData" parameterType="TeamDto" resultType="TeamDto">
-		select name,member,win,lose,total,ground,ground
+		select name,member,win,lose,total,ground
 		from team
 		where name=#{name}
 	</select>
