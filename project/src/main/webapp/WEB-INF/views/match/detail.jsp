@@ -47,6 +47,7 @@
 </table>
 
 <table>
+	<h3>홈팀</h3>
 	<tr>
 		<th>이름</th>
 		<th>포지션</th>
@@ -59,6 +60,7 @@
 	</c:forEach>
 </table>
 <table>
+	<h3>어웨이팀</h3>
 	<tr>
 		<th>이름</th>
 		<th>포지션</th>
