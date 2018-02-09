@@ -217,41 +217,6 @@ public class ShopServiceImpl implements ShopService{
 			shopdto.setRemainCount(remainCount-count);
 			shopDao.setremaincount(shopdto);	
 		}
-<<<<<<< HEAD
 		shopDao.cartdelete(userdto);
-=======
-		shopDao.cartdelete(userdto);	
-	}
-
-	@Override
-	public void insertorder(HttpServletRequest request) {
-		Product_OrderDto orderDto=new Product_OrderDto();
-		String id=(String)request.getSession().getAttribute("id");
-		
-		List<CartDto> order_list=shopDao.cartList(id);
-		System.out.println(order_list.size());
-		for(CartDto tmp1:order_list){
-			UsersDto addr_dto=userDao.getData(id);
-			orderDto.setId(id);
-			orderDto.setAddr01(addr_dto.getAddr01());
-			orderDto.setAddr02(addr_dto.getAddr02());
-			orderDto.setAddr03(addr_dto.getAddr03());
-			orderDto.setPrice(tmp1.getPrice());
-			orderDto.setTitle(tmp1.getProduct_name());
-			orderDto.setProduct_count(tmp1.getProduct_count());
-			orderDto.setSaveFileName(tmp1.getSaveFileName());
-			orderDto.setDelivery_location("배송중");
-			shopDao.InsertOrder(orderDto);
-		}
-		
-	}
-
-	@Override
-	public ModelAndView orderList(String id) {
-		List<Product_OrderDto> list=shopDao.orderList(id);
-		ModelAndView mView=new ModelAndView();
-		mView.addObject("list", list);
-		return mView;
->>>>>>> parent of f010e44... 1
 	}
 }
