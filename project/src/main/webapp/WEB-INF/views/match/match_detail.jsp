@@ -80,7 +80,7 @@
 		                       <c:forEach var="tmp" items="${hometeammember}">
 									<tr>
 										<th>${tmp.name }</th>
-										<th>${tmp.position }</th>
+										<th>${tmp.b_position }</th>
 									</tr>
 								</c:forEach>                   			                      			                      			                      		
 	                      	</tbody>
@@ -96,13 +96,13 @@
 						  	<p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">${matchdto.homePoint} 점 <span style="display: inline-block; padding: 0 5px;">/</span>
 						  </c:if>
 						  
-						  <c:if test="${not empty matchdto.homePoint}">
-						  	<c:if test="${matchdto.homePoint gt matchdto.awayPoint}">
-						  		<i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리
-						  	</c:if>
-						  	<c:if test="${matchdto.homePoint le matchdto.awayPoint}">
-						  		<i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배
-						  	</c:if>
+						  <c:if test="${matchdto.homePoint ne matchdto.awayPoint}">
+							  	<c:if test="${matchdto.homePoint gt matchdto.awayPoint}">
+							  		<i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리
+							  	</c:if>
+							  	<c:if test="${matchdto.homePoint le matchdto.awayPoint}">
+							  		<i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배
+							  	</c:if>
 						  </c:if>                                             
 	                    </div>
 	                    <div class="col-md-4 col-sm-4 match-vs" style="text-align: center; border-left: 1px solid #ececec; border-right: 1px solid #ececec;">
@@ -128,11 +128,11 @@
 											<td>상태</td>									
 											<td>
 												<c:choose>
-													<c:when test="${not empty matchdto.homePoint}">
-														<strong style="color: #f10025;">경기 종료</strong> 
+													<c:when test="${matchdto.homePoint eq matchdto.awayPoint}">
+														<strong style="color: #0033cc;">경기 준비</strong> 
 													</c:when>
 													<c:otherwise>
-														<strong style="color: #0033cc;">경기 준비</strong>
+														<strong style="color: #f10025;">경기 종료</strong> 
 													</c:otherwise>
 												</c:choose>
 											</td>								
@@ -140,7 +140,7 @@
 									</tbody>																																										
 								</table>
 		
-								<c:if test="${empty matchdto.homePoint }">
+								<c:if test="${matchdto.homePoint eq matchdto.awayPoint}">
 									<a href="#match-pop" class="btn btn-primary fancybox-fast-view" style="color: #ffffff; margin: 65px 0 30px 0;">경기 시작</a>
 								</c:if>
 							</div>
@@ -184,7 +184,7 @@
 	                      		 <c:forEach var="tmp" items="${awayteammember}">
 									<tr>
 										<th>${tmp.name }</th>
-										<th>${tmp.position }</th>
+										<th>${tmp.b_position }</th>
 									</tr>
 								</c:forEach>                      			                      			                      			                      		
 	                      	</tbody>
@@ -260,7 +260,7 @@
 		<form action="pointinsert.do" method="post">
 				<input type="hidden" name=num id=num value="${matchdto.num}">
 				<input type="hidden" name=awayTeam id=awayTeam value="${matchdto.awayTeam }">
-				<input type="hidden" name=homeTeam id=hoemTeam value="${matchdto.homeTeam }">
+				<input type="hidden" name=homeTeam id=homeTeam value="${matchdto.homeTeam }">
 			<table class="match_modal">
 				<thead>
 					<tr>
