@@ -2,18 +2,77 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="match">
 	<insert id="Matchinsert" parameterType="MatchDto">
-		insert into matching(hometeam,awayteam,matchdate,ground,successmatching)
-		values (#{homeTeam},#{awayTeam},#{matchDate},#{ground},'false')
+		insert into matching(homeTeam,awayTeam,matchDate,ground,successMatching,num)
+		values (#{homeTeam},#{awayTeam},#{matchDate},#{ground},'false',match_seq.NEXTVAL)
 	</insert>
 	<select id="getawayteam" parameterType="String" resultType="String">
 		select team 
-		from users
+		from users4
 		where id=#{id}
 	</select>
-	<update id="successmatch" parameterType="String">
+	<update id="successMatch" parameterType="MatchDto">
 		UPDATE matching
-		SET successmatching='true'
-		WHERE awayTeam=#{awayteam}
+		SET successMatching='true'
+		WHERE awayTeam=#{awayTeam} and homeTeam=#{homeTeam}
+	</update>
+	<delete id="delete" parameterType="MatchDto">
+		delete from match
+		where awayTeam=#{awayTeam} and homeTeam=#{homeTeam}
+	</delete>
+	<select id="matched" parameterType="MatchDto" resultType="String">
+		select awayTeam
+		from matching
+		where awayTeam=#{awayTeam} and homeTeam=#{homeTeam}
+	</select>
+	<select id="getlist" resultType="MatchDto">
+		select num,homeTeam,homePoint,awayTeam,awayPoint,matchDate,ground
+		from matching
+		ORDER BY num DESC
+	</select>
+	<select id="getdata" parameterType="MatchDto" resultType="MatchDto">
+		select num,homeTeam,homePoint,awayTeam,awayPoint,matchDate,ground
+		from matching
+		where num=#{num}
+	</select>
+	<select id="getwhenhomepoint" parameterType="MatchDto" resultType="MatchDto">
+		select homepoint,awaypoint
+		from matching
+		where hometeam=#{homeTeam} and awayteam=#{awayTeam}
+	</select>
+	<select id="getwhenawaypoint" parameterType="MatchDto" resultType="MatchDto">
+		select homepoint,awaypoint
+		from matching
+		where hometeam=#{awayTeam} and awayteam=#{homeTeam}
+	</select>
+	<select id="getpoint" parameterType="MatchDto" resultType="MatchDto">
+		select homepoint,awaypoint
+		from matching
+		where num=#{num}
+	</select>
+	<update id="pointupdate" parameterType="MatchDto">
+		update matching
+		set homepoint=#{homePoint},awaypoint=#{awayPoint}
+		where num=#{num} 
+	</update>
+	<update id="HWwinpointupdate" parameterType="MatchDto">
+		update team
+		set win=win+1,total=total+1
+		where name=#{homeTeam}
+	</update>
+	<update id="HWlosepointupdate" parameterType="MatchDto">
+		update team
+		set lose=lose+1,total=total+1
+		where name=#{awayTeam}
+	</update>
+	<update id="AWwinpointupdate" parameterType="MatchDto">
+		update team
+		set win=win+1,total=total+1
+		where name=#{awayTeam}
+	</update>
+	<update id="AWlosepointupdate" parameterType="MatchDto">
+		update team
+		set lose=lose+1,total=total+1
+		where name=#{homeTeam}
 	</update>
 </mapper>
 

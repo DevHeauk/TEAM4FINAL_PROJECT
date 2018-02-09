@@ -19,7 +19,7 @@ public class TeamController {
 	public TeamService teamService;
 	
 	@RequestMapping("/team/team_list")
-	public ModelAndView authlist(HttpServletRequest request){
+	public ModelAndView list(HttpServletRequest request){
 		ModelAndView mView =teamService.list(request);
 		mView.setViewName("team/team_list");
 		return mView;
@@ -60,7 +60,7 @@ public class TeamController {
 	public ModelAndView joingetdata(HttpServletRequest request){
 		ModelAndView mView=teamService.joinconfirm(request);
 		String name=request.getParameter("name");
-		mView.setViewName("redirect:/team/detail.do?name="+name);
+		mView.setViewName("redirect:/team/detail2.do?name="+name);
 		return mView;
 	}
 	@RequestMapping("/team/join")
@@ -68,7 +68,16 @@ public class TeamController {
 		
 		ModelAndView mView=teamService.join(request);
 		String name=request.getParameter("name");
-		mView.setViewName("team/list");
+		mView.setViewName("redirect:/team/detail2.do?name="+name);
+		return mView;
+	}
+	
+	@RequestMapping("/team/joinrefuse")
+	public ModelAndView joinrefuse(HttpServletRequest request){
+		
+		ModelAndView mView=teamService.joinrefuse(request);
+		String name=request.getParameter("name");
+		mView.setViewName("redirect:/team/detail2.do?name="+name);
 		return mView;
 	}
 

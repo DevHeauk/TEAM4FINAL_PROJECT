@@ -1,5 +1,7 @@
 package com.gura.project.match.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,20 +35,30 @@ public class MatchDaoImpl implements MatchDao{
 
 	@Override
 	public void deleteMatch(MatchDto dto) {
-		// TODO Auto-generated method stub
+		session.delete("match.delete",dto);
+	}
+	
+	@Override
+	public boolean matched(MatchDto dto) { 
 		
+		String awayteam = session.selectOne("match.matched",dto);
+		
+		if(awayteam!=null){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	@Override
 	public MatchDto getData(MatchDto dto) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("match.getdata", dto);
 	}
 
 	@Override
-	public MatchDto insertWinningPoint(TeamDto dto) {
-		// TODO Auto-generated method stub
-		return null;
+	public void insertPoint(MatchDto dto) {
+		session.update("match.pointupdate",dto);
+		
 	}
 
 	@Override
@@ -56,8 +68,48 @@ public class MatchDaoImpl implements MatchDao{
 	}
 
 	@Override
-	public void successupdate(String awayTeam) {
-		session.update("match.successmatch", awayTeam);
+	public void successMatch(MatchDto dto) {
+		session.update("match.successMatch", dto);
 	}
 
+	@Override
+	public List<MatchDto> getlist() {
+		
+		return session.selectList("match.getlist");
+	}
+
+
+	@Override
+	public void HWwinpointupdate(MatchDto dto) {
+		session.update("match.HWwinpointupdate", dto);
+		
+	}
+
+	@Override
+	public void HWlosepointupdate(MatchDto dto) {
+
+		session.update("match.HWlosepointupdate", dto);
+	}
+
+
+	@Override
+	public void AWwinpointupdate(MatchDto dto) {
+		session.update("match.AWwinpointupdate", dto);
+		
+	}
+
+	@Override
+	public void AWlosepointupdate(MatchDto dto) {
+		session.update("match.AWlosepointupdate", dto);
+		
+	}
+
+	@Override
+	public void successupdate(String awayTeam) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
 }

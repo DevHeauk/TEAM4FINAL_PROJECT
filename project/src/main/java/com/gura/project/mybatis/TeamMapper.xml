@@ -43,12 +43,19 @@
 		where id=#{member}
 	</update>
 	<select id="awayteam" parameterType="MatchDto" resultType="MatchDto">
-		select awayteam
+		select awayTeam, matchDate, ground, successMatching, homeTeam
 		from matching
-		where hometeam=#{homeTeam}
+		where homeTeam=#{homeTeam}
 	</select>
+	
+	<select id="awayteam2" parameterType="MatchDto" resultType="TeamDto">
+		select successMatching, homeTeam
+		from matching
+		where homeTeam=#{homeTeam} and awayTeam=#{awayTeam}
+	</select>
+	
 	<delete id="joindelete" parameterType="teamDto">
-		delete from joinlist
+		delete from joinList
 		where joinid=#{joinid}
 	</delete>
 	<select id="joininfo" parameterType="teamDto" resultType="usersDto">
@@ -60,6 +67,11 @@
 		select name,win,lose,total,ground,leader
 		from team
 		where name=#{awayteam}
+	</select>
+	<select id="getjointeam" parameterType="String" resultType="teamDto">
+		select jointeam
+		from joinlist
+		where joinid=#{id}
 	</select>
 </mapper>
 

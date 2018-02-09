@@ -29,7 +29,7 @@
       <div class="container">
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li><a href="javascript:;">Blog</a></li>
+            <li><a href="match_detail.do?awayTeam=${tmp.awayTeam}&homeTeam=${tmp.homeTeam}&num=${tmp.num}">match_detail</a></li>
             <li class="active">Blog Page</li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
@@ -40,16 +40,16 @@
             <div class="content-page">
               <div class="row">
                 <!-- BEGIN LEFT SIDEBAR -->    
-	            <c:if test="${sessionScope.team eq null }">
-           	  		<a href="insertform.do" class="btn btn-primary pull-right margin-bottom-20" style="color: #ffffff; margin-right: 20px;">팀만들기</a>
-				</c:if>                            
-                <div class="col-md-12 col-sm-12 blog-posts">            
-                	  <div class="row">                                   	
+	                                       
+                <div class="col-md-12 col-sm-12 blog-posts"> 
+                	<c:forEach var="tmp" items="${matchlist}">           
+                	  <div class="row">     
+                	  <!-- left -->                              	
 	                    <div class="col-md-4 col-sm-4 match-left">
-	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">Home Team</a></h2>	                       
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${tmp.homeTeam }</a></h2>	                       
 	                      <!-- BEGIN CAROUSEL -->            
 	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel${tmp.name }">
+	                        <div class="carousel slide" id="myCarousel">
 	                          <!-- Carousel items -->
 	                          <div class="carousel-inner">
 	                            <div class="item">
@@ -63,31 +63,30 @@
 	                            </div>
 	                          </div>
 	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+	                          <a data-slide="prev" href="#myCarousel" class="carousel-control left">
 	                            <i class="fa fa-angle-left"></i>
 	                          </a>
-	                          <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+	                          <a data-slide="next" href="#myCarousel" class="carousel-control right">
 	                            <i class="fa fa-angle-right"></i>
 	                          </a>
 	                        </div>                
 	                      </div>
 	                      <!-- END CAROUSEL -->
 	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
-	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
-	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
-	                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+	                       	<li><i>경기날짜 : ${tmp.matchDate }</i></li>                      
 	                      </ul>	                                   
 	                    </div>
+	                    <!-- vs -->
 	                    <div class="col-md-4 col-sm-4 match-vs" style="text-align: center;;">
 							<img src="${pageContext.request.contextPath}/assets/pages/img/match_vs.png" alt="" /><br />
-							<a href="match_detail.do" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
+							<a href="detail.do?awayTeam=${tmp.awayTeam}&homeTeam=${tmp.homeTeam}&num=${tmp.num}" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
 	                    </div>	
-	                    
+	                    <!-- right -->
 	                    <div class="col-md-4 col-sm-4 match-right" >
-	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>	                       
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">${tmp.awayTeam }</a></h2>	                       
 	                      <!-- BEGIN CAROUSEL -->            
 	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel${tmp.name }">
+	                        <div class="carousel slide" id="myCarousel">
 	                          <!-- Carousel items -->
 	                          <div class="carousel-inner">
 	                            <div class="item">
@@ -101,25 +100,23 @@
 	                            </div>
 	                          </div>
 	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+	                          <a data-slide="prev" href="#myCarousel" class="carousel-control left">
 	                            <i class="fa fa-angle-left"></i>
 	                          </a>
-	                          <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+	                          <a data-slide="next" href="#myCarousel" class="carousel-control right">
 	                            <i class="fa fa-angle-right"></i>
 	                          </a>
 	                        </div>                
 	                      </div>
 	                      <!-- END CAROUSEL -->
 	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
-	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
-	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
-	                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+	                        <li><i>그라운드 : ${tmp.ground }</i></li>                      
 	                      </ul>	                                   
 	                    </div>	   	                    	                                        
 	                  </div>
 	                  	                  
             	      <hr class="blog-post-sep">
-	              
+	              </c:forEach>
                   <ul class="pagination">
                     <li><a href="javascript:;">Prev</a></li>
                     <li><a href="javascript:;">1</a></li>
