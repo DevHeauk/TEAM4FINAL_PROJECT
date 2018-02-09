@@ -135,15 +135,15 @@
 					        <div class="input-group">
 					          <div class="input-group-btn">
 					            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-					              <span id="conditionBtn">제목+파일명</span>
+					              <span id="conditionBtn">팀이름</span>
 					              <span class="caret"></span>
 					            </button>
 					            <ul class="dropdown-menu">
-					              <li><a href="javascript:set('titlecontent')">제목+파일명</a>
+					              <li><a href="javascript:set('name')">팀이름</a>
 					              </li>
-					              <li><a href="javascript:set('title')">제목</a>
+					              <li><a href="javascript:set('leader')">리더</a>
 					              </li>
-					              <li><a href="javascript:set('writer')">작성자</a>
+					              <li><a href="javascript:set('ground')">경기장</a>
 					              </li>
 					            </ul>
 					          </div>
@@ -172,11 +172,25 @@
     </div>
     
     
-    
+    <script>
+	set("${condition}");
+		function set(condition){
+			if(condition=="name" || condition==""){
+				condition="name";
+				$("#conditionBtn").text("팀이름");
+			}else if(condition=="leader"){
+				$("#conditionBtn").text("리더");
+			}else if(condition=="ground"){
+				$("#conditionBtn").text("경기장");
+			}
+			$("#condition").val(condition);
+		}   
+    </script>
     <%@ include file="../inc/footer.jsp" %>
     
     <%@ include file="../inc/footer_script.jsp" %>
     <script type="text/javascript">
+    
         jQuery(document).ready(function() {
             Layout.init();
             Layout.initTwitter();

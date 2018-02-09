@@ -130,13 +130,12 @@ public class TeamServiceImpl implements TeamService{
 		TeamDto dto = new TeamDto();
 		
 		if(keyword != null){ //검색어가 전달된 경우
-			if(condition.equals("titlecontent")){ //제목+내용 검색
+			if(condition.equals("name")){ //팀이름 검색
 				dto.setName(keyword);
-				dto.setContent(keyword);
-			}else if(condition.equals("title")){//제목 검색
-				dto.setName(keyword);
-			}else if(condition.equals("writer")){//작성자 검색
-				dto.setName(keyword);
+			}else if(condition.equals("leader")){//리더 검색
+				dto.setLeader(keyword);
+			}else if(condition.equals("ground")){//경기장 검색
+				dto.setGround(keyword);
 			}
 			
 			mView.addObject("condition", condition);
@@ -156,7 +155,7 @@ public class TeamServiceImpl implements TeamService{
 		//보여줄 페이지 데이터의 끝 ResultSet row 번호
 		int endRowNum=pageNum*PAGE_ROW_COUNT;
 		//전체 row 의 갯수를 DB 에서 얻어온다.
-		int totalRow = teamdao.getCount();
+		int totalRow = teamdao.getCount(dto);
 		//전체 페이지의 갯수 구하기
 		int totalPageCount=
 				(int)Math.ceil(totalRow/(double)PAGE_ROW_COUNT);

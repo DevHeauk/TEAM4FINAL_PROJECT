@@ -2,13 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="team">
 	<select id="getList"  parameterType="teamDto" resultType="teamDto">
-			select name,win,lose,total,ground,content
+			select name,win,lose,total,ground,leader
 			FROM (SELECT result1.*,ROWNUM rnum
-				  FROM (SELECT name,win,lose,total,ground,content
+				  FROM (SELECT name,win,lose,total,ground,leader
 				  		FROM team
 				  		<where>
 							<if test="name != null">
 								OR name LIKE '%'||#{name}||'%'
+							</if>
+							<if test="leader != null">
+								OR leader LIKE '%'||#{leader}||'%'
 							</if>
 							<if test="ground != null">
 								OR ground LIKE '%'||#{ground}||'%'
@@ -20,19 +23,29 @@
 	</select>
 	<insert id="insert" parameterType="TeamDto">
 		insert into team
-		(name,member,win,lose,total,ground,content,leader)
-		values(#{name},#{member},0,0,0,#{ground},#{content},#{member})
+		(name,member,win,lose,total,ground,ground,leader)
+		values(#{name},#{member},0,0,0,#{ground},#{ground},#{member})
 	</insert>
 	<select id="getData" parameterType="TeamDto" resultType="TeamDto">
-		select name,member,win,lose,total,ground,content
+		select name,member,win,lose,total,ground,ground
 		from team
 		where name=#{name}
 	</select>
 	
-	<select id="getCount" parameterType="teamDto"
-		resultType="int">
+	<select id="getCount" parameterType="teamDto" resultType="int">
 		SELECT NVL(MAX(ROWNUM), 0)
-		FROM team	
+		FROM team
+		<where>
+			<if test="name != null">
+				OR name LIKE '%'||#{name}||'%'
+			</if>
+			<if test="leader != null">
+				OR leader LIKE '%'||#{leader}||'%'
+			</if>
+			<if test="ground != null">
+				OR ground LIKE '%'||#{ground}||'%'
+			</if>
+		</where>	
 	</select>
 	
 	<select  id="joindata" parameterType="TeamDto" resultType="TeamDto">

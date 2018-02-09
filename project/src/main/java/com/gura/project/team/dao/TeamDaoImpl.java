@@ -21,12 +21,12 @@ public class TeamDaoImpl implements TeamDao {
 	
 	//글의 갯수 (검색어에 일치하는) 리턴하기 
 	@Override
-	public int getCount() {
+	public int getCount(TeamDto dto) {
 		/*
 		 *  parameterType => CafeDto
 		 *  resultType => int 
 		 */
-		int count=session.selectOne("team.getCount");
+		int count=session.selectOne("team.getCount",dto);
 		return count;
 	}
 	
