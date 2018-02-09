@@ -77,26 +77,12 @@
 	                      		</tr>
 	                      	</thead>
 	                      	<tbody>
-	                      		<tr>
-	                      			<td><strong style="color: #0033cc;">김응길</strong></td>
-	                      			<td><strong style="color: #0033cc;">포지션</strong></td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>김응길</td>
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>김응길</td> 
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr> 
-	                      			<td>김응길</td>
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>김응길</td>
-	                      			<td>포지션</td>
-	                      		</tr>	                      			                      			                      			                      		
+		                       <c:forEach var="tmp" items="${hometeammember}">
+									<tr>
+										<th>${tmp.name }</th>
+										<th>${tmp.b_position }</th>
+									</tr>
+								</c:forEach>                   			                      			                      			                      		
 	                      	</tbody>
 	                      </table>
 	                      <!-- END CAROUSEL -->
@@ -153,7 +139,7 @@
 	                    </div>	
 	                    
 	                    <div class="col-md-4 col-sm-4 match-right" >
-	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>	                       
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">${matchdto.awayTeam }</a></h2>	                       
 	                      <!-- BEGIN CAROUSEL -->            
 	                      <div class="front-carousel">	                      
 	                        <div class="carousel slide" id="myCarousel${tmp.name }">
@@ -186,26 +172,12 @@
 	                      		</tr>
 	                      	</thead>
 	                      	<tbody>
-	                      		<tr>
-	                      			<td><strong style="color: #f10025;">유혁준</strong></td>
-	                      			<td><strong style="color: #f10025;">포지션</strong></td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>유혁준</td>
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>유혁준</td> 
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>유혁준</td>
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>유혁준</td>
-	                      			<td>포지션</td>
-	                      		</tr>	                      			                      			                      			                      		
+	                      		 <c:forEach var="tmp" items="${awayteammember}">
+									<tr>
+										<th>${tmp.name }</th>
+										<th>${tmp.b_position }</th>
+									</tr>
+								</c:forEach>                      			                      			                      			                      		
 	                      	</tbody>
 	                      </table>                    
 	                      <!-- END CAROUSEL -->

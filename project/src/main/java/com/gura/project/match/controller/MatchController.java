@@ -33,7 +33,31 @@ public class MatchController {
 		String awayTeam = request.getParameter("awayTeam");
 		System.out.println(awayTeam);
 		matchservice.successMatching(request);
-
+		String name = request.getParameter("hometeam");
+		mView.setViewName("redirect:/team/detail2.do?name="+name);
+		return mView;
+	}
+	
+	@RequestMapping("/team/refuseMatch")
+	public ModelAndView authrefuseMatch(HttpServletRequest request){
+		ModelAndView mView=new ModelAndView();
+		matchservice.refuseMatch(request);
+		String name = request.getParameter("hometeam");
+		mView.setViewName("redirect:/team/team_detail2.do?name="+name);
+		return mView;
+		
+	}
+	@RequestMapping("/match/match_list")
+	public ModelAndView matchlist(){
+		ModelAndView mView=matchservice.matchlist();
+		mView.setViewName("match/match_list");
+		return mView;
+	}
+	
+	@RequestMapping("/match/detail")
+	public ModelAndView matchdetail(HttpServletRequest request){
+		ModelAndView mView=matchservice.matchdetail(request);
+		mView.setViewName("match/match_detail");
 		mView.setViewName("match/info");
 		return mView;
 		
