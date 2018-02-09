@@ -200,103 +200,9 @@
         <div class="row margin-bottom-40 ">
           <!-- BEGIN CONTENT -->
           <div class="col-md-12 col-sm-12">
-            <h2>PRODUCTS</h2>
-            <div class="sidebar col-md-3 col-sm-4 main-shop-list">
-              <ul class="list-group margin-bottom-25 sidebar-menu">
-                <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> 농구복</a></li>
-                <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> 농구화</a></li>
-                <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> 농구공</a></li>
-              </ul>
-            </div>                 
+            <h2>PRODUCTS</h2>             
             <div class="owl-carousel owl-carousel4 main-prd-list" style="clear: both;">
-<<<<<<< HEAD
-<<<<<<< HEAD
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                  <div class="pi-price">$29.00</div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress4</a></h3>
-                  <div class="pi-price">$29.00</div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                  <div class="pi-price">$29.00</div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress6</a></h3>
-                  <div class="pi-price">$29.00</div>
-                </div>
-              </div>
-            </div>
-          </div>
-=======
-=======
->>>>>>> parent of f010e44... 1
-              
-                <c:forEach var="tmp" items="${list3 }">
+              <c:forEach var="tmp" items="${list3 }">
                 <div>
                 	<div class="product-item">
 	                  <div class="pi-img-wrapper">
@@ -310,12 +216,42 @@
 	                  <div class="pi-price">${tmp.price }</div>
 	                </div>
 	            </div>
-                </c:forEach>
+               </c:forEach>
+               <c:forEach var="tmp" items="${list4 }">
+                <div>
+                	<div class="product-item">
+	                  <div class="pi-img-wrapper">
+	                    <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive" alt="Berry Lace Dress">
+	                    <div>
+	                      <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+	                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+	                    </div>
+	                  </div>
+	                  <h3><a href="shop-item.html">${tmp.title }</a></h3>
+	                  <div class="pi-price">${tmp.price }</div>
+	                </div>
+	            </div>
+               </c:forEach>
+               <c:forEach var="tmp" items="${list5 }">
+                <div>
+                	<div class="product-item">
+	                  <div class="pi-img-wrapper">
+	                    <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive" alt="Berry Lace Dress">
+	                    <div>
+	                      <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+	                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+	                    </div>
+	                  </div>
+	                  <h3><a href="shop-item.html">${tmp.title }</a></h3>
+	                  <div class="pi-price">${tmp.price }</div>
+	                </div>
+	            </div>
+               </c:forEach>
+            </div>
+          </div>
               
-<<<<<<< HEAD
->>>>>>> parent of f010e44... 1
-=======
->>>>>>> parent of f010e44... 1
+                
+            
           <!-- END CONTENT -->
         </div>
         <!-- END SIDEBAR & CONTENT -->

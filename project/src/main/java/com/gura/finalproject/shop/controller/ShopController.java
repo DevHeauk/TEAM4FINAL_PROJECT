@@ -70,11 +70,18 @@ public class ShopController {
 		return mView;
 	}
 	
-	@RequestMapping("/shop/shop-product-list")
-	public ModelAndView productList(HttpServletRequest request){		
-		ModelAndView mView=shopService.getList(request);
-		mView.setViewName("shop/product");
-		return mView;
+	public ModelAndView productList(HttpServletRequest request){
+		String id=(String)request.getSession().getAttribute("id");
+		if(id != null){
+			ModelAndView mView=shopService.getList(request);
+			mView.setViewName("shop/product");
+			return mView;
+		}else{
+			ModelAndView mView=new ModelAndView();
+			mView.setViewName("shop/product");
+			return mView;
+		}
+		
 	}
 	
 	@RequestMapping("/shop/shop-search-result")
