@@ -31,6 +31,7 @@ public class MatchController {
 	public ModelAndView authmatchsuccess(HttpServletRequest request){
 		ModelAndView mView=new ModelAndView();
 		matchservice.successMatching(request);
+<<<<<<< HEAD
 		String name = request.getParameter("hometeam");
 		mView.setViewName("redirect:/team/detail2.do?name="+name);
 		return mView;
@@ -57,6 +58,10 @@ public class MatchController {
 		ModelAndView mView=matchservice.matchdetail(request);
 		mView.setViewName("match/match_detail");
 
+=======
+
+		mView.setViewName("match/info");
+>>>>>>> parent of 6fb2b46... Merge branch 'master' into leejunkyu
 		return mView;
 	}
 	
