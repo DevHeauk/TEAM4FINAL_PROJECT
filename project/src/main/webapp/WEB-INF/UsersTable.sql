@@ -169,6 +169,7 @@ regdate DATE
 );
 
 CREATE SEQUENCE users4_seq;
+<<<<<<< HEAD
 
 
 CREATE TABLE CART(
@@ -203,3 +204,6 @@ regdate DATE
 );
 
 CREATE SEQUENCE users4_seq;
+=======
+>>>>>>> EungGil:project/src/main/webapp/WEB-INF/UsersTable.sql
+>>>>>>> parent of 84a57be... 1

@@ -59,6 +59,7 @@ public class TestController {
 	public String Order(){
 		
 		return "shop/order";
+
 	}	
 	
 	@RequestMapping("/match/match_list2")
@@ -79,6 +80,6 @@ public class TestController {
 	public String rankList(){
 		
 		return "ranking/rank_list";
-	}			
-		
+			
+	}	
 }
