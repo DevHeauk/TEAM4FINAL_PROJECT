@@ -43,7 +43,7 @@
                 <div class="col-md-12 col-sm-12 blog-posts">            
                 	  <div class="row">                                   	
 	                    <div class="col-md-4 col-sm-4 match-left">
-	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${matchdto.hometeam }</a></h2>	                       
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${matchdto.homeTeam }</a></h2>	                       
 	                      <!-- BEGIN CAROUSEL -->            
 	                      <div class="front-carousel">	                      
 	                        <div class="carousel slide" id="myCarousel ">
@@ -77,37 +77,33 @@
 	                      		</tr>
 	                      	</thead>
 	                      	<tbody>
-	                      		<tr>
-	                      			<td><strong style="color: #0033cc;">김응길</strong></td>
-	                      			<td><strong style="color: #0033cc;">포지션</strong></td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>김응길</td>
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>김응길</td> 
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>김응길</td>
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>김응길</td>
-	                      			<td>포지션</td>
-	                      		</tr>	                      			                      			                      			                      		
+		                       <c:forEach var="tmp" items="${hometeammember}">
+									<tr>
+										<th>${tmp.name }</th>
+										<th>${tmp.position }</th>
+									</tr>
+								</c:forEach>                   			                      			                      			                      		
 	                      	</tbody>
 	                      </table>
+	     
 	                      <!-- END CAROUSEL -->
 	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
-	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
-	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
-	                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 ${hometeamdto.win }</li>
+	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  ${hometeamdto.lose }</li>
+	                        <li><i class="fa fa-tags"></i> 총경기 : ${hometeamdto.total }</li>                      
 	                      </ul>	  
-						  <p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">000 점 <span style="display: inline-block; padding: 0 5px;">/</span>
-						  <i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리	      
-						  <!-- <i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배   --></p>                                               
+						  <c:if test="${not empty matchdto.homePoint}">
+						  	<p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">${matchdto.homePoint} 점 <span style="display: inline-block; padding: 0 5px;">/</span>
+						  </c:if>
+						  
+						  <c:if test="${not empty matchdto.homePoint}">
+						  	<c:if test="${matchdto.homePoint gt matchdto.awayPoint}">
+						  		<i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리
+						  	</c:if>
+						  	<c:if test="${matchdto.homePoint le matchdto.awayPoint}">
+						  		<i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배
+						  	</c:if>
+						  </c:if>                                             
 	                    </div>
 	                    <div class="col-md-4 col-sm-4 match-vs" style="text-align: center; border-left: 1px solid #ececec; border-right: 1px solid #ececec;">
 							<img src="${pageContext.request.contextPath}/assets/pages/img/match_vs.png" alt="" />
@@ -122,32 +118,31 @@
 									<tbody>
 										<tr>
 											<td>장소</td>
-											<td>에이콘</td>
+											<td>${matchdto.ground}</td>
 										</tr>
 										<tr>
 											<td>일정</td>
-											<td>2018 / 02 / 20</td>
-										</tr>
-										<tr>
-											<td>전적</td>
-											<td>
-												<ul class="blog-info" style="margin: 0">
-							                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
-							                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
-							                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>
-						                        </ul> 
-											</td>									
+											<td>${matchdto.matchDate }</td>
 										</tr>	
 										<tr>
 											<td>상태</td>									
 											<td>
-												<strong style="color: #0033cc;">경기 준비</strong>
-												<!-- <strong style="color: #f10025;">경기 종료</strong> -->
+												<c:choose>
+													<c:when test="${not empty matchdto.homePoint}">
+														<strong style="color: #f10025;">경기 종료</strong> 
+													</c:when>
+													<c:otherwise>
+														<strong style="color: #0033cc;">경기 준비</strong>
+													</c:otherwise>
+												</c:choose>
 											</td>								
 										</tr>	
 									</tbody>																																										
 								</table>
-								<a href="#match-pop" class="btn btn-primary fancybox-fast-view" style="color: #ffffff; margin: 65px 0 30px 0;">경기 시작</a>
+		
+								<c:if test="${empty matchdto.homePoint }">
+									<a href="#match-pop" class="btn btn-primary fancybox-fast-view" style="color: #ffffff; margin: 65px 0 30px 0;">경기 시작</a>
+								</c:if>
 							</div>
 							                              
 	                    </div>	
@@ -186,37 +181,32 @@
 	                      		</tr>
 	                      	</thead>
 	                      	<tbody>
-	                      		<tr>
-	                      			<td><strong style="color: #f10025;">유혁준</strong></td>
-	                      			<td><strong style="color: #f10025;">포지션</strong></td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>유혁준</td>
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>유혁준</td> 
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>유혁준</td>
-	                      			<td>포지션</td>
-	                      		</tr>
-	                      		<tr>
-	                      			<td>유혁준</td>
-	                      			<td>포지션</td>
-	                      		</tr>	                      			                      			                      			                      		
+	                      		 <c:forEach var="tmp" items="${awayteammember}">
+									<tr>
+										<th>${tmp.name }</th>
+										<th>${tmp.position }</th>
+									</tr>
+								</c:forEach>                      			                      			                      			                      		
 	                      	</tbody>
 	                      </table>                    
 	                      <!-- END CAROUSEL -->
 	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
-	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
-	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
-	                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>                      
+	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 ${awayteamdto.win }</li>
+	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  ${awayteamdto.lose }</li>
+	                        <li><i class="fa fa-tags"></i> 총경기 : ${awayteamdto.total }</li>                      
 	                      </ul>	       
-						  <p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">000 점 <span style="display: inline-block; padding: 0 5px;">/</span>
-  						  <!-- <i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리	 -->
-						  <i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배</p>	   	                                                  
+						  <c:if test="${not empty matchdto.homePoint }">
+						  	<p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">${matchdto.awayPoint} 점 <span style="display: inline-block; padding: 0 5px;">/</span>
+						  </c:if>
+  						  
+						  <c:if test="${not empty matchdto.homePoint}">
+						  	<c:if test="${matchdto.homePoint le matchdto.awayPoint}">
+						  		<i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리
+						  	</c:if>
+						  	<c:if test="${matchdto.homePoint gt matchdto.awayPoint}">
+						  		<i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배
+						  	</c:if>
+						  </c:if>  	                                                  
 	                    </div>	   
 							<div class="vs_info_xs">
 								<table class="vs_info">
@@ -229,27 +219,23 @@
 									<tbody>
 										<tr>
 											<td>장소</td>
-											<td>에이콘</td>
+											<td>${matchdto.ground}</td>
 										</tr>
 										<tr>
 											<td>일정</td>
-											<td>2018 / 02 / 20</td>
-										</tr>
-										<tr>
-											<td>전적</td>
-											<td>
-												<ul class="blog-info" style="margin: 0">
-							                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
-							                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>
-							                        <li><i class="fa fa-tags"></i> 총경기 : 20</li>
-						                        </ul> 
-											</td>									
-										</tr>	
+											<td>${matchdto.matchDate }</td>
+										</tr>		
 										<tr>
 											<td>상태</td>									
 											<td>
-												<strong style="color: #0033cc;">경기 준비</strong>
-												<!-- <strong style="color: #f10025;">경기 종료</strong> -->
+												<c:choose>
+													<c:when test="${not empty matchdto.homePoint}">
+														<strong style="color: #f10025;">경기 종료</strong> 
+													</c:when>
+													<c:otherwise>
+														<strong style="color: #0033cc;">경기 준비</strong>
+													</c:otherwise>
+												</c:choose>
 											</td>								
 										</tr>	
 									</tbody>																																										
@@ -271,7 +257,10 @@
     
     <div id="match-pop" style="display: none; max-width: 700px; min-width: 400px; text-align: center;">
 		<h3 style="padding: 20px 0">경기 기록</h3>
-		<form action="pointinsert.do?homeTeam=${matchdto.homeTeam }&awayTeam=${matchdto.awayTeam}&num=${num}" method="post">
+		<form action="pointinsert.do" method="post">
+				<input type="hidden" name=num id=num value="${matchdto.num}">
+				<input type="hidden" name=awayTeam id=awayTeam value="${matchdto.awayTeam }">
+				<input type="hidden" name=homeTeam id=hoemTeam value="${matchdto.homeTeam }">
 			<table class="match_modal">
 				<thead>
 					<tr>
@@ -281,12 +270,12 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>김응길 팀</td>
-						<td>유혁준 팀</td>
+						<td>${matchdto.homeTeam }</td>
+						<td>${matchdto.awayTeam }</td>
 					</tr>
 					<tr>
-						<td><input type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3"></td>
-						<td><input type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3"></td>
+						<td><input type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3" id="hoemPoint" name="homePoint"></td>
+						<td><input type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3" id="awayPoint" name="awayPoint"></td>
 					</tr>
 				</tbody>
 			</table>   

@@ -55,7 +55,7 @@ public class MatchController {
 	@RequestMapping("/match/detail")
 	public ModelAndView matchdetail(HttpServletRequest request){
 		ModelAndView mView=matchservice.matchdetail(request);
-		mView.setViewName("match/detail");
+		mView.setViewName("match/match_detail");
 
 		return mView;
 	}
