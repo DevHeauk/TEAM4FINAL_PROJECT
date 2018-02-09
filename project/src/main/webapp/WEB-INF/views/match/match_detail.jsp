@@ -128,11 +128,11 @@
 											<td>상태</td>									
 											<td>
 												<c:choose>
-													<c:when test="${not empty matchdto.homePoint}">
-														<strong style="color: #f10025;">경기 종료</strong> 
+												<c:when test="${matchdto.homePoint eq matchdto.awayPoint}">
+														<strong style="color: #0033cc;">경기 준비</strong>
 													</c:when>
 													<c:otherwise>
-														<strong style="color: #0033cc;">경기 준비</strong>
+														<strong style="color: #f10025;">경기 종료</strong> 
 													</c:otherwise>
 												</c:choose>
 											</td>								
@@ -140,7 +140,7 @@
 									</tbody>																																										
 								</table>
 		
-								<c:if test="${empty matchdto.homePoint }">
+								<c:if test="${matchdto.homePoint eq matchdto.awayPoint}">
 									<a href="#match-pop" class="btn btn-primary fancybox-fast-view" style="color: #ffffff; margin: 65px 0 30px 0;">경기 시작</a>
 								</c:if>
 							</div>
@@ -257,7 +257,7 @@
     
     <div id="match-pop" style="display: none; max-width: 700px; min-width: 400px; text-align: center;">
 		<h3 style="padding: 20px 0">경기 기록</h3>
-		<form action="pointinsert.do" method="post">
+		<form action="pointinsert.do">
 				<input type="hidden" name=num id=num value="${matchdto.num}">
 				<input type="hidden" name=awayTeam id=awayTeam value="${matchdto.awayTeam }">
 				<input type="hidden" name=homeTeam id=hoemTeam value="${matchdto.homeTeam }">
@@ -274,8 +274,8 @@
 						<td>${matchdto.awayTeam }</td>
 					</tr>
 					<tr>
-						<td><input type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3" id="hoemPoint" name="homePoint"></td>
-						<td><input type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3" id="awayPoint" name="awayPoint"></td>
+						<td><input type="text" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3" id="hoemPoint" name="homePoint"></td>
+						<td><input type="text" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3" id="awayPoint" name="awayPoint"></td>
 					</tr>
 				</tbody>
 			</table>   
