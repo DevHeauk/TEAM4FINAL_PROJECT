@@ -34,9 +34,8 @@
     <div class="main">
       <div class="container">
         <ul class="breadcrumb">
-            <li><a href="index.do">Home</a></li>
-            <li><a href="">Store</a></li>
-            <li class="active">Men category</li>
+            <li><a href="../home.do">Home</a></li>
+            <li class="active">Store</li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40">
