@@ -132,7 +132,7 @@
 		FROM product_order
 		WHERE id=#{id}
 	</select>
-</mapper> 
+</mapper>  
 
 
 
