@@ -229,7 +229,7 @@
 											<td>상태</td>									
 											<td>
 												<c:choose>
-													<c:when test="${matchdto.homePoint ne 0}">
+													<c:when test="${not empty matchdto.homePoint}">
 														<strong style="color: #f10025;">경기 종료</strong> 
 													</c:when>
 													<c:otherwise>
