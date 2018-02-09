@@ -118,6 +118,21 @@ public class ShopDaoImpl implements ShopDao{
 		session.delete("shop.cartdelete", userdto);
 		
 	}
+<<<<<<< HEAD
+=======
+
+	@Override
+	public void InsertOrder(Product_OrderDto orderDto) {
+		session.insert("shop.orderInsert", orderDto);
+		
+	}
+
+	@Override
+	public List<Product_OrderDto> orderList(String id) {
+		List<Product_OrderDto> list=session.selectList("shop.orderList", id);
+		return list;
+	}
+>>>>>>> parent of f010e44... 1
 	
 
 }
