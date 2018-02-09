@@ -123,6 +123,18 @@ public class MatchDaoImpl implements MatchDao{
 
 	}
 
+	@Override
+	public TeamDto gethometeamwinlosetotal(MatchDto dto) {
+
+		return session.selectOne("match.gethometeamwinlosetotal", dto);
+	}
+
+	@Override
+	public TeamDto getawayteamwinlosetotal(MatchDto dto) {
+		
+		return session.selectOne("match.getawayteamwinlosetotal", dto);
+	}
+
 
 	
 }

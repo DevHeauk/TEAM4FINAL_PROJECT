@@ -26,4 +26,7 @@ public interface MatchDao {
 	public void AWlosepointupdate(MatchDto dto);
 	public List<UsersDto> gethomemember(MatchDto dto);
 	public List<UsersDto> getawaymember(MatchDto dto);
+	public TeamDto gethometeamwinlosetotal(MatchDto dto);
+	public TeamDto getawayteamwinlosetotal(MatchDto dto);
+	
 }

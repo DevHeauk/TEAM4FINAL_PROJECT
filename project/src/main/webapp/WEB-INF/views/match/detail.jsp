@@ -31,17 +31,19 @@
 					<td>${matchdto.matchDate }</td>
 				</tr>
 		</tbody>
-		<form action="pointinsert.do">
-			<input type="hidden" name=num id=num value="${matchdto.num}">
-			<input type="hidden" name=awayTeam id=awayTeam value="${matchdto.awayTeam }">
-			<input type="hidden" name=homeTeam id=hoemTeam value="${matchdto.homeTeam }">
-			<label>${matchdto.homeTeam} 점수</label>
-			<input type="text" id="hoemPoint" name="homePoint"/>
-			<label>${matchdto.awayTeam}</label>
-			<input type="text" id="awayPoint" name="awayPoint">
-			<button type="submit">입력</button>
-		</form>
 		
+		<c:if test="${matchdto.homePoint eq null }">
+			<form action="pointinsert.do">
+				<input type="hidden" name=num id=num value="${matchdto.num}">
+				<input type="hidden" name=awayTeam id=awayTeam value="${matchdto.awayTeam }">
+				<input type="hidden" name=homeTeam id=hoemTeam value="${matchdto.homeTeam }">
+				<label>${matchdto.homeTeam} 점수</label>
+				<input type="text" id="hoemPoint" name="homePoint"/>
+				<label>${matchdto.awayTeam}</label>
+				<input type="text" id="awayPoint" name="awayPoint">
+				<button type="submit">입력</button>
+			</form>
+		</c:if>
 		
 	
 </table>
@@ -60,6 +62,20 @@
 	</c:forEach>
 </table>
 <table>
+	<h3>홈팀점수</h3>
+	<tr>
+		<th>승</th>
+		<th>패</th>
+		<th>전</th>
+	</tr>
+	<tr>
+		<td>${hometeamdto.win }</td>
+		<td>${hometeamdto.lose }</td>
+		<td>${hometeamdto.total }</td>
+	</tr>
+</table>
+
+<table>
 	<h3>어웨이팀</h3>
 	<tr>
 		<th>이름</th>
@@ -71,6 +87,19 @@
 			<th>${tmp.b_position }</th>
 		</tr>
 	</c:forEach>
+</table>
+<table>
+	<h3>어웨이팀점수</h3>
+	<tr>
+		<th>승</th>
+		<th>패</th>
+		<th>전</th>
+	</tr>
+	<tr>
+		<td>${awayteamdto.win }</td>
+		<td>${awayteamdto.lose }</td>
+		<td>${awayteamdto.total }</td>
+	</tr>
 </table>
 </body>
 </html>
