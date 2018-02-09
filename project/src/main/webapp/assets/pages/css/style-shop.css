@@ -1206,3 +1206,27 @@ Shop Stype Buttons
 .btn {
 	text-transform: uppercase;
 }
+
+
+.main-team-list{width: 100%;}
+.main-team-list .pi-img-wrapper{height: 250px; overflow: hidden;}
+.main-team-list .pi-img-wrapper img{transform: scale(1); transition: all 1s;}
+.main-team-list .pi-img-wrapper:hover img{transform: scale(1.2);}
+.ecommerce .main-shop-list .list-group-item a{display: block;}
+
+@media (min-width: 767px) {
+	.ecommerce .main-shop-list .list-group-item{float: left;}
+	.ecommerce .main-shop-list{width: 100%; height: auto; padding-left: 0; margin: 10px 0;}
+	.ecommerce .main-shop-list li{width: 33%; border: 1px solid #eaeaea; text-align: center;}
+	.ecommerce .main-shop-list li a i{display: none;}	
+	.ecommerce .main-shop-list li{margin-right: 0.5%;}
+	.ecommerce .main-shop-list li:last-child{margin-right: 0;}
+}
+
+@media (max-width: 767px) {
+	.main-team-area .owl-item{width: 50% !important;}
+}
+
+@media (max-width: 550px) {
+	 .main-team-area .owl-item{width: 100% !important;}
+}

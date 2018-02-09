@@ -57,10 +57,7 @@
                     </div>
                     <div class="row">	                    
                       <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
-                        <button type="submit" class="btn btn-primary">Login</button><br/><br/><br/>
-                        <a id="custom-login-btn" href="javascript:loginWithKakao()">
-                        <img src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" width="300"/>
-						</a>
+                        <button type="submit" class="btn btn-primary">Login</button>
                       </div>
                     </div>
                     <div class="row">
@@ -72,7 +69,7 @@
                                 <li><a href="javascript:;" data-original-title="facebook" class="facebook" title="facebook"></a></li>
                                 <li><a href="javascript:;" data-original-title="Twitter" class="twitter" title="Twitter"></a></li>
                                 <li><a href="javascript:;" data-original-title="Google Plus" class="googleplus" title="Google Plus"></a></li>
-                                <li><a href="loginWithKakao();" data-original-title="Linkedin" class="linkedin" title="LinkedIn"></a></li>
+                                <li><a href="javascript:;" data-original-title="Linkedin" class="linkedin" title="LinkedIn"></a></li>
                             </ul>
                         </div>
                       </div>
@@ -124,7 +121,7 @@
        		}
        	});	               	
     </script>
-  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>             	    
+               	    
     <script type="text/javascript">
         jQuery(document).ready(function() {
             Layout.init();
@@ -134,26 +131,6 @@
             Layout.initFixHeaderWithPreHeader();
             Layout.initNavScrolling();                     
         });
-        
-      //<![CDATA[
-        // 사용할 앱의 JavaScript 키를 설정해 주세요.
-        Kakao.init('da2ecd925c38d3ba53f216bc06bde9bb');
-        function loginWithKakao() {
-          // 로그인 창을 띄웁니다.
-          Kakao.Auth.login({
-            success: function(authObj) {
-              alert(JSON.stringify(authObj));
-            },
-            fail: function(err) {
-              alert(JSON.stringify(err));
-            }
-          });
-        };
-      //]]>
-      
-        var refreshToken = Kakao.Auth.getRefreshToken();
-        
-        Kakao.Auth.setAccessToken(accessTokenFromServer);
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
 </body>
