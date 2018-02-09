@@ -79,7 +79,9 @@
 	                    <!-- vs -->
 	                    <div class="col-md-4 col-sm-4 match-vs" style="text-align: center;;">
 							<img src="${pageContext.request.contextPath}/assets/pages/img/match_vs.png" alt="" /><br />
-							<a href="detail.do?awayTeam=${tmp.awayTeam}&homeTeam=${tmp.homeTeam}&num=${tmp.num}" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
+							<c:if test="${tmp.successMatching eq true}">
+							<a href="detail.do?awayTeam=${tmp.awayTeam}&homeTeam=${tmp.homeTeam}&num=${tmp.num}" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />							
+							</c:if>                            
 	                    </div>	
 	                    <!-- right -->
 	                    <div class="col-md-4 col-sm-4 match-right" >

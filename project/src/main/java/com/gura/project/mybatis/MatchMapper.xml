@@ -25,7 +25,7 @@
 		where awayTeam=#{awayTeam} and homeTeam=#{homeTeam}
 	</select>
 	<select id="getlist" resultType="MatchDto">
-		select num,homeTeam,homePoint,awayTeam,awayPoint,matchDate,ground
+		select num,homeTeam,homePoint,awayTeam,awayPoint,matchDate,ground,successMatching
 		from matching
 		ORDER BY num DESC
 	</select>

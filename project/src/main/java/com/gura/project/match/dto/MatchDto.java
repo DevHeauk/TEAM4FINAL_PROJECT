@@ -7,6 +7,7 @@ public class MatchDto {
 	private String awayTeam;
 	private int homePoint;
 	private int awayPoint;
+	public String  successMatching;
 	private String matchDate;
 	private String ground;
 
@@ -14,14 +15,15 @@ public class MatchDto {
 	public MatchDto(){}
 
 
-	public MatchDto(String num, String homeTeam, String awayTeam, int homePoint, int awayPoint, String matchDate,
-			String ground) {
+	public MatchDto(String num, String homeTeam, String awayTeam, int homePoint, int awayPoint, String successMatching,
+			String matchDate, String ground) {
 		super();
 		this.num = num;
 		this.homeTeam = homeTeam;
 		this.awayTeam = awayTeam;
 		this.homePoint = homePoint;
 		this.awayPoint = awayPoint;
+		this.successMatching = successMatching;
 		this.matchDate = matchDate;
 		this.ground = ground;
 	}
@@ -77,6 +79,16 @@ public class MatchDto {
 	}
 
 
+	public String getSuccessMatching() {
+		return successMatching;
+	}
+
+
+	public void setSuccessMatching(String successMatching) {
+		this.successMatching = successMatching;
+	}
+
+
 	public String getMatchDate() {
 		return matchDate;
 	}
@@ -95,5 +107,9 @@ public class MatchDto {
 	public void setGround(String ground) {
 		this.ground = ground;
 	}
- 	
+
+	
+	
+
+	
 }
