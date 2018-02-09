@@ -41,7 +41,7 @@
                 <!-- First slide -->
                 <div class="item carousel-item-four active">
                     <div class="container">
-                        <div class="carousel-position-four text-center">
+                         <div class="carousel-position-four text-center">
                             <h2 class="margin-bottom-20 animate-delay carousel-title-v3 border-bottom-title text-uppercase" data-animation="animated fadeInDown">
                                 Tones of <br/><span class="color-red-v2">Shop UI Features</span><br/> designed
                             </h2>
@@ -66,7 +66,6 @@
                             </p>
                             <a class="carousel-btn" href="#" data-animation="animated fadeInUp">See More Details</a>
                         </div>
-                        <img class="carousel-position-five animate-delay hidden-sm hidden-xs" src="assets/pages/img/shop-slider/slide2/price.png" alt="Price" data-animation="animated zoomIn">
                     </div>
                 </div>
 
