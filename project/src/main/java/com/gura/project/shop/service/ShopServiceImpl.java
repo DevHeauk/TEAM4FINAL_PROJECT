@@ -12,7 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.shop.dao.ShopDao;
 import com.gura.project.shop.dto.CartDto;
+import com.gura.project.shop.dto.Product_OrderDto;
 import com.gura.project.shop.dto.ShopDto;
+import com.gura.project.users.dao.UsersDao;
 import com.gura.project.users.dto.UsersDto;
 
 @Repository
@@ -20,6 +22,9 @@ public class ShopServiceImpl implements ShopService{
 	
 	@Autowired
 	private ShopDao shopDao;
+	
+	@Autowired
+	private UsersDao userDao;
 	
 	//한 페이지에 나타낼 로우의 갯수
 		private static final int PAGE_ROW_COUNT=6;
@@ -217,9 +222,7 @@ public class ShopServiceImpl implements ShopService{
 			shopdto.setRemainCount(remainCount-count);
 			shopDao.setremaincount(shopdto);	
 		}
-<<<<<<< HEAD
 		shopDao.cartdelete(userdto);
-=======
 		shopDao.cartdelete(userdto);	
 	}
 
@@ -252,6 +255,5 @@ public class ShopServiceImpl implements ShopService{
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("list", list);
 		return mView;
->>>>>>> parent of f010e44... 1
 	}
 }

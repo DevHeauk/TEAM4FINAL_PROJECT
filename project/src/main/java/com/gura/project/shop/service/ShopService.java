@@ -17,9 +17,7 @@ public interface ShopService {
 	public ModelAndView cart_data(String id);
 	public void cart_delete(int num);
 	public void order(HttpServletRequest request);
-<<<<<<< HEAD
-=======
+
 	public void insertorder(HttpServletRequest request);
 	public ModelAndView orderList(String id);
->>>>>>> parent of f010e44... 1
 }
