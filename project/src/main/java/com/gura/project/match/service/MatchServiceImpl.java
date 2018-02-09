@@ -97,8 +97,6 @@ public class MatchServiceImpl implements MatchService {
 		dto.setNum(request.getParameter("num"));
 		dto=matchdao.getData(dto);
 		mView.addObject("matchdto",dto);
-		dto.setHomeTeam(request.getParameter("homeTeam"));
-		dto.setAwayTeam(request.getParameter("awayTeam"));
 		List<UsersDto> hometeammember=matchdao.gethomemember(dto);
 		List<UsersDto> awayteammember=matchdao.getawaymember(dto);
 		TeamDto hometeamwinlosetotal=matchdao.gethometeamwinlosetotal(dto);
@@ -107,7 +105,7 @@ public class MatchServiceImpl implements MatchService {
 		mView.addObject("awayteammember", awayteammember);
 		mView.addObject("hometeamdto", hometeamwinlosetotal);
 		mView.addObject("awayteamdto", awayteamwinlosetotal);
-
+		
 		return mView;
 	}
 	
@@ -119,8 +117,6 @@ public class MatchServiceImpl implements MatchService {
 		dto.setNum(num);
 		System.out.println(dto.getNum());
 		matchdao.insertPoint(dto);
-		System.out.println(dto.getAwayTeam());
-		System.out.println(dto.getHomeTeam());
 		if(dto.getHomePoint()>dto.getAwayPoint()){
 			matchdao.HWwinpointupdate(dto);
 			matchdao.HWlosepointupdate(dto);
