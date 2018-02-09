@@ -43,10 +43,10 @@
                 <div class="col-md-12 col-sm-12 blog-posts">            
                 	  <div class="row">                                   	
 	                    <div class="col-md-4 col-sm-4 match-left">
-	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">Home Team</a></h2>	                       
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${matchdto.hometeam }</a></h2>	                       
 	                      <!-- BEGIN CAROUSEL -->            
 	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel${tmp.name }">
+	                        <div class="carousel slide" id="myCarousel ">
 	                          <!-- Carousel items -->
 	                          <div class="carousel-inner">
 	                            <div class="item">
@@ -60,10 +60,10 @@
 	                            </div>
 	                          </div>
 	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+	                          <a data-slide="prev" href="#myCarousel " class="carousel-control left">
 	                            <i class="fa fa-angle-left"></i>
 	                          </a>
-	                          <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+	                          <a data-slide="next" href="#myCarousel " class="carousel-control right">
 	                            <i class="fa fa-angle-right"></i>
 	                          </a>
 	                        </div>                
@@ -156,7 +156,7 @@
 	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>	                       
 	                      <!-- BEGIN CAROUSEL -->            
 	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel${tmp.name }">
+	                        <div class="carousel slide" id="myCarousel ">
 	                          <!-- Carousel items -->
 	                          <div class="carousel-inner">
 	                            <div class="item">
@@ -170,10 +170,10 @@
 	                            </div>
 	                          </div>
 	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
+	                          <a data-slide="prev" href="#myCarousel " class="carousel-control left">
 	                            <i class="fa fa-angle-left"></i>
 	                          </a>
-	                          <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
+	                          <a data-slide="next" href="#myCarousel " class="carousel-control right">
 	                            <i class="fa fa-angle-right"></i>
 	                          </a>
 	                        </div>                

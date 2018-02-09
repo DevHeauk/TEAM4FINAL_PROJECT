@@ -102,6 +102,7 @@ public class MatchServiceImpl implements MatchService {
 		List<UsersDto> awayteammember=matchdao.getawaymember(dto);
 		mView.addObject("hometeammember", hometeammember);
 		mView.addObject("awayteammember", awayteammember);
+
 		return mView;
 	}
 	
