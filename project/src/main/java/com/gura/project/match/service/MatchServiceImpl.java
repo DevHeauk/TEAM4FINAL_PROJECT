@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.match.dao.MatchDao;
 import com.gura.project.match.dto.MatchDto;
+import com.gura.project.team.dto.TeamDto;
 import com.gura.project.users.dto.UsersDto;
 
 @Service
@@ -100,8 +101,12 @@ public class MatchServiceImpl implements MatchService {
 		dto.setAwayTeam(request.getParameter("awayTeam"));
 		List<UsersDto> hometeammember=matchdao.gethomemember(dto);
 		List<UsersDto> awayteammember=matchdao.getawaymember(dto);
+		TeamDto hometeamwinlosetotal=matchdao.gethometeamwinlosetotal(dto);
+		TeamDto awayteamwinlosetotal=matchdao.getawayteamwinlosetotal(dto);
 		mView.addObject("hometeammember", hometeammember);
 		mView.addObject("awayteammember", awayteammember);
+		mView.addObject("hometeamdto", hometeamwinlosetotal);
+		mView.addObject("awayteamdto", awayteamwinlosetotal);
 
 		return mView;
 	}

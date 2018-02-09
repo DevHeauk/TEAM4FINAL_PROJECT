@@ -84,6 +84,16 @@
 		from users4
 		where team=#{homeTeam}
 	</select>
+	<select id="gethometeamwinlosetotal" parameterType="MatchDto" resultType="teamDto">
+		select win,lose,total
+		from team
+		where name=#{homeTeam}
+	</select>
+	<select id="getawayteamwinlosetotal" parameterType="MatchDto" resultType="teamDto">
+		select win,lose,total
+		from team
+		where name=#{awayTeam}
+	</select>
 </mapper>
 
 
