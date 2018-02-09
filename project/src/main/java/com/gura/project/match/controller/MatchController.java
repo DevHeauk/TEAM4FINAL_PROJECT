@@ -32,7 +32,7 @@ public class MatchController {
 		ModelAndView mView=new ModelAndView();
 		matchservice.successMatching(request);
 		String name = request.getParameter("hometeam");
-		mView.setViewName("redirect:/team/team_detail2.do?name="+name);
+		mView.setViewName("redirect:/team/detail2.do?name="+name);
 		return mView;
 	}
 	
