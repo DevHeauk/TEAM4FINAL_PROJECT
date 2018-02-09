@@ -37,7 +37,7 @@ public class TeamController {
 		ModelAndView mView=new ModelAndView();
 		String member=(String)request.getSession().getAttribute("id");
 		dto.setMember(member);
-		teamService.insert(dto);
+		teamService.insert(request, dto);
 		mView.setViewName("redirect:/team/team_list.do");
 		return mView;
 	}

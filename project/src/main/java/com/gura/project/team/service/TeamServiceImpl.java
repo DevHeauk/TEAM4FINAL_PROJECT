@@ -33,7 +33,7 @@ public class TeamServiceImpl implements TeamService{
 	private static final int PAGE_DISPLAY_COUNT=5;
 	
 	@Override
-	public void insert(HttpServletRequest request,TeamDto dto) {
+	public void insert(HttpServletRequest request, TeamDto dto) {
 		
 			//파일을 저장할 폴더의 절대 경로를 얻어온다.
 				String realPath=request.getSession()
@@ -46,8 +46,7 @@ public class TeamServiceImpl implements TeamService{
 				MultipartFile mFile=dto.getFile();
 				//원본 파일명
 				String orgFileName=mFile.getOriginalFilename();
-				//파일 사이즈
-				long fileSize=mFile.getSize();
+
 				//저장할 파일의 상세 경로
 				String filePath=realPath+File.separator;
 				//디렉토리를 만들 파일 객체 생성
@@ -66,21 +65,14 @@ public class TeamServiceImpl implements TeamService{
 				//FileDto 객체에 추가 정보를 담는다.
 				dto.setOrgFileName(orgFileName);
 				dto.setSaveFileName(saveFileName);
-				dto.setFileSize(fileSize);
-				
-				//세션에서 작성자 정보를 얻어온다.
-				String id=(String)request.getSession().getAttribute("id");
-				//FileDto 객체에 작성자 정보를 담는다.
-				dto.setWriter(id);
 				
 				//FileDao 객체를 이용해서 DB 에 저장하기
-				teamdao.insert(dto);		
-			}
-		
-		teamdao.leader_upadte(dto);
-		
-		
+				teamdao.insert(dto);	
+				teamdao.leader_upadte(dto);
 	}
+		
+		
+	
 
 	@Override
 	public ModelAndView detail(HttpServletRequest request) {
