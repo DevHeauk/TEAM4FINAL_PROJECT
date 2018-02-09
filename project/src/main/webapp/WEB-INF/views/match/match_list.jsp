@@ -29,7 +29,7 @@
       <div class="container">
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li><a href="javascript:;">Blog</a></li>
+            <li><a href="match_detail.do?awayTeam=${tmp.awayTeam}&homeTeam=${tmp.homeTeam}&num=${tmp.num}">match_detail</a></li>
             <li class="active">Blog Page</li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->

@@ -93,11 +93,9 @@ public class MatchServiceImpl implements MatchService {
 		MatchDto dto=new MatchDto();
 		
 		dto.setNum(request.getParameter("num"));
-		
-		
-		
 		dto=matchdao.getData(dto);
 		mView.addObject("matchdto",dto);
+		//각 팀의 멤버정보 얻어오기
 		
 		
 		return mView;

@@ -51,6 +51,7 @@ public class MatchController {
 		mView.setViewName("match/match_list");
 		return mView;
 	}
+	
 	@RequestMapping("/match/detail")
 	public ModelAndView matchdetail(HttpServletRequest request){
 		ModelAndView mView=matchservice.matchdetail(request);
@@ -58,6 +59,7 @@ public class MatchController {
 
 		return mView;
 	}
+	
 	@RequestMapping("/match/pointinsert")
 	public ModelAndView pointinsert(HttpServletRequest request,@ModelAttribute MatchDto dto){
 		ModelAndView mView=new ModelAndView();

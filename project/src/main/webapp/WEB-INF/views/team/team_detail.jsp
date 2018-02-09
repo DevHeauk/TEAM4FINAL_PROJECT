@@ -31,7 +31,7 @@
       <div class="container">
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li><a href="javascript:;">Blog</a></li>
+            <li><a href="match_detail.do">match_detail</a></li>
             <li class="active">Blog Item</li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
