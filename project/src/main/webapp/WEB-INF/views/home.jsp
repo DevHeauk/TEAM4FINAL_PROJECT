@@ -209,6 +209,7 @@
               </ul>
             </div>                 
             <div class="owl-carousel owl-carousel4 main-prd-list" style="clear: both;">
+<<<<<<< HEAD
               <div>
                 <div class="product-item">
                   <div class="pi-img-wrapper">
@@ -290,6 +291,25 @@
               </div>
             </div>
           </div>
+=======
+              
+                <c:forEach var="tmp" items="${list3 }">
+                <div>
+                	<div class="product-item">
+	                  <div class="pi-img-wrapper">
+	                    <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive" alt="Berry Lace Dress">
+	                    <div>
+	                      <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+	                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+	                    </div>
+	                  </div>
+	                  <h3><a href="shop-item.html">${tmp.title }</a></h3>
+	                  <div class="pi-price">${tmp.price }</div>
+	                </div>
+	            </div>
+                </c:forEach>
+              
+>>>>>>> parent of f010e44... 1
           <!-- END CONTENT -->
         </div>
         <!-- END SIDEBAR & CONTENT -->
