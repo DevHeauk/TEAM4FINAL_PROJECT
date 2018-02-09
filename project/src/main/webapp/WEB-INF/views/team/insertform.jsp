@@ -40,7 +40,8 @@
             <div class="content-form-page">
               <div class="row" style="padding: 20px 0;">
                 <div class="col-md-7 col-sm-7">
-                  <form action="insert.do" method="post" class="form-horizontal form-without-legend form-signin" role="form">
+                  <form action="insert.do" method="post" enctype="multipart/form-data" 
+                  		class="form-horizontal form-without-legend form-signin" role="form">
       				<input type="hidden" name="url" value="${url }"/>	                  
                     <div class="form-group">
                       <label for="name" class="col-lg-4 control-label">팀이름 <span class="require">*</span></label>
@@ -52,6 +53,12 @@
                       <label for="ground" class="col-lg-4 control-label">홈그라운드 <span class="require">*</span></label>
                       <div class="col-lg-8">
                         <input type="text" class="form-control" name="ground" id="ground">                       
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="file" class="col-lg-4 control-label">파일이름 <span class="require">*</span></label>
+                      <div class="col-lg-8">
+                        <input type="file" class="form-control" name="file" id="file">                       
                       </div>
                     </div>
                     <div class="form-group">
