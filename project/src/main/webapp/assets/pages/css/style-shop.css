@@ -1,5 +1,5 @@
 body.ecommerce {
-	background: #f9f9f9;
+	background: #f6f6f6;
 }
 .ecommerce h1, .ecommerce h2, .ecommerce h3, .ecommerce h4, .ecommerce h5, .ecommerce h6 {
 	font-family: "PT Sans Narrow", sans-serif;
@@ -367,6 +367,15 @@ Header and header elements
 }
 .pi-img-wrapper {
 	position: relative;
+	width: 251px;
+	height: 251px;
+	vertical-align: middle;
+	text-align: center;
+}
+.pi-img-wrapper > img{
+	vertical-align: middle;
+	text-align: center;
+	line-height: 251px;
 }
 .pi-img-wrapper div {
 	background: rgba(0,0,0,0.3);
@@ -1209,7 +1218,7 @@ Shop Stype Buttons
 
 
 .main-team-list{width: 100%;}
-.main-team-list .pi-img-wrapper{height: 250px; overflow: hidden;}
+.main-team-list .pi-img-wrapper{height: 139px; overflow: hidden;}
 .main-team-list .pi-img-wrapper img{transform: scale(1); transition: all 1s;}
 .main-team-list .pi-img-wrapper:hover img{transform: scale(1.2);}
 .ecommerce .main-shop-list .list-group-item a{display: block;}

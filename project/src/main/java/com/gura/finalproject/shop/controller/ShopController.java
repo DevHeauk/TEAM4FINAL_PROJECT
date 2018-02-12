@@ -93,7 +93,7 @@ public class ShopController {
 	}
 	
 	@RequestMapping("/shop/cartlist")
-	public ModelAndView cartlist(@RequestParam String id){
+	public ModelAndView authcartlist(@RequestParam String id){
 		ModelAndView mView=shopService.cart_data(id);
 		mView.setViewName("shop/cart");
 		return mView;

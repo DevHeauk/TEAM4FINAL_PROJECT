@@ -11,13 +11,7 @@
 
 <!-- Head BEGIN -->
 <head>
-  <meta charset="utf-8">
-  <title>Metronic Shop UI</title>
-
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  <%@ include file="inc/header_script.jsp" %>
+ <%@ include file="inc/header_script.jsp" %>
   <link href="${pageContext.request.contextPath}/assets/pages/css/slider.css" rel="stylesheet">  
 </head>
 <!-- Head END -->
@@ -56,15 +50,15 @@
                     <div class="container">
                         <div class="carousel-position-four text-center">
                             <h2 class="animate-delay carousel-title-v4" data-animation="animated fadeInDown">
-                                Unlimted
+                                Team
                             </h2>
                             <p class="carousel-subtitle-v2" data-animation="animated fadeInDown">
-                                Layout Options
+                                Team Options
                             </p>
                             <p class="carousel-subtitle-v3 margin-bottom-30" data-animation="animated fadeInUp">
-                                Fully Responsive
+                                Team Responsive
                             </p>
-                            <a class="carousel-btn" href="#" data-animation="animated fadeInUp">See More Details</a>
+                            <a class="carousel-btn" href="${pageContext.request.contextPath }/team/team_list.do" data-animation="animated fadeInUp">See More Team</a>
                         </div>
                     </div>
                 </div>
@@ -128,7 +122,11 @@
                     <div class="pi-img-wrapper">
                       <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive" alt="Berry Lace Dress">
                       <div>
+<<<<<<< HEAD
                         <a href="team/detail2.do?=${tmp.name }" class="btn btn-default fancybox-button">View</a>
+=======
+                        <a href="team/detail2.do?name=${tmp.name }" class="btn btn-default fancybox-button">View</a>
+>>>>>>> heaukjun
                       </div>
                     </div>
                     <div class="main-team-text">
@@ -212,6 +210,7 @@
           <!-- BEGIN TWO PRODUCTS -->
           <div class="col-md-12 two-items-bottom-items">
             <h2>MATCHING</h2>
+<<<<<<< HEAD
              <c:forEach var="tmp" items="${matchlist }">
 		       	  <div class="row" style="width: 95%; background: #ffffff; padding-top: 20px; padding-left: 2.5%;">                                   	
 		            <div class="col-md-4 col-sm-4 match-left">
@@ -219,10 +218,21 @@
 		              	<img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName_H}"/>
 		              <ul class="blog-info" style="text-align: center; padding-top: 10px;">
 		                <li> 경기날짜 : ${tmp.matchDate }</li>
+=======
+            <div class="owl-carousel owl-carousel2">             
+             <c:forEach var="tmp" items="${matchlist }">            
+		       	  <div class="row" style="width: 100%; text-align: center; background: #ffffff; padding-top: 20px; padding-left: 2.5%;">                                   	
+		            <div class="col-md-4 col-sm-4 match-left">
+		              <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${tmp.homeTeam }</a></h2>	                       
+		              	<img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName_H}" style="max-width: 115px; max-height: 64px; display: inline;"/>
+		              <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+		                <li><i class="fa fa-calendar"></i> : ${tmp.matchDate }</li>
+>>>>>>> heaukjun
 		             </ul>	                                   
 		            </div>
 		            <div class="col-md-4 col-sm-4 match-vs" style="text-align: center;;">
 						<img src="${pageContext.request.contextPath}/assets/pages/img/main_vs.png" alt="" style="max-width: 100px; display: inline; margin: 50px 0 30px 0;"/><br />
+<<<<<<< HEAD
 						<a href="match_detail.do" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
 		            </div>	
 		            
@@ -236,6 +246,21 @@
 		          </div>
 	          </c:forEach>
 	                 --- 	          
+=======
+						<a href="match/detail.do?awayTeam=${tmp.awayTeam}&homeTeam=${tmp.homeTeam}&num=${tmp.num}" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
+		            </div>	
+		            
+		            <div class="col-md-4 col-sm-4 match-right" >
+		              <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">${tmp.awayTeam }</a></h2>	                       
+		               	<img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName_A}" style="max-width: 115px; max-height: 64px; display: inline;"/>
+		              <ul class="blog-info" style="text-align: center; padding-top: 10px;">
+		                <li style="#E84D1C"><i class="fa fa-calendar"></i> : ${tmp.ground }</li>                     
+		              </ul>	                                   
+		            </div>	   	                    	                                        
+		          </div>
+	          </c:forEach>  
+	         </div>         
+>>>>>>> heaukjun
             </div>
           </div>
           <!-- END TWO PRODUCTS -->
@@ -249,6 +274,8 @@
     <!-- BEGIN fast view of a product -->
     <c:forEach var="tmp" items="${list3 }">
        <div id="product-pop-up${tmp.num }" style="display: none; width: 700px;">
+<<<<<<< HEAD
+=======
             <div class="product-page product-pop-up">
               <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-3">
@@ -305,6 +332,7 @@
     </c:forEach>
     <c:forEach var="tmp" items="${list4 }" >
        <div id="product-pop-up${tmp.num }" style="display: none; width: 700px;">
+>>>>>>> heaukjun
             <div class="product-page product-pop-up">
               <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-3">
@@ -359,6 +387,71 @@
             </div>
     	</div>
     </c:forEach>
+<<<<<<< HEAD
+    <c:forEach var="tmp" items="${list4 }" >
+=======
+    <c:forEach var="tmp" items="${list5 }">
+>>>>>>> heaukjun
+       <div id="product-pop-up${tmp.num }" style="display: none; width: 700px;">
+            <div class="product-page product-pop-up">
+              <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-3">
+                  <div class="product-main-image">
+                    <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" alt="Cool green dress with red bell" class="img-responsive">
+                  </div>
+                  <div class="product-other-images">
+                    <a href="javascript:;"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"></a>
+<<<<<<< HEAD
+                    
+=======
+                   
+>>>>>>> heaukjun
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-9">
+                  <h1>${tmp.content }</h1>
+                  <div class="price-availability-block clearfix">
+                    <div class="price">
+                      <strong><span>$</span>${tmp.price*0.9 }</strong>
+                      <em>$<span>${tmp.price }</span></em>
+                    </div>
+                    <div class="availability">
+                      Availability: <strong>In Stock</strong>
+                    </div>
+                  </div>
+                  <div class="description">
+                    <p>${tmp.content }</p>
+                  </div>
+                  <div class="product-page-options">
+                    <div class="pull-left">
+                      <label class="control-label">Size:</label>
+                      <select class="form-control input-sm">
+                        <option>L</option>
+                        <option>M</option>
+                        <option>XL</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="product-page-cart">
+                  <form action="cart.do">
+                    <div class="product-quantity">
+                    	<input type="hidden" name="num" value="${tmp.num }" />
+                    	<input type="hidden" name="id" value="${id}" />
+                        <input id="product-quantity" type="text" value="1" name="count" class="form-control input-sm">
+                    </div>
+                  	<button class="btn btn-primary" type="submit">구매하기</button>
+                    <!--  <a href="cart.do?num=${tmp.num }&id=${id }"><button class="btn btn-primary" type="submit">구매 하기</button></a>-->
+                    <a href="javascript:deleteCheck(${tmp.num })" class="btn btn-default">delete</a>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="sticker sticker-sale"></div>
+              </div>
+            </div>
+    	</div>
+    </c:forEach>
+<<<<<<< HEAD
     <c:forEach var="tmp" items="${list5 }">
        <div id="product-pop-up${tmp.num }" style="display: none; width: 700px;">
             <div class="product-page product-pop-up">
@@ -415,6 +508,8 @@
             </div>
     	</div>
     </c:forEach>
+=======
+>>>>>>> heaukjun
     <!-- END fast view of a product -->
 
     <%@ include file="inc/footer_script.jsp" %>

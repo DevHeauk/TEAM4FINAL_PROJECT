@@ -5,7 +5,7 @@
             <div class="row">
                 <!-- BEGIN TOP BAR LEFT PART -->
                 <div class="col-md-6 col-sm-6 additional-shop-info">
-                    <ul class="list-unstyled list-inline">
+                    <ul class="list-unstyled list-inline pull-left">
                         <li><i class="fa fa-phone"></i><span>Project Team 4</span></li>
                     </ul>
                 </div>
@@ -23,7 +23,12 @@
 	                        <li><a href="${pageContext.request.contextPath}/users/logout.do">Logout</a></li>						
 						</c:otherwise>							
                     </c:choose>
+<<<<<<< HEAD
 	                         <li><a href="${pageContext.request.contextPath}/shop/order.do?id=${id}">Order</a></li>	                    
+=======
+	                         <li><a href="${pageContext.request.contextPath}/shop/order.do?id=${id}">Order</a></li>
+	                         <li><a href="${pageContext.request.contextPath}/shop/cartlist.do?id=${id }">Cart</a></li>	                    
+>>>>>>> heaukjun
                     </ul>
                 </div>
                 
@@ -40,48 +45,13 @@
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
-        <!-- BEGIN CART -->
-        <div class="top-cart-block">
-          <div class="top-cart-info">
-            <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
-            <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
-          </div>
-          <a href="${pageContext.request.contextPath}/shop/cartlist.do?id=${id }"><i class="fa fa-shopping-cart"></i></a>
-                               
-        </div>
-        <!--END CART -->
-
         <!-- BEGIN NAVIGATION -->
         <div class="header-navigation">
           <ul>
             <li><a href="${pageContext.request.contextPath}/team/team_list.do">Team</a></li>
             <li><a href="${pageContext.request.contextPath}/match/match_list.do">MATCH</a></li>
-            <li><a href="${pageContext.request.contextPath}/ranking/rank_list.do">Ranking</a></li>
             <li><a href="${pageContext.request.contextPath}/shop/shop-product-list.do">SHOP</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">Board</a>
-              <ul class="dropdown-menu">
-                <li><a href="${pageContext.request.contextPath}/board/faq.do">FAQ</a></li>
-                <li><a href="${pageContext.request.contextPath}/board/gallery.do">Gallery</a></li>
-                <li><a href="javascript:;">Free</a></li>
-              </ul>
-            </li>
-            <!-- BEGIN TOP SEARCH -->
-            <li class="menu-search">
-              <span class="sep"></span>
-              <i class="fa fa-search search-btn"></i>
-              <div class="search-box">
-                <form action="#">
-                  <div class="input-group">
-                    <input type="text" placeholder="Search" class="form-control">
-                    <span class="input-group-btn">
-                      <button class="btn btn-primary" type="submit">Search</button>
-                    </span>
-                  </div>
-                </form>
-              </div> 
-            </li>
-            <!-- END TOP SEARCH -->
+            <li><a href="${pageContext.request.contextPath}/board/gallery.do">Gallery</a></li>           
           </ul>
         </div>
         <!-- END NAVIGATION -->
