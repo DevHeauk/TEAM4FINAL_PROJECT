@@ -30,11 +30,7 @@ public class TestController {
 		return "shop/shop_insert";
 	}
 	
-	@RequestMapping("/team/team_detail")
-	public String teamDetail(){
-		
-		return "team/team_detail";
-	}	
+
 	
 	
 	@RequestMapping("/board/faq")
@@ -55,11 +51,6 @@ public class TestController {
 		return "search/search_null";
 	}		
 	
-	@RequestMapping("/shop/order")
-	public String Order(){
-		
-		return "shop/order";
-	}	
 	
 	@RequestMapping("/match/match_list2")
 	public String matchList(){

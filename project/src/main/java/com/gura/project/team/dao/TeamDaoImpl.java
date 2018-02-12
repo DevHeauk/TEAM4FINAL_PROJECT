@@ -119,6 +119,13 @@ public class TeamDaoImpl implements TeamDao {
 		
 		return session.selectOne("team.getjointeam",id);
 	}
+
+	@Override
+	public List<TeamDto> mainpageteamlist() {
+		
+		return session.selectList("team.mainpageteamlist");
+	}
+
 	
 	
 	

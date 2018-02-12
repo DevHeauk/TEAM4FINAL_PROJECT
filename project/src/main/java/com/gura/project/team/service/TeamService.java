@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gura.project.team.dto.TeamDto;
 
 public interface TeamService {
-	public void insert(TeamDto dto);
+	public void insert(HttpServletRequest request, TeamDto dto);
 	public ModelAndView detail(HttpServletRequest request);
 	public ModelAndView list(HttpServletRequest request);
 	public ModelAndView joinconfirm(HttpServletRequest request);

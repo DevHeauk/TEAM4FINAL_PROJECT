@@ -44,31 +44,7 @@
                 	  <div class="row">                                   	
 	                    <div class="col-md-4 col-sm-4 match-left">
 	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${matchdto.homeTeam }</a></h2>	                       
-	                      <!-- BEGIN CAROUSEL -->            
-	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel ">
-	                          <!-- Carousel items -->
-	                          <div class="carousel-inner">
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
-	                            </div>
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
-	                            </div>
-	                            <div class="item active">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
-	                            </div>
-	                          </div>
-	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel " class="carousel-control left">
-	                            <i class="fa fa-angle-left"></i>
-	                          </a>
-	                          <a data-slide="next" href="#myCarousel " class="carousel-control right">
-	                            <i class="fa fa-angle-right"></i>
-	                          </a>
-	                        </div>                
-	                      </div>
-	                      
+                           	<img style="width:343px; height:191px" src="${pageContext.request.contextPath }/upload/${hometeamdto.saveFileName}"/>        
 	                      <table class="member_info">
 	                      	<thead>
 	                      		<tr>
@@ -96,13 +72,13 @@
 						  	<p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">${matchdto.homePoint} 점 <span style="display: inline-block; padding: 0 5px;">/</span>
 						  </c:if>
 						  
-						  <c:if test="${not empty matchdto.homePoint}">
-						  	<c:if test="${matchdto.homePoint gt matchdto.awayPoint}">
-						  		<i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리
-						  	</c:if>
-						  	<c:if test="${matchdto.homePoint le matchdto.awayPoint}">
-						  		<i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배
-						  	</c:if>
+						  <c:if test="${matchdto.homePoint ne matchdto.awayPoint}">
+							  	<c:if test="${matchdto.homePoint gt matchdto.awayPoint}">
+							  		<i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리
+							  	</c:if>
+							  	<c:if test="${matchdto.homePoint le matchdto.awayPoint}">
+							  		<i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배
+							  	</c:if>
 						  </c:if>                                             
 	                    </div>
 	                    <div class="col-md-4 col-sm-4 match-vs" style="text-align: center; border-left: 1px solid #ececec; border-right: 1px solid #ececec;">
@@ -128,11 +104,11 @@
 											<td>상태</td>									
 											<td>
 												<c:choose>
-													<c:when test="${not empty matchdto.homePoint}">
-														<strong style="color: #f10025;">경기 종료</strong> 
+													<c:when test="${matchdto.homePoint eq matchdto.awayPoint}">
+														<strong style="color: #0033cc;">경기 준비</strong> 
 													</c:when>
 													<c:otherwise>
-														<strong style="color: #0033cc;">경기 준비</strong>
+														<strong style="color: #f10025;">경기 종료</strong> 
 													</c:otherwise>
 												</c:choose>
 											</td>								
@@ -140,7 +116,7 @@
 									</tbody>																																										
 								</table>
 		
-								<c:if test="${empty matchdto.homePoint }">
+								<c:if test="${matchdto.homePoint eq matchdto.awayPoint}">
 									<a href="#match-pop" class="btn btn-primary fancybox-fast-view" style="color: #ffffff; margin: 65px 0 30px 0;">경기 시작</a>
 								</c:if>
 							</div>
@@ -149,30 +125,7 @@
 	                    
 	                    <div class="col-md-4 col-sm-4 match-right" >
 	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">${matchdto.awayTeam }</a></h2>	                       
-	                      <!-- BEGIN CAROUSEL -->            
-	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel ">
-	                          <!-- Carousel items -->
-	                          <div class="carousel-inner">
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
-	                            </div>
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
-	                            </div>
-	                            <div class="item active">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
-	                            </div>
-	                          </div>
-	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel " class="carousel-control left">
-	                            <i class="fa fa-angle-left"></i>
-	                          </a>
-	                          <a data-slide="next" href="#myCarousel " class="carousel-control right">
-	                            <i class="fa fa-angle-right"></i>
-	                          </a>
-	                        </div>                
-	                      </div>
+	                          <img  style="width:343px; height:191px" src="${pageContext.request.contextPath }/upload/${awayteamdto.saveFileName}"/>        
 	                      <table class="member_info">
 	                      	<thead>
 	                      		<tr>
@@ -200,7 +153,7 @@
 						  </c:if>
   						  
 						  <c:if test="${not empty matchdto.homePoint}">
-						  	<c:if test="${matchdto.homePoint le matchdto.awayPoint}">
+						  	<c:if test="${matchdto.homePoint lt matchdto.awayPoint}">
 						  		<i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리
 						  	</c:if>
 						  	<c:if test="${matchdto.homePoint gt matchdto.awayPoint}">
@@ -260,7 +213,7 @@
 		<form action="pointinsert.do" method="post">
 				<input type="hidden" name=num id=num value="${matchdto.num}">
 				<input type="hidden" name=awayTeam id=awayTeam value="${matchdto.awayTeam }">
-				<input type="hidden" name=homeTeam id=hoemTeam value="${matchdto.homeTeam }">
+				<input type="hidden" name=homeTeam id=homeTeam value="${matchdto.homeTeam }">
 			<table class="match_modal">
 				<thead>
 					<tr>

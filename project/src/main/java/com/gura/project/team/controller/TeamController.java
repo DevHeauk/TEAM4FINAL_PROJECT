@@ -37,7 +37,7 @@ public class TeamController {
 		ModelAndView mView=new ModelAndView();
 		String member=(String)request.getSession().getAttribute("id");
 		dto.setMember(member);
-		teamService.insert(dto);
+		teamService.insert(request, dto);
 		mView.setViewName("redirect:/team/team_list.do");
 		return mView;
 	}
@@ -51,6 +51,13 @@ public class TeamController {
 	
 	@RequestMapping("/team/detail2")
 	public ModelAndView detail2(HttpServletRequest request){
+		ModelAndView mView=teamService.detail(request);
+		mView.setViewName("team/team_detail");
+		return mView;
+	}
+	
+	@RequestMapping("/match/detail2")
+	public ModelAndView detail2_match(HttpServletRequest request){
 		ModelAndView mView=teamService.detail(request);
 		mView.setViewName("team/team_detail");
 		return mView;

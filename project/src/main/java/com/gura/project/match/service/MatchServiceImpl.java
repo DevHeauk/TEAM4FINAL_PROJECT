@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.match.dao.MatchDao;
 import com.gura.project.match.dto.MatchDto;
+import com.gura.project.team.dao.TeamDao;
 import com.gura.project.team.dto.TeamDto;
 import com.gura.project.users.dto.UsersDto;
 
@@ -20,6 +21,8 @@ import com.gura.project.users.dto.UsersDto;
 public class MatchServiceImpl implements MatchService {
 	
 	@Autowired MatchDao matchdao;
+	
+	@Autowired TeamDao teamdao;
 	
 	@Override
 	public void applicationsMatch(HttpServletRequest request,MatchDto dto) {
@@ -43,11 +46,12 @@ public class MatchServiceImpl implements MatchService {
 
 	@Override
 	public void refuseMatch(HttpServletRequest request) {
-		String awayTeam = request.getParameter("awayTeam");
-		String homeTeam = request.getParameter("homeTeam");
+		String awayTeam = request.getParameter("awayteam");
+		String homeTeam = request.getParameter("hometeam");
 		MatchDto dto = new MatchDto();
 		dto.setAwayTeam(awayTeam);
 		dto.setHomeTeam(homeTeam);
+		System.out.println(awayTeam);
 		matchdao.deleteMatch(dto);
 		
 	}
@@ -68,9 +72,21 @@ public class MatchServiceImpl implements MatchService {
 
 		String awayTeam = request.getParameter("awayteam");
 		String homeTeam = request.getParameter("hometeam");
+		TeamDto homedto = new TeamDto();
+		TeamDto awaydto = new TeamDto();
+		homedto.setName(homeTeam);
+		awaydto.setName(awayTeam);
+		
+		homedto = teamdao.getData(homedto);
+		awaydto = teamdao.getData(awaydto);
+		String homeImg = homedto.getSaveFileName();
+		String awayImg = awaydto.getSaveFileName();
+		
 		MatchDto dto = new MatchDto();
 		dto.setAwayTeam(awayTeam);
 		dto.setHomeTeam(homeTeam);
+		dto.setSaveFileName_H(homeImg);
+		dto.setSaveFileName_A(awayImg);
 		
 		matchdao.successMatch(dto);
 
@@ -81,11 +97,8 @@ public class MatchServiceImpl implements MatchService {
 	public ModelAndView matchlist() {
 		ModelAndView mView=new ModelAndView();
 		List<MatchDto> matchlist=matchdao.getlist(); 
-		
-		
 		mView.addObject("matchlist", matchlist);
-		
-		
+
 		return mView;
 	}
 
@@ -97,8 +110,6 @@ public class MatchServiceImpl implements MatchService {
 		dto.setNum(request.getParameter("num"));
 		dto=matchdao.getData(dto);
 		mView.addObject("matchdto",dto);
-		dto.setHomeTeam(request.getParameter("homeTeam"));
-		dto.setAwayTeam(request.getParameter("awayTeam"));
 		List<UsersDto> hometeammember=matchdao.gethomemember(dto);
 		List<UsersDto> awayteammember=matchdao.getawaymember(dto);
 		TeamDto hometeamwinlosetotal=matchdao.gethometeamwinlosetotal(dto);
@@ -107,7 +118,7 @@ public class MatchServiceImpl implements MatchService {
 		mView.addObject("awayteammember", awayteammember);
 		mView.addObject("hometeamdto", hometeamwinlosetotal);
 		mView.addObject("awayteamdto", awayteamwinlosetotal);
-
+		
 		return mView;
 	}
 	
@@ -119,8 +130,6 @@ public class MatchServiceImpl implements MatchService {
 		dto.setNum(num);
 		System.out.println(dto.getNum());
 		matchdao.insertPoint(dto);
-		System.out.println(dto.getAwayTeam());
-		System.out.println(dto.getHomeTeam());
 		if(dto.getHomePoint()>dto.getAwayPoint()){
 			matchdao.HWwinpointupdate(dto);
 			matchdao.HWlosepointupdate(dto);
@@ -129,5 +138,6 @@ public class MatchServiceImpl implements MatchService {
 			matchdao.AWlosepointupdate(dto);
 		}
 	}
+
 	
 }
