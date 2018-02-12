@@ -497,9 +497,13 @@ body.page-header-fixed {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	float: right;
 }
 .header-navigation > ul > li {
 	float: left;
+	margin-left: 20px;
+	font-size: 20px;
+	letter-spacing: 1.8px;
 }
 .header-navigation > ul > li > a {
 	color: #333;
@@ -1168,9 +1172,9 @@ steps block and steps block elements
 /* paginations */
 .pagination {
 	border-radius: 0;
-	width: 315px;
-	margin: 20px auto;
+	margin-top: 20px;
 	display: block;
+	text-align: center;
 }
 .pagination > li {
     display: inline-block;
@@ -2507,12 +2511,21 @@ Demo Utils
 .ecommerce .blog-posts h2 {
   padding-top: 0;
 }
+
 .blog-posts p {
   text-align: justify;
   max-width: 650px;
   height: 90px;
   overflow: hidden;
 }
+
+@media (max-width: 990px) {
+	.blog-posts p {
+		height: 20px;
+	}
+}
+
+
 .blog-posts .carousel {
   margin-bottom: 0;
 }

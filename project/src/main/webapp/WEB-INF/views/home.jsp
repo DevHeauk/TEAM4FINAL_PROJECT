@@ -11,13 +11,7 @@
 
 <!-- Head BEGIN -->
 <head>
-  <meta charset="utf-8">
-  <title>Metronic Shop UI</title>
-
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  <%@ include file="inc/header_script.jsp" %>
+ <%@ include file="inc/header_script.jsp" %>
   <link href="${pageContext.request.contextPath}/assets/pages/css/slider.css" rel="stylesheet">  
 </head>
 <!-- Head END -->
@@ -56,15 +50,15 @@
                     <div class="container">
                         <div class="carousel-position-four text-center">
                             <h2 class="animate-delay carousel-title-v4" data-animation="animated fadeInDown">
-                                Unlimted
+                                Team
                             </h2>
                             <p class="carousel-subtitle-v2" data-animation="animated fadeInDown">
-                                Layout Options
+                                Team Options
                             </p>
                             <p class="carousel-subtitle-v3 margin-bottom-30" data-animation="animated fadeInUp">
-                                Fully Responsive
+                                Team Responsive
                             </p>
-                            <a class="carousel-btn" href="#" data-animation="animated fadeInUp">See More Details</a>
+                            <a class="carousel-btn" href="${pageContext.request.contextPath }/team/team_list.do" data-animation="animated fadeInUp">See More Team</a>
                         </div>
                     </div>
                 </div>
@@ -128,7 +122,7 @@
                     <div class="pi-img-wrapper">
                       <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive" alt="Berry Lace Dress">
                       <div>
-                        <a href="team/detail2.do?=${tmp.name }" class="btn btn-default fancybox-button">View</a>
+                        <a href="team/detail2.do?name=${tmp.name }" class="btn btn-default fancybox-button">View</a>
                       </div>
                     </div>
                     <div class="main-team-text">
@@ -212,30 +206,31 @@
           <!-- BEGIN TWO PRODUCTS -->
           <div class="col-md-12 two-items-bottom-items">
             <h2>MATCHING</h2>
-             <c:forEach var="tmp" items="${matchlist }">
-		       	  <div class="row" style="width: 95%; background: #ffffff; padding-top: 20px; padding-left: 2.5%;">                                   	
+            <div class="owl-carousel owl-carousel2">             
+             <c:forEach var="tmp" items="${matchlist }">            
+		       	  <div class="row" style="width: 100%; text-align: center; background: #ffffff; padding-top: 20px; padding-left: 2.5%;">                                   	
 		            <div class="col-md-4 col-sm-4 match-left">
-		              <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">Home Team</a></h2>	                       
-		              	<img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName_H}"/>
+		              <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${tmp.homeTeam }</a></h2>	                       
+		              	<img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName_H}" style="max-width: 115px; max-height: 64px; display: inline;"/>
 		              <ul class="blog-info" style="text-align: center; padding-top: 10px;">
-		                <li> 경기날짜 : ${tmp.matchDate }</li>
+		                <li><i class="fa fa-calendar"></i> : ${tmp.matchDate }</li>
 		             </ul>	                                   
 		            </div>
 		            <div class="col-md-4 col-sm-4 match-vs" style="text-align: center;;">
 						<img src="${pageContext.request.contextPath}/assets/pages/img/main_vs.png" alt="" style="max-width: 100px; display: inline; margin: 50px 0 30px 0;"/><br />
-						<a href="match_detail.do" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
+						<a href="match/detail.do?awayTeam=${tmp.awayTeam}&homeTeam=${tmp.homeTeam}&num=${tmp.num}" class="btn btn-primary" style="color: #ffffff;">경기 보기</a><br /><br />                              
 		            </div>	
 		            
 		            <div class="col-md-4 col-sm-4 match-right" >
-		              <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>	                       
-		               	<img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName_A}"/>
+		              <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">${tmp.awayTeam }</a></h2>	                       
+		               	<img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName_A}" style="max-width: 115px; max-height: 64px; display: inline;"/>
 		              <ul class="blog-info" style="text-align: center; padding-top: 10px;">
-		                <li> 그라운드 : ${tmp.ground }</li>                     
+		                <li style="#E84D1C"><i class="fa fa-calendar"></i> : ${tmp.ground }</li>                     
 		              </ul>	                                   
 		            </div>	   	                    	                                        
 		          </div>
-	          </c:forEach>
-	                 --- 	          
+	          </c:forEach>  
+	         </div>         
             </div>
           </div>
           <!-- END TWO PRODUCTS -->

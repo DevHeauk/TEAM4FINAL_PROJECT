@@ -10,12 +10,7 @@
 
 <!-- Head BEGIN -->
 <head>
-  <meta charset="utf-8">
-  <title>Blog Page | Metronic Frontend</title>
 
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  
   <%@ include file="../inc/header_script.jsp" %>
 </head>
 <!-- Head END -->
@@ -55,8 +50,8 @@
 	                      	<tbody>
 		                       <c:forEach var="tmp" items="${hometeammember}">
 									<tr>
-										<th>${tmp.name }</th>
-										<th>${tmp.b_position }</th>
+										<td>${tmp.name }</td>
+										<td>${tmp.b_position }</td>
 									</tr>
 								</c:forEach>                   			                      			                      			                      		
 	                      	</tbody>
@@ -136,8 +131,8 @@
 	                      	<tbody>
 	                      		 <c:forEach var="tmp" items="${awayteammember}">
 									<tr>
-										<th>${tmp.name }</th>
-										<th>${tmp.b_position }</th>
+										<td>${tmp.name }</td>
+										<td>${tmp.b_position }</td>
 									</tr>
 								</c:forEach>                      			                      			                      			                      		
 	                      	</tbody>

@@ -478,9 +478,6 @@
 
 /* BEGIN max width 767px */
 @media (max-width: 767px) {
-	.pre-header .pull-right {
-		float: left !important;
-	}
 	.pre-header .pull-right li:first-child {
 		padding-left: 0;
 	}
@@ -558,7 +555,6 @@
 		width: 100%;
 	}
 	.pagination {
-		float: left !important;
 		padding-top: 10px;
 	}
 	.pagination > li {
@@ -633,6 +629,8 @@
 		border: none;
 		margin-bottom: 10px;
 		padding: 0;
+		float: left;
+		padding-left: 10px;
 	}
 	.pre-header .col-md-6 {
 		float: left;
