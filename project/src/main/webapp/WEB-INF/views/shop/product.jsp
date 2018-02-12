@@ -48,40 +48,18 @@
               <li class="list-group-item clearfix"><a href="shop-product-list.do?category=공"><i class="fa fa-angle-right"></i>Balls</a></li>
             </ul>
 
-            <div class="sidebar-filter margin-bottom-25">
-              <h2>Filter</h2>
-              <h3>Availability</h3>
-              <div class="checkbox-list">
-                <label><input type="checkbox"> Not Available (3)</label>
-                <label><input type="checkbox"> In Stock (26)</label>
-              </div>
-
-              <h3>Price</h3>
-              <p>
-                <label for="amount">Range:</label>
-                <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
-              </p>
-              <div id="slider-range"></div>
-            </div>
-
-            <div class="sidebar-products clearfix">
-              <h2>Bestsellers</h2>
-              <div class="item">
-                <a href="cart.do"><img src="${pageContext.request.contextPath}/assets/pages/img/products/k1.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                <h3><a href="cart.do">Some Shoes in Animal with Cut Out</a></h3>
-                <div class="price">$31.00</div>
-              </div>
-              <div class="item">
-                <a href="cart.do"><img src="${pageContext.request.contextPath}/assets/pages/img/products/k4.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                <h3><a href="cart.do">Some Shoes in Animal with Cut Out</a></h3>
-                <div class="price">$23.00</div>
-              </div>
-              <div class="item">
-                <a href="cart.do"><img src="${pageContext.request.contextPath}/assets/pages/img/products/k3.jpg" alt="Some Shoes in Animal with Cut Out"></a>
-                <h3><a href="cart.do">Some Shoes in Animal with Cut Out</a></h3>
-                <div class="price">$86.00</div>
-              </div>
-            </div>
+           		<div class="sidebar-products clearfix">
+	            <h2>Bestitems</h2>
+			<c:forEach var="tmp" items="${list }" begin="2" end="4">
+				<div class="product-items">
+	              <div class="item">
+	                <a href="#product-pop-up${tmp.num }"><img src="${pageContext.request.contextPath}/upload/${tmp.saveFileName}" alt="Some Shoes in Animal with Cut Out"></a>
+	                <h3><a href="#product-pop-up${tmp.num }">${tmp.title }</a></h3>
+	                <div class="price">${tmp.price }</div>
+	              </div>
+	             </div>
+			</c:forEach>
+				</div>
           </div>
           <!-- END SIDEBAR -->
           <!-- BEGIN CONTENT -->
@@ -201,17 +179,15 @@
                     <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" alt="Cool green dress with red bell" class="img-responsive">
                   </div>
                   <div class="product-other-images">
-                    <a href="javascript:;" class="active"><img alt="Berry Lace Dress" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"></a>
-                    <a href="javascript:;"><img alt="Berry Lace Dress" src="../assets/pages/img/products/model4.jpg"></a>
-                    <a href="javascript:;"><img alt="Berry Lace Dress" src="../assets/pages/img/products/model5.jpg"></a>
+                    <a href="javascript:;"><img alt="Berry Lace Dress" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"></a>
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-9">
                   <h1>${tmp.content }</h1>
                   <div class="price-availability-block clearfix">
                     <div class="price">
-                      <strong><span>$</span>${tmp.price*0.9 }</strong>
-                      <em>$<span>${tmp.price }</span></em>
+                      <strong>${tmp.price*0.9 }<span>원</span></strong>
+                      <em><span>${tmp.price }</span>원</em>
                     </div>
                     <div class="availability">
                       Availability: <strong>In Stock</strong>
