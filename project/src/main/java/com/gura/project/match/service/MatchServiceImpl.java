@@ -125,5 +125,6 @@ public class MatchServiceImpl implements MatchService {
 			matchdao.AWlosepointupdate(dto);
 		}
 	}
+
 	
 }

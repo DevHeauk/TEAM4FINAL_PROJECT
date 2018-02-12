@@ -1,6 +1,7 @@
 package com.gura.project.team.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -258,6 +259,19 @@ public class TeamServiceImpl implements TeamService{
 		
 		return new ModelAndView();
 		
+	}
+
+
+
+
+	@Override
+	public ModelAndView mainpageteam() {
+			 List<TeamDto> dtolist=new ArrayList<>();
+			ModelAndView mView=new ModelAndView();
+			dtolist=teamdao.mainpageteamlist();
+			mView.addObject("teamlist", dtolist);
+			List<MatchDto> matchdtolist=new ArrayList<>();
+		return mView;
 	}
 
 	

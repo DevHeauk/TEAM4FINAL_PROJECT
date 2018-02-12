@@ -104,6 +104,16 @@
 		from joinlist
 		where joinid=#{id}
 	</select>
+	<select id="mainpageteamlist" resultType="teamDto">
+		select name,win,lose,total,ground,leader
+		from team
+		order by win desc
+	</select>
+	<select id="mainpagematchlist" resultType="MatchDto">
+		select num,homeTeam,awayTeam,matchDate,ground
+		from matching
+		order by num desc
+	</select>
 </mapper>
 
 
