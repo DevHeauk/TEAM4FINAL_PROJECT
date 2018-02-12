@@ -122,74 +122,26 @@
           <div class="col-md-12 sale-product">
             <h2>TEAM </h2>
             <div class="owl-carousel owl-carousel4 main-team-area">
-              <div class="main-team-list">
+            <!-- team -->
+            <c:forEach var="tmp" items="${teamlist }" begin="0" end="7">
+            	<div class="main-team-list">
                   <div class="product-item">
                     <div class="pi-img-wrapper">
-                      <img src="assets/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
+                      <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive" alt="Berry Lace Dress">
                       <div>
-                        <a href="team/detail.do" class="btn btn-default fancybox-button">View</a>
+                        <a href="team/detail2.do?=${tmp.name }" class="btn btn-default fancybox-button">View</a>
                       </div>
                     </div>
                     <div class="main-team-text">
-	                    <h3 style="float: left; padding-top: 13px;"><a href="javascript:;"><strong>팀이름입니다.</strong></a></h3>
+	                    <h3 style="float: left; padding-top: 13px;"><a href="javascript:;"><strong>${tmp.name }</strong></a></h3>
 	                    <ul class="blog-info" style="float: right;">
-	                      <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
-	                      <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>                     
+	                      <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 ${tmp.win }</li>
+	                      <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  ${tmp.lose}</li>                     
 	                    </ul>	  
                     </div>
                   </div>
-              </div>   
-              <div class="main-team-list">
-                  <div class="product-item">
-                    <div class="pi-img-wrapper">
-                      <img src="assets/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                      <div>
-                        <a href="team/detail.do" class="btn btn-default fancybox-button">View</a>
-                      </div>
-                    </div>
-                    <div class="main-team-text">
-	                    <h3 style="float: left; padding-top: 13px;"><a href="javascript:;"><strong>팀이름입니다.</strong></a></h3>
-	                    <ul class="blog-info" style="float: right;">
-	                      <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
-	                      <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>                     
-	                    </ul>	  
-                    </div>	  
-                  </div>
-              </div>  
-              <div class="main-team-list">
-                  <div class="product-item">
-                    <div class="pi-img-wrapper">
-                      <img src="assets/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                      <div>
-                        <a href="team/detail.do" class="btn btn-default fancybox-button">View</a>
-                      </div>
-                    </div>
-                    <div class="main-team-text">
-	                    <h3 style="float: left; padding-top: 13px;"><a href="javascript:;"><strong>팀이름입니다.</strong></a></h3>
-	                    <ul class="blog-info" style="float: right;">
-	                      <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
-	                      <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>                     
-	                    </ul>	  
-                    </div>	  
-                  </div>
-              </div>  
-              <div class="main-team-list">
-                  <div class="product-item">
-                    <div class="pi-img-wrapper">
-                      <img src="assets/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                      <div>
-                        <a href="team/detail.do" class="btn btn-default fancybox-button">View</a>
-                      </div>
-                    </div>
-                    <div class="main-team-text">
-	                    <h3 style="float: left; padding-top: 13px;"><a href="javascript:;"><strong>팀이름입니다.</strong></a></h3>
-	                    <ul class="blog-info" style="float: right;">
-	                      <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 10</li>
-	                      <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패  10</li>                     
-	                    </ul>	  
-                    </div>	  
-                  </div>
-              </div>                                                      
+              	</div>   
+            </c:forEach>                                                     
             </div>
           </div>
           <!-- END SALE PRODUCT -->

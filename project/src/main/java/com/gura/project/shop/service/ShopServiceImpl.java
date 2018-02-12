@@ -1,6 +1,7 @@
 package com.gura.project.shop.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,8 @@ import com.gura.project.shop.dao.ShopDao;
 import com.gura.project.shop.dto.CartDto;
 import com.gura.project.shop.dto.Product_OrderDto;
 import com.gura.project.shop.dto.ShopDto;
+import com.gura.project.team.dao.TeamDao;
+import com.gura.project.team.dto.TeamDto;
 import com.gura.project.users.dao.UsersDao;
 import com.gura.project.users.dto.UsersDto;
 
@@ -25,6 +28,9 @@ public class ShopServiceImpl implements ShopService{
 	
 	@Autowired
 	private UsersDao userDao;
+	
+	@Autowired
+	private TeamDao teamdao;
 	
 	//한 페이지에 나타낼 로우의 갯수
 		private static final int PAGE_ROW_COUNT=6;
@@ -266,6 +272,10 @@ public class ShopServiceImpl implements ShopService{
 		mView.addObject("list3", Alist);
 		mView.addObject("list4", Blist);
 		mView.addObject("list5", Clist);
+		
+		List<TeamDto> dtolist=new ArrayList<>();
+		dtolist=teamdao.mainpageteamlist();
+		mView.addObject("teamlist", dtolist);
 		
 		return mView;
 	}

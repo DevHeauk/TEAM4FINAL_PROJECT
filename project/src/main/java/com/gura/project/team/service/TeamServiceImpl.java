@@ -1,6 +1,7 @@
 package com.gura.project.team.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -246,7 +247,7 @@ public class TeamServiceImpl implements TeamService{
 		
 		return new ModelAndView();
 		
-	}
+	} 
 	
 	@Override
 	public ModelAndView joinrefuse(HttpServletRequest request) {
