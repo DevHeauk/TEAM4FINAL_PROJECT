@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gura.project.match.dao.MatchDao;
+import com.gura.project.match.dto.MatchDto;
 import com.gura.project.shop.dao.ShopDao;
 import com.gura.project.shop.dto.CartDto;
 import com.gura.project.shop.dto.Product_OrderDto;
@@ -31,6 +33,9 @@ public class ShopServiceImpl implements ShopService{
 	
 	@Autowired
 	private TeamDao teamdao;
+	
+	@Autowired
+	private MatchDao matchdao;
 	
 	//한 페이지에 나타낼 로우의 갯수
 		private static final int PAGE_ROW_COUNT=6;
@@ -276,6 +281,9 @@ public class ShopServiceImpl implements ShopService{
 		List<TeamDto> dtolist=new ArrayList<>();
 		dtolist=teamdao.mainpageteamlist();
 		mView.addObject("teamlist", dtolist);
+		
+		List<MatchDto> matchlist=matchdao.getlist(); 
+		mView.addObject("matchlist", matchlist);
 		
 		return mView;
 	}

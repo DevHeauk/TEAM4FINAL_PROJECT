@@ -77,7 +77,7 @@ public class ShopController {
 			mView.setViewName("shop/product");
 			return mView;
 		}else{
-			ModelAndView mView=new ModelAndView();
+			ModelAndView mView=shopService.getList(request);
 			mView.setViewName("shop/product");
 			return mView;
 		}
