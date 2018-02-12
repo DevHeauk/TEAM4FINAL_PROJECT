@@ -28,9 +28,9 @@
     <div class="main">
       <div class="container">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="javascript:;">Blog</a></li>
-            <li class="active">Blog Page</li>
+            <li><a href="${pageContext.request.contextPath }/">Home</a></li>
+            <li><a href="${pageContext.request.contextPath }/match/match_list.do">Match</a></li>
+            <li class="active">Match_detail</li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40">

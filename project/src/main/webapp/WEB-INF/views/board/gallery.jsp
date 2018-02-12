@@ -28,9 +28,8 @@
     <div class="main">
       <div class="container">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="javascript:;">Portfolio</a></li>
-            <li class="active">Portfolio 4 Column</li>
+            <li><a href="${pageContext.request.contextPath }/">Home</a></li>
+            <li class="active">Gallery</li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40">

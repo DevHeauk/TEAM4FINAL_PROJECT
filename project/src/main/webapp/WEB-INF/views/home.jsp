@@ -574,9 +574,8 @@
                     <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" alt="Cool green dress with red bell" class="img-responsive">
                   </div>
                   <div class="product-other-images">
-                    <a href="javascript:;" class="active"><img alt="Berry Lace Dress" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"></a>
-                    <a href="javascript:;"><img alt="Berry Lace Dress" src="../assets/pages/img/products/model4.jpg"></a>
-                    <a href="javascript:;"><img alt="Berry Lace Dress" src="../assets/pages/img/products/model5.jpg"></a>
+                    <a href="javascript:;"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"></a>
+                   
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-9">
@@ -604,7 +603,7 @@
                     </div>
                   </div>
                   <div class="product-page-cart">
-                  <form action="cart.do">
+                  <form action="shop/cart.do">
                     <div class="product-quantity">
                     	<input type="hidden" name="num" value="${tmp.num }" />
                     	<input type="hidden" name="id" value="${id}" />
@@ -631,13 +630,11 @@
                     <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" alt="Cool green dress with red bell" class="img-responsive">
                   </div>
                   <div class="product-other-images">
-                    <a href="javascript:;" class="active"><img alt="Berry Lace Dress" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"></a>
-                    <a href="javascript:;"><img alt="Berry Lace Dress" src="../assets/pages/img/products/model4.jpg"></a>
-                    <a href="javascript:;"><img alt="Berry Lace Dress" src="../assets/pages/img/products/model5.jpg"></a>
+                    <a href="javascript:;"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"></a>
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-9">
-                  <h1>${tmp.content }</h1>
+                  <h1>${tmp.title }</h1>
                   <div class="price-availability-block clearfix">
                     <div class="price">
                       <strong><span>$</span>${tmp.price*0.9 }</strong>
@@ -661,7 +658,7 @@
                     </div>
                   </div>
                   <div class="product-page-cart">
-                  <form action="cart.do">
+                  <form action="shop/cart.do">
                     <div class="product-quantity">
                     	<input type="hidden" name="num" value="${tmp.num }" />
                     	<input type="hidden" name="id" value="${id}" />
@@ -688,9 +685,8 @@
                     <img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" alt="Cool green dress with red bell" class="img-responsive">
                   </div>
                   <div class="product-other-images">
-                    <a href="javascript:;" class="active"><img alt="Berry Lace Dress" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"></a>
-                    <a href="javascript:;"><img alt="Berry Lace Dress" src="../assets/pages/img/products/model4.jpg"></a>
-                    <a href="javascript:;"><img alt="Berry Lace Dress" src="../assets/pages/img/products/model5.jpg"></a>
+                    <a href="javascript:;"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"></a>
+                    
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-9">
@@ -718,7 +714,7 @@
                     </div>
                   </div>
                   <div class="product-page-cart">
-                  <form action="cart.do">
+                  <form action="shop/cart.do">
                     <div class="product-quantity">
                     	<input type="hidden" name="num" value="${tmp.num }" />
                     	<input type="hidden" name="id" value="${id}" />

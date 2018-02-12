@@ -30,9 +30,9 @@
     <div class="main">
       <div class="container">
         <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="match_detail.do">match_detail</a></li>
-            <li class="active">Blog Item</li>
+            <li><a href="${pageContext.request.contextPath }/">Home</a></li>
+            <li><a href="${pageContext.request.contextPath }/team/team_list.do">Match</a></li>
+            <li class="active">Team_detail</li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40">

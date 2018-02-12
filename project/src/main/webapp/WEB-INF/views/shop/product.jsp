@@ -34,9 +34,8 @@
     <div class="main">
       <div class="container">
         <ul class="breadcrumb">
-            <li><a href="index.do">Home</a></li>
-            <li><a href="">Store</a></li>
-            <li class="active">Men category</li>
+            <li><a href="${pageContext.request.contextPath }/">Home</a></li>
+            <li class="active"><a href="${pageContext.request.contextPath }/shop/shop-product-list.do">SHOP</a></li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40">
