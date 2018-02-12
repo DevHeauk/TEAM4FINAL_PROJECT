@@ -44,7 +44,7 @@
                 	  <div class="row">     
                 	  <!-- left -->                              	
 	                    <div class="col-md-4 col-sm-4 match-left">
-	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${tmp.homeTeam }</a></h2>	                       
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail2.do?name=${tmp.homeTeam }" style="color: #0033cc;">${tmp.homeTeam }</a></h2>	                       
 	                       <img style="width:343px;height:191px" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName_H}"/>        
 	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
 	                       	<li><i>경기날짜 : ${tmp.matchDate }</i></li>                      
@@ -59,7 +59,7 @@
 	                    </div>	
 	                    <!-- right -->
 	                    <div class="col-md-4 col-sm-4 match-right" >
-	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">${tmp.awayTeam }</a></h2>	                       
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail2.do?name=${tmp.awayTeam }" style="color: #f10025;">${tmp.awayTeam }</a></h2>	                       
 	                        	<img style="width:343px;height:191px" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName_A}"/>        
 	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
 	                        <li><i>그라운드 : ${tmp.ground }</i></li>                      

@@ -12,7 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.shop.dao.ShopDao;
 import com.gura.project.shop.dto.CartDto;
+import com.gura.project.shop.dto.Product_OrderDto;
 import com.gura.project.shop.dto.ShopDto;
+import com.gura.project.users.dao.UsersDao;
 import com.gura.project.users.dto.UsersDto;
 
 @Repository
@@ -20,6 +22,9 @@ public class ShopServiceImpl implements ShopService{
 	
 	@Autowired
 	private ShopDao shopDao;
+	
+	@Autowired
+	private UsersDao userDao;
 	
 	//한 페이지에 나타낼 로우의 갯수
 		private static final int PAGE_ROW_COUNT=6;
@@ -218,5 +223,50 @@ public class ShopServiceImpl implements ShopService{
 			shopDao.setremaincount(shopdto);	
 		}
 		shopDao.cartdelete(userdto);
+	}
+
+	@Override
+	public void insertorder(HttpServletRequest request) {
+		Product_OrderDto orderDto=new Product_OrderDto();
+		String id=(String)request.getSession().getAttribute("id");
+		
+		List<CartDto> order_list=shopDao.cartList(id);
+		System.out.println(order_list.size());
+		for(CartDto tmp1:order_list){
+			UsersDto addr_dto=userDao.getData(id);
+			orderDto.setId(id);
+			orderDto.setAddr01(addr_dto.getAddr01());
+			orderDto.setAddr02(addr_dto.getAddr02());
+			orderDto.setAddr03(addr_dto.getAddr03());
+			orderDto.setPrice(tmp1.getPrice());
+			orderDto.setTitle(tmp1.getProduct_name());
+			orderDto.setProduct_count(tmp1.getProduct_count());
+			orderDto.setSaveFileName(tmp1.getSaveFileName());
+			orderDto.setDelivery_location("배송중");
+			shopDao.InsertOrder(orderDto);
+		}
+		
+	}
+
+	@Override
+	public ModelAndView orderList(String id) {
+		List<Product_OrderDto> list=shopDao.orderList(id);
+		ModelAndView mView=new ModelAndView();
+		mView.addObject("list", list);
+		return mView;
+	}
+	
+
+	@Override
+	public ModelAndView homeList(HttpServletRequest request) {
+		List<ShopDto> Alist=shopDao.homeAList();
+		List<ShopDto> Blist=shopDao.homeBList();
+		List<ShopDto> Clist=shopDao.homeCList();
+		ModelAndView mView=new ModelAndView();
+		mView.addObject("list3", Alist);
+		mView.addObject("list4", Blist);
+		mView.addObject("list5", Clist);
+		
+		return mView;
 	}
 }

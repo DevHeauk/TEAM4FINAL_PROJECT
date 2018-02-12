@@ -124,7 +124,7 @@
 	                    </div>	
 	                    
 	                    <div class="col-md-4 col-sm-4 match-right" >
-	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">Away Team</a></h2>	                       
+	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">${matchdto.awayTeam }</a></h2>	                       
 	                          <img  style="width:343px; height:191px" src="${pageContext.request.contextPath }/upload/${awayteamdto.saveFileName}"/>        
 	                      <table class="member_info">
 	                      	<thead>
@@ -153,7 +153,7 @@
 						  </c:if>
   						  
 						  <c:if test="${not empty matchdto.homePoint}">
-						  	<c:if test="${matchdto.homePoint le matchdto.awayPoint}">
+						  	<c:if test="${matchdto.homePoint lt matchdto.awayPoint}">
 						  		<i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리
 						  	</c:if>
 						  	<c:if test="${matchdto.homePoint gt matchdto.awayPoint}">

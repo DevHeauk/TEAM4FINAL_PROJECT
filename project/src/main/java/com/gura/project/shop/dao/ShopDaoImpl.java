@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gura.project.shop.dto.CartDto;
+import com.gura.project.shop.dto.Product_OrderDto;
 import com.gura.project.shop.dto.ShopDto;
 import com.gura.project.users.dto.UsersDto;
 
@@ -20,6 +21,12 @@ public class ShopDaoImpl implements ShopDao{
 	@Override
 	public List<ShopDto> getList(ShopDto dto) {
 		List<ShopDto> list=session.selectList("shop.getList", dto);
+		return list;
+	}
+	
+	@Override
+	public List<ShopDto> getList2() {
+		List<ShopDto> list=session.selectList("shop.getList2");
 		return list;
 	}
 
@@ -118,6 +125,35 @@ public class ShopDaoImpl implements ShopDao{
 		session.delete("shop.cartdelete", userdto);
 		
 	}
+
+	@Override
+	public void InsertOrder(Product_OrderDto orderDto) {
+		session.insert("shop.orderInsert", orderDto);
+		
+	}
+
+	@Override
+	public List<Product_OrderDto> orderList(String id) {
+		List<Product_OrderDto> list=session.selectList("shop.orderList", id);
+		return list;
+	}
 	
 
+	@Override
+	public List<ShopDto> homeAList() {
+		String A="농구복";
+		return session.selectList("shop.homeAList", A);
+	}
+
+	@Override
+	public List<ShopDto> homeBList() {
+		String A="농구화";
+		return session.selectList("shop.homeBList", A);
+	}
+
+	@Override
+	public List<ShopDto> homeCList() {
+		String A="공";
+		return session.selectList("shop.homeCList", A);
+	}
 }
