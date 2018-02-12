@@ -10,13 +10,15 @@ public class MatchDto {
 	public String  successMatching;
 	private String matchDate;
 	private String ground;
+	private String saveFileName_H;
+	private String saveFileName_A;
 
 	
 	public MatchDto(){}
 
 
 	public MatchDto(String num, String homeTeam, String awayTeam, int homePoint, int awayPoint, String successMatching,
-			String matchDate, String ground) {
+			String matchDate, String ground, String saveFileName_H, String saveFileName_A) {
 		super();
 		this.num = num;
 		this.homeTeam = homeTeam;
@@ -26,6 +28,8 @@ public class MatchDto {
 		this.successMatching = successMatching;
 		this.matchDate = matchDate;
 		this.ground = ground;
+		this.saveFileName_H = saveFileName_H;
+		this.saveFileName_A = saveFileName_A;
 	}
 
 
@@ -108,8 +112,25 @@ public class MatchDto {
 		this.ground = ground;
 	}
 
-	
-	
 
+	public String getSaveFileName_H() {
+		return saveFileName_H;
+	}
+
+
+	public void setSaveFileName_H(String saveFileName_H) {
+		this.saveFileName_H = saveFileName_H;
+	}
+
+
+	public String getSaveFileName_A() {
+		return saveFileName_A;
+	}
+
+
+	public void setSaveFileName_A(String saveFileName_A) {
+		this.saveFileName_A = saveFileName_A;
+	}
+	
 	
 }

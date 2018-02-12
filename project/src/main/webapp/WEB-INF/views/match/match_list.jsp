@@ -18,8 +18,6 @@
   
   <%@ include file="../inc/header_script.jsp" %>
 </head>
-<!-- Head END -->
-<script src="../resource/css/bootstrap.css"></script>
 <!-- Body BEGIN -->
 <body class="ecommerce">
 
@@ -47,13 +45,7 @@
                 	  <!-- left -->                              	
 	                    <div class="col-md-4 col-sm-4 match-left">
 	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${tmp.homeTeam }</a></h2>	                       
-	                      
-	                      <c:forEach var="tmph" items="${homedtolist }">
-	                      		<c:if test="${tmph.name eq tmp.homeTeam }">
-                 			       <img  src="${pageContext.request.contextPath }/upload/${tmph.saveFileName}"/>        
-	                      		</c:if>
-	                      </c:forEach>
-	                      
+	                       <img style="width:343px;height:191px" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName_H}"/>        
 	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
 	                       	<li><i>경기날짜 : ${tmp.matchDate }</i></li>                      
 	                      </ul>	                                   
@@ -68,11 +60,7 @@
 	                    <!-- right -->
 	                    <div class="col-md-4 col-sm-4 match-right" >
 	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">${tmp.awayTeam }</a></h2>	                       
-	                     	 <c:forEach var="tmpa" items="${awaydtolist }">
-	                      		<c:if test="${tmpa.name eq tmp.awayTeam }">
-                 			       <img  src="${pageContext.request.contextPath }/upload/${tmpa.saveFileName}"/>        
-	                      		</c:if>
-	                         </c:forEach>
+	                        	<img style="width:343px;height:191px" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName_A}"/>        
 	                      <ul class="blog-info" style="text-align: center; padding-top: 10px;">
 	                        <li><i>그라운드 : ${tmp.ground }</i></li>                      
 	                      </ul>	                                   

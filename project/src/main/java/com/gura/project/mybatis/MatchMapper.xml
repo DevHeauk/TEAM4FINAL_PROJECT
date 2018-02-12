@@ -12,7 +12,7 @@
 	</select>
 	<update id="successMatch" parameterType="MatchDto">
 		UPDATE matching
-		SET successMatching='true'
+		SET successMatching='true', saveFileName_H=#{saveFileName_H}, saveFileName_A=#{saveFileName_A}
 		WHERE awayTeam=#{awayTeam} and homeTeam=#{homeTeam}
 	</update>
 	<delete id="delete" parameterType="MatchDto">
@@ -25,7 +25,7 @@
 		where awayTeam=#{awayTeam} and homeTeam=#{homeTeam}
 	</select>
 	<select id="getlist" resultType="MatchDto">
-		select num,homeTeam,homePoint,awayTeam,awayPoint,matchDate,ground,successMatching
+		select num,homeTeam,homePoint,awayTeam,awayPoint,matchDate,ground,successMatching,saveFileName_H, saveFileName_A
 		from matching
 		ORDER BY num DESC
 	</select>
@@ -85,12 +85,12 @@
 		where team=#{homeTeam}
 	</select>
 	<select id="gethometeamwinlosetotal" parameterType="MatchDto" resultType="teamDto">
-		select win,lose,total,saveFileName
+		select name,win,lose,total,saveFileName
 		from team
 		where name=#{homeTeam}
 	</select>
 	<select id="getawayteamwinlosetotal" parameterType="MatchDto" resultType="teamDto">
-		select win,lose,total,saveFileName
+		select name,win,lose,total,saveFileName
 		from team
 		where name=#{awayTeam}
 	</select>

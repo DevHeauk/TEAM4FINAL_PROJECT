@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.match.dao.MatchDao;
 import com.gura.project.match.dto.MatchDto;
+import com.gura.project.team.dao.TeamDao;
 import com.gura.project.team.dto.TeamDto;
 import com.gura.project.users.dto.UsersDto;
 
@@ -20,6 +21,8 @@ import com.gura.project.users.dto.UsersDto;
 public class MatchServiceImpl implements MatchService {
 	
 	@Autowired MatchDao matchdao;
+	
+	@Autowired TeamDao teamdao;
 	
 	@Override
 	public void applicationsMatch(HttpServletRequest request,MatchDto dto) {
@@ -69,9 +72,21 @@ public class MatchServiceImpl implements MatchService {
 
 		String awayTeam = request.getParameter("awayteam");
 		String homeTeam = request.getParameter("hometeam");
+		TeamDto homedto = new TeamDto();
+		TeamDto awaydto = new TeamDto();
+		homedto.setName(homeTeam);
+		awaydto.setName(awayTeam);
+		
+		homedto = teamdao.getData(homedto);
+		awaydto = teamdao.getData(awaydto);
+		String homeImg = homedto.getSaveFileName();
+		String awayImg = awaydto.getSaveFileName();
+		
 		MatchDto dto = new MatchDto();
 		dto.setAwayTeam(awayTeam);
 		dto.setHomeTeam(homeTeam);
+		dto.setSaveFileName_H(homeImg);
+		dto.setSaveFileName_A(awayImg);
 		
 		matchdao.successMatch(dto);
 
@@ -82,20 +97,7 @@ public class MatchServiceImpl implements MatchService {
 	public ModelAndView matchlist() {
 		ModelAndView mView=new ModelAndView();
 		List<MatchDto> matchlist=matchdao.getlist(); 
-		List<TeamDto> homedtolist = new ArrayList<>();
-		List<TeamDto> awaydtolist = new ArrayList<>();
-		TeamDto homedto = new TeamDto();
-		TeamDto awaydto = new TeamDto();
-		
-		for(MatchDto tmp:matchlist){
-			homedto = matchdao.gethometeamwinlosetotal(tmp);
-			awaydto = matchdao.getawayteamwinlosetotal(tmp);
-			homedtolist.add(homedto);
-			awaydtolist.add(awaydto);
-		}
-		
-		mView.addObject("homedtolist", homedtolist);
-		mView.addObject("awaydtolist", awaydtolist);
+		mView.addObject("matchlist", matchlist);
 
 		return mView;
 	}
