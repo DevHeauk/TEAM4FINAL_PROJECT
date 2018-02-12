@@ -23,12 +23,8 @@
 	                        <li><a href="${pageContext.request.contextPath}/users/logout.do">Logout</a></li>						
 						</c:otherwise>							
                     </c:choose>
-<<<<<<< HEAD
-	                         <li><a href="${pageContext.request.contextPath}/shop/order.do?id=${id}">Order</a></li>	                    
-=======
 	                         <li><a href="${pageContext.request.contextPath}/shop/order.do?id=${id}">Order</a></li>
 	                         <li><a href="${pageContext.request.contextPath}/shop/cartlist.do?id=${id }">Cart</a></li>	                    
->>>>>>> heaukjun
                     </ul>
                 </div>
                 
