@@ -10,12 +10,7 @@
 
 <!-- Head BEGIN -->
 <head>
-  <meta charset="utf-8">
-  <title>Portfolio 4 Column | Metronic Frontend</title>
 
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
   <%@ include file="../inc/header_script.jsp" %>
   <link href="${pageContext.request.contextPath}/assets/pages/css/portfolio.css" rel="stylesheet">  
 </head>
@@ -51,13 +46,12 @@
 		                  <div class="col-md-3 col-sm-4 mix category_1 mix_all" style="display: block; opacity: 1; ">
 		                    <div class="mix-inner">
 		                       <img alt="" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive">
-		                       <div class="mix-details">
+		                       <div class="mix-details" style="text-align: center">
 		                          <h4>${tmp.title }</h4>
-		                          <a class="mix-link"><i class="fa fa-link"></i></a>
 		                          <a data-rel="fancybox-button" title="작성자 : ${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
-								  <c:if test="${id eq tmp.writer }">
-			                          <a href="javascript:deleteConfirm(${tmp.num })" class="mix-link" style="width: 41px; margin-top: 60px; left: 50%; margin-left: -22px;"><i class="fa fa-trash-o"></i></a>						  
-							      </c:if>			                          
+		                          <c:if test="${id eq tmp.writer }">
+		                          <a class="mix-link" href="javascript:deleteConfirm(${tmp.num })"><i class="fa fa-trash-o"></i></a>
+		                          </c:if>		                          	                          
 		                       </div>           
 		                    </div>                       
 		                  </div>
@@ -69,11 +63,10 @@
 		                       <img alt="" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive">
 		                       <div class="mix-details">
 		                          <h4>${tmp.title }</h4>
-		                          <a class="mix-link"><i class="fa fa-link"></i></a>
 		                          <a data-rel="fancybox-button" title="작성자 : ${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
-								  <c:if test="${id eq tmp.writer }">
-			                          <a href="javascript:deleteConfirm(${tmp.num })" class="mix-link" style="width: 41px; margin-top: 60px; left: 50%; margin-left: -22px;"><i class="fa fa-trash-o"></i></a>						  
-							      </c:if>			                          
+		                          <c:if test="${id eq tmp.writer }">
+		                          <a class="mix-link" href="javascript:deleteConfirm(${tmp.num })"><i class="fa fa-trash-o"></i></a>
+		                          </c:if>				                          
 		                       </div>           
 		                    </div>                       
 		                  </div>
@@ -85,11 +78,10 @@
 		                       <img alt="" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="img-responsive">
 		                       <div class="mix-details">
 		                          <h4>${tmp.title }</h4>
-		                          <a class="mix-link"><i class="fa fa-link"></i></a>
 		                          <a data-rel="fancybox-button" title="작성자 : ${tmp.writer }" href="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" class="mix-preview fancybox-button"><i class="fa fa-search"></i></a>
-								  <c:if test="${id eq tmp.writer }">
-			                          <a href="javascript:deleteConfirm(${tmp.num })" class="mix-link" style="width: 41px; margin-top: 60px; left: 50%; margin-left: -22px;"><i class="fa fa-trash-o"></i></a>						  
-							      </c:if>			                          
+		                          <c:if test="${id eq tmp.writer }">
+		                          <a class="mix-link" href="javascript:deleteConfirm(${tmp.num })"><i class="fa fa-trash-o"></i></a>
+		                          </c:if>			                          
 		                       </div>           
 		                    </div>                       
 		                  </div>

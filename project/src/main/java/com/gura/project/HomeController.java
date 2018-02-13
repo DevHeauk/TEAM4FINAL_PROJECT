@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.project.shop.service.ShopService;
+import com.gura.project.team.service.TeamService;
 
 @Controller
 public class HomeController {
 	@Autowired
 	private ShopService shopService;
+	
+	@Autowired
+	public TeamService teamService;
 	
 	@RequestMapping("/home")
 	public ModelAndView home(HttpServletRequest request) {
@@ -28,6 +32,6 @@ public class HomeController {
 			mView.setViewName("home");
 			return mView;
 		}
-	}
 	
+	}
 }

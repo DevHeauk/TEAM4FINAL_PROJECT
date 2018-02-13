@@ -10,12 +10,6 @@
 
 <!-- Head BEGIN -->
 <head>
-  <meta charset="utf-8">
-  <title>Men category | Metronic Shop UI</title>
-
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
   <%@ include file="../inc/header_script.jsp" %>
 </head>
 <!-- Head END -->
@@ -182,7 +176,7 @@
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-9">
-                  <h1>${tmp.content }</h1>
+                  <h1>${tmp.title }</h1>
                   <div class="price-availability-block clearfix">
                     <div class="price">
                       <strong>${tmp.price*0.9 }<span>원</span></strong>
@@ -214,7 +208,9 @@
                     </div>
                   	<button class="btn btn-primary" type="submit">구매하기</button>
                     <!--  <a href="cart.do?num=${tmp.num }&id=${id }"><button class="btn btn-primary" type="submit">구매 하기</button></a>-->
+                    <c:if test="${id eq 'zxc123'}">
                     <a href="javascript:deleteCheck(${tmp.num })" class="btn btn-default">delete</a>
+                    </c:if>
                     </form>
                   </div>
                 </div>

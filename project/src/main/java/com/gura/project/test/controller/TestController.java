@@ -30,11 +30,7 @@ public class TestController {
 		return "shop/shop_insert";
 	}
 	
-	@RequestMapping("/team/team_detail")
-	public String teamDetail(){
-		
-		return "team/team_detail";
-	}	
+
 	
 	
 	@RequestMapping("/board/faq")

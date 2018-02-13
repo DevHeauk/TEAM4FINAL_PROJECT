@@ -23,6 +23,7 @@ public interface TeamDao {
 	public List<TeamDto> awayteaminfo(List<MatchDto> awayteamlist);
 	public TeamDto getjointeam(String id);
 	public int getCount(TeamDto dto);
+	public List<TeamDto> mainpageteamlist();
 
 	
 	

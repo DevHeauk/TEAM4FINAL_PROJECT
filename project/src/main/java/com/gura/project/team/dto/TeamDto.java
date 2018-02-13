@@ -1,5 +1,7 @@
 package com.gura.project.team.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class TeamDto {
 	private String name;
 	private String member;
@@ -18,12 +20,15 @@ public class TeamDto {
 	//이전글 다음글의 글번호
 	private int prevNum;
 	private int nextNum;
+	private MultipartFile file;
+	private String orgFileName;
+	private String saveFileName;
 	
 	public TeamDto(){}
 
 	public TeamDto(String name, String member, int win, int lose, int total, String ground, String leader,
 			String jointeam, String joinid, String content, String successMatching, int startRowNum, int endRowNum,
-			int prevNum, int nextNum) {
+			int prevNum, int nextNum, MultipartFile file, String orgFileName, String saveFileName) {
 		super();
 		this.name = name;
 		this.member = member;
@@ -40,6 +45,9 @@ public class TeamDto {
 		this.endRowNum = endRowNum;
 		this.prevNum = prevNum;
 		this.nextNum = nextNum;
+		this.file = file;
+		this.orgFileName = orgFileName;
+		this.saveFileName = saveFileName;
 	}
 
 	public String getName() {
@@ -161,6 +169,29 @@ public class TeamDto {
 	public void setNextNum(int nextNum) {
 		this.nextNum = nextNum;
 	}
-	
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+	public String getOrgFileName() {
+		return orgFileName;
+	}
+
+	public void setOrgFileName(String orgFileName) {
+		this.orgFileName = orgFileName;
+	}
+
+	public String getSaveFileName() {
+		return saveFileName;
+	}
+
+	public void setSaveFileName(String saveFileName) {
+		this.saveFileName = saveFileName;
+	}
 	
 }

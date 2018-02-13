@@ -1,6 +1,7 @@
 package com.gura.project.shop.dto;
 
 public class Product_OrderDto {
+
 	private String title;
 	private String saveFileName;
 	private String addr01;
@@ -98,6 +99,5 @@ public class Product_OrderDto {
 	public void setDelivery_location(String delivery_location) {
 		this.delivery_location = delivery_location;
 	}
-	
 	
 }

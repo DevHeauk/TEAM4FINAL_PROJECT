@@ -10,13 +10,7 @@
 
 <!-- Head BEGIN -->
 <head>
-  <meta charset="utf-8">
-  <title>${Homedto.name }</title>
-
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  <%@ include file="../inc/header_script.jsp" %>
+ <%@ include file="../inc/header_script.jsp" %>
 </head>
 <!-- Head END -->
 <script src="../resources/css/bootstrap.css"></script>
@@ -44,74 +38,35 @@
                 <!-- BEGIN LEFT SIDEBAR -->            
                 <div class="col-md-9 col-sm-9 blog-item">
                   <div class="blog-item-img">
-                    <!-- BEGIN CAROUSEL -->            
-                    <div class="front-carousel">
-                      <div id="myCarousel" class="carousel slide">
-                        <!-- Carousel items -->
-                        <div class="carousel-inner">
-                          <div class="item">
-                            <img src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg" alt="">
-                          </div>
-                          <div class="item active">
-                            <img src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg" alt="">
-                          </div>
-                        </div>
-                        <!-- Carousel nav -->
-                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                          <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a class="carousel-control right" href="#myCarousel" data-slide="next">
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>                
-                    </div>
-                    <!-- END CAROUSEL -->             
+                    	<img  src="${pageContext.request.contextPath }/upload/${Homedto.saveFileName}"/>        
                   </div>
-                  <h2><strong>팀소개</strong></h2>
+                  <h2><strong style="display: inline-block;">팀소개</strong><span style="float: right; margin-right: 24px; color: #E84D1C; font-weight: bold; font-size: 16px; display: inline-block;">홈그라운드 : ${Homedto.ground }</span></h2>
+                  
+                  <p>${Homedto.content }</p>
                   <c:if test="${not empty id and Homedto.name ne awayteam and awayteam ne null}">
                   	<c:choose>
 	                  	<c:when test="${Matched }">
-	                  		<button style="width:90px" class="btn btn-primary col-xs-offset-10 col-sm-offset-7">매칭신청됨</button>
+	                  		<button style="width:90px" class="btn btn-primary pull-right">매칭신청됨</button>
 	                  	</c:when>
 	                  	<c:otherwise>
-	             	        <a href="#matching-pop-up" class="fancybox-fast-view"><button style="width:80px" class="btn btn-primary col-xs-offset-10 col-sm-offset-7">매칭신청</button></a>
+	             	        <a href="#matching-pop-up" class="fancybox-fast-view"><button style="width:80px; margin-right: 24px;" class="btn btn-primary btn btn-primary pull-right">매칭신청</button></a>
 	                  	</c:otherwise>
                   	</c:choose>
                   </c:if>
-                 
-
-                
-             
-                <c:if test="${not empty id }">
-                	<c:if test="${userdto.team eq null}">
-                		<c:if test="${teamdto.jointeam eq null }">
-                			<a href="joiningconfirm.do?id=${id}&name=${Homedto.name}"><button class="btn btn-success">팀가입신청</button></a>
-                		</c:if>
-                	</c:if>
-                </c:if> 
-                
-             	
-                  
-                  <p>${Homedto.content }</p>
-                  <p>홈그라운드 : ${Homedto.ground }</p>
-                  <c:forEach var="tmp" items="${memberlist }">
-                  	<blockquote >
-	                    <i style="font-color:#E84D1C" class="fa fa-user">&nbsp; &nbsp;${tmp.id }</i>
-	                    <p><strong>${tmp.responsibility }</strong> &nbsp;| &nbsp;&nbsp;포지션 : ${tmp.b_position} &nbsp;| &nbsp; 구력 : ${tmp.career }년</p>
-                  	</blockquote> 
-                  </c:forEach>
-                  
+	               <c:if test="${id eq Homedto.member }">                  
+	                <h2>팀가입 신청목록</h2>
+	                <c:forEach var="tmp" items="${joininfo }">                  
+					  <ul class="blog-info">
+	                    <li><i class="fa fa-user" style="margin-right: 10px;"></i>이름 : ${tmp.name }</li>
+	                    <li><i class="fa fa-calendar" style="margin-right: 10px;"></i>경력 : ${tmp.career } 년</li>
+	                    <li><i class="fa fa-comments" style="margin-right: 10px;"></i>포지션 : ${tmp.b_position }</li>
+	                    <li><i class="fa fa-tags" style="margin-right: 10px;"></i> <a href="join.do?name=${Homedto.name}&joinid=${tmp.id}" style="">수락</a></li>
+	                    <li><i class="fa fa-tags" style="margin-right: 10px;"></i> <a href="joinrefuse.do?name=${Homedto.name}&joinid=${tmp.id}">거절</a></li>
+	                  </ul>   
+	                </c:forEach> 
+	              </c:if>   
+	              
                   <c:if test="${id eq Homedto.member }">
-	                  <h2>팀가입 신청목록</h2>
-	                  <c:forEach var="tmp" items="${joininfo }">
-	                  		<ul class="blog-info">
-	                  			<li><i>이름 : ${tmp.name }</i></li>
-	                  			<li><i>경력 : ${tmp.career }</i></li>
-	                  			<li><i>포지션 : ${tmp.b_position }</i></li>
-	                  			<li><i><a href="join.do?name=${Homedto.name}&joinid=${tmp.id}">수락</a></i></li>
-	                  			<li><i><a href="joinrefuse.do?name=${Homedto.name}&joinid=${tmp.id}">거절</a></i></li>
-	                  		</ul>
-	                  </c:forEach>
 	                  <h2>매칭신청된 팀</h2>
 	                  <c:forEach var="tmp" items="${awayteaminfo }">
 	                  		<ul class="blog-info">
@@ -134,26 +89,30 @@
 				                        <li><a href="refuseMatch.do?awayteam=${tmp.name }&hometeam=${Homedto.name}">
 				                        <button class="btn btn-primary">거절</button></a></li>
 		                        	</c:otherwise>
-		                        </c:choose>
-		                                        
+		                        </c:choose> 
 		                      </ul>
 	                  </c:forEach>
-                  </c:if>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-                  <p>Culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-                  <ul class="blog-info">
-                    <li><i class="fa fa-user"></i> By admin</li>
-                    <li><i class="fa fa-calendar"></i> 25/07/2013</li>
-                    <li><i class="fa fa-comments"></i> 17</li>
-                    <li><i class="fa fa-tags"></i> Metronic, Keenthemes, UI Design</li>
-                  </ul>
-
-               
-                
+                  </c:if>	                          
               </div>
-            </div>
+                <c:if test="${not empty id }">
+                	<c:if test="${userdto.team eq null}">
+                		<c:if test="${teamdto.jointeam eq null }">
+                			<a href="joiningconfirm.do?id=${id}&name=${Homedto.name}"><button class="btn btn-success">팀가입신청</button></a>
+                		</c:if>
+                	</c:if>
+                </c:if>               
+	          <div class="col-md-3 col-sm-3 blog-sidebar" style="margin-top: 6px">
+	            <c:forEach var="tmp" items="${memberlist }">
+	            	<blockquote style="font-size: 15px; border-color: #E84D1C;">
+		               <p style="margin-bottom: 10px;"><i class="fa fa-user" style="font-color:#E84D1C" ></i>&nbsp;&nbsp;${tmp.id }&nbsp; - &nbsp;<strong style="text-transform: uppercase;">${tmp.responsibility }</strong></p>
+		               <p>포지션 - ${tmp.b_position} <br /> 구력 - ${tmp.career } 년</p>
+	            	</blockquote> 
+	            </c:forEach>
+	          </div>                      
+            </div>    
           </div>
           <!-- END CONTENT -->
+
         </div>
         <!-- END SIDEBAR & CONTENT -->
         

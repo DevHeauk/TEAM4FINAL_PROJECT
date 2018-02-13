@@ -10,11 +10,7 @@
 
 <!-- Head BEGIN -->
 <head>
-  <meta charset="utf-8">
-  <title>Blog Page | Metronic Frontend</title>
-
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   
   <%@ include file="../inc/header_script.jsp" %>
 </head>
@@ -37,44 +33,20 @@
           <div class="col-md-12 col-sm-12">
             <h1>LEGEND TEAMS</h1>
             <div class="content-page">
-              <div class="row">
-                <!-- BEGIN LEFT SIDEBAR -->    
 	            <c:if test="${sessionScope.team eq null }">
            	  		<a href="insertform.do" class="btn btn-primary pull-right margin-bottom-20" style="color: #ffffff; margin-right: 20px;">팀만들기</a>
-				</c:if>                            
+				</c:if>                  
+              <div class="row" style="clear: both;">
+                <!-- BEGIN LEFT SIDEBAR -->                          
                 <div class="col-md-12 col-sm-12 blog-posts">            
                 <c:forEach var="tmp" items="${list }">
                 	  <div class="row">                                   	
-	                    <div class="col-md-4 col-sm-4">                    
-	                      <!-- BEGIN CAROUSEL -->            
-	                      <div class="front-carousel">
-	                        <div class="carousel slide" id="myCarousel${tmp.name }">
-	                          <!-- Carousel items -->
-	                          <div class="carousel-inner">
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
-	                            </div>
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
-	                            </div>
-	                            <div class="item active">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
-	                            </div>
-	                          </div>
-	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel${tmp.name }" class="carousel-control left">
-	                            <i class="fa fa-angle-left"></i>
-	                          </a>
-	                          <a data-slide="next" href="#myCarousel${tmp.name }" class="carousel-control right">
-	                            <i class="fa fa-angle-right"></i>
-	                          </a>
-	                        </div>                
-	                      </div>
-	                      <!-- END CAROUSEL -->             
+	                    <div class="col-md-4 col-sm-4 col-xs-offset-3 col-md-offset-0" style="width: 35%;">                    
+	                     	<img style="width:343px; height:191px" src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"/>        
 	                    </div>
 	                    
-	                    <div class="col-md-8 col-sm-8">
-	                      <h2><a href="team_detail2.do?name=${tmp.name }">${tmp.name }</a></h2>
+	                    <div class="col-md-8 col-sm-8 col-xs-offset-3 col-md-offset-0" style="width: 65%;">
+	                      <h2>${tmp.name }</h2>
 	                      <ul class="blog-info">
 	                        <li><i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승 ${tmp.win }</li>
 	                        <li><i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패 ${tmp.lose }</li>
@@ -126,8 +98,8 @@
 					</c:choose>
 				</ul>
 				<!-- Search -->
-				<div class="row">
-					<div class="col-xs-6">
+				<div class="row" style="clear: both;">
+					<div class="col-xs-6 col-md-offset-3 col-xs-offset-3 ">
 						<!-- 검색어 관련 form -->
 						<form action="team_list.do" method="post">
 							<input type="hidden" id="condition" value="${condition }" name="condition" />

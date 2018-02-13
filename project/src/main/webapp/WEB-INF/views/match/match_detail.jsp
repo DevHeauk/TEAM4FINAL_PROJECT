@@ -10,12 +10,7 @@
 
 <!-- Head BEGIN -->
 <head>
-  <meta charset="utf-8">
-  <title>Blog Page | Metronic Frontend</title>
 
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  
   <%@ include file="../inc/header_script.jsp" %>
 </head>
 <!-- Head END -->
@@ -44,31 +39,7 @@
                 	  <div class="row">                                   	
 	                    <div class="col-md-4 col-sm-4 match-left">
 	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #0033cc;">${matchdto.homeTeam }</a></h2>	                       
-	                      <!-- BEGIN CAROUSEL -->            
-	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel ">
-	                          <!-- Carousel items -->
-	                          <div class="carousel-inner">
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
-	                            </div>
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
-	                            </div>
-	                            <div class="item active">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
-	                            </div>
-	                          </div>
-	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel " class="carousel-control left">
-	                            <i class="fa fa-angle-left"></i>
-	                          </a>
-	                          <a data-slide="next" href="#myCarousel " class="carousel-control right">
-	                            <i class="fa fa-angle-right"></i>
-	                          </a>
-	                        </div>                
-	                      </div>
-	                      
+                           	<img style="width:343px; height:191px" src="${pageContext.request.contextPath }/upload/${hometeamdto.saveFileName}"/>        
 	                      <table class="member_info">
 	                      	<thead>
 	                      		<tr>
@@ -79,8 +50,8 @@
 	                      	<tbody>
 		                       <c:forEach var="tmp" items="${hometeammember}">
 									<tr>
-										<th>${tmp.name }</th>
-										<th>${tmp.b_position }</th>
+										<td>${tmp.name }</td>
+										<td>${tmp.b_position }</td>
 									</tr>
 								</c:forEach>                   			                      			                      			                      		
 	                      	</tbody>
@@ -96,13 +67,13 @@
 						  	<p style="text-align: center; height: auto; padding-top: 5px; font-size: 14px;">${matchdto.homePoint} 점 <span style="display: inline-block; padding: 0 5px;">/</span>
 						  </c:if>
 						  
-						  <c:if test="${not empty matchdto.homePoint}">
-						  	<c:if test="${matchdto.homePoint gt matchdto.awayPoint}">
-						  		<i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리
-						  	</c:if>
-						  	<c:if test="${matchdto.homePoint le matchdto.awayPoint}">
-						  		<i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배
-						  	</c:if>
+						  <c:if test="${matchdto.homePoint ne matchdto.awayPoint}">
+							  	<c:if test="${matchdto.homePoint gt matchdto.awayPoint}">
+							  		<i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리
+							  	</c:if>
+							  	<c:if test="${matchdto.homePoint le matchdto.awayPoint}">
+							  		<i style="color:red" class="glyphicon glyphicon-triangle-bottom"></i> 패배
+							  	</c:if>
 						  </c:if>                                             
 	                    </div>
 	                    <div class="col-md-4 col-sm-4 match-vs" style="text-align: center; border-left: 1px solid #ececec; border-right: 1px solid #ececec;">
@@ -128,8 +99,8 @@
 											<td>상태</td>									
 											<td>
 												<c:choose>
-												<c:when test="${matchdto.homePoint eq matchdto.awayPoint}">
-														<strong style="color: #0033cc;">경기 준비</strong>
+													<c:when test="${matchdto.homePoint eq matchdto.awayPoint}">
+														<strong style="color: #0033cc;">경기 준비</strong> 
 													</c:when>
 													<c:otherwise>
 														<strong style="color: #f10025;">경기 종료</strong> 
@@ -149,30 +120,7 @@
 	                    
 	                    <div class="col-md-4 col-sm-4 match-right" >
 	                      <h2 style="text-align: center; padding-bottom: 10px; font-size: 22px;"><a href="team_detail.do" style="color: #f10025;">${matchdto.awayTeam }</a></h2>	                       
-	                      <!-- BEGIN CAROUSEL -->            
-	                      <div class="front-carousel">	                      
-	                        <div class="carousel slide" id="myCarousel ">
-	                          <!-- Carousel items -->
-	                          <div class="carousel-inner">
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball1.jpg">
-	                            </div>
-	                            <div class="item">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball2.jpg">
-	                            </div>
-	                            <div class="item active">
-	                              <img alt="" src="${pageContext.request.contextPath}/assets/pages/img/basketball/basketball3.jpg">
-	                            </div>
-	                          </div>
-	                          <!-- Carousel nav -->
-	                          <a data-slide="prev" href="#myCarousel " class="carousel-control left">
-	                            <i class="fa fa-angle-left"></i>
-	                          </a>
-	                          <a data-slide="next" href="#myCarousel " class="carousel-control right">
-	                            <i class="fa fa-angle-right"></i>
-	                          </a>
-	                        </div>                
-	                      </div>
+	                          <img  style="width:343px; height:191px" src="${pageContext.request.contextPath }/upload/${awayteamdto.saveFileName}"/>        
 	                      <table class="member_info">
 	                      	<thead>
 	                      		<tr>
@@ -183,8 +131,8 @@
 	                      	<tbody>
 	                      		 <c:forEach var="tmp" items="${awayteammember}">
 									<tr>
-										<th>${tmp.name }</th>
-										<th>${tmp.b_position }</th>
+										<td>${tmp.name }</td>
+										<td>${tmp.b_position }</td>
 									</tr>
 								</c:forEach>                      			                      			                      			                      		
 	                      	</tbody>
@@ -200,7 +148,7 @@
 						  </c:if>
   						  
 						  <c:if test="${not empty matchdto.homePoint}">
-						  	<c:if test="${matchdto.homePoint le matchdto.awayPoint}">
+						  	<c:if test="${matchdto.homePoint lt matchdto.awayPoint}">
 						  		<i style="color:blue" class="glyphicon glyphicon-triangle-top"></i> 승리
 						  	</c:if>
 						  	<c:if test="${matchdto.homePoint gt matchdto.awayPoint}">
@@ -257,10 +205,10 @@
     
     <div id="match-pop" style="display: none; max-width: 700px; min-width: 400px; text-align: center;">
 		<h3 style="padding: 20px 0">경기 기록</h3>
-		<form action="pointinsert.do">
+		<form action="pointinsert.do" method="post">
 				<input type="hidden" name=num id=num value="${matchdto.num}">
 				<input type="hidden" name=awayTeam id=awayTeam value="${matchdto.awayTeam }">
-				<input type="hidden" name=homeTeam id=hoemTeam value="${matchdto.homeTeam }">
+				<input type="hidden" name=homeTeam id=homeTeam value="${matchdto.homeTeam }">
 			<table class="match_modal">
 				<thead>
 					<tr>
@@ -274,8 +222,8 @@
 						<td>${matchdto.awayTeam }</td>
 					</tr>
 					<tr>
-						<td><input type="text" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3" id="hoemPoint" name="homePoint"></td>
-						<td><input type="text" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3" id="awayPoint" name="awayPoint"></td>
+						<td><input type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3" id="hoemPoint" name="homePoint"></td>
+						<td><input type="number" class="form-control" placeholder="점수를 입력하세요." required="required" maxlength="3" id="awayPoint" name="awayPoint"></td>
 					</tr>
 				</tbody>
 			</table>   
