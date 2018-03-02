@@ -13,5 +13,5 @@ create table team(
 
 CREATE TABLE joinlist(
    jointeam VARCHAR2(100),
-   joinid VARCHAR2(100),
+   joinid VARCHAR2(100)
 )

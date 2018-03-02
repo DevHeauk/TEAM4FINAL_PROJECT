@@ -7,8 +7,8 @@ awaypoint number,
 matchdate VARCHAR2(200),
 ground varchar2(200),
 successmatching VARCHAR2(100)
-saveFileName_H(200),
-saveFileName_A(200)
+saveFileName_H VARCHAR2(200),
+saveFileName_A VARCHAR2(200)
 )
 
 CREATE SEQUENCE match_seq;
